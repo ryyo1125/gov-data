@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T08:24:44+00:00",
+  "generated_at": "2026-08-19T08:54:53+00:00",
   "generated_by": "registry/build.py",
   "stale_after_days": 90,
   "sources": [
@@ -95,13 +95,21 @@
           "evidence": "package_list?limit=5 の戻り値が [\"20160621\", \"20170627\", \"20180710\"] だった。"
         },
         {
+          "claim": "メタデータ項目の定義書が公開されていない。項目の意味は、データセット画面に出る日本語ラベルを同じ値の API 項目と突き合わせて推定するしかない。",
+          "evidence": "data.e-gov.go.jp の /info/ja/help と /info/ja/about-site を辿ってもメタデータ項目の仕様へのリンクが無く、API も項目説明を返さない。値による突合で説明を付けられたのは 87 項目中 22 項目にとどまった。"
+        },
+        {
+          "claim": "データセット画面のメタデータは「e-Govデータポータル標準」と「自治体標準ODS オープンデータ一覧」の 2 系統に分かれ、HTML 上も別クラスで区別されている。",
+          "evidence": "データセット画面の tr が metadata_basic_field と metadata_detail_field に分かれており、画面上も「一部表示／全て表示」で切り替えられる。"
+        },
+        {
           "claim": "package_show は id を渡さないと HTTP 409 を返す。404 ではない。",
           "evidence": "/package_show?limit=1 で 409 と success=false を確認。"
         }
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T08:24:13+00:00",
+        "verified_at": "2026-08-19T08:53:39+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -117,43 +125,43 @@
           {
             "step": "site_read",
             "outcome": "ok",
-            "elapsed_ms": 732,
+            "elapsed_ms": 1065,
             "note": null
           },
           {
             "step": "package_search",
             "outcome": "ok",
-            "elapsed_ms": 1032,
+            "elapsed_ms": 339,
             "note": null
           },
           {
             "step": "package_list",
             "outcome": "ok",
-            "elapsed_ms": 541,
+            "elapsed_ms": 552,
             "note": null
           },
           {
             "step": "organization_list",
             "outcome": "ok",
-            "elapsed_ms": 259,
+            "elapsed_ms": 244,
             "note": null
           },
           {
             "step": "group_list",
             "outcome": "ok",
-            "elapsed_ms": 242,
+            "elapsed_ms": 249,
             "note": null
           },
           {
             "step": "tag_list",
             "outcome": "ok",
-            "elapsed_ms": 1240,
+            "elapsed_ms": 794,
             "note": null
           },
           {
             "step": "package_show",
             "outcome": "ok",
-            "elapsed_ms": 588,
+            "elapsed_ms": 569,
             "note": null
           }
         ],
@@ -269,7 +277,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T08:24:08+00:00",
+        "verified_at": "2026-08-19T08:53:35+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -285,43 +293,43 @@
           {
             "step": "fetch_openapi_spec",
             "outcome": "ok",
-            "elapsed_ms": 836,
+            "elapsed_ms": 807,
             "note": null
           },
           {
             "step": "GET /laws",
             "outcome": "ok",
-            "elapsed_ms": 292,
+            "elapsed_ms": 256,
             "note": null
           },
           {
             "step": "GET /law_revisions/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 266,
+            "elapsed_ms": 386,
             "note": null
           },
           {
             "step": "GET /law_data/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 289,
+            "elapsed_ms": 326,
             "note": null
           },
           {
             "step": "GET /keyword",
             "outcome": "ok",
-            "elapsed_ms": 1564,
+            "elapsed_ms": 1382,
             "note": null
           },
           {
             "step": "GET /law_file/xml/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 338,
+            "elapsed_ms": 314,
             "note": null
           },
           {
             "step": "GET /attachment/{law_revision_id}",
             "outcome": "ok",
-            "elapsed_ms": 518,
+            "elapsed_ms": 397,
             "note": null
           }
         ],
@@ -400,6 +408,11 @@
           {
             "host": "www.digital.go.jp",
             "role": "portal"
+          },
+          {
+            "host": "files.microcms-assets.io",
+            "role": "spec",
+            "note": "公式 OpenAPI 仕様 jgrants-api.yaml の実体。政府ドメインではない CDN のため許可リストから漏れやすい。"
           }
         ]
       },
@@ -430,13 +443,17 @@
           "evidence": "https://developers.digital.go.jp/documents/jgrants/api/ を参照して該当記述が無いことを確認。"
         },
         {
+          "claim": "公式 OpenAPI 仕様 jgrants-api.yaml は developers.digital.go.jp ではなく microCMS のアセット CDN（files.microcms-assets.io）にホストされており、当環境の egress ポリシーで取得できない。戻り値の項目説明が埋められないのはこのため。",
+          "evidence": "仕様ページの HTML 内リンクが https://files.microcms-assets.io/assets/.../jgrants-api.yaml を指しており、当該ホストへの CONNECT がプロキシに 403 で拒否されることを確認。"
+        },
+        {
           "claim": "出典表示義務はドキュメントではなくツールの docstring にのみ書かれている。",
           "evidence": "jgrants_mcp_server/core.py の各ツール docstring に「出典表示」の記載。"
         }
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T08:24:27+00:00",
+        "verified_at": "2026-08-19T08:53:55+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -464,7 +481,7 @@
           {
             "step": "list_resources",
             "outcome": "ok",
-            "elapsed_ms": 7,
+            "elapsed_ms": 8,
             "note": null
           },
           {
@@ -482,25 +499,25 @@
           {
             "step": "call:search_subsidies",
             "outcome": "ok",
-            "elapsed_ms": 1606,
+            "elapsed_ms": 1358,
             "note": null
           },
           {
             "step": "call:get_subsidy_detail",
             "outcome": "ok",
-            "elapsed_ms": 249,
+            "elapsed_ms": 239,
             "note": null
           },
           {
             "step": "call:get_subsidy_overview",
             "outcome": "ok",
-            "elapsed_ms": 1842,
+            "elapsed_ms": 1804,
             "note": null
           },
           {
             "step": "call:get_file_content",
             "outcome": "ok",
-            "elapsed_ms": 2126,
+            "elapsed_ms": 2207,
             "note": null
           }
         ],
@@ -599,13 +616,17 @@
           "evidence": "取得した VPFG50（府県天気概況）電文の root_tag と child_tags を results/jma-xml.json に記録。"
         },
         {
+          "claim": "公式の XML Schema が配布されており、全電文共通の Report / Control / Head の構造はそこから確定できる。一方 Body は電文種別ごとに異なり、共通スキーマからは決まらない。",
+          "evidence": "https://xml.kishou.go.jp/jmaxml_20241031_Schema(xsd).zip に jmx.xsd ほか 8 ファイルが含まれ、jmx.xsd の type.report が Control と Head の後に任意の名前空間の要素 1 つを取る定義になっている。"
+        },
+        {
           "claim": "出典表示の義務は一次資料に明記されていない。ただし編集して流通させる場合は編集責任者の明示義務がある。",
           "evidence": "留意事項 PDF「３．（３）編集責任者等の明示について」に編集時の明示義務の記載があり、出典表示に関する記載は無い。"
         }
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T08:24:15+00:00",
+        "verified_at": "2026-08-19T08:53:43+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -621,55 +642,55 @@
           {
             "step": "GET /regular.xml (定時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 611,
+            "elapsed_ms": 673,
             "note": null
           },
           {
             "step": "GET /extra.xml (随時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 71,
+            "elapsed_ms": 68,
             "note": null
           },
           {
             "step": "GET /eqvol.xml (地震火山・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 67,
+            "elapsed_ms": 65,
             "note": null
           },
           {
             "step": "GET /other.xml (その他・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 67,
+            "elapsed_ms": 70,
             "note": null
           },
           {
             "step": "GET /regular_l.xml (定時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 406,
+            "elapsed_ms": 1910,
             "note": null
           },
           {
             "step": "GET /extra_l.xml (随時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 247,
+            "elapsed_ms": 442,
             "note": null
           },
           {
             "step": "GET /eqvol_l.xml (地震火山・長期)",
             "outcome": "ok",
-            "elapsed_ms": 73,
+            "elapsed_ms": 76,
             "note": null
           },
           {
             "step": "GET /other_l.xml (その他・長期)",
             "outcome": "ok",
-            "elapsed_ms": 70,
+            "elapsed_ms": 549,
             "note": null
           },
           {
             "step": "GET 電文本体",
             "outcome": "ok",
-            "elapsed_ms": 142,
+            "elapsed_ms": 155,
             "note": null
           }
         ],
@@ -679,7 +700,7 @@
   ],
   "blocked_candidates": [],
   "reachability": {
-    "_generated_at": "2026-08-19T08:24:03+00:00",
+    "_generated_at": "2026-08-19T08:53:30+00:00",
     "api.jgrants-portal.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -703,6 +724,11 @@
         "status_code": 200,
         "final_url": "https://developers.digital.go.jp/"
       }
+    },
+    "files.microcms-assets.io": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
     },
     "laws.e-gov.go.jp": {
       "reachable": true,

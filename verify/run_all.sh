@@ -37,11 +37,15 @@ echo "== jgrants-mcp =="
 echo "== 取得できる項目の抽出 =="
 JGRANTS_DIR="$WORK_DIR/jgrants-mcp-server"
 if [ -d "$JGRANTS_DIR" ]; then
-  JGRANTS_FILES_DIR="$WORK_DIR/jgrants_files" \
-    "$JGRANTS_DIR/.venv/bin/python" -m jgrants_mcp_server.core \
-    --host 127.0.0.1 --port "$FIELDS_PORT" > "$WORK_DIR/fields-server.log" 2>&1 &
+  # -m はパッケージをリポジトリ直下から解決するため、サーバーの clone 先で実行する。
+  (
+    cd "$JGRANTS_DIR" &&
+    JGRANTS_FILES_DIR="$WORK_DIR/jgrants_files" \
+      .venv/bin/python -m jgrants_mcp_server.core \
+      --host 127.0.0.1 --port "$FIELDS_PORT"
+  ) > "$WORK_DIR/fields-server.log" 2>&1 &
   FIELDS_PID=$!
-  trap 'kill "$FIELDS_PID" 2>/dev/null || true' EXIT
+  trap 'pkill -P "$FIELDS_PID" 2>/dev/null; kill "$FIELDS_PID" 2>/dev/null || true' EXIT
   for _ in $(seq 30); do
     if curl -s -o /dev/null --noproxy '*' "http://127.0.0.1:$FIELDS_PORT/mcp"; then break; fi
     sleep 1

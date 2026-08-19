@@ -1,304 +1,363 @@
 {
-  "generated_at": "2026-08-19T08:24:43+00:00",
+  "generated_at": "2026-08-19T08:54:52+00:00",
   "generated_by": "verify/extract_fields.py",
   "sources": {
     "egov-hourei-api": {
       "origin": "spec",
-      "origin_detail": "OpenAPI 2.1.139 の components/schemas",
+      "origin_detail": "OpenAPI 2.1.139 の components/schemas。説明・例・取りうる値はすべて仕様に書かれているもの",
       "source_url": "https://laws.e-gov.go.jp/api/2/swagger-ui/lawapi-v2.yaml",
       "objects": [
         {
           "name": "attached_file",
+          "description": "添付ファイル情報",
           "fields": [
             {
               "name": "law_revision_id",
               "type": "string",
-              "description": "法令ID"
+              "description": "法令ID",
+              "example": "322CO0000000016_20230508_505CO0000000175"
             },
             {
               "name": "src",
               "type": "string",
-              "description": "法令XML中のFig要素のsrc属性"
+              "description": "法令XML中のFig要素のsrc属性",
+              "example": "./pict/M06SE065-001.jpg"
             },
             {
               "name": "updated",
               "type": "string",
-              "description": "正誤等による更新日時"
+              "description": "正誤等による更新日時",
+              "example": "2023-07-01 14:30:15+09:00"
             }
           ]
         },
         {
           "name": "attached_files_info",
+          "description": "添付ファイル情報",
           "fields": [
             {
               "name": "image_data",
               "type": "string",
-              "description": "添付ファイルデータ（添付ファイルをフォルダ名pictに収集し、フォルダ全体をZip形式で圧縮したファイルをBase64でエンコードした文字列）"
+              "description": "添付ファイルデータ（添付ファイルをフォルダ名pictに収集し、フォルダ全体をZip形式で圧縮したファイルをBase64でエンコードした文字列）",
+              "example": ""
             },
             {
               "name": "attached_files",
               "type": "attached_file[]",
-              "description": "添付ファイル一覧"
+              "description": "添付ファイル一覧",
+              "example": ""
             }
           ]
         },
         {
           "name": "error_info",
+          "description": "エラー情報",
           "fields": [
             {
               "name": "code",
               "type": "string",
-              "description": "エラーコード<br>"
+              "description": "エラーコード",
+              "example": "400001"
             },
             {
               "name": "message",
               "type": "string",
-              "description": "エラーメッセージ"
+              "description": "エラーメッセージ",
+              "example": "法令種別（law_type、law_num_type）が誤っています。"
             }
           ]
         },
         {
           "name": "keyword_response",
+          "description": "キーワード検索APIレスポンス",
           "fields": [
             {
               "name": "total_count",
               "type": "integer",
-              "description": "指定`keyword`でヒットした総件数"
+              "description": "指定`keyword`でヒットした総件数",
+              "example": "10000"
             },
             {
               "name": "sentence_count",
               "type": "integer",
-              "description": "レスポンス単位で表示した`sentences`数の総和"
+              "description": "レスポンス単位で表示した`sentences`数の総和",
+              "example": "100"
             },
             {
               "name": "next_offset",
               "type": "integer",
-              "description": "次指定する`offset`値。末尾まで取得が完了した場合はnull"
+              "description": "次指定する`offset`値。末尾まで取得が完了した場合はnull",
+              "example": "200"
             },
             {
               "name": "items",
               "type": "object[]",
-              "description": "法令ID単位の情報リスト<br>"
+              "description": "法令ID単位の情報リスト * `revision_info` - 指定時点において効力を持つ版のメタ情報",
+              "example": ""
             }
           ]
         },
         {
           "name": "law_data_response",
+          "description": "法令本文取得APIレスポンス",
           "fields": [
             {
               "name": "attached_files_info",
               "type": "attached_files_info",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "law_info",
               "type": "law_info",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "revision_info",
               "type": "revision_info",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "law_full_text",
               "type": "object",
-              "description": "法令本文<br><br>"
+              "description": "法令本文 * `law_full_text_format`と`response_format`の指定方法によって、レスポンス形式が変化します。 * データ構造の詳細は法令データ ドキュメンテーションを参照してください。 * JSON（詳細版）形式、JSON（簡易版）形式とXML形式の各要素は、丸数字で対応関係を表現しています。 * JSON（詳細版）形式では、`children`オブジェクトでXML形式の階層構造を表現しています。",
+              "example": ""
             }
           ]
         },
         {
           "name": "law_info",
+          "description": "履歴に依存しない法令（法令IDで特定される法令）のメタ情報",
           "fields": [
             {
               "name": "law_type",
               "type": "law_type",
-              "description": "法令種別"
+              "description": "法令種別",
+              "example": ""
             },
             {
               "name": "law_id",
               "type": "string",
-              "description": "法令ID"
+              "description": "法令ID",
+              "example": "322CO0000000016"
             },
             {
               "name": "law_num",
               "type": "string",
-              "description": "法令番号"
+              "description": "法令番号",
+              "example": "昭和二十二年政令第十六号"
             },
             {
               "name": "law_num_era",
               "type": "law_num_era",
-              "description": "法令番号の元号"
+              "description": "法令番号の元号",
+              "example": ""
             },
             {
               "name": "law_num_year",
               "type": "integer",
-              "description": "法令番号の年"
+              "description": "法令番号の年",
+              "example": "5"
             },
             {
               "name": "law_num_type",
               "type": "law_num_type",
-              "description": "法令番号の法令種別"
+              "description": "法令番号の法令種別",
+              "example": ""
             },
             {
               "name": "law_num_num",
               "type": "string",
-              "description": "法令番号の号数"
+              "description": "法令番号の号数",
+              "example": "192"
             },
             {
               "name": "promulgation_date",
               "type": "string",
-              "description": "公布日"
+              "description": "公布日",
+              "example": "2023-07-01"
             }
           ]
         },
         {
           "name": "law_revisions_response",
+          "description": "法令履歴一覧取得APIレスポンス",
           "fields": [
             {
               "name": "law_info",
               "type": "law_info",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "revisions",
               "type": "revision_info[]",
-              "description": "版一覧"
+              "description": "版一覧",
+              "example": ""
             }
           ]
         },
         {
           "name": "laws_response",
+          "description": "法令一覧取得API レスポンス",
           "fields": [
             {
               "name": "total_count",
               "type": "integer",
-              "description": "取得件数の上限（`limit`）、何件目から取得するか（`offset`）適用前のリストに含まれる項目数（検索条件にマッチした全件数）"
+              "description": "取得件数の上限（`limit`）、何件目から取得するか（`offset`）適用前のリストに含まれる項目数（検索条件にマッチした全件数）",
+              "example": "10000"
             },
             {
               "name": "count",
               "type": "integer",
-              "description": "返却するリスト（取得件数の上限（`limit`）、何件目から取得するか（`offset`）適用後）に含まれる項目数"
+              "description": "返却するリスト（取得件数の上限（`limit`）、何件目から取得するか（`offset`）適用後）に含まれる項目数",
+              "example": "100"
             },
             {
               "name": "next_offset",
               "type": "integer",
-              "description": "次の何件目から取得するか（`offset`）。末尾まで取得が完了した場合はnull"
+              "description": "次の何件目から取得するか（`offset`）。末尾まで取得が完了した場合はnull",
+              "example": "200"
             },
             {
               "name": "laws",
               "type": "object[]",
-              "description": "法令ID単位の法令情報"
+              "description": "法令ID単位の法令情報",
+              "example": ""
             }
           ]
         },
         {
           "name": "revision_info",
+          "description": "法令の履歴に関する情報",
           "fields": [
             {
               "name": "law_revision_id",
               "type": "string",
-              "description": "法令履歴ID"
+              "description": "法令履歴ID",
+              "example": "322CO0000000016_20230508_505CO0000000175"
             },
             {
               "name": "law_type",
               "type": "law_type",
-              "description": "法令種別"
+              "description": "法令種別",
+              "example": ""
             },
             {
               "name": "law_title",
               "type": "string",
-              "description": "法令名"
+              "description": "法令名",
+              "example": "地方自治法施行令"
             },
             {
               "name": "law_title_kana",
               "type": "string",
-              "description": "法令名読み"
+              "description": "法令名読み",
+              "example": "ちほうじちほうせこうれい"
             },
             {
               "name": "abbrev",
               "type": "string",
-              "description": "法令略称"
+              "description": "法令略称",
+              "example": "地方自治令"
             },
             {
               "name": "category",
               "type": "string",
-              "description": "法令分野分類"
+              "description": "法令分野分類",
+              "example": "行政組織"
             },
             {
               "name": "updated",
               "type": "string",
-              "description": "正誤等による更新日時"
+              "description": "正誤等による更新日時",
+              "example": "2023-07-01 14:30:15+09:00"
             },
             {
               "name": "amendment_promulgate_date",
               "type": "string",
-              "description": "改正法令公布日"
+              "description": "改正法令公布日",
+              "example": "2023-07-01"
             },
             {
               "name": "amendment_enforcement_date",
               "type": "string",
-              "description": "改正法令施行期日（この履歴に対応する改正の施行期日）"
+              "description": "改正法令施行期日（この履歴に対応する改正の施行期日）",
+              "example": "2023-07-01"
             },
             {
               "name": "amendment_enforcement_comment",
               "type": "string",
-              "description": "施行期日規定等の参考情報（この履歴に対応する改正の施行期日）"
+              "description": "施行期日規定等の参考情報（この履歴に対応する改正の施行期日）",
+              "example": "公布の日から起算して一年を超えない範囲内において政令で定める日"
             },
             {
               "name": "amendment_scheduled_enforcement_date",
               "type": "string",
-              "description": "擬似的な施行期日（実際の施行期日とは限らない）（この履歴に対応する改正の施行期日）"
+              "description": "擬似的な施行期日（実際の施行期日とは限らない）（この履歴に対応する改正の施行期日）",
+              "example": "2023-07-01"
             },
             {
               "name": "amendment_law_id",
               "type": "string",
-              "description": "改正法令の法令ID（この履歴に対応する改正法令）"
+              "description": "改正法令の法令ID（この履歴に対応する改正法令）",
+              "example": "505CO0000000175"
             },
             {
               "name": "amendment_law_title",
               "type": "string",
-              "description": "改正法令名"
+              "description": "改正法令名",
+              "example": "組織的な犯罪の処罰及び犯罪収益の規制等に関する法律等の一部を改正する法律"
             },
             {
               "name": "amendment_law_title_kana",
               "type": "string",
-              "description": "改正法令名読み"
+              "description": "改正法令名読み",
+              "example": "そしきてきなはんざいのしょばつおよび"
             },
             {
               "name": "amendment_law_num",
               "type": "string",
-              "description": "改正法令番号"
+              "description": "改正法令番号",
+              "example": "令和五年政令百九十二号"
             },
             {
               "name": "amendment_type",
               "type": "amendment_type",
-              "description": "改正種別"
+              "description": "改正種別",
+              "example": ""
             },
             {
               "name": "repeal_status",
               "type": "repeal_status",
-              "description": "廃止等の状態"
+              "description": "廃止等の状態",
+              "example": ""
             },
             {
               "name": "repeal_date",
               "type": "string",
-              "description": "廃止日"
+              "description": "廃止日",
+              "example": "2023-07-01"
             },
             {
               "name": "remain_in_force",
               "type": "boolean",
-              "description": "廃止後の効力（`true`:廃止後でも効力を有するもの / `false`:廃止後に効力を有しないもの）"
+              "description": "廃止後の効力（`true`:廃止後でも効力を有するもの / `false`:廃止後に効力を有しないもの）",
+              "example": ""
             },
             {
               "name": "mission",
               "type": "mission",
-              "description": "新規制定又は被改正法令（`New`）・一部改正法令（`Partial`）"
+              "description": "新規制定又は被改正法令（`New`）・一部改正法令（`Partial`）",
+              "example": ""
             },
             {
               "name": "current_revision_status",
               "type": "current_revision_status",
-              "description": "履歴の状態"
+              "description": "履歴の状態",
+              "example": ""
             }
           ]
         }
@@ -306,593 +365,962 @@
       "enums": [
         {
           "name": "amendment_type",
+          "description": "改正種別",
           "values": [
-            "1",
-            "3",
-            "8"
+            {
+              "value": "1",
+              "meaning": "新規"
+            },
+            {
+              "value": "3",
+              "meaning": "被改正"
+            },
+            {
+              "value": "8",
+              "meaning": "廃止"
+            }
           ]
         },
         {
           "name": "category_cd",
+          "description": "事項別分類コード",
           "values": [
-            "001",
-            "002",
-            "003",
-            "004",
-            "005",
-            "006",
-            "007",
-            "008",
-            "009",
-            "010",
-            "011",
-            "012",
-            "013",
-            "014",
-            "015",
-            "016",
-            "017",
-            "018",
-            "019",
-            "020",
-            "021",
-            "022",
-            "023",
-            "024",
-            "025",
-            "026",
-            "027",
-            "028",
-            "029",
-            "030",
-            "031",
-            "032",
-            "033",
-            "034",
-            "035",
-            "036",
-            "037",
-            "038",
-            "039",
-            "040",
-            "041",
-            "042",
-            "043",
-            "044",
-            "045",
-            "046",
-            "047",
-            "048",
-            "049",
-            "050"
+            {
+              "value": "001",
+              "meaning": "憲法"
+            },
+            {
+              "value": "002",
+              "meaning": "刑事"
+            },
+            {
+              "value": "003",
+              "meaning": "財務通則"
+            },
+            {
+              "value": "004",
+              "meaning": "水産業"
+            },
+            {
+              "value": "005",
+              "meaning": "観光"
+            },
+            {
+              "value": "006",
+              "meaning": "国会"
+            },
+            {
+              "value": "007",
+              "meaning": "警察"
+            },
+            {
+              "value": "008",
+              "meaning": "国有財産"
+            },
+            {
+              "value": "009",
+              "meaning": "鉱業"
+            },
+            {
+              "value": "010",
+              "meaning": "郵務"
+            },
+            {
+              "value": "011",
+              "meaning": "行政組織"
+            },
+            {
+              "value": "012",
+              "meaning": "消防"
+            },
+            {
+              "value": "013",
+              "meaning": "国税"
+            },
+            {
+              "value": "014",
+              "meaning": "工業"
+            },
+            {
+              "value": "015",
+              "meaning": "電気通信"
+            },
+            {
+              "value": "016",
+              "meaning": "国家公務員"
+            },
+            {
+              "value": "017",
+              "meaning": "国土開発"
+            },
+            {
+              "value": "018",
+              "meaning": "事業"
+            },
+            {
+              "value": "019",
+              "meaning": "商業"
+            },
+            {
+              "value": "020",
+              "meaning": "労働"
+            },
+            {
+              "value": "021",
+              "meaning": "行政手続"
+            },
+            {
+              "value": "022",
+              "meaning": "土地"
+            },
+            {
+              "value": "023",
+              "meaning": "国債"
+            },
+            {
+              "value": "024",
+              "meaning": "金融・保険"
+            },
+            {
+              "value": "025",
+              "meaning": "環境保全"
+            },
+            {
+              "value": "026",
+              "meaning": "統計"
+            },
+            {
+              "value": "027",
+              "meaning": "都市計画"
+            },
+            {
+              "value": "028",
+              "meaning": "教育"
+            },
+            {
+              "value": "029",
+              "meaning": "外国為替・貿易"
+            },
+            {
+              "value": "030",
+              "meaning": "厚生"
+            },
+            {
+              "value": "031",
+              "meaning": "地方自治"
+            },
+            {
+              "value": "032",
+              "meaning": "道路"
+            },
+            {
+              "value": "033",
+              "meaning": "文化"
+            },
+            {
+              "value": "034",
+              "meaning": "陸運"
+            },
+            {
+              "value": "035",
+              "meaning": "社会福祉"
+            },
+            {
+              "value": "036",
+              "meaning": "地方財政"
+            },
+            {
+              "value": "037",
+              "meaning": "河川"
+            },
+            {
+              "value": "038",
+              "meaning": "産業通則"
+            },
+            {
+              "value": "039",
+              "meaning": "海運"
+            },
+            {
+              "value": "040",
+              "meaning": "社会保険"
+            },
+            {
+              "value": "041",
+              "meaning": "司法"
+            },
+            {
+              "value": "042",
+              "meaning": "災害対策"
+            },
+            {
+              "value": "043",
+              "meaning": "農業"
+            },
+            {
+              "value": "044",
+              "meaning": "航空"
+            },
+            {
+              "value": "045",
+              "meaning": "防衛"
+            },
+            {
+              "value": "046",
+              "meaning": "民事"
+            },
+            {
+              "value": "047",
+              "meaning": "建築・住宅"
+            },
+            {
+              "value": "048",
+              "meaning": "林業"
+            },
+            {
+              "value": "049",
+              "meaning": "貨物運送"
+            },
+            {
+              "value": "050",
+              "meaning": "外事"
+            }
           ]
         },
         {
           "name": "current_revision_status",
+          "description": "履歴の状態",
           "values": [
-            "CurrentEnforced",
-            "UnEnforced",
-            "PreviousEnforced",
-            "Repeal"
+            {
+              "value": "CurrentEnforced",
+              "meaning": "現施行法令"
+            },
+            {
+              "value": "UnEnforced",
+              "meaning": "未施行法令"
+            },
+            {
+              "value": "PreviousEnforced",
+              "meaning": "過去施行法令"
+            },
+            {
+              "value": "Repeal",
+              "meaning": "廃止法令（廃止・失効・実効性喪失）"
+            }
           ]
         },
         {
           "name": "file_type",
+          "description": "ファイル種別",
           "values": [
-            "xml",
-            "json",
-            "html",
-            "rtf",
-            "docx"
+            {
+              "value": "xml",
+              "meaning": "XML"
+            },
+            {
+              "value": "json",
+              "meaning": "JSON"
+            },
+            {
+              "value": "html",
+              "meaning": "HTML"
+            },
+            {
+              "value": "rtf",
+              "meaning": "RTF"
+            },
+            {
+              "value": "docx",
+              "meaning": "DOCX"
+            }
           ]
         },
         {
           "name": "law_num_era",
+          "description": "法令番号の元号",
           "values": [
-            "Meiji",
-            "Taisho",
-            "Showa",
-            "Heisei",
-            "Reiwa"
+            {
+              "value": "Meiji",
+              "meaning": ""
+            },
+            {
+              "value": "Taisho",
+              "meaning": ""
+            },
+            {
+              "value": "Showa",
+              "meaning": ""
+            },
+            {
+              "value": "Heisei",
+              "meaning": ""
+            },
+            {
+              "value": "Reiwa",
+              "meaning": ""
+            }
           ]
         },
         {
           "name": "law_num_type",
+          "description": "法令番号の法令種別",
           "values": [
-            "Constitution",
-            "Act",
-            "CabinetOrder",
-            "ImperialOrder",
-            "MinisterialOrdinance",
-            "Rule",
-            "Misc"
+            {
+              "value": "Constitution",
+              "meaning": "憲法"
+            },
+            {
+              "value": "Act",
+              "meaning": "法律"
+            },
+            {
+              "value": "CabinetOrder",
+              "meaning": "政令"
+            },
+            {
+              "value": "ImperialOrder",
+              "meaning": "勅令"
+            },
+            {
+              "value": "MinisterialOrdinance",
+              "meaning": "府省令"
+            },
+            {
+              "value": "Rule",
+              "meaning": "規則"
+            },
+            {
+              "value": "Misc",
+              "meaning": "その他"
+            }
           ]
         },
         {
           "name": "law_type",
+          "description": "法令種別",
           "values": [
-            "Constitution",
-            "Act",
-            "CabinetOrder",
-            "ImperialOrder",
-            "MinisterialOrdinance",
-            "Rule",
-            "Misc"
+            {
+              "value": "Constitution",
+              "meaning": "憲法"
+            },
+            {
+              "value": "Act",
+              "meaning": "法律"
+            },
+            {
+              "value": "CabinetOrder",
+              "meaning": "政令"
+            },
+            {
+              "value": "ImperialOrder",
+              "meaning": "勅令"
+            },
+            {
+              "value": "MinisterialOrdinance",
+              "meaning": "府省令"
+            },
+            {
+              "value": "Rule",
+              "meaning": "規則"
+            },
+            {
+              "value": "Misc",
+              "meaning": "その他"
+            }
           ]
         },
         {
           "name": "mission",
+          "description": "新規制定又は被改正法令（`New`）・一部改正法令（`Partial`）",
           "values": [
-            "New",
-            "Partial"
+            {
+              "value": "New",
+              "meaning": "新規制定"
+            },
+            {
+              "value": "Partial",
+              "meaning": "一部改正"
+            }
           ]
         },
         {
           "name": "repeal_status",
+          "description": "廃止等の状態",
           "values": [
-            "None",
-            "Repeal",
-            "Expire",
-            "Suspend",
-            "LossOfEffectiveness"
+            {
+              "value": "None",
+              "meaning": "廃止・失効等の状態なし"
+            },
+            {
+              "value": "Repeal",
+              "meaning": "廃止"
+            },
+            {
+              "value": "Expire",
+              "meaning": "失効"
+            },
+            {
+              "value": "Suspend",
+              "meaning": "停止"
+            },
+            {
+              "value": "LossOfEffectiveness",
+              "meaning": "実効性喪失"
+            }
           ]
         },
         {
           "name": "response_format",
+          "description": "レスポンス形式（`json` 又は `xml`）",
           "values": [
-            "json",
-            "xml"
+            {
+              "value": "json",
+              "meaning": ""
+            },
+            {
+              "value": "xml",
+              "meaning": ""
+            }
           ]
         }
       ]
     },
     "egov-data-catalog": {
       "origin": "observed",
-      "origin_detail": "package_search で取得した 20 件のデータセットに現れた項目の和",
+      "origin_detail": "package_search で取得した 20 件に現れた項目の和。説明は先頭 15 件のデータセット画面に出る日本語ラベルを、同じ値を持つ API の項目と突き合わせて対応付けたもの（値が一意に一致したものだけ採用）",
       "source_url": "https://data.e-gov.go.jp/data/api/3/action/package_search",
       "objects": [
         {
           "name": "package（データセット）",
+          "description": "1 件のデータセットを表す。resources に実ファイルがぶら下がる。",
           "fields": [
             {
               "name": "author",
               "type": "string",
-              "description": ""
+              "description": "作成者",
+              "example": ""
             },
             {
               "name": "author_email",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "compliant_standard",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "contactPoint",
               "type": "string",
-              "description": ""
+              "description": "連絡先",
+              "example": ""
             },
             {
               "name": "contactPoint_email",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "contactPoint_etc",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "contactPoint_ext",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "contactPoint_formUrl",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "contactPoint_tel",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "creator_user_id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "distribution",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "etc",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "extras",
               "type": "array",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "frequency_of_update",
               "type": "string",
-              "description": ""
+              "description": "作成頻度",
+              "example": ""
             },
             {
               "name": "groups",
               "type": "array",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "history_information",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "index_id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "isopen",
               "type": "boolean",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "landingPage",
               "type": "string",
-              "description": ""
+              "description": "公開ウェブページ",
+              "example": ""
             },
             {
               "name": "language",
               "type": "string",
-              "description": ""
+              "description": "言語",
+              "example": ""
             },
             {
               "name": "license_id",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "license_title",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "local_government",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "maintainer",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "maintainer_email",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "metadata_created",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "metadata_modified",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "name",
               "type": "string",
-              "description": ""
+              "description": "データセット管理名",
+              "example": ""
             },
             {
               "name": "notes",
               "type": "string",
-              "description": ""
+              "description": "説明",
+              "example": ""
             },
             {
               "name": "num_resources",
               "type": "number",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "num_tags",
               "type": "number",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "opendata_id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "organization",
               "type": "object",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "owner_org",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "private",
               "type": "boolean",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "provider_last_modified_date",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "provider_metadata_modified",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "publisher",
               "type": "string",
-              "description": ""
+              "description": "公表組織名",
+              "example": ""
             },
             {
               "name": "related_documents",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "relationships_as_object",
               "type": "array",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "relationships_as_subject",
               "type": "array",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "resources",
               "type": "array",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "spatial",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "state",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "subtitle",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "tags",
               "type": "array",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "temporal",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "title",
               "type": "string",
-              "description": ""
+              "description": "タイトル",
+              "example": ""
             },
             {
               "name": "type",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "url",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "version",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             }
           ]
         },
         {
           "name": "resource（データセットに紐づくファイル）",
+          "description": "データセットが提供する個々のファイルや API のエンドポイント。",
           "fields": [
             {
               "name": "access_url",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "cache_last_updated",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "cache_url",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "compliant_standard",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "copyright",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "created",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "datastore_active",
               "type": "boolean",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "datastore_contains_all_records_of_source_file",
               "type": "boolean",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "description",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "docanlys",
               "type": "boolean",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "download_url",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "format",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "hash",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "language",
               "type": "string",
-              "description": ""
+              "description": "言語",
+              "example": ""
             },
             {
               "name": "last_modified",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "last_modified_date",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "license_id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "metadata_modified",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "mimetype",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "mimetype_inner",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "name",
               "type": "string",
-              "description": ""
+              "description": "データセット管理名",
+              "example": ""
             },
             {
               "name": "package_id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "position",
               "type": "number",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "private",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "provider_last_modified_date",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "provider_metadata_modified",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "related_documents",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "resource_id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "resource_type",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "size",
               "type": "number",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "state",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "terms_and_conditions",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "url",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "url_type",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             }
           ]
         }
@@ -900,572 +1328,817 @@
       "enums": []
     },
     "jma-xml": {
-      "origin": "observed",
-      "origin_detail": "4 本のフィードと、それぞれの先頭 entry が指す電文 4 通を実際に読んで列挙。電文種別は多数あり、ここに出るのはその一部",
-      "source_url": "https://www.data.jma.go.jp/developer/xml/feed",
+      "origin": "spec+observed",
+      "origin_detail": "全電文共通の Report / Control / Head は公式の XML Schema（jmx.xsd, jmx_ib.xsd）から。Atom フィードと電文 4 通の構造は実データから列挙。電文種別は多数あり、ここに出るのはその一部",
+      "source_url": "https://xml.kishou.go.jp/jmaxml_20241031_Schema%28xsd%29.zip",
       "objects": [
         {
-          "name": "Atom フィード",
+          "name": "type.report（XML Schema 由来 / jmx.xsd）",
+          "description": "",
+          "fields": [
+            {
+              "name": "Control",
+              "type": "type.control",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "Head",
+              "type": "要素",
+              "description": "（必須）",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "type.control（XML Schema 由来 / jmx.xsd）",
+          "description": "",
+          "fields": [
+            {
+              "name": "Title",
+              "type": "string",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "DateTime",
+              "type": "dateTime",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "Status",
+              "type": "enum.UNION.type.control.Status",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "EditorialOffice",
+              "type": "string",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "PublishingOffice",
+              "type": "list.type.control.PublishingOffice",
+              "description": "（必須）",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "type.head（XML Schema 由来 / jmx_ib.xsd）",
+          "description": "",
+          "fields": [
+            {
+              "name": "Title",
+              "type": "string",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "ReportDateTime",
+              "type": "dateTime",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "TargetDateTime",
+              "type": "dateTime",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "TargetDTDubious",
+              "type": "string",
+              "description": "（任意）",
+              "example": ""
+            },
+            {
+              "name": "TargetDuration",
+              "type": "duration",
+              "description": "（任意）",
+              "example": ""
+            },
+            {
+              "name": "ValidDateTime",
+              "type": "dateTime",
+              "description": "（任意）",
+              "example": ""
+            },
+            {
+              "name": "EventID",
+              "type": "string",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "InfoType",
+              "type": "string",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "Serial",
+              "type": "string",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "InfoKind",
+              "type": "string",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "InfoKindVersion",
+              "type": "string",
+              "description": "（必須）",
+              "example": ""
+            },
+            {
+              "name": "Headline",
+              "type": "type.headline",
+              "description": "（必須）",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "Atom フィード（実データ由来）",
+          "description": "電文の入電を知らせるフィード。entry の link から電文本体を取得する。",
           "fields": [
             {
               "name": "entry",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "entry/author",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "entry/content",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "entry/id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "entry/link",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "entry/title",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "entry/updated",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "link",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "rights",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "subtitle",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "title",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "updated",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             }
           ]
         },
         {
-          "name": "電文: 気象警報・注意報（Ｒ０６）（集約通報）（regular フィードより）",
+          "name": "電文 Body: 気象警報・注意報（Ｒ０６）（集約通報）（実データ由来 / regular フィード）",
+          "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
               "name": "Report/Control",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/Title",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/DateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/Status",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/EditorialOffice",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/PublishingOffice",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Title",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/ReportDateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/TargetDateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/EventID",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoType",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Serial",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoKind",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoKindVersion",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline/Text",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline/Information",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/Warning",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/Warning/Item",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             }
           ]
         },
         {
-          "name": "電文: 気象特別警報・警報・注意報（extra フィードより）",
+          "name": "電文 Body: 気象特別警報・警報・注意報（実データ由来 / extra フィード）",
+          "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
               "name": "Report/Control",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/Title",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/DateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/Status",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/EditorialOffice",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/PublishingOffice",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Title",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/ReportDateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/TargetDateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/EventID",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoType",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Serial",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoKind",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoKindVersion",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline/Text",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline/Information",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/Notice",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/Warning",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/Warning/Item",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             }
           ]
         },
         {
-          "name": "電文: 降灰予報（定時）（eqvol フィードより）",
+          "name": "電文 Body: 降灰予報（定時）（実データ由来 / eqvol フィード）",
+          "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
               "name": "Report/Control",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/Title",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/DateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/Status",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/EditorialOffice",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/PublishingOffice",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Title",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/ReportDateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/TargetDateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/ValidDateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/EventID",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoType",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Serial",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoKind",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoKindVersion",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline/Text",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline/Information",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/VolcanoInfo",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/VolcanoInfo/Item",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/AshInfos",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/AshInfos/AshInfo",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/VolcanoInfoContent",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/VolcanoInfoContent/VolcanoHeadline",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/VolcanoInfoContent/VolcanoActivity",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/VolcanoInfoContent/VolcanoPrevention",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             }
           ]
         },
         {
-          "name": "電文: 地方海上警報（Ｈ２８）（other フィードより）",
+          "name": "電文 Body: 地方海上警報（Ｈ２８）（実データ由来 / other フィード）",
+          "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
               "name": "Report/Control",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/Title",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/DateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/Status",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/EditorialOffice",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Control/PublishingOffice",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Title",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/ReportDateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/TargetDateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/ValidDateTime",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/EventID",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoType",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Serial",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoKind",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/InfoKindVersion",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline/Text",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Head/Headline/Information",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/Warning",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/Warning/Item",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/MeteorologicalInfos",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             },
             {
               "name": "Report/Body/MeteorologicalInfos/MeteorologicalInfo",
-              "type": "element",
-              "description": ""
+              "type": "要素",
+              "description": "",
+              "example": ""
             }
           ]
         }
@@ -1474,210 +2147,251 @@
     },
     "jgrants-mcp": {
       "origin": "spec+observed",
-      "origin_detail": "入力項目は MCP のツール定義、戻り値の項目は実レスポンスから列挙",
+      "origin_detail": "入力項目は MCP のツール定義（説明も定義に書かれているもの）。戻り値の項目は実レスポンスから列挙。公式 OpenAPI 仕様 jgrants-api.yaml は microCMS のアセット CDN にあり、当環境の egress ポリシーで取得できないため未反映",
       "source_url": "http://127.0.0.1:8321/mcp",
       "objects": [
         {
-          "name": "search_subsidies（入力）",
+          "name": "get_file_content（入力）",
+          "description": "保存されたファイルの内容を取得（Markdown形式またはBASE64形式）",
           "fields": [
             {
-              "name": "keyword",
+              "name": "subsidy_id",
               "type": "string",
-              "description": "必須"
+              "description": "必須",
+              "example": ""
             },
             {
-              "name": "use_purpose",
+              "name": "filename",
               "type": "string",
-              "description": ""
+              "description": "必須",
+              "example": ""
             },
             {
-              "name": "industry",
+              "name": "return_format",
               "type": "string",
-              "description": ""
-            },
-            {
-              "name": "target_number_of_employees",
-              "type": "string",
-              "description": ""
-            },
-            {
-              "name": "target_area_search",
-              "type": "string",
-              "description": ""
-            },
-            {
-              "name": "sort",
-              "type": "string",
-              "description": ""
-            },
-            {
-              "name": "order",
-              "type": "string",
-              "description": ""
-            },
-            {
-              "name": "acceptance",
-              "type": "integer",
-              "description": ""
-            }
-          ]
-        },
-        {
-          "name": "ping（入力）",
-          "fields": []
-        },
-        {
-          "name": "get_subsidy_overview（入力）",
-          "fields": [
-            {
-              "name": "output_format",
-              "type": "string",
-              "description": ""
+              "description": "",
+              "example": "markdown"
             }
           ]
         },
         {
           "name": "get_subsidy_detail（入力）",
+          "description": "補助金の詳細情報を取得し、添付ファイルを自動的にダウンロードします。",
           "fields": [
             {
               "name": "subsidy_id",
               "type": "string",
-              "description": "必須"
+              "description": "補助金ID（例: \"a0WJ200000CDR9HMAX\"）",
+              "example": ""
             }
           ]
         },
         {
-          "name": "get_file_content（入力）",
+          "name": "get_subsidy_overview（入力）",
+          "description": "補助金の最新状況を把握します。締切期間別、金額規模別の集計を提供。",
           "fields": [
             {
-              "name": "subsidy_id",
+              "name": "output_format",
               "type": "string",
-              "description": "必須"
+              "description": "出力形式 (\"json\" または \"csv\")。デフォルトは \"json\"",
+              "example": "json"
+            }
+          ]
+        },
+        {
+          "name": "ping（入力）",
+          "description": "サーバーの応答を確認するためのユーティリティ。",
+          "fields": []
+        },
+        {
+          "name": "search_subsidies（入力）",
+          "description": "高度な検索条件で補助金を検索します。",
+          "fields": [
+            {
+              "name": "keyword",
+              "type": "string",
+              "description": "必須",
+              "example": ""
             },
             {
-              "name": "filename",
+              "name": "use_purpose",
               "type": "string",
-              "description": "必須"
+              "description": "",
+              "example": "None"
             },
             {
-              "name": "return_format",
+              "name": "industry",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": "None"
+            },
+            {
+              "name": "target_number_of_employees",
+              "type": "string",
+              "description": "",
+              "example": "None"
+            },
+            {
+              "name": "target_area_search",
+              "type": "string",
+              "description": "",
+              "example": "None"
+            },
+            {
+              "name": "sort",
+              "type": "string",
+              "description": "",
+              "example": "acceptance_end_datetime"
+            },
+            {
+              "name": "order",
+              "type": "string",
+              "description": "",
+              "example": "ASC"
+            },
+            {
+              "name": "acceptance",
+              "type": "integer",
+              "description": "",
+              "example": "1"
             }
           ]
         },
         {
           "name": "search_subsidies の戻り値（subsidies[]）",
+          "description": "検索にヒットした補助金 1 件分。詳細は id を get_subsidy_detail に渡して取る。",
           "fields": [
             {
               "name": "acceptance_end_datetime",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "acceptance_start_datetime",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "institution_name",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "name",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "subsidy_max_limit",
               "type": "number",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "target_area_search",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "target_number_of_employees",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "title",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             }
           ]
         },
         {
           "name": "get_subsidy_detail の戻り値",
+          "description": "補助金 1 件の詳細。files に添付ファイルの保存結果が入る。",
           "fields": [
             {
               "name": "acceptance_end",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "acceptance_start",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "application_url",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "description",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "files",
               "type": "object",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "id",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "last_updated",
               "type": "null",
-              "description": "サンプル内では常に null"
+              "description": "サンプル内では常に null",
+              "example": ""
             },
             {
               "name": "save_directory",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "status",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "subsidy_max_limit",
               "type": "number",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "target",
               "type": "object",
-              "description": ""
+              "description": "",
+              "example": ""
             },
             {
               "name": "title",
               "type": "string",
-              "description": ""
+              "description": "",
+              "example": ""
             }
           ]
         }

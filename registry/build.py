@@ -372,6 +372,9 @@ def render_fields(fields: dict, entry_names: dict[str, str]) -> str:
         "**実データ由来**はレスポンスを実際に読んで列挙したもので、サンプルに現れなかった",
         "項目は落ちている可能性がある。どちらなのかを各節の冒頭に示す。",
         "",
+        "説明と例はすべて提供側の資料から引いたもので、こちらで補ったものは無い。",
+        "説明が空欄の項目は、提供側が定義を公開していないか、まだ見つけられていないもの。",
+        "",
     ]
 
     for source_id, data in fields.get("sources", {}).items():
@@ -386,16 +389,24 @@ def render_fields(fields: dict, entry_names: dict[str, str]) -> str:
             f"- 参照元: {data['source_url']}",
         ]
         for obj in data["objects"]:
-            lines += ["", f"### {obj['name']}", "", "| 項目 | 型 | 説明 |", "|---|---|---|"]
-            lines += [
-                f"| `{f['name']}` | {f['type']} | {f['description']} |" for f in obj["fields"]
-            ]
-        if data["enums"]:
-            lines += ["", "### 取りうる値が決まっている項目", "", "| 項目 | 値 |", "|---|---|"]
-            lines += [
-                f"| `{e['name']}` | {', '.join(f'`{v}`' for v in e['values'])} |"
-                for e in data["enums"]
-            ]
+            lines += ["", f"### {obj['name']}", ""]
+            if obj.get("description"):
+                lines += [obj["description"], ""]
+            # 例が 1 つも無いオブジェクトで空の列を出すと読みにくいので、あるときだけ列を足す。
+            has_example = any(f.get("example") for f in obj["fields"])
+            header = "| 項目 | 型 | 説明 | 例 |" if has_example else "| 項目 | 型 | 説明 |"
+            lines += [header, "|---|---|---|---|" if has_example else "|---|---|---|"]
+            for f in obj["fields"]:
+                row = f"| `{f['name']}` | {f['type']} | {f['description']} |"
+                if has_example:
+                    example = f.get("example") or ""
+                    row += f" {'`' + example + '`' if example else ''} |"
+                lines.append(row)
+
+        for enum in data["enums"]:
+            title = f"{enum['name']}" + (f" — {enum['description']}" if enum.get("description") else "")
+            lines += ["", f"### 取りうる値: `{title}`", "", "| 値 | 意味 |", "|---|---|"]
+            lines += [f"| `{v['value']}` | {v['meaning']} |" for v in enum["values"]]
 
     return "\n".join(lines) + "\n"
 

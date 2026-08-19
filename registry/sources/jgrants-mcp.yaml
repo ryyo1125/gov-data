@@ -58,6 +58,9 @@ reachability:
       role: docs
     - host: www.digital.go.jp
       role: portal
+    - host: files.microcms-assets.io
+      role: spec
+      note: 公式 OpenAPI 仕様 jgrants-api.yaml の実体。政府ドメインではない CDN のため許可リストから漏れやすい。
 
 verify:
   script: verify/verify_jgrants_mcp.py
@@ -75,5 +78,7 @@ findings:
     evidence: 検証スクリプトで先頭 5 件まで詳細を引き直す実装が必要だった（verify_jgrants_mcp.py の FILE_PROBE_LIMIT）。
   - claim: 公式ドキュメントには認証要否・レート制限・利用規約・API 安定性の記述が無い。
     evidence: https://developers.digital.go.jp/documents/jgrants/api/ を参照して該当記述が無いことを確認。
+  - claim: 公式 OpenAPI 仕様 jgrants-api.yaml は developers.digital.go.jp ではなく microCMS のアセット CDN（files.microcms-assets.io）にホストされており、当環境の egress ポリシーで取得できない。戻り値の項目説明が埋められないのはこのため。
+    evidence: 仕様ページの HTML 内リンクが https://files.microcms-assets.io/assets/.../jgrants-api.yaml を指しており、当該ホストへの CONNECT がプロキシに 403 で拒否されることを確認。
   - claim: 出典表示義務はドキュメントではなくツールの docstring にのみ書かれている。
     evidence: jgrants_mcp_server/core.py の各ツール docstring に「出典表示」の記載。

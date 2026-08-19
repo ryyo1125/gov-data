@@ -70,5 +70,7 @@ findings:
     evidence: regular.xml の feed_updated が 2026-08-19T16:34:45+09:00、先頭 entry の updated が 2026-08-19T07:34:33Z。
   - claim: 電文本体のルート要素は名前空間 http://xml.kishou.go.jp/jmaxml1/ の Report で、Control と Head を子に持つ。
     evidence: 取得した VPFG50（府県天気概況）電文の root_tag と child_tags を results/jma-xml.json に記録。
+  - claim: 公式の XML Schema が配布されており、全電文共通の Report / Control / Head の構造はそこから確定できる。一方 Body は電文種別ごとに異なり、共通スキーマからは決まらない。
+    evidence: https://xml.kishou.go.jp/jmaxml_20241031_Schema(xsd).zip に jmx.xsd ほか 8 ファイルが含まれ、jmx.xsd の type.report が Control と Head の後に任意の名前空間の要素 1 つを取る定義になっている。
   - claim: 出典表示の義務は一次資料に明記されていない。ただし編集して流通させる場合は編集責任者の明示義務がある。
     evidence: 留意事項 PDF「３．（３）編集責任者等の明示について」に編集時の明示義務の記載があり、出典表示に関する記載は無い。

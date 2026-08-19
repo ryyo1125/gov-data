@@ -4,7 +4,7 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-19T08:24:44+00:00
+- 生成日時: 2026-08-19T08:54:53+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
@@ -56,20 +56,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T08:24:13+00:00
+- 最終検証: 2026-08-19T08:53:39+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_data_catalog.py --out results/egov-data-catalog.json`
 - 検証スクリプト: `verify/verify_egov_data_catalog.py` / 結果: `results/egov-data-catalog.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `site_read` | OK | 732 ms |  |
-| `package_search` | OK | 1032 ms |  |
-| `package_list` | OK | 541 ms |  |
-| `organization_list` | OK | 259 ms |  |
-| `group_list` | OK | 242 ms |  |
-| `tag_list` | OK | 1240 ms |  |
-| `package_show` | OK | 588 ms |  |
+| `site_read` | OK | 1065 ms |  |
+| `package_search` | OK | 339 ms |  |
+| `package_list` | OK | 552 ms |  |
+| `organization_list` | OK | 244 ms |  |
+| `group_list` | OK | 249 ms |  |
+| `tag_list` | OK | 794 ms |  |
+| `package_show` | OK | 569 ms |  |
 
 ### 実行して分かったこと
 
@@ -85,6 +85,10 @@
   - 根拠: tag_list の先頭 3 件が " ガス", " スポーツ", " エネルギー" と、いずれも空白始まりだった。
 - **package_list が返すのは CKAN 標準のデータセット名ではなく日付らしき文字列である。**
   - 根拠: package_list?limit=5 の戻り値が ["20160621", "20170627", "20180710"] だった。
+- **メタデータ項目の定義書が公開されていない。項目の意味は、データセット画面に出る日本語ラベルを同じ値の API 項目と突き合わせて推定するしかない。**
+  - 根拠: data.e-gov.go.jp の /info/ja/help と /info/ja/about-site を辿ってもメタデータ項目の仕様へのリンクが無く、API も項目説明を返さない。値による突合で説明を付けられたのは 87 項目中 22 項目にとどまった。
+- **データセット画面のメタデータは「e-Govデータポータル標準」と「自治体標準ODS オープンデータ一覧」の 2 系統に分かれ、HTML 上も別クラスで区別されている。**
+  - 根拠: データセット画面の tr が metadata_basic_field と metadata_detail_field に分かれており、画面上も「一部表示／全て表示」で切り替えられる。
 - **package_show は id を渡さないと HTTP 409 を返す。404 ではない。**
   - 根拠: /package_show?limit=1 で 409 と success=false を確認。
 
@@ -129,20 +133,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T08:24:08+00:00
+- 最終検証: 2026-08-19T08:53:35+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json`
 - 検証スクリプト: `verify/verify_egov_hourei.py` / 結果: `results/egov-hourei-api.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `fetch_openapi_spec` | OK | 836 ms |  |
-| `GET /laws` | OK | 292 ms |  |
-| `GET /law_revisions/{law_id}` | OK | 266 ms |  |
-| `GET /law_data/{law_id}` | OK | 289 ms |  |
-| `GET /keyword` | OK | 1564 ms |  |
-| `GET /law_file/xml/{law_id}` | OK | 338 ms |  |
-| `GET /attachment/{law_revision_id}` | OK | 518 ms |  |
+| `fetch_openapi_spec` | OK | 807 ms |  |
+| `GET /laws` | OK | 256 ms |  |
+| `GET /law_revisions/{law_id}` | OK | 386 ms |  |
+| `GET /law_data/{law_id}` | OK | 326 ms |  |
+| `GET /keyword` | OK | 1382 ms |  |
+| `GET /law_file/xml/{law_id}` | OK | 314 ms |  |
+| `GET /attachment/{law_revision_id}` | OK | 397 ms |  |
 
 ### 実行して分かったこと
 
@@ -204,11 +208,12 @@
 | `www.jgrants-portal.go.jp` | portal |  |
 | `developers.digital.go.jp` | docs |  |
 | `www.digital.go.jp` | portal |  |
+| `files.microcms-assets.io` | spec | 公式 OpenAPI 仕様 jgrants-api.yaml の実体。政府ドメインではない CDN のため許可リストから漏れやすい。 |
 
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T08:24:27+00:00
+- 最終検証: 2026-08-19T08:53:55+00:00
 - 再現コマンド: `./verify/run_jgrants_verification.sh`
 - 検証スクリプト: `verify/verify_jgrants_mcp.py` / 結果: `results/jgrants-mcp.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
@@ -217,13 +222,13 @@
 |---|---|---|---|
 | `initialize` | OK | 0 ms |  |
 | `list_tools` | OK | 17 ms |  |
-| `list_resources` | OK | 7 ms |  |
+| `list_resources` | OK | 8 ms |  |
 | `list_prompts` | OK | 6 ms |  |
 | `call:ping` | OK | 10 ms |  |
-| `call:search_subsidies` | OK | 1606 ms |  |
-| `call:get_subsidy_detail` | OK | 249 ms |  |
-| `call:get_subsidy_overview` | OK | 1842 ms |  |
-| `call:get_file_content` | OK | 2126 ms |  |
+| `call:search_subsidies` | OK | 1358 ms |  |
+| `call:get_subsidy_detail` | OK | 239 ms |  |
+| `call:get_subsidy_overview` | OK | 1804 ms |  |
+| `call:get_file_content` | OK | 2207 ms |  |
 
 ### 実行して分かったこと
 
@@ -237,6 +242,8 @@
   - 根拠: 検証スクリプトで先頭 5 件まで詳細を引き直す実装が必要だった（verify_jgrants_mcp.py の FILE_PROBE_LIMIT）。
 - **公式ドキュメントには認証要否・レート制限・利用規約・API 安定性の記述が無い。**
   - 根拠: https://developers.digital.go.jp/documents/jgrants/api/ を参照して該当記述が無いことを確認。
+- **公式 OpenAPI 仕様 jgrants-api.yaml は developers.digital.go.jp ではなく microCMS のアセット CDN（files.microcms-assets.io）にホストされており、当環境の egress ポリシーで取得できない。戻り値の項目説明が埋められないのはこのため。**
+  - 根拠: 仕様ページの HTML 内リンクが https://files.microcms-assets.io/assets/.../jgrants-api.yaml を指しており、当該ホストへの CONNECT がプロキシに 403 で拒否されることを確認。
 - **出典表示義務はドキュメントではなくツールの docstring にのみ書かれている。**
   - 根拠: jgrants_mcp_server/core.py の各ツール docstring に「出典表示」の記載。
 
@@ -282,22 +289,22 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T08:24:15+00:00
+- 最終検証: 2026-08-19T08:53:43+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_jma_xml.py --out results/jma-xml.json`
 - 検証スクリプト: `verify/verify_jma_xml.py` / 結果: `results/jma-xml.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `GET /regular.xml (定時・高頻度)` | OK | 611 ms |  |
-| `GET /extra.xml (随時・高頻度)` | OK | 71 ms |  |
-| `GET /eqvol.xml (地震火山・高頻度)` | OK | 67 ms |  |
-| `GET /other.xml (その他・高頻度)` | OK | 67 ms |  |
-| `GET /regular_l.xml (定時・長期)` | OK | 406 ms |  |
-| `GET /extra_l.xml (随時・長期)` | OK | 247 ms |  |
-| `GET /eqvol_l.xml (地震火山・長期)` | OK | 73 ms |  |
-| `GET /other_l.xml (その他・長期)` | OK | 70 ms |  |
-| `GET 電文本体` | OK | 142 ms |  |
+| `GET /regular.xml (定時・高頻度)` | OK | 673 ms |  |
+| `GET /extra.xml (随時・高頻度)` | OK | 68 ms |  |
+| `GET /eqvol.xml (地震火山・高頻度)` | OK | 65 ms |  |
+| `GET /other.xml (その他・高頻度)` | OK | 70 ms |  |
+| `GET /regular_l.xml (定時・長期)` | OK | 1910 ms |  |
+| `GET /extra_l.xml (随時・長期)` | OK | 442 ms |  |
+| `GET /eqvol_l.xml (地震火山・長期)` | OK | 76 ms |  |
+| `GET /other_l.xml (その他・長期)` | OK | 549 ms |  |
+| `GET 電文本体` | OK | 155 ms |  |
 
 ### 実行して分かったこと
 
@@ -309,12 +316,14 @@
   - 根拠: regular.xml の feed_updated が 2026-08-19T16:34:45+09:00、先頭 entry の updated が 2026-08-19T07:34:33Z。
 - **電文本体のルート要素は名前空間 http://xml.kishou.go.jp/jmaxml1/ の Report で、Control と Head を子に持つ。**
   - 根拠: 取得した VPFG50（府県天気概況）電文の root_tag と child_tags を results/jma-xml.json に記録。
+- **公式の XML Schema が配布されており、全電文共通の Report / Control / Head の構造はそこから確定できる。一方 Body は電文種別ごとに異なり、共通スキーマからは決まらない。**
+  - 根拠: https://xml.kishou.go.jp/jmaxml_20241031_Schema(xsd).zip に jmx.xsd ほか 8 ファイルが含まれ、jmx.xsd の type.report が Control と Head の後に任意の名前空間の要素 1 つを取る定義になっている。
 - **出典表示の義務は一次資料に明記されていない。ただし編集して流通させる場合は編集責任者の明示義務がある。**
   - 根拠: 留意事項 PDF「３．（３）編集責任者等の明示について」に編集時の明示義務の記載があり、出典表示に関する記載は無い。
 
 ## 到達性の実測
 
-`verify/verify_reachability.py` の実測結果（2026-08-19T08:24:03+00:00）。
+`verify/verify_reachability.py` の実測結果（2026-08-19T08:53:30+00:00）。
 到達できないことは、そのサービスが存在しないことを意味しない。
 
 | ホスト | 結果 | 詳細 |
@@ -322,6 +331,7 @@
 | `api.jgrants-portal.go.jp` | 到達可 | HTTP 404 |
 | `data.e-gov.go.jp` | 到達可 | HTTP 301 |
 | `developers.digital.go.jp` | 到達可 | HTTP 200 |
+| `files.microcms-assets.io` | egress で拒否 | プロキシが拒否: 403 Forbidden |
 | `laws.e-gov.go.jp` | 到達可 | HTTP 200 |
 | `www.data.go.jp` | 到達可 | HTTP 301 |
 | `www.data.jma.go.jp` | 到達可 | HTTP 200 |

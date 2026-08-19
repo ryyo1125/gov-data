@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""台帳に載る各情報源から、実際に取得できる項目（フィールド）の一覧を抽出する。
+"""台帳に載る各情報源から、取得できる項目とその意味・取りうる値を抽出する。
 
 台帳は「どこから何が取れるか」をエンドポイント粒度で記録するが、それだけでは
-「取ってきた結果にどの項目が入っているか」が分からない。ここではその 1 段下を埋める。
+「取ってきた結果のこの項目は何か」に答えられない。ここではその 1 段下を埋める。
 
-項目の出所は情報源ごとに違い、確度も違う。どちらなのかを origin として必ず残す。
+説明は自分で書かず、必ず提供側の資料から引く。出所と確度は情報源ごとに違うので、
+どれなのかを origin として必ず残す。
 
-- 仕様由来（OpenAPI の schema、MCP のツール定義）: 提供側が定義した正式な項目
-- 実データ由来（レスポンスを実際に読んで列挙）: 仕様が無い場合の実測。
-  サンプルに含まれなかった項目は落ちるので、網羅の保証は無い
+- spec        : 提供側が定義した正式な項目（OpenAPI の schema、XML Schema など）
+- observed    : レスポンスを実際に読んで列挙したもの。サンプルに現れなかった項目は落ちる
+- spec+observed: 両方を組み合わせたもの
 
     python verify/extract_fields.py --out results/fields.json
 """
@@ -17,9 +18,14 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import io
+import json
+import re
 import sys
 import xml.etree.ElementTree as ET
+import zipfile
 from datetime import datetime, timezone
+from html import unescape
 from pathlib import Path
 from typing import Any
 
@@ -30,15 +36,23 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 LAW_SPEC_URL = "https://laws.e-gov.go.jp/api/2/swagger-ui/lawapi-v2.yaml"
 CKAN_BASE = "https://data.e-gov.go.jp/data/api/3/action"
+CKAN_DATASET_PAGE = "https://data.e-gov.go.jp/data/dataset"
 JMA_FEED_BASE = "https://www.data.jma.go.jp/developer/xml/feed"
+JMA_XSD_ZIP = "https://xml.kishou.go.jp/jmaxml_20241031_Schema%28xsd%29.zip"
 ATOM = "{http://www.w3.org/2005/Atom}"
+XS = "{http://www.w3.org/2001/XMLSchema}"
 
 # 気象庁は電文種別ごとに Body の構造が違うため、系統の異なるフィードから拾う。
 JMA_SAMPLE_FEEDS = ["regular", "extra", "eqvol", "other"]
+# CKAN は項目の説明を API で返さないため、画面のラベルと値で突き合わせて補う。
+CKAN_LABEL_SAMPLES = 15
 
+
+# --------------------------------------------------------------------------
+# e-Gov 法令 API: OpenAPI の schema から項目・説明・例・取りうる値を取る
+# --------------------------------------------------------------------------
 
 async def extract_law_fields(client: httpx.AsyncClient) -> dict:
-    """e-Gov 法令 API: OpenAPI の components/schemas から項目定義を取る。"""
     response = await client.get(LAW_SPEC_URL)
     response.raise_for_status()
     spec = yaml.safe_load(response.text)
@@ -47,7 +61,13 @@ async def extract_law_fields(client: httpx.AsyncClient) -> dict:
     objects, enums = [], []
     for name, schema in sorted(schemas.items()):
         if schema.get("enum"):
-            enums.append({"name": name, "values": schema["enum"]})
+            enums.append(
+                {
+                    "name": name,
+                    "description": _enum_summary(schema.get("description")),
+                    "values": _enum_values(schema),
+                }
+            )
             continue
         properties = schema.get("properties")
         if not properties:
@@ -55,11 +75,13 @@ async def extract_law_fields(client: httpx.AsyncClient) -> dict:
         objects.append(
             {
                 "name": name,
+                "description": _clean(schema.get("description")),
                 "fields": [
                     {
                         "name": field,
                         "type": _schema_type(definition),
-                        "description": _first_line(definition.get("description")),
+                        "description": _clean(definition.get("description")),
+                        "example": _clean(str(definition.get("example", ""))),
                     }
                     for field, definition in properties.items()
                 ],
@@ -68,11 +90,30 @@ async def extract_law_fields(client: httpx.AsyncClient) -> dict:
 
     return {
         "origin": "spec",
-        "origin_detail": f"OpenAPI {spec.get('info', {}).get('version')} の components/schemas",
+        "origin_detail": f"OpenAPI {spec.get('info', {}).get('version')} の components/schemas。説明・例・取りうる値はすべて仕様に書かれているもの",
         "source_url": LAW_SPEC_URL,
         "objects": objects,
         "enums": enums,
     }
+
+
+def _enum_summary(description: str | None) -> str:
+    """enum の説明から、値の一覧が始まる前の見出し部分だけを取る。"""
+    head = re.split(r"\n\s*\*", description or "")[0]
+    return _clean(head).rstrip(":：").strip()
+
+
+def _enum_values(schema: dict) -> list[dict]:
+    """enum の description に書かれた「値 - 意味」の対応を拾う。
+
+    法令 API は `* \\`Act\\` - 法律` の形式で意味を書いているため、
+    値だけを並べるより遥かに使える一覧になる。
+    """
+    meanings = dict(re.findall(r"\*\s+`([^`]+)`\s*-\s*([^\n<]+)", schema.get("description") or ""))
+    return [
+        {"value": value, "meaning": _clean(meanings.get(value, ""))}
+        for value in schema.get("enum", [])
+    ]
 
 
 def _schema_type(definition: dict) -> str:
@@ -87,21 +128,25 @@ def _schema_type(definition: dict) -> str:
     return definition.get("type", "unknown")
 
 
-def _first_line(text: str | None) -> str:
+def _clean(text: str | None) -> str:
+    """HTML タグと改行を落として 1 行にする。表のセルに収めるため。"""
     if not text:
         return ""
-    for line in text.splitlines():
-        cleaned = line.strip().lstrip("> ").strip()
-        if cleaned:
-            return cleaned[:120]
-    return ""
+    text = re.sub(r"<br\s*/?>", " ", text)
+    text = re.sub(r"<[^>]+>", "", text)
+    return " ".join(unescape(text).split())
 
+
+# --------------------------------------------------------------------------
+# e-Gov データポータル: API は説明を返さないので、画面のラベルを値で突き合わせる
+# --------------------------------------------------------------------------
 
 async def extract_ckan_fields(client: httpx.AsyncClient) -> dict:
-    """CKAN: 仕様ではなく実データから。複数件の和を取って欠損項目を拾う。"""
     response = await client.get(f"{CKAN_BASE}/package_search", params={"rows": 20})
     response.raise_for_status()
     packages = response.json()["result"]["results"]
+
+    labels = await _ckan_labels(client, packages[:CKAN_LABEL_SAMPLES])
 
     dataset_fields: dict[str, set[str]] = {}
     resource_fields: dict[str, set[str]] = {}
@@ -112,14 +157,69 @@ async def extract_ckan_fields(client: httpx.AsyncClient) -> dict:
 
     return {
         "origin": "observed",
-        "origin_detail": f"package_search で取得した {len(packages)} 件のデータセットに現れた項目の和",
+        "origin_detail": (
+            f"package_search で取得した {len(packages)} 件に現れた項目の和。"
+            f"説明は先頭 {CKAN_LABEL_SAMPLES} 件のデータセット画面に出る日本語ラベルを、"
+            "同じ値を持つ API の項目と突き合わせて対応付けたもの（値が一意に一致したものだけ採用）"
+        ),
         "source_url": f"{CKAN_BASE}/package_search",
         "objects": [
-            {"name": "package（データセット）", "fields": _as_fields(dataset_fields, len(packages))},
-            {"name": "resource（データセットに紐づくファイル）", "fields": _as_fields(resource_fields, None)},
+            {
+                "name": "package（データセット）",
+                "description": "1 件のデータセットを表す。resources に実ファイルがぶら下がる。",
+                "fields": _as_fields(dataset_fields, labels),
+            },
+            {
+                "name": "resource（データセットに紐づくファイル）",
+                "description": "データセットが提供する個々のファイルや API のエンドポイント。",
+                "fields": _as_fields(resource_fields, labels),
+            },
         ],
         "enums": [],
     }
+
+
+async def _ckan_labels(client: httpx.AsyncClient, packages: list[dict]) -> dict[str, str]:
+    """データセット画面の th/td から、API の項目名に対応する日本語ラベルを推定する。
+
+    CKAN の API は項目の説明を返さないが、画面には日本語ラベルが出ている。
+    同じデータセットの同じ値を手掛かりに対応付ければ、推測せずにラベルを得られる。
+    値が複数の項目とぶつかったものは曖昧なので捨てる。
+    """
+    candidates: dict[str, set[str]] = {}
+    for package in packages:
+        name = package.get("name")
+        if not name:
+            continue
+        try:
+            page = await client.get(f"{CKAN_DATASET_PAGE}/{name}")
+            page.raise_for_status()
+        except Exception:  # noqa: BLE001 - 画面が無い/変わっただけなのでラベル無しで続行
+            continue
+
+        pairs = re.findall(
+            r"<th[^>]*>(.*?)</th>\s*<td[^>]*>(.*?)</td>", page.text, re.S
+        )
+        by_value: dict[str, set[str]] = {}
+        for label, value in pairs:
+            value = _clean(value)
+            if value:
+                by_value.setdefault(value, set()).add(_clean(label))
+
+        # 同じ値を持つ項目が複数あると、どのラベルが誰のものか決められない。
+        # ラベル側・項目側の両方で値が一意なときだけ対応付ける。
+        keys_by_value: dict[str, set[str]] = {}
+        for key, value in package.items():
+            text = _clean(value) if isinstance(value, str) else ""
+            if text:
+                keys_by_value.setdefault(text, set()).add(key)
+
+        for value, keys in keys_by_value.items():
+            matched = by_value.get(value)
+            if len(keys) == 1 and matched and len(matched) == 1:
+                candidates.setdefault(next(iter(keys)), set()).update(matched)
+
+    return {key: next(iter(labels)) for key, labels in candidates.items() if len(labels) == 1}
 
 
 def _collect(record: dict, into: dict[str, set[str]]) -> None:
@@ -141,18 +241,119 @@ def _value_type(value: Any) -> str:
     return "string"
 
 
-def _as_fields(collected: dict[str, set[str]], sample_size: int | None) -> list[dict]:
+def _as_fields(collected: dict[str, set[str]], labels: dict[str, str]) -> list[dict]:
     fields = []
     for name, types in sorted(collected.items()):
-        # null しか観測できなかった項目は、値の入り方が分からないことを明示する。
-        note = "サンプル内では常に null" if types == {"null"} else ""
+        notes = []
+        if labels.get(name):
+            notes.append(labels[name])
+        if types == {"null"}:
+            # null しか観測できなかった項目は、値の入り方が分からないことを明示する。
+            notes.append("サンプル内では常に null")
         concrete = sorted(types - {"null"}) or ["null"]
-        fields.append({"name": name, "type": " | ".join(concrete), "description": note})
+        fields.append(
+            {
+                "name": name,
+                "type": " | ".join(concrete),
+                "description": " / ".join(notes),
+                "example": "",
+            }
+        )
     return fields
 
 
+# --------------------------------------------------------------------------
+# 気象庁: XML Schema から全電文共通の構造を、実データから電文ごとの構造を取る
+# --------------------------------------------------------------------------
+
 async def extract_jma_fields(client: httpx.AsyncClient) -> dict:
-    """気象庁: Atom フィードと電文本体を実際に読み、要素の階層を列挙する。"""
+    objects = await _jma_schema_objects(client)
+    feed_fields, documents = await _jma_observed(client)
+
+    return {
+        "origin": "spec+observed",
+        "origin_detail": (
+            "全電文共通の Report / Control / Head は公式の XML Schema（jmx.xsd, jmx_ib.xsd）から。"
+            f"Atom フィードと電文 {len(documents)} 通の構造は実データから列挙。"
+            "電文種別は多数あり、ここに出るのはその一部"
+        ),
+        "source_url": JMA_XSD_ZIP,
+        "objects": [
+            *objects,
+            {
+                "name": "Atom フィード（実データ由来）",
+                "description": "電文の入電を知らせるフィード。entry の link から電文本体を取得する。",
+                "fields": _as_fields(feed_fields, {}),
+            },
+            *documents,
+        ],
+        "enums": [],
+    }
+
+
+async def _jma_schema_objects(client: httpx.AsyncClient) -> list[dict]:
+    """XSD を取得し、Report / Control / Head の要素定義を組み立てる。
+
+    Body は電文種別ごとに構造が違って巨大なため、ここでは全電文に共通する
+    管理部・ヘッダ部だけを扱う。どの電文でも必ず現れるので実用上の価値が高い。
+    """
+    response = await client.get(JMA_XSD_ZIP)
+    response.raise_for_status()
+    with zipfile.ZipFile(io.BytesIO(response.content)) as archive:
+        sources = {
+            Path(name).name: archive.read(name).decode("utf-8")
+            for name in archive.namelist()
+            if name.endswith(".xsd")
+        }
+
+    objects = []
+    for filename, type_names in [("jmx.xsd", ["type.report", "type.control"]), ("jmx_ib.xsd", None)]:
+        if filename not in sources:
+            continue
+        root = ET.fromstring(sources[filename])
+        for complex_type in root.findall(f"{XS}complexType"):
+            name = complex_type.get("name")
+            if type_names is not None and name not in type_names:
+                continue
+            if type_names is None and name != "type.head":
+                continue
+            objects.append(
+                {
+                    "name": f"{name}（XML Schema 由来 / {filename}）",
+                    "description": _xsd_doc(complex_type),
+                    "fields": _xsd_fields(complex_type),
+                }
+            )
+    return objects
+
+
+def _xsd_fields(complex_type: ET.Element) -> list[dict]:
+    fields = []
+    for element in complex_type.iter(f"{XS}element"):
+        name = element.get("name") or element.get("ref", "").rsplit(":", 1)[-1]
+        if not name:
+            continue
+        min_occurs = element.get("minOccurs", "1")
+        max_occurs = element.get("maxOccurs", "1")
+        required = "必須" if min_occurs != "0" else "任意"
+        repeats = "" if max_occurs == "1" else f" / 繰り返し {min_occurs}..{max_occurs}"
+        fields.append(
+            {
+                "name": name,
+                "type": (element.get("type") or "要素").rsplit(":", 1)[-1],
+                "description": (_xsd_doc(element) + f"（{required}{repeats}）").strip(),
+                "example": "",
+            }
+        )
+    return fields
+
+
+def _xsd_doc(element: ET.Element) -> str:
+    documentation = element.find(f"{XS}annotation/{XS}documentation")
+    return _clean(documentation.text) if documentation is not None else ""
+
+
+async def _jma_observed(client: httpx.AsyncClient) -> tuple[dict[str, set[str]], list[dict]]:
     feed_fields: dict[str, set[str]] = {}
     documents: list[dict] = []
 
@@ -176,27 +377,16 @@ async def extract_jma_fields(client: httpx.AsyncClient) -> dict:
         document.raise_for_status()
         documents.append(
             {
-                "name": f"電文: {title.text if title is not None else feed}（{feed} フィードより）",
+                "name": f"電文 Body: {title.text if title is not None else feed}（実データ由来 / {feed} フィード）",
+                "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
                 "fields": [
-                    {"name": path, "type": "element", "description": ""}
+                    {"name": path, "type": "要素", "description": "", "example": ""}
                     for path in _element_paths(ET.fromstring(document.text))
                 ],
             }
         )
 
-    return {
-        "origin": "observed",
-        "origin_detail": (
-            f"{len(JMA_SAMPLE_FEEDS)} 本のフィードと、それぞれの先頭 entry が指す電文 "
-            f"{len(documents)} 通を実際に読んで列挙。電文種別は多数あり、ここに出るのはその一部"
-        ),
-        "source_url": JMA_FEED_BASE,
-        "objects": [
-            {"name": "Atom フィード", "fields": _as_fields(feed_fields, None)},
-            *documents,
-        ],
-        "enums": [],
-    }
+    return feed_fields, documents
 
 
 def _local(tag: str) -> str:
@@ -221,8 +411,11 @@ def _element_paths(root: ET.Element, max_depth: int = 3) -> list[str]:
     return paths
 
 
+# --------------------------------------------------------------------------
+# Jグランツ: MCP のツール定義と実レスポンスから
+# --------------------------------------------------------------------------
+
 async def extract_jgrants_fields(url: str) -> dict:
-    """Jグランツ: MCP のツール定義（入力スキーマ）と、実レスポンスの項目を併記する。"""
     from fastmcp import Client
 
     client = Client(url)
@@ -231,47 +424,64 @@ async def extract_jgrants_fields(url: str) -> dict:
         objects = [
             {
                 "name": f"{tool.name}（入力）",
+                "description": _clean((tool.description or "").split("\n")[0]),
                 "fields": [
                     {
                         "name": field,
                         "type": _schema_type(definition),
-                        "description": "必須" if field in (tool.inputSchema.get("required") or []) else "",
+                        "description": _clean(definition.get("description"))
+                        or ("必須" if field in (tool.inputSchema.get("required") or []) else ""),
+                        "example": _clean(str(definition.get("default", ""))),
                     }
                     for field, definition in (tool.inputSchema.get("properties") or {}).items()
                 ],
             }
-            for tool in tools
+            for tool in sorted(tools, key=lambda t: t.name)
         ]
 
         search = await client.call_tool("search_subsidies", {"keyword": "IT導入"})
-        payload = getattr(search, "data", None) or {}
-        subsidies = payload.get("subsidies") or []
+        subsidies = (getattr(search, "data", None) or {}).get("subsidies") or []
         if subsidies:
             collected: dict[str, set[str]] = {}
             for subsidy in subsidies:
                 _collect(subsidy, collected)
             objects.append(
-                {"name": "search_subsidies の戻り値（subsidies[]）", "fields": _as_fields(collected, None)}
+                {
+                    "name": "search_subsidies の戻り値（subsidies[]）",
+                    "description": "検索にヒットした補助金 1 件分。詳細は id を get_subsidy_detail に渡して取る。",
+                    "fields": _as_fields(collected, {}),
+                }
             )
-        if subsidies:
+
             detail = await client.call_tool("get_subsidy_detail", {"subsidy_id": subsidies[0]["id"]})
-            detail_payload = getattr(detail, "data", None) or {}
             collected = {}
-            _collect(detail_payload, collected)
-            objects.append({"name": "get_subsidy_detail の戻り値", "fields": _as_fields(collected, None)})
+            _collect(getattr(detail, "data", None) or {}, collected)
+            objects.append(
+                {
+                    "name": "get_subsidy_detail の戻り値",
+                    "description": "補助金 1 件の詳細。files に添付ファイルの保存結果が入る。",
+                    "fields": _as_fields(collected, {}),
+                }
+            )
 
     return {
         "origin": "spec+observed",
-        "origin_detail": "入力項目は MCP のツール定義、戻り値の項目は実レスポンスから列挙",
+        "origin_detail": (
+            "入力項目は MCP のツール定義（説明も定義に書かれているもの）。"
+            "戻り値の項目は実レスポンスから列挙。公式 OpenAPI 仕様 jgrants-api.yaml は "
+            "microCMS のアセット CDN にあり、当環境の egress ポリシーで取得できないため未反映"
+        ),
         "source_url": url,
         "objects": objects,
         "enums": [],
     }
 
 
+# --------------------------------------------------------------------------
+
 async def extract_all(jgrants_url: str | None) -> dict:
     sources: dict[str, Any] = {}
-    async with httpx.AsyncClient(timeout=90.0, trust_env=True) as client:
+    async with httpx.AsyncClient(timeout=120.0, trust_env=True) as client:
         for source_id, extractor in [
             ("egov-hourei-api", extract_law_fields),
             ("egov-data-catalog", extract_ckan_fields),
@@ -305,8 +515,6 @@ def main() -> int:
     parser.add_argument("--out", default="results/fields.json", help="結果 JSON の出力先")
     args = parser.parse_args()
 
-    import json
-
     result = asyncio.run(extract_all(args.jgrants_url))
     with open(args.out, "w", encoding="utf-8") as fh:
         json.dump(result, fh, ensure_ascii=False, indent=2)
@@ -316,9 +524,14 @@ def main() -> int:
         if "error" in data:
             print(f"  [FAIL ] {source_id} - {data['error']}")
             failed += 1
-        else:
-            count = sum(len(o["fields"]) for o in data["objects"])
-            print(f"  [OK   ] {source_id} - {len(data['objects'])} オブジェクト / {count} 項目 ({data['origin']})")
+            continue
+        fields = [f for o in data["objects"] for f in o["fields"]]
+        described = sum(1 for f in fields if f["description"])
+        enum_values = sum(len(e["values"]) for e in data["enums"])
+        print(
+            f"  [OK   ] {source_id} - {len(data['objects'])} オブジェクト / {len(fields)} 項目"
+            f"（説明あり {described}）/ 取りうる値 {enum_values} ({data['origin']})"
+        )
     print(f"-> {args.out}")
     return 1 if failed else 0
 
