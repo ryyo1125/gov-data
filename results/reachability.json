@@ -1,7 +1,7 @@
 {
   "source_id": "reachability",
   "target": "egress reachability",
-  "generated_at": "2026-08-19T07:07:28+00:00",
+  "generated_at": "2026-08-19T07:40:46+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -17,9 +17,9 @@
     {
       "host": "data.e-gov.go.jp",
       "used_by": [
-        "blocked:egov-data-catalog"
+        "egov-data-catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "api"
     },
     {
       "host": "developers.digital.go.jp",
@@ -38,16 +38,16 @@
     {
       "host": "www.data.go.jp",
       "used_by": [
-        "blocked:egov-data-catalog"
+        "egov-data-catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "portal"
     },
     {
       "host": "www.data.jma.go.jp",
       "used_by": [
-        "blocked:jma-xml"
+        "jma-xml"
       ],
-      "role": "blocked-candidate"
+      "role": "api"
     },
     {
       "host": "www.digital.go.jp",
@@ -59,9 +59,10 @@
     {
       "host": "www.e-gov.go.jp",
       "used_by": [
+        "egov-data-catalog",
         "egov-hourei-api"
       ],
-      "role": "portal"
+      "role": "terms"
     },
     {
       "host": "www.jgrants-portal.go.jp",
@@ -73,16 +74,16 @@
     {
       "host": "www.jma.go.jp",
       "used_by": [
-        "blocked:jma-xml"
+        "jma-xml"
       ],
-      "role": "blocked-candidate"
+      "role": "portal"
     },
     {
       "host": "xml.kishou.go.jp",
       "used_by": [
-        "blocked:jma-xml"
+        "jma-xml"
       ],
-      "role": "blocked-candidate"
+      "role": "docs"
     }
   ],
   "steps": [
@@ -95,10 +96,12 @@
       }
     },
     {
-      "step": "data.e-gov.go.jp (blocked:egov-data-catalog)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "step": "data.e-gov.go.jp (egov-data-catalog)",
+      "ok": true,
+      "result": {
+        "status_code": 301,
+        "final_url": "https://data.e-gov.go.jp/"
+      }
     },
     {
       "step": "developers.digital.go.jp (jgrants-mcp)",
@@ -117,7 +120,7 @@
       }
     },
     {
-      "step": "www.data.go.jp (blocked:egov-data-catalog)",
+      "step": "www.data.go.jp (egov-data-catalog)",
       "ok": true,
       "result": {
         "status_code": 301,
@@ -125,22 +128,28 @@
       }
     },
     {
-      "step": "www.data.jma.go.jp (blocked:jma-xml)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "step": "www.data.jma.go.jp (jma-xml)",
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://www.data.jma.go.jp/"
+      }
     },
     {
       "step": "www.digital.go.jp (jgrants-mcp)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://www.digital.go.jp/"
+      }
     },
     {
-      "step": "www.e-gov.go.jp (egov-hourei-api)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "step": "www.e-gov.go.jp (egov-data-catalog, egov-hourei-api)",
+      "ok": true,
+      "result": {
+        "status_code": 403,
+        "final_url": "https://www.e-gov.go.jp/"
+      }
     },
     {
       "step": "www.jgrants-portal.go.jp (jgrants-mcp)",
@@ -151,23 +160,27 @@
       }
     },
     {
-      "step": "www.jma.go.jp (blocked:jma-xml)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "step": "www.jma.go.jp (jma-xml)",
+      "ok": true,
+      "result": {
+        "status_code": 302,
+        "final_url": "https://www.jma.go.jp/"
+      }
     },
     {
-      "step": "xml.kishou.go.jp (blocked:jma-xml)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "step": "xml.kishou.go.jp (jma-xml)",
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://xml.kishou.go.jp/"
+      }
     }
   ],
   "summary": {
     "total": 11,
-    "ok": 5,
+    "ok": 11,
     "skipped": 0,
-    "blocked": 6,
+    "blocked": 0,
     "failed": 0
   }
 }

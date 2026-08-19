@@ -1,0 +1,70 @@
+id: egov-data-catalog
+name: e-Gov データポータル（CKAN API）
+summary: 日本政府のオープンデータカタログ。府省庁が公開するデータセットのメタデータを CKAN の標準 API で検索・取得できる。台帳に載せる候補を機械的に洗い出す用途に使える。
+
+data_source:
+  provider: デジタル庁（e-Gov）
+  authority: primary_official
+  primary_source_url: https://data.e-gov.go.jp/
+
+access:
+  method: rest_api
+  endpoint: https://data.e-gov.go.jp/data/api/3/action
+  spec_url: https://docs.ckan.org/en/latest/api/
+
+content:
+  categories:
+    - オープンデータのメタデータ
+  formats:
+    - json
+  update_frequency: undocumented
+  coverage: 検証時点で package_search の count が 18141 件、tag_list が 5745 件。
+
+requirements:
+  auth: not_required
+  auth_note: 認証情報なしで 7 アクションすべてが success=true を返した。
+  credential_env: []
+  rate_limit: undocumented
+  terms_url: https://www.e-gov.go.jp/terms
+  attribution_required: "yes"
+  attribution_text: 出典：e-Govポータル（https://www.e-gov.go.jp）の形式で出典を記載する。
+  usage_restrictions:
+    - e-gov.go.jp 及びそのサブドメインで公開する情報には、権利表記がない限り公共データ利用規約（第1.0版・PDL1.0）が適用されると利用規約に明記されている。data.e-gov.go.jp はサブドメインに該当する。
+    - 編集・加工して利用する場合は、出典とは別に、編集・加工を行ったことおよびその主体を記載する必要がある。
+    - カタログが指す個々のデータセットには、それぞれの提供元の利用条件が別途あり得る。このエントリの規約はカタログのメタデータに対するもの。
+
+stability:
+  notes:
+    - CKAN の標準 API を採用しているが、e-Gov 側でのバージョン管理方針やサポート終了予定に関する記述は見つかっていない。
+
+reachability:
+  hosts:
+    - host: data.e-gov.go.jp
+      role: api
+      note: CKAN API の実体。
+    - host: www.data.go.jp
+      role: portal
+      note: /api/3/action/* は data.e-gov.go.jp へ 301 リダイレクトされる。
+    - host: www.e-gov.go.jp
+      role: terms
+
+verify:
+  script: verify/verify_egov_data_catalog.py
+  result: results/egov-data-catalog.json
+  command: .work/toolvenv/bin/python verify/verify_egov_data_catalog.py --out results/egov-data-catalog.json
+
+findings:
+  - claim: API のパスは CKAN 標準の /api/3/action/* ではなく /data/api/3/action/* である。標準のパスは 404 を返す。
+    evidence: https://data.e-gov.go.jp/api/3/action/package_search が 404、/data/api/3/action/package_search が 200 を返すことを確認。
+  - claim: 旧窓口 www.data.go.jp/api/3/action/* は data.e-gov.go.jp へ 301 リダイレクトされるが、リダイレクト先も 404 になる。移行先を知らないと辿り着けない。
+    evidence: curl -L で 301 -> https://data.e-gov.go.jp/api/3/action/package_search -> 404 を確認。
+  - claim: データセットのライセンス情報は事実上入っていない。license_id と license_title は取得した 100 件すべてで null だった。
+    evidence: package_search?rows=100 の結果を集計し、license_title が「なし」100 件であることを確認。カタログだけでは再配布可否を判断できない。
+  - claim: frequency_of_update は日本語の自由記述で、表記が揺れる。機械処理には正規化が要る。
+    evidence: 100 件サンプルで「少なくとも年1回」「更新しない」「年２回」「四半期」「1年」など全角半角混在の値が並んだ。
+  - claim: tag_list に先頭が半角スペースのタグが含まれる。
+    evidence: tag_list の先頭 3 件が " ガス", " スポーツ", " エネルギー" と、いずれも空白始まりだった。
+  - claim: package_list が返すのは CKAN 標準のデータセット名ではなく日付らしき文字列である。
+    evidence: package_list?limit=5 の戻り値が ["20160621", "20170627", "20180710"] だった。
+  - claim: package_show は id を渡さないと HTTP 409 を返す。404 ではない。
+    evidence: /package_show?limit=1 で 409 と success=false を確認。

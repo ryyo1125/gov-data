@@ -1,7 +1,7 @@
 {
   "source_id": "egov-hourei-api",
   "target": "https://laws.e-gov.go.jp/api/2",
-  "generated_at": "2026-08-19T07:07:34+00:00",
+  "generated_at": "2026-08-19T07:40:51+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -25,7 +25,7 @@
     {
       "step": "fetch_openapi_spec",
       "ok": true,
-      "elapsed_ms": 1349,
+      "elapsed_ms": 950,
       "result": {
         "url": "https://laws.e-gov.go.jp/api/2/swagger-ui/lawapi-v2.yaml",
         "spec_version": "2.1.139",
@@ -44,7 +44,7 @@
     {
       "step": "GET /laws",
       "ok": true,
-      "elapsed_ms": 449,
+      "elapsed_ms": 286,
       "result": {
         "_truncated": true,
         "_original_chars": 1704,
@@ -54,7 +54,7 @@
     {
       "step": "GET /law_revisions/{law_id}",
       "ok": true,
-      "elapsed_ms": 413,
+      "elapsed_ms": 255,
       "result": {
         "top_level_keys": [
           "law_info",
@@ -99,7 +99,7 @@
     {
       "step": "GET /law_data/{law_id}",
       "ok": true,
-      "elapsed_ms": 450,
+      "elapsed_ms": 309,
       "result": {
         "top_level_keys": [
           "attached_files_info",
@@ -124,7 +124,7 @@
     {
       "step": "GET /keyword",
       "ok": true,
-      "elapsed_ms": 1942,
+      "elapsed_ms": 1525,
       "result": {
         "top_level_keys": [
           "items",
@@ -189,7 +189,7 @@
     {
       "step": "GET /law_file/xml/{law_id}",
       "ok": true,
-      "elapsed_ms": 485,
+      "elapsed_ms": 328,
       "result": {
         "status": 200,
         "content_type": "application/octet-stream",
@@ -199,7 +199,7 @@
     {
       "step": "GET /attachment/{law_revision_id}",
       "ok": true,
-      "elapsed_ms": 677,
+      "elapsed_ms": 436,
       "result": {
         "status": 200,
         "content_type": "application/octet-stream",

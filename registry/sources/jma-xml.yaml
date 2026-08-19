@@ -1,0 +1,74 @@
+id: jma-xml
+name: 気象庁防災情報XML（PULL型 Atom フィード）
+summary: 気象庁が発表する警報・注意報、天気概況、地震・火山情報などの電文を、Atom フィード経由で取得できる公開サービス。認証不要の HTTPS GET のみで構成される。
+
+data_source:
+  provider: 気象庁
+  authority: primary_official
+  primary_source_url: https://xml.kishou.go.jp/xmlpull.html
+
+access:
+  method: rest_api
+  endpoint: https://www.data.jma.go.jp/developer/xml/feed
+  spec_url: https://xml.kishou.go.jp/xmlpull.html
+
+content:
+  categories:
+    - 気象警報・注意報
+    - 天気概況
+    - 地震・火山情報
+    - 海上警報
+  formats:
+    - atom
+    - xml
+  update_frequency: 高頻度フィード（regular / extra / eqvol / other）は毎分更新で直近少なくとも 10 分の入電を掲載。長期フィード（同名 + _l）は毎時更新で数日間の全入電を掲載。
+  coverage: 検証時点の entry 数は高頻度で 647 / 220 / 29 / 32 件、長期で 9686 / 6672 / 605 / 428 件。
+
+requirements:
+  auth: not_required
+  auth_note: 認証情報なしで 8 フィードと電文本体のすべてが 200 を返した。仕様ページにも認証に関する記述は無い。
+  credential_env: []
+  rate_limit: 1 日 10GB 以上のダウンロードを伴うアクセスが確認された場合、アクセス元 IP アドレスを遮断すると xmlpull.html に明記。
+  terms_url: https://xml.kishou.go.jp/considerationforxml.pdf
+  attribution_required: undocumented
+  attribution_text: ""
+  usage_restrictions:
+    - 二次利用（第三者への提供、ホームページ掲載等）は、利用目的が気象業務法の趣旨に反しない限り原則として制限なし。
+    - 電文中の予報の値等を編集する行為、および電文と異なる予報の値を表示する行為は予報業務に該当し、気象業務法第 17 条の許可を受けた者しか行えない。
+    - 警報については、元の電文の本質を損なうような編集は認められない（気象業務法第 23 条に抵触する可能性がある）。
+    - 編集を加えて流通させる場合は、独自に編集されていることと編集責任が編集者にあることを利用者に明示する必要がある。
+    - 不適切な利用を気象庁が覚知した場合、利用者への連絡のうえ利用停止等の措置がとられる場合がある。
+
+stability:
+  notes:
+    - サーバーメンテナンス等により配信が停止・遅延する場合があると xmlpull.html に明記。
+    - 電文のフォーマットやコード表は業務の変更等により随時更新・変更される場合があると留意事項 PDF に明記。
+    - 利用者が電文を用いて行う一切の行為について気象庁は責任を負わないと明記。
+
+reachability:
+  hosts:
+    - host: xml.kishou.go.jp
+      role: docs
+      note: 仕様ページと留意事項 PDF。フィード本体とはホストが異なる。
+    - host: www.data.jma.go.jp
+      role: api
+      note: Atom フィードと電文本体の実体はすべてこのホスト。
+    - host: www.jma.go.jp
+      role: portal
+
+verify:
+  script: verify/verify_jma_xml.py
+  result: results/jma-xml.json
+  command: .work/toolvenv/bin/python verify/verify_jma_xml.py --out results/jma-xml.json
+
+findings:
+  - claim: 仕様ページのホスト（xml.kishou.go.jp）とフィード本体のホスト（www.data.jma.go.jp）が異なる。片方だけを許可リストに入れても使えない。
+    evidence: xmlpull.html 内のフィードリンクがすべて https://www.data.jma.go.jp/developer/xml/feed/ を指していることを確認。
+  - claim: 長期フィードを高頻度フィードと同じ毎分間隔で取得すると、明記された 1 日 10GB の遮断閾値を超える。
+    evidence: 検証時の長期 4 本の合計が約 8.9MB。毎分取得すると 8.9MB×1440≒12.8GB/日となり閾値を超える。仕様どおり毎時取得なら約 213MB/日に収まる。
+  - claim: フィード自体の updated は JST（+09:00）、entry の updated は UTC（Z）で表記され、同一フィード内でタイムゾーン表記が混在する。
+    evidence: regular.xml の feed_updated が 2026-08-19T16:34:45+09:00、先頭 entry の updated が 2026-08-19T07:34:33Z。
+  - claim: 電文本体のルート要素は名前空間 http://xml.kishou.go.jp/jmaxml1/ の Report で、Control と Head を子に持つ。
+    evidence: 取得した VPFG50（府県天気概況）電文の root_tag と child_tags を results/jma-xml.json に記録。
+  - claim: 出典表示の義務は一次資料に明記されていない。ただし編集して流通させる場合は編集責任者の明示義務がある。
+    evidence: 留意事項 PDF「３．（３）編集責任者等の明示について」に編集時の明示義務の記載があり、出典表示に関する記載は無い。

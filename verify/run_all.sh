@@ -20,6 +20,14 @@ echo "== egov-hourei-api =="
 "$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_egov_hourei.py" \
   --out "$REPO_ROOT/results/egov-hourei-api.json"
 
+echo "== egov-data-catalog =="
+"$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_egov_data_catalog.py" \
+  --out "$REPO_ROOT/results/egov-data-catalog.json"
+
+echo "== jma-xml =="
+"$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_jma_xml.py" \
+  --out "$REPO_ROOT/results/jma-xml.json"
+
 echo "== jgrants-mcp =="
 "$REPO_ROOT/verify/run_jgrants_verification.sh"
 

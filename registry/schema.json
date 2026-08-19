@@ -5,109 +5,241 @@
   "description": "1 エンドポイント（または 1 MCP サーバー）につき 1 ファイル。検証の合否や検証日は書けない — それらは registry/build.py が results/ から生成する。",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "name", "summary", "data_source", "access", "content", "requirements", "stability", "reachability", "verify", "findings"],
+  "required": [
+    "id",
+    "name",
+    "summary",
+    "data_source",
+    "access",
+    "content",
+    "requirements",
+    "stability",
+    "reachability",
+    "verify",
+    "findings"
+  ],
   "properties": {
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9][a-z0-9-]*$",
       "description": "ファイル名と一致させる slug"
     },
-    "name": {"type": "string", "minLength": 1},
-    "summary": {"type": "string", "minLength": 1},
-
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
     "data_source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["provider", "authority", "primary_source_url"],
+      "required": [
+        "provider",
+        "authority",
+        "primary_source_url"
+      ],
       "description": "データそのものの出所。経路（access）とは独立に評価する。",
       "properties": {
-        "provider": {"type": "string", "description": "データを保有・公開している組織"},
+        "provider": {
+          "type": "string",
+          "description": "データを保有・公開している組織"
+        },
         "authority": {
-          "enum": ["primary_official", "official_wrapper", "third_party_wrapper", "unknown"],
+          "enum": [
+            "primary_official",
+            "official_wrapper",
+            "third_party_wrapper",
+            "unknown"
+          ],
           "description": "primary_official: 一次公開元が直接提供 / official_wrapper: 一次公開元自身によるラッパー実装 / third_party_wrapper: 第三者によるラッパー"
         },
-        "primary_source_url": {"type": "string", "format": "uri"}
+        "primary_source_url": {
+          "type": "string",
+          "format": "uri"
+        }
       }
     },
-
     "access": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["method", "endpoint"],
+      "required": [
+        "method",
+        "endpoint"
+      ],
       "description": "実際にデータへ到達する経路。",
       "properties": {
-        "method": {"enum": ["mcp", "rest_api", "bulk_download", "file", "web"]},
-        "endpoint": {"type": "string"},
-        "transport": {"type": "string"},
-        "spec_url": {"type": "string", "format": "uri"},
-        "spec_version": {"type": "string"},
+        "method": {
+          "enum": [
+            "mcp",
+            "rest_api",
+            "bulk_download",
+            "file",
+            "web"
+          ]
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "transport": {
+          "type": "string"
+        },
+        "spec_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "spec_version": {
+          "type": "string"
+        },
         "implementation": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["name", "maintainer"],
+          "required": [
+            "name",
+            "maintainer"
+          ],
           "description": "経路が独立の実装（MCP サーバー等）を挟む場合のみ。REST を直接叩くなら省略する。",
           "properties": {
-            "name": {"type": "string"},
-            "maintainer": {"type": "string"},
-            "repository": {"type": "string", "format": "uri"},
-            "license": {"type": "string"},
-            "version_verified": {"type": "string", "description": "検証時に実際に動いていた版数"}
+            "name": {
+              "type": "string"
+            },
+            "maintainer": {
+              "type": "string"
+            },
+            "repository": {
+              "type": "string",
+              "format": "uri"
+            },
+            "license": {
+              "type": "string"
+            },
+            "version_verified": {
+              "type": "string",
+              "description": "検証時に実際に動いていた版数"
+            }
           }
         }
       }
     },
-
     "content": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["categories", "formats", "update_frequency", "coverage"],
+      "required": [
+        "categories",
+        "formats",
+        "update_frequency",
+        "coverage"
+      ],
       "properties": {
-        "categories": {"type": "array", "minItems": 1, "items": {"type": "string"}},
-        "formats": {"type": "array", "minItems": 1, "items": {"type": "string"}},
-        "update_frequency": {"type": "string", "description": "データ自体の更新頻度。一次資料に記載がなければ undocumented"},
-        "coverage": {"type": "string", "description": "収録範囲。件数は検証時の実測値であることを明記する"}
+        "categories": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "formats": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "update_frequency": {
+          "type": "string",
+          "description": "データ自体の更新頻度。一次資料に記載がなければ undocumented"
+        },
+        "coverage": {
+          "type": "string",
+          "description": "収録範囲。件数は検証時の実測値であることを明記する"
+        }
       }
     },
-
     "requirements": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["auth", "rate_limit", "terms_url", "attribution_required"],
+      "required": [
+        "auth",
+        "rate_limit",
+        "terms_url",
+        "attribution_required",
+        "usage_restrictions"
+      ],
       "properties": {
         "auth": {
-          "enum": ["not_required", "api_key_required", "oauth_required", "undocumented"],
+          "enum": [
+            "not_required",
+            "api_key_required",
+            "oauth_required",
+            "undocumented"
+          ],
           "description": "undocumented は「一次資料に記載がない」。「不要」と断定してはならない"
         },
-        "auth_note": {"type": "string"},
+        "auth_note": {
+          "type": "string"
+        },
         "credential_env": {
           "type": "array",
-          "items": {"type": "string"},
+          "items": {
+            "type": "string"
+          },
           "description": "環境変数名のみ。値は絶対に書かない"
         },
-        "rate_limit": {"type": "string", "description": "実数値、または undocumented"},
-        "terms_url": {"type": ["string", "null"], "description": "利用規約の URL。見つからなければ null"},
+        "rate_limit": {
+          "type": "string",
+          "description": "実数値、または undocumented"
+        },
+        "terms_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "利用規約の URL。見つからなければ null"
+        },
         "attribution_required": {
-          "enum": ["yes", "no", "undocumented"],
+          "enum": [
+            "yes",
+            "no",
+            "undocumented"
+          ],
           "description": "出典表示義務の有無"
         },
-        "attribution_text": {"type": "string", "description": "義務がある場合に明記すべき文言"}
+        "attribution_text": {
+          "type": "string",
+          "description": "義務がある場合に明記すべき文言"
+        },
+        "usage_restrictions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "一次資料に明記された利用上の制約（再配布・加工・法的許可・遮断条件など）。無ければ空配列だが、確認していないなら「未確認」である旨を要素として書く"
+        }
       }
     },
-
     "stability": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["notes"],
+      "required": [
+        "notes"
+      ],
       "description": "安定性は一次資料に明記された記述だけを載せる。URL の見た目からの推測は findings に evidence 付きで書く。",
       "properties": {
-        "notes": {"type": "array", "items": {"type": "string"}}
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
-
     "reachability": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["hosts"],
+      "required": [
+        "hosts"
+      ],
       "description": "到達性は実行環境依存。到達不能を「存在しない」と書かない。",
       "properties": {
         "hosts": {
@@ -116,39 +248,69 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["host", "role"],
+            "required": [
+              "host",
+              "role"
+            ],
             "properties": {
-              "host": {"type": "string"},
-              "role": {"type": "string", "description": "api / docs / portal など"},
-              "note": {"type": "string"}
+              "host": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string",
+                "description": "api / docs / portal など"
+              },
+              "note": {
+                "type": "string"
+              }
             }
           }
         }
       }
     },
-
     "verify": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["script", "result", "command"],
+      "required": [
+        "script",
+        "result",
+        "command"
+      ],
       "description": "検証の再現手段への「ポインタ」。合否そのものは書かない。",
       "properties": {
-        "script": {"type": "string"},
-        "result": {"type": "string", "description": "results/ 配下の JSON。build.py がこれを読んで status を生成する"},
-        "command": {"type": "string", "description": "そのまま実行できる再現コマンド"}
+        "script": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string",
+          "description": "results/ 配下の JSON。build.py がこれを読んで status を生成する"
+        },
+        "command": {
+          "type": "string",
+          "description": "そのまま実行できる再現コマンド"
+        }
       }
     },
-
     "findings": {
       "type": "array",
       "description": "実行して初めて分かったこと。claim だけを書くことは許されず、必ず evidence が要る。",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["claim", "evidence"],
+        "required": [
+          "claim",
+          "evidence"
+        ],
         "properties": {
-          "claim": {"type": "string", "minLength": 1},
-          "evidence": {"type": "string", "minLength": 1, "description": "どの実行結果・どのファイルの何行目・どの一次資料で確認したか"}
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1,
+            "description": "どの実行結果・どのファイルの何行目・どの一次資料で確認したか"
+          }
         }
       }
     }

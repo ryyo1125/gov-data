@@ -39,6 +39,8 @@ requirements:
   terms_url: null
   attribution_required: "yes"
   attribution_text: 本ツールで取得した情報を利用・公開する際は「Jグランツ（jGrants）からの出典」である旨を明記すること。
+  usage_restrictions:
+    - 出典表示以外の利用制約は、公式ドキュメントにもツールの docstring にも記述が無い（undocumented）。
 
 stability:
   notes:
@@ -56,7 +58,6 @@ reachability:
       role: docs
     - host: www.digital.go.jp
       role: portal
-      note: 検証環境の egress ポリシーで 403。API 側には影響しない。
 
 verify:
   script: verify/verify_jgrants_mcp.py

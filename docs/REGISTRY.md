@@ -4,15 +4,89 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-19T07:07:56+00:00
+- 生成日時: 2026-08-19T07:41:17+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
 
 | ID | 名称 | 提供元 | 権威性 | 方式 | 認証 | 出典表示 | 状態 | 最終検証 |
 |---|---|---|---|---|---|---|---|---|
-| `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | primary_official | rest_api | not_required | undocumented | 検証済 (7/7) | 2026-08-19 |
+| `egov-data-catalog` | e-Gov データポータル（CKAN API） | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-19 |
+| `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-19 |
 | `jgrants-mcp` | Jグランツ MCP Server | デジタル庁 | official_wrapper | mcp | not_required | yes | 検証済 (9/9) | 2026-08-19 |
+| `jma-xml` | 気象庁防災情報XML（PULL型 Atom フィード） | 気象庁 | primary_official | rest_api | not_required | undocumented | 検証済 (9/9) | 2026-08-19 |
+
+## e-Gov データポータル（CKAN API） (`egov-data-catalog`)
+
+日本政府のオープンデータカタログ。府省庁が公開するデータセットのメタデータを CKAN の標準 API で検索・取得できる。台帳に載せる候補を機械的に洗い出す用途に使える。
+
+### 提供と経路
+
+- 提供元: デジタル庁（e-Gov）（権威性: `primary_official`）
+- 一次情報: https://data.e-gov.go.jp/
+- 方式: `rest_api` / エンドポイント: `https://data.e-gov.go.jp/data/api/3/action`
+- 仕様: https://docs.ckan.org/en/latest/api/
+
+### 提供される情報
+
+- 種類: オープンデータのメタデータ
+- 形式: json
+- 更新頻度: undocumented
+- 収録範囲: 検証時点で package_search の count が 18141 件、tag_list が 5745 件。
+
+### 接続要件
+
+- 認証: `not_required` — 認証情報なしで 7 アクションすべてが success=true を返した。
+- レート制限: undocumented
+- 利用規約: https://www.e-gov.go.jp/terms
+- 出典表示: `yes` — 出典：e-Govポータル（https://www.e-gov.go.jp）の形式で出典を記載する。
+
+### 安定性（一次資料の記述）
+
+- CKAN の標準 API を採用しているが、e-Gov 側でのバージョン管理方針やサポート終了予定に関する記述は見つかっていない。
+
+### 到達性
+
+| ホスト | 役割 | 備考 |
+|---|---|---|
+| `data.e-gov.go.jp` | api | CKAN API の実体。 |
+| `www.data.go.jp` | portal | /api/3/action/* は data.e-gov.go.jp へ 301 リダイレクトされる。 |
+| `www.e-gov.go.jp` | terms |  |
+
+### 検証
+
+- 状態: **検証済**
+- 最終検証: 2026-08-19T07:40:56+00:00
+- 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_data_catalog.py --out results/egov-data-catalog.json`
+- 検証スクリプト: `verify/verify_egov_data_catalog.py` / 結果: `results/egov-data-catalog.json`
+- 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
+
+| ステップ | 結果 | 所要 | 備考 |
+|---|---|---|---|
+| `site_read` | OK | 974 ms |  |
+| `package_search` | OK | 901 ms |  |
+| `package_list` | OK | 522 ms |  |
+| `organization_list` | OK | 540 ms |  |
+| `group_list` | OK | 278 ms |  |
+| `tag_list` | OK | 1007 ms |  |
+| `package_show` | OK | 630 ms |  |
+
+### 実行して分かったこと
+
+- **API のパスは CKAN 標準の /api/3/action/* ではなく /data/api/3/action/* である。標準のパスは 404 を返す。**
+  - 根拠: https://data.e-gov.go.jp/api/3/action/package_search が 404、/data/api/3/action/package_search が 200 を返すことを確認。
+- **旧窓口 www.data.go.jp/api/3/action/* は data.e-gov.go.jp へ 301 リダイレクトされるが、リダイレクト先も 404 になる。移行先を知らないと辿り着けない。**
+  - 根拠: curl -L で 301 -> https://data.e-gov.go.jp/api/3/action/package_search -> 404 を確認。
+- **データセットのライセンス情報は事実上入っていない。license_id と license_title は取得した 100 件すべてで null だった。**
+  - 根拠: package_search?rows=100 の結果を集計し、license_title が「なし」100 件であることを確認。カタログだけでは再配布可否を判断できない。
+- **frequency_of_update は日本語の自由記述で、表記が揺れる。機械処理には正規化が要る。**
+  - 根拠: 100 件サンプルで「少なくとも年1回」「更新しない」「年２回」「四半期」「1年」など全角半角混在の値が並んだ。
+- **tag_list に先頭が半角スペースのタグが含まれる。**
+  - 根拠: tag_list の先頭 3 件が " ガス", " スポーツ", " エネルギー" と、いずれも空白始まりだった。
+- **package_list が返すのは CKAN 標準のデータセット名ではなく日付らしき文字列である。**
+  - 根拠: package_list?limit=5 の戻り値が ["20160621", "20170627", "20180710"] だった。
+- **package_show は id を渡さないと HTTP 409 を返す。404 ではない。**
+  - 根拠: /package_show?limit=1 で 409 と success=false を確認。
 
 ## e-Gov 法令 API Version 2 (`egov-hourei-api`)
 
@@ -36,8 +110,8 @@
 
 - 認証: `not_required` — OpenAPI 仕様に securitySchemes の定義が無く、認証情報なしで全 6 エンドポイントが 200 を返した。
 - レート制限: undocumented
-- 利用規約: 未確認
-- 出典表示: `undocumented`
+- 利用規約: https://www.e-gov.go.jp/terms
+- 出典表示: `yes` — 出典：e-Govポータル（https://www.e-gov.go.jp）の形式で出典を記載する。実際の提供元や当該ページの URL に置き換えてよい。
 
 ### 安定性（一次資料の記述）
 
@@ -50,25 +124,25 @@
 | ホスト | 役割 | 備考 |
 |---|---|---|
 | `laws.e-gov.go.jp` | api | API・OpenAPI 仕様・XML 一括ダウンロードのすべてがこのホスト。 |
-| `www.e-gov.go.jp` | portal | 検証環境の egress ポリシーで 403。利用規約ページがここにあるため規約を確認できていない。 |
+| `www.e-gov.go.jp` | terms | 利用規約（PDL1.0 の適用と出典記載例）はこのホスト。API 本体とはホストが異なる。 |
 
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T07:07:34+00:00
+- 最終検証: 2026-08-19T07:40:51+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json`
 - 検証スクリプト: `verify/verify_egov_hourei.py` / 結果: `results/egov-hourei-api.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `fetch_openapi_spec` | OK | 1349 ms |  |
-| `GET /laws` | OK | 449 ms |  |
-| `GET /law_revisions/{law_id}` | OK | 413 ms |  |
-| `GET /law_data/{law_id}` | OK | 450 ms |  |
-| `GET /keyword` | OK | 1942 ms |  |
-| `GET /law_file/xml/{law_id}` | OK | 485 ms |  |
-| `GET /attachment/{law_revision_id}` | OK | 677 ms |  |
+| `fetch_openapi_spec` | OK | 950 ms |  |
+| `GET /laws` | OK | 286 ms |  |
+| `GET /law_revisions/{law_id}` | OK | 255 ms |  |
+| `GET /law_data/{law_id}` | OK | 309 ms |  |
+| `GET /keyword` | OK | 1525 ms |  |
+| `GET /law_file/xml/{law_id}` | OK | 328 ms |  |
+| `GET /attachment/{law_revision_id}` | OK | 436 ms |  |
 
 ### 実行して分かったこと
 
@@ -82,8 +156,12 @@
   - 根拠: law_revision_id の書式が {law_id}_{施行日}_{改正法令 ID} であり、民法は 129AC0000000089_20260624_508AC0000000045 だった。
 - **添付ファイルを持つ法令は少数。省令 40 件を走査して 3 件のみ該当した。**
   - 根拠: /laws?law_type=MinisterialOrdinance の先頭 40 件について law_data の attached_files_info を確認。
-- **利用規約・出典表示義務・レート制限は未確認。**
-  - 根拠: 規約ページのある www.e-gov.go.jp が検証環境の egress ポリシーで 403。OpenAPI 仕様にも該当記述が無い。到達できないだけであり、規約が存在しないという意味ではない。
+- **利用規約は API のドキュメントではなく e-Gov ポータル側にあり、PDL1.0 の適用対象は「e-gov.go.jp 及びそのサブドメイン」と書かれているため laws.e-gov.go.jp も含まれる。**
+  - 根拠: https://www.e-gov.go.jp/terms の本文で「e-gov.go.jp及びそのサブドメインのWebサイト（中略）で公開している情報（中略）の著作権は、特記されていない限りデジタル庁に帰属し、権利表記の記載がない限り『公共データ利用規約（第1.0版）』（PDL1.0）が適用されます」と確認。
+- **規約ページは既定の User-Agent では先方の WAF に拒否される。egress の問題ではない。**
+  - 根拠: 既定 UA では HTTP 403 で「アクセスがブロックされています｜e-Gov」の HTML が返り、ブラウザ相当の UA では 200 が返った。
+- **レート制限は依然として一次資料に記述が無い。**
+  - 根拠: OpenAPI 仕様および https://www.e-gov.go.jp/terms のいずれにもレート制限の記載が無いことを確認。
 - **API とは別に XML 一括ダウンロードが提供されている。**
   - 根拠: OpenAPI 仕様の description に https://laws.e-gov.go.jp/bulkdownload?file_section=1&only_xml_flag=true が記載。
 
@@ -125,12 +203,12 @@
 | `api.jgrants-portal.go.jp` | api | MCP サーバーが実際に叩く先。 |
 | `www.jgrants-portal.go.jp` | portal |  |
 | `developers.digital.go.jp` | docs |  |
-| `www.digital.go.jp` | portal | 検証環境の egress ポリシーで 403。API 側には影響しない。 |
+| `www.digital.go.jp` | portal |  |
 
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T07:07:55+00:00
+- 最終検証: 2026-08-19T07:41:16+00:00
 - 再現コマンド: `./verify/run_jgrants_verification.sh`
 - 検証スクリプト: `verify/verify_jgrants_mcp.py` / 結果: `results/jgrants-mcp.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
@@ -139,13 +217,13 @@
 |---|---|---|---|
 | `initialize` | OK | 0 ms |  |
 | `list_tools` | OK | 19 ms |  |
-| `list_resources` | OK | 9 ms |  |
-| `list_prompts` | OK | 7 ms |  |
-| `call:ping` | OK | 14 ms |  |
-| `call:search_subsidies` | OK | 1109 ms |  |
-| `call:get_subsidy_detail` | OK | 238 ms |  |
-| `call:get_subsidy_overview` | OK | 1823 ms |  |
-| `call:get_file_content` | OK | 2861 ms |  |
+| `list_resources` | OK | 10 ms |  |
+| `list_prompts` | OK | 10 ms |  |
+| `call:ping` | OK | 16 ms |  |
+| `call:search_subsidies` | OK | 1437 ms |  |
+| `call:get_subsidy_detail` | OK | 244 ms |  |
+| `call:get_subsidy_overview` | OK | 1905 ms |  |
+| `call:get_file_content` | OK | 2401 ms |  |
 
 ### 実行して分かったこと
 
@@ -162,44 +240,93 @@
 - **出典表示義務はドキュメントではなくツールの docstring にのみ書かれている。**
   - 根拠: jgrants_mcp_server/core.py の各ツール docstring に「出典表示」の記載。
 
-## 保留中の候補（到達不能で未登録）
+## 気象庁防災情報XML（PULL型 Atom フィード） (`jma-xml`)
 
-検証環境の egress ポリシーで到達できず、事実を書く根拠が得られなかったもの。
-台帳に載せていないのは提供が終わっているからではない。
-実体は `registry/blocked.yaml`。
+気象庁が発表する警報・注意報、天気概況、地震・火山情報などの電文を、Atom フィード経由で取得できる公開サービス。認証不要の HTTPS GET のみで構成される。
 
-### 気象庁防災情報XML（PULL型 Atom フィード） (`jma-xml`)
+### 提供と経路
 
-- 状態: 到達不可のまま
-- 調べた理由: 防災気象情報を台帳に登録するために調査した。
-- 対象ホスト: `xml.kishou.go.jp`, `www.jma.go.jp`, `www.data.jma.go.jp`
-- 到達できない理由: 3 ホストすべてが検証環境の egress ポリシーで 403（httpx.ProxyError: 403 Forbidden）。 実データはもちろん、仕様書 https://xml.kishou.go.jp/xmlpull.html にも到達できないため、 エンドポイント・更新頻度・利用規約のいずれも一次資料で確認できない。 Web 検索で得られる二次情報だけを根拠にエントリを書くことは台帳の規律に反するので登録しない。
-- 次の一手: xml.kishou.go.jp / www.jma.go.jp / www.data.jma.go.jp を egress 許可リストに追加してから、 xmlpull.html でフィード URL を確認し、verify/verify_jma_xml.py を書いて検証する。
+- 提供元: 気象庁（権威性: `primary_official`）
+- 一次情報: https://xml.kishou.go.jp/xmlpull.html
+- 方式: `rest_api` / エンドポイント: `https://www.data.jma.go.jp/developer/xml/feed`
+- 仕様: https://xml.kishou.go.jp/xmlpull.html
 
-### e-Gov データポータル（CKAN API） (`egov-data-catalog`)
+### 提供される情報
 
-- 状態: 到達不可のまま
-- 調べた理由: 台帳に載せる候補を機械的に洗い出せるカタログとして調査した。
-- 対象ホスト: `data.e-gov.go.jp`, `www.data.go.jp`
-- 到達できない理由: www.data.go.jp/api/3/action/* は data.e-gov.go.jp へ 301 リダイレクトされ、 そのホストが検証環境の egress ポリシーで 403。カタログ API を実行できない。
-- 次の一手: data.e-gov.go.jp を egress 許可リストに追加してから CKAN API を検証する。
+- 種類: 気象警報・注意報 / 天気概況 / 地震・火山情報 / 海上警報
+- 形式: atom / xml
+- 更新頻度: 高頻度フィード（regular / extra / eqvol / other）は毎分更新で直近少なくとも 10 分の入電を掲載。長期フィード（同名 + _l）は毎時更新で数日間の全入電を掲載。
+- 収録範囲: 検証時点の entry 数は高頻度で 647 / 220 / 29 / 32 件、長期で 9686 / 6672 / 605 / 428 件。
 
+### 接続要件
+
+- 認証: `not_required` — 認証情報なしで 8 フィードと電文本体のすべてが 200 を返した。仕様ページにも認証に関する記述は無い。
+- レート制限: 1 日 10GB 以上のダウンロードを伴うアクセスが確認された場合、アクセス元 IP アドレスを遮断すると xmlpull.html に明記。
+- 利用規約: https://xml.kishou.go.jp/considerationforxml.pdf
+- 出典表示: `undocumented`
+
+### 安定性（一次資料の記述）
+
+- サーバーメンテナンス等により配信が停止・遅延する場合があると xmlpull.html に明記。
+- 電文のフォーマットやコード表は業務の変更等により随時更新・変更される場合があると留意事項 PDF に明記。
+- 利用者が電文を用いて行う一切の行為について気象庁は責任を負わないと明記。
+
+### 到達性
+
+| ホスト | 役割 | 備考 |
+|---|---|---|
+| `xml.kishou.go.jp` | docs | 仕様ページと留意事項 PDF。フィード本体とはホストが異なる。 |
+| `www.data.jma.go.jp` | api | Atom フィードと電文本体の実体はすべてこのホスト。 |
+| `www.jma.go.jp` | portal |  |
+
+### 検証
+
+- 状態: **検証済**
+- 最終検証: 2026-08-19T07:41:03+00:00
+- 再現コマンド: `.work/toolvenv/bin/python verify/verify_jma_xml.py --out results/jma-xml.json`
+- 検証スクリプト: `verify/verify_jma_xml.py` / 結果: `results/jma-xml.json`
+- 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
+
+| ステップ | 結果 | 所要 | 備考 |
+|---|---|---|---|
+| `GET /regular.xml (定時・高頻度)` | OK | 607 ms |  |
+| `GET /extra.xml (随時・高頻度)` | OK | 61 ms |  |
+| `GET /eqvol.xml (地震火山・高頻度)` | OK | 60 ms |  |
+| `GET /other.xml (その他・高頻度)` | OK | 58 ms |  |
+| `GET /regular_l.xml (定時・長期)` | OK | 1957 ms |  |
+| `GET /extra_l.xml (随時・長期)` | OK | 1947 ms |  |
+| `GET /eqvol_l.xml (地震火山・長期)` | OK | 572 ms |  |
+| `GET /other_l.xml (その他・長期)` | OK | 550 ms |  |
+| `GET 電文本体` | OK | 530 ms |  |
+
+### 実行して分かったこと
+
+- **仕様ページのホスト（xml.kishou.go.jp）とフィード本体のホスト（www.data.jma.go.jp）が異なる。片方だけを許可リストに入れても使えない。**
+  - 根拠: xmlpull.html 内のフィードリンクがすべて https://www.data.jma.go.jp/developer/xml/feed/ を指していることを確認。
+- **長期フィードを高頻度フィードと同じ毎分間隔で取得すると、明記された 1 日 10GB の遮断閾値を超える。**
+  - 根拠: 検証時の長期 4 本の合計が約 8.9MB。毎分取得すると 8.9MB×1440≒12.8GB/日となり閾値を超える。仕様どおり毎時取得なら約 213MB/日に収まる。
+- **フィード自体の updated は JST（+09:00）、entry の updated は UTC（Z）で表記され、同一フィード内でタイムゾーン表記が混在する。**
+  - 根拠: regular.xml の feed_updated が 2026-08-19T16:34:45+09:00、先頭 entry の updated が 2026-08-19T07:34:33Z。
+- **電文本体のルート要素は名前空間 http://xml.kishou.go.jp/jmaxml1/ の Report で、Control と Head を子に持つ。**
+  - 根拠: 取得した VPFG50（府県天気概況）電文の root_tag と child_tags を results/jma-xml.json に記録。
+- **出典表示の義務は一次資料に明記されていない。ただし編集して流通させる場合は編集責任者の明示義務がある。**
+  - 根拠: 留意事項 PDF「３．（３）編集責任者等の明示について」に編集時の明示義務の記載があり、出典表示に関する記載は無い。
 
 ## 到達性の実測
 
-`verify/verify_reachability.py` の実測結果（2026-08-19T07:07:28+00:00）。
+`verify/verify_reachability.py` の実測結果（2026-08-19T07:40:46+00:00）。
 到達できないことは、そのサービスが存在しないことを意味しない。
 
 | ホスト | 結果 | 詳細 |
 |---|---|---|
 | `api.jgrants-portal.go.jp` | 到達可 | HTTP 404 |
-| `data.e-gov.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `data.e-gov.go.jp` | 到達可 | HTTP 301 |
 | `developers.digital.go.jp` | 到達可 | HTTP 200 |
 | `laws.e-gov.go.jp` | 到達可 | HTTP 200 |
 | `www.data.go.jp` | 到達可 | HTTP 301 |
-| `www.data.jma.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.digital.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.e-gov.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.data.jma.go.jp` | 到達可 | HTTP 200 |
+| `www.digital.go.jp` | 到達可 | HTTP 200 |
+| `www.e-gov.go.jp` | 到達可 | HTTP 403 |
 | `www.jgrants-portal.go.jp` | 到達可 | HTTP 200 |
-| `www.jma.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `xml.kishou.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.jma.go.jp` | 到達可 | HTTP 302 |
+| `xml.kishou.go.jp` | 到達可 | HTTP 200 |

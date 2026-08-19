@@ -1,0 +1,142 @@
+{
+  "source_id": "egov-data-catalog",
+  "target": "https://data.e-gov.go.jp/data/api/3/action",
+  "generated_at": "2026-08-19T07:40:56+00:00",
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
+  },
+  "steps": [
+    {
+      "step": "site_read",
+      "ok": true,
+      "elapsed_ms": 974,
+      "result": {
+        "result": true
+      }
+    },
+    {
+      "step": "package_search",
+      "ok": true,
+      "elapsed_ms": 901,
+      "result": {
+        "count": 18141,
+        "results_len": 3,
+        "results_sample": [
+          {
+            "id": "314b5242-257e-4c67-8b51-bff3bcdb53c8",
+            "title": "給与勧告の仕組み",
+            "organization": "人事院",
+            "license_id": null,
+            "license_title": null,
+            "frequency_of_update": "少なくとも年1回",
+            "num_resources": 1,
+            "resource_formats": [
+              "PDF"
+            ]
+          },
+          {
+            "id": "b992ad4a-a58d-40ea-a9a9-6b1aa76c811c",
+            "title": "消防庁_検討会等",
+            "organization": "総務省",
+            "license_id": null,
+            "license_title": null,
+            "frequency_of_update": "",
+            "num_resources": 8,
+            "resource_formats": [
+              "PDF"
+            ]
+          },
+          {
+            "id": "5f62f8e4-834c-4974-b479-fcd3646ad36d",
+            "title": "平成20年_平成20年度(2008年)岩手・宮城内陸地震被害の状況・政府の主な対応一覧",
+            "organization": "内閣府",
+            "license_id": null,
+            "license_title": null,
+            "frequency_of_update": "不定期",
+            "num_resources": 65,
+            "resource_formats": [
+              "PDF"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step": "package_list",
+      "ok": true,
+      "elapsed_ms": 522,
+      "result": {
+        "len": 5,
+        "sample": [
+          "20160621",
+          "20170627",
+          "20180710"
+        ]
+      }
+    },
+    {
+      "step": "organization_list",
+      "ok": true,
+      "elapsed_ms": 540,
+      "result": {
+        "len": 5,
+        "sample": [
+          "org_2000",
+          "org_1300",
+          "org_0800"
+        ]
+      }
+    },
+    {
+      "step": "group_list",
+      "ok": true,
+      "elapsed_ms": 278,
+      "result": {
+        "len": 5,
+        "sample": [
+          "gr_0200",
+          "gr_1700",
+          "gr_0700"
+        ]
+      }
+    },
+    {
+      "step": "tag_list",
+      "ok": true,
+      "elapsed_ms": 1007,
+      "result": {
+        "len": 5745,
+        "sample": [
+          " ガス",
+          " スポーツ",
+          " エネルギー"
+        ]
+      }
+    },
+    {
+      "step": "package_show",
+      "ok": true,
+      "elapsed_ms": 630,
+      "result": {
+        "id": "314b5242-257e-4c67-8b51-bff3bcdb53c8",
+        "title": "給与勧告の仕組み",
+        "organization": "人事院",
+        "license_id": null,
+        "license_title": null,
+        "frequency_of_update": "少なくとも年1回",
+        "num_resources": 1,
+        "resource_formats": [
+          "PDF"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "ok": 7,
+    "skipped": 0,
+    "blocked": 0,
+    "failed": 0
+  }
+}

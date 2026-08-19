@@ -28,9 +28,15 @@ requirements:
   auth_note: OpenAPI 仕様に securitySchemes の定義が無く、認証情報なしで全 6 エンドポイントが 200 を返した。
   credential_env: []
   rate_limit: undocumented
-  terms_url: null
-  attribution_required: undocumented
-  attribution_text: ""
+  terms_url: https://www.e-gov.go.jp/terms
+  attribution_required: "yes"
+  attribution_text: 出典：e-Govポータル（https://www.e-gov.go.jp）の形式で出典を記載する。実際の提供元や当該ページの URL に置き換えてよい。
+  usage_restrictions:
+    - e-gov.go.jp 及びそのサブドメインで公開する情報には、権利表記がない限り公共データ利用規約（第1.0版・PDL1.0）が適用されると利用規約に明記されている。laws.e-gov.go.jp はサブドメインに該当する。
+    - 編集・加工して利用する場合は、出典とは別に、編集・加工を行ったことおよびその主体を記載する必要がある。
+    - 編集・加工した情報を、国や府省等が作成した未加工のものであるかのような態様で公表・利用してはならない。
+    - シンボルマーク・ロゴ・キャラクターデザイン、および別の利用ルールの適用を明示しているコンテンツは本規約の適用外。
+    - サイトの休廃止や重大な変更は原則 90 日前までに公表または通知されると規約に明記されている。
 
 stability:
   notes:
@@ -44,8 +50,8 @@ reachability:
       role: api
       note: API・OpenAPI 仕様・XML 一括ダウンロードのすべてがこのホスト。
     - host: www.e-gov.go.jp
-      role: portal
-      note: 検証環境の egress ポリシーで 403。利用規約ページがここにあるため規約を確認できていない。
+      role: terms
+      note: 利用規約（PDL1.0 の適用と出典記載例）はこのホスト。API 本体とはホストが異なる。
 
 verify:
   script: verify/verify_egov_hourei.py
@@ -63,7 +69,11 @@ findings:
     evidence: law_revision_id の書式が {law_id}_{施行日}_{改正法令 ID} であり、民法は 129AC0000000089_20260624_508AC0000000045 だった。
   - claim: 添付ファイルを持つ法令は少数。省令 40 件を走査して 3 件のみ該当した。
     evidence: /laws?law_type=MinisterialOrdinance の先頭 40 件について law_data の attached_files_info を確認。
-  - claim: 利用規約・出典表示義務・レート制限は未確認。
-    evidence: 規約ページのある www.e-gov.go.jp が検証環境の egress ポリシーで 403。OpenAPI 仕様にも該当記述が無い。到達できないだけであり、規約が存在しないという意味ではない。
+  - claim: 利用規約は API のドキュメントではなく e-Gov ポータル側にあり、PDL1.0 の適用対象は「e-gov.go.jp 及びそのサブドメイン」と書かれているため laws.e-gov.go.jp も含まれる。
+    evidence: https://www.e-gov.go.jp/terms の本文で「e-gov.go.jp及びそのサブドメインのWebサイト（中略）で公開している情報（中略）の著作権は、特記されていない限りデジタル庁に帰属し、権利表記の記載がない限り『公共データ利用規約（第1.0版）』（PDL1.0）が適用されます」と確認。
+  - claim: 規約ページは既定の User-Agent では先方の WAF に拒否される。egress の問題ではない。
+    evidence: 既定 UA では HTTP 403 で「アクセスがブロックされています｜e-Gov」の HTML が返り、ブラウザ相当の UA では 200 が返った。
+  - claim: レート制限は依然として一次資料に記述が無い。
+    evidence: OpenAPI 仕様および https://www.e-gov.go.jp/terms のいずれにもレート制限の記載が無いことを確認。
   - claim: API とは別に XML 一括ダウンロードが提供されている。
     evidence: OpenAPI 仕様の description に https://laws.e-gov.go.jp/bulkdownload?file_section=1&only_xml_flag=true が記載。

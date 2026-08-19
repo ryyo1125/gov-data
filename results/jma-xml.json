@@ -1,0 +1,197 @@
+{
+  "source_id": "jma-xml",
+  "target": "https://www.data.jma.go.jp/developer/xml/feed",
+  "generated_at": "2026-08-19T07:41:03+00:00",
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
+  },
+  "feeds": [
+    "regular",
+    "extra",
+    "eqvol",
+    "other",
+    "regular_l",
+    "extra_l",
+    "eqvol_l",
+    "other_l"
+  ],
+  "steps": [
+    {
+      "step": "GET /regular.xml (定時・高頻度)",
+      "ok": true,
+      "elapsed_ms": 607,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml",
+        "bytes": 333095,
+        "feed_title": "高頻度（定時）",
+        "feed_updated": "2026-08-19T16:40:14+09:00",
+        "entry_count": 685,
+        "first_entry": {
+          "title": "府県天気概況",
+          "updated": "2026-08-19T07:39:41Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260819073941_0_VPFG50_011000.xml"
+        },
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260819073941_0_VPFG50_011000.xml"
+      }
+    },
+    {
+      "step": "GET /extra.xml (随時・高頻度)",
+      "ok": true,
+      "elapsed_ms": 61,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml",
+        "bytes": 134139,
+        "feed_title": "高頻度（随時）",
+        "feed_updated": "2026-08-19T16:37:59+09:00",
+        "entry_count": 225,
+        "first_entry": {
+          "title": "気象警報・注意報（Ｈ２７）",
+          "updated": "2026-08-19T07:37:29Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260819073730_0_VPWW54_460100.xml"
+        },
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260819073730_0_VPWW54_460100.xml"
+      }
+    },
+    {
+      "step": "GET /eqvol.xml (地震火山・高頻度)",
+      "ok": true,
+      "elapsed_ms": 60,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml",
+        "bytes": 21263,
+        "feed_title": "高頻度（地震火山）",
+        "feed_updated": "2026-08-19T16:00:45+09:00",
+        "entry_count": 29,
+        "first_entry": {
+          "title": "火山の状況に関する解説情報",
+          "updated": "2026-08-19T07:00:36Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260819070036_0_VFVO51_400000.xml"
+        },
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260819070036_0_VFVO51_400000.xml"
+      }
+    },
+    {
+      "step": "GET /other.xml (その他・高頻度)",
+      "ok": true,
+      "elapsed_ms": 58,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml",
+        "bytes": 15482,
+        "feed_title": "高頻度（その他）",
+        "feed_updated": "2026-08-19T11:40:39+09:00",
+        "entry_count": 32,
+        "first_entry": {
+          "title": "地方海上警報（Ｈ２８）",
+          "updated": "2026-08-19T02:40:04Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260819024004_0_VPCU51_400000.xml"
+        },
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260819024004_0_VPCU51_400000.xml"
+      }
+    },
+    {
+      "step": "GET /regular_l.xml (定時・長期)",
+      "ok": true,
+      "elapsed_ms": 1957,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml",
+        "bytes": 4674759,
+        "feed_title": "長期（定時）",
+        "feed_updated": "2026-08-19T16:40:14+09:00",
+        "entry_count": 9564,
+        "first_entry": {
+          "title": "府県天気概況",
+          "updated": "2026-08-19T07:39:41Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260819073941_0_VPFG50_011000.xml"
+        },
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260819073941_0_VPFG50_011000.xml"
+      }
+    },
+    {
+      "step": "GET /extra_l.xml (随時・長期)",
+      "ok": true,
+      "elapsed_ms": 1947,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml",
+        "bytes": 3939889,
+        "feed_title": "長期（随時）",
+        "feed_updated": "2026-08-19T16:37:59+09:00",
+        "entry_count": 6675,
+        "first_entry": {
+          "title": "気象警報・注意報（Ｈ２７）",
+          "updated": "2026-08-19T07:37:29Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260819073730_0_VPWW54_460100.xml"
+        },
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260819073730_0_VPWW54_460100.xml"
+      }
+    },
+    {
+      "step": "GET /eqvol_l.xml (地震火山・長期)",
+      "ok": true,
+      "elapsed_ms": 572,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml",
+        "bytes": 422577,
+        "feed_title": "長期（地震火山）",
+        "feed_updated": "2026-08-19T16:00:45+09:00",
+        "entry_count": 605,
+        "first_entry": {
+          "title": "火山の状況に関する解説情報",
+          "updated": "2026-08-19T07:00:36Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260819070036_0_VFVO51_400000.xml"
+        },
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260819070036_0_VFVO51_400000.xml"
+      }
+    },
+    {
+      "step": "GET /other_l.xml (その他・長期)",
+      "ok": true,
+      "elapsed_ms": 550,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml",
+        "bytes": 198445,
+        "feed_title": "長期（その他）",
+        "feed_updated": "2026-08-19T11:40:39+09:00",
+        "entry_count": 428,
+        "first_entry": {
+          "title": "地方海上警報（Ｈ２８）",
+          "updated": "2026-08-19T02:40:04Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260819024004_0_VPCU51_400000.xml"
+        },
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260819024004_0_VPCU51_400000.xml"
+      }
+    },
+    {
+      "step": "GET 電文本体",
+      "ok": true,
+      "elapsed_ms": 530,
+      "result": {
+        "url": "https://www.data.jma.go.jp/developer/xml/data/20260819073941_0_VPFG50_011000.xml",
+        "status": 200,
+        "content_type": "text/xml",
+        "bytes": 1856,
+        "root_tag": "{http://xml.kishou.go.jp/jmaxml1/}Report",
+        "child_tags": [
+          "{http://xml.kishou.go.jp/jmaxml1/}Control",
+          "{http://xml.kishou.go.jp/jmaxml1/informationBasis1/}Head",
+          "{http://xml.kishou.go.jp/jmaxml1/body/meteorology1/}Body"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "total": 9,
+    "ok": 9,
+    "skipped": 0,
+    "blocked": 0,
+    "failed": 0
+  }
+}
