@@ -9,6 +9,12 @@
             "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/ensure-toolvenv.sh\"",
             "timeout": 120,
             "statusMessage": "検証用の venv を用意しています"
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/load-diary.sh\"",
+            "timeout": 30,
+            "statusMessage": "前回の引き継ぎを読み込んでいます"
           }
         ]
       }
@@ -46,6 +52,11 @@
             "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/check-registry.sh\"",
             "timeout": 60,
             "statusMessage": "台帳の生成物が最新か確かめています"
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/remind-handoff.sh\"",
+            "timeout": 20
           }
         ]
       }
