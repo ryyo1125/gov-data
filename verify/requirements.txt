@@ -1,0 +1,3 @@
+# 検証スクリプト（verify_jgrants_mcp.py）が必要とするクライアント側の依存。
+# MCP サーバー本体の依存は jgrants-mcp-server 側の requirements.txt を参照。
+fastmcp>=2.12.4
