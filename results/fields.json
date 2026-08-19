@@ -1,0 +1,1688 @@
+{
+  "generated_at": "2026-08-19T08:24:43+00:00",
+  "generated_by": "verify/extract_fields.py",
+  "sources": {
+    "egov-hourei-api": {
+      "origin": "spec",
+      "origin_detail": "OpenAPI 2.1.139 の components/schemas",
+      "source_url": "https://laws.e-gov.go.jp/api/2/swagger-ui/lawapi-v2.yaml",
+      "objects": [
+        {
+          "name": "attached_file",
+          "fields": [
+            {
+              "name": "law_revision_id",
+              "type": "string",
+              "description": "法令ID"
+            },
+            {
+              "name": "src",
+              "type": "string",
+              "description": "法令XML中のFig要素のsrc属性"
+            },
+            {
+              "name": "updated",
+              "type": "string",
+              "description": "正誤等による更新日時"
+            }
+          ]
+        },
+        {
+          "name": "attached_files_info",
+          "fields": [
+            {
+              "name": "image_data",
+              "type": "string",
+              "description": "添付ファイルデータ（添付ファイルをフォルダ名pictに収集し、フォルダ全体をZip形式で圧縮したファイルをBase64でエンコードした文字列）"
+            },
+            {
+              "name": "attached_files",
+              "type": "attached_file[]",
+              "description": "添付ファイル一覧"
+            }
+          ]
+        },
+        {
+          "name": "error_info",
+          "fields": [
+            {
+              "name": "code",
+              "type": "string",
+              "description": "エラーコード<br>"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "description": "エラーメッセージ"
+            }
+          ]
+        },
+        {
+          "name": "keyword_response",
+          "fields": [
+            {
+              "name": "total_count",
+              "type": "integer",
+              "description": "指定`keyword`でヒットした総件数"
+            },
+            {
+              "name": "sentence_count",
+              "type": "integer",
+              "description": "レスポンス単位で表示した`sentences`数の総和"
+            },
+            {
+              "name": "next_offset",
+              "type": "integer",
+              "description": "次指定する`offset`値。末尾まで取得が完了した場合はnull"
+            },
+            {
+              "name": "items",
+              "type": "object[]",
+              "description": "法令ID単位の情報リスト<br>"
+            }
+          ]
+        },
+        {
+          "name": "law_data_response",
+          "fields": [
+            {
+              "name": "attached_files_info",
+              "type": "attached_files_info",
+              "description": ""
+            },
+            {
+              "name": "law_info",
+              "type": "law_info",
+              "description": ""
+            },
+            {
+              "name": "revision_info",
+              "type": "revision_info",
+              "description": ""
+            },
+            {
+              "name": "law_full_text",
+              "type": "object",
+              "description": "法令本文<br><br>"
+            }
+          ]
+        },
+        {
+          "name": "law_info",
+          "fields": [
+            {
+              "name": "law_type",
+              "type": "law_type",
+              "description": "法令種別"
+            },
+            {
+              "name": "law_id",
+              "type": "string",
+              "description": "法令ID"
+            },
+            {
+              "name": "law_num",
+              "type": "string",
+              "description": "法令番号"
+            },
+            {
+              "name": "law_num_era",
+              "type": "law_num_era",
+              "description": "法令番号の元号"
+            },
+            {
+              "name": "law_num_year",
+              "type": "integer",
+              "description": "法令番号の年"
+            },
+            {
+              "name": "law_num_type",
+              "type": "law_num_type",
+              "description": "法令番号の法令種別"
+            },
+            {
+              "name": "law_num_num",
+              "type": "string",
+              "description": "法令番号の号数"
+            },
+            {
+              "name": "promulgation_date",
+              "type": "string",
+              "description": "公布日"
+            }
+          ]
+        },
+        {
+          "name": "law_revisions_response",
+          "fields": [
+            {
+              "name": "law_info",
+              "type": "law_info",
+              "description": ""
+            },
+            {
+              "name": "revisions",
+              "type": "revision_info[]",
+              "description": "版一覧"
+            }
+          ]
+        },
+        {
+          "name": "laws_response",
+          "fields": [
+            {
+              "name": "total_count",
+              "type": "integer",
+              "description": "取得件数の上限（`limit`）、何件目から取得するか（`offset`）適用前のリストに含まれる項目数（検索条件にマッチした全件数）"
+            },
+            {
+              "name": "count",
+              "type": "integer",
+              "description": "返却するリスト（取得件数の上限（`limit`）、何件目から取得するか（`offset`）適用後）に含まれる項目数"
+            },
+            {
+              "name": "next_offset",
+              "type": "integer",
+              "description": "次の何件目から取得するか（`offset`）。末尾まで取得が完了した場合はnull"
+            },
+            {
+              "name": "laws",
+              "type": "object[]",
+              "description": "法令ID単位の法令情報"
+            }
+          ]
+        },
+        {
+          "name": "revision_info",
+          "fields": [
+            {
+              "name": "law_revision_id",
+              "type": "string",
+              "description": "法令履歴ID"
+            },
+            {
+              "name": "law_type",
+              "type": "law_type",
+              "description": "法令種別"
+            },
+            {
+              "name": "law_title",
+              "type": "string",
+              "description": "法令名"
+            },
+            {
+              "name": "law_title_kana",
+              "type": "string",
+              "description": "法令名読み"
+            },
+            {
+              "name": "abbrev",
+              "type": "string",
+              "description": "法令略称"
+            },
+            {
+              "name": "category",
+              "type": "string",
+              "description": "法令分野分類"
+            },
+            {
+              "name": "updated",
+              "type": "string",
+              "description": "正誤等による更新日時"
+            },
+            {
+              "name": "amendment_promulgate_date",
+              "type": "string",
+              "description": "改正法令公布日"
+            },
+            {
+              "name": "amendment_enforcement_date",
+              "type": "string",
+              "description": "改正法令施行期日（この履歴に対応する改正の施行期日）"
+            },
+            {
+              "name": "amendment_enforcement_comment",
+              "type": "string",
+              "description": "施行期日規定等の参考情報（この履歴に対応する改正の施行期日）"
+            },
+            {
+              "name": "amendment_scheduled_enforcement_date",
+              "type": "string",
+              "description": "擬似的な施行期日（実際の施行期日とは限らない）（この履歴に対応する改正の施行期日）"
+            },
+            {
+              "name": "amendment_law_id",
+              "type": "string",
+              "description": "改正法令の法令ID（この履歴に対応する改正法令）"
+            },
+            {
+              "name": "amendment_law_title",
+              "type": "string",
+              "description": "改正法令名"
+            },
+            {
+              "name": "amendment_law_title_kana",
+              "type": "string",
+              "description": "改正法令名読み"
+            },
+            {
+              "name": "amendment_law_num",
+              "type": "string",
+              "description": "改正法令番号"
+            },
+            {
+              "name": "amendment_type",
+              "type": "amendment_type",
+              "description": "改正種別"
+            },
+            {
+              "name": "repeal_status",
+              "type": "repeal_status",
+              "description": "廃止等の状態"
+            },
+            {
+              "name": "repeal_date",
+              "type": "string",
+              "description": "廃止日"
+            },
+            {
+              "name": "remain_in_force",
+              "type": "boolean",
+              "description": "廃止後の効力（`true`:廃止後でも効力を有するもの / `false`:廃止後に効力を有しないもの）"
+            },
+            {
+              "name": "mission",
+              "type": "mission",
+              "description": "新規制定又は被改正法令（`New`）・一部改正法令（`Partial`）"
+            },
+            {
+              "name": "current_revision_status",
+              "type": "current_revision_status",
+              "description": "履歴の状態"
+            }
+          ]
+        }
+      ],
+      "enums": [
+        {
+          "name": "amendment_type",
+          "values": [
+            "1",
+            "3",
+            "8"
+          ]
+        },
+        {
+          "name": "category_cd",
+          "values": [
+            "001",
+            "002",
+            "003",
+            "004",
+            "005",
+            "006",
+            "007",
+            "008",
+            "009",
+            "010",
+            "011",
+            "012",
+            "013",
+            "014",
+            "015",
+            "016",
+            "017",
+            "018",
+            "019",
+            "020",
+            "021",
+            "022",
+            "023",
+            "024",
+            "025",
+            "026",
+            "027",
+            "028",
+            "029",
+            "030",
+            "031",
+            "032",
+            "033",
+            "034",
+            "035",
+            "036",
+            "037",
+            "038",
+            "039",
+            "040",
+            "041",
+            "042",
+            "043",
+            "044",
+            "045",
+            "046",
+            "047",
+            "048",
+            "049",
+            "050"
+          ]
+        },
+        {
+          "name": "current_revision_status",
+          "values": [
+            "CurrentEnforced",
+            "UnEnforced",
+            "PreviousEnforced",
+            "Repeal"
+          ]
+        },
+        {
+          "name": "file_type",
+          "values": [
+            "xml",
+            "json",
+            "html",
+            "rtf",
+            "docx"
+          ]
+        },
+        {
+          "name": "law_num_era",
+          "values": [
+            "Meiji",
+            "Taisho",
+            "Showa",
+            "Heisei",
+            "Reiwa"
+          ]
+        },
+        {
+          "name": "law_num_type",
+          "values": [
+            "Constitution",
+            "Act",
+            "CabinetOrder",
+            "ImperialOrder",
+            "MinisterialOrdinance",
+            "Rule",
+            "Misc"
+          ]
+        },
+        {
+          "name": "law_type",
+          "values": [
+            "Constitution",
+            "Act",
+            "CabinetOrder",
+            "ImperialOrder",
+            "MinisterialOrdinance",
+            "Rule",
+            "Misc"
+          ]
+        },
+        {
+          "name": "mission",
+          "values": [
+            "New",
+            "Partial"
+          ]
+        },
+        {
+          "name": "repeal_status",
+          "values": [
+            "None",
+            "Repeal",
+            "Expire",
+            "Suspend",
+            "LossOfEffectiveness"
+          ]
+        },
+        {
+          "name": "response_format",
+          "values": [
+            "json",
+            "xml"
+          ]
+        }
+      ]
+    },
+    "egov-data-catalog": {
+      "origin": "observed",
+      "origin_detail": "package_search で取得した 20 件のデータセットに現れた項目の和",
+      "source_url": "https://data.e-gov.go.jp/data/api/3/action/package_search",
+      "objects": [
+        {
+          "name": "package（データセット）",
+          "fields": [
+            {
+              "name": "author",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "author_email",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "compliant_standard",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "contactPoint",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "contactPoint_email",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "contactPoint_etc",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "contactPoint_ext",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "contactPoint_formUrl",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "contactPoint_tel",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "creator_user_id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "distribution",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "etc",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "extras",
+              "type": "array",
+              "description": ""
+            },
+            {
+              "name": "frequency_of_update",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "groups",
+              "type": "array",
+              "description": ""
+            },
+            {
+              "name": "history_information",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "index_id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "isopen",
+              "type": "boolean",
+              "description": ""
+            },
+            {
+              "name": "landingPage",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "language",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "license_id",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "license_title",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "local_government",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "maintainer",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "maintainer_email",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "metadata_created",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "metadata_modified",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "notes",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "num_resources",
+              "type": "number",
+              "description": ""
+            },
+            {
+              "name": "num_tags",
+              "type": "number",
+              "description": ""
+            },
+            {
+              "name": "opendata_id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "organization",
+              "type": "object",
+              "description": ""
+            },
+            {
+              "name": "owner_org",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "private",
+              "type": "boolean",
+              "description": ""
+            },
+            {
+              "name": "provider_last_modified_date",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "provider_metadata_modified",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "publisher",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "related_documents",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "relationships_as_object",
+              "type": "array",
+              "description": ""
+            },
+            {
+              "name": "relationships_as_subject",
+              "type": "array",
+              "description": ""
+            },
+            {
+              "name": "resources",
+              "type": "array",
+              "description": ""
+            },
+            {
+              "name": "spatial",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "state",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "subtitle",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "tags",
+              "type": "array",
+              "description": ""
+            },
+            {
+              "name": "temporal",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "url",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "version",
+              "type": "string",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "resource（データセットに紐づくファイル）",
+          "fields": [
+            {
+              "name": "access_url",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "cache_last_updated",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "cache_url",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "compliant_standard",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "copyright",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "created",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "datastore_active",
+              "type": "boolean",
+              "description": ""
+            },
+            {
+              "name": "datastore_contains_all_records_of_source_file",
+              "type": "boolean",
+              "description": ""
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "docanlys",
+              "type": "boolean",
+              "description": ""
+            },
+            {
+              "name": "download_url",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "format",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "hash",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "language",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "last_modified",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "last_modified_date",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "license_id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "metadata_modified",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "mimetype",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "mimetype_inner",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "package_id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "position",
+              "type": "number",
+              "description": ""
+            },
+            {
+              "name": "private",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "provider_last_modified_date",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "provider_metadata_modified",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "related_documents",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "resource_id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "resource_type",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "size",
+              "type": "number",
+              "description": ""
+            },
+            {
+              "name": "state",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "terms_and_conditions",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "url",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "url_type",
+              "type": "string",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "enums": []
+    },
+    "jma-xml": {
+      "origin": "observed",
+      "origin_detail": "4 本のフィードと、それぞれの先頭 entry が指す電文 4 通を実際に読んで列挙。電文種別は多数あり、ここに出るのはその一部",
+      "source_url": "https://www.data.jma.go.jp/developer/xml/feed",
+      "objects": [
+        {
+          "name": "Atom フィード",
+          "fields": [
+            {
+              "name": "entry",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "entry/author",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "entry/content",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "entry/id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "entry/link",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "entry/title",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "entry/updated",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "link",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "rights",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "subtitle",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "updated",
+              "type": "string",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "電文: 気象警報・注意報（Ｒ０６）（集約通報）（regular フィードより）",
+          "fields": [
+            {
+              "name": "Report/Control",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/Title",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/DateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/Status",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/EditorialOffice",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/PublishingOffice",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Title",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/ReportDateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/TargetDateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/EventID",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoType",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Serial",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoKind",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoKindVersion",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline/Text",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline/Information",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/Warning",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/Warning/Item",
+              "type": "element",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "電文: 気象特別警報・警報・注意報（extra フィードより）",
+          "fields": [
+            {
+              "name": "Report/Control",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/Title",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/DateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/Status",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/EditorialOffice",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/PublishingOffice",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Title",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/ReportDateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/TargetDateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/EventID",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoType",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Serial",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoKind",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoKindVersion",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline/Text",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline/Information",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/Notice",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/Warning",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/Warning/Item",
+              "type": "element",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "電文: 降灰予報（定時）（eqvol フィードより）",
+          "fields": [
+            {
+              "name": "Report/Control",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/Title",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/DateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/Status",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/EditorialOffice",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/PublishingOffice",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Title",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/ReportDateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/TargetDateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/ValidDateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/EventID",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoType",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Serial",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoKind",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoKindVersion",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline/Text",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline/Information",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/VolcanoInfo",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/VolcanoInfo/Item",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/AshInfos",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/AshInfos/AshInfo",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/VolcanoInfoContent",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/VolcanoInfoContent/VolcanoHeadline",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/VolcanoInfoContent/VolcanoActivity",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/VolcanoInfoContent/VolcanoPrevention",
+              "type": "element",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "電文: 地方海上警報（Ｈ２８）（other フィードより）",
+          "fields": [
+            {
+              "name": "Report/Control",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/Title",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/DateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/Status",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/EditorialOffice",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Control/PublishingOffice",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Title",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/ReportDateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/TargetDateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/ValidDateTime",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/EventID",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoType",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Serial",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoKind",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/InfoKindVersion",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline/Text",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Head/Headline/Information",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/Warning",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/Warning/Item",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/MeteorologicalInfos",
+              "type": "element",
+              "description": ""
+            },
+            {
+              "name": "Report/Body/MeteorologicalInfos/MeteorologicalInfo",
+              "type": "element",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "enums": []
+    },
+    "jgrants-mcp": {
+      "origin": "spec+observed",
+      "origin_detail": "入力項目は MCP のツール定義、戻り値の項目は実レスポンスから列挙",
+      "source_url": "http://127.0.0.1:8321/mcp",
+      "objects": [
+        {
+          "name": "search_subsidies（入力）",
+          "fields": [
+            {
+              "name": "keyword",
+              "type": "string",
+              "description": "必須"
+            },
+            {
+              "name": "use_purpose",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "industry",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "target_number_of_employees",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "target_area_search",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "sort",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "order",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "acceptance",
+              "type": "integer",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "ping（入力）",
+          "fields": []
+        },
+        {
+          "name": "get_subsidy_overview（入力）",
+          "fields": [
+            {
+              "name": "output_format",
+              "type": "string",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "get_subsidy_detail（入力）",
+          "fields": [
+            {
+              "name": "subsidy_id",
+              "type": "string",
+              "description": "必須"
+            }
+          ]
+        },
+        {
+          "name": "get_file_content（入力）",
+          "fields": [
+            {
+              "name": "subsidy_id",
+              "type": "string",
+              "description": "必須"
+            },
+            {
+              "name": "filename",
+              "type": "string",
+              "description": "必須"
+            },
+            {
+              "name": "return_format",
+              "type": "string",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "search_subsidies の戻り値（subsidies[]）",
+          "fields": [
+            {
+              "name": "acceptance_end_datetime",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "acceptance_start_datetime",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "institution_name",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "subsidy_max_limit",
+              "type": "number",
+              "description": ""
+            },
+            {
+              "name": "target_area_search",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "target_number_of_employees",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "get_subsidy_detail の戻り値",
+          "fields": [
+            {
+              "name": "acceptance_end",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "acceptance_start",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "application_url",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "files",
+              "type": "object",
+              "description": ""
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "last_updated",
+              "type": "null",
+              "description": "サンプル内では常に null"
+            },
+            {
+              "name": "save_directory",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "subsidy_max_limit",
+              "type": "number",
+              "description": ""
+            },
+            {
+              "name": "target",
+              "type": "object",
+              "description": ""
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "enums": []
+    }
+  }
+}

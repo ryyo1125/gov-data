@@ -1,7 +1,7 @@
 {
   "source_id": "egov-data-catalog",
   "target": "https://data.e-gov.go.jp/data/api/3/action",
-  "generated_at": "2026-08-19T07:40:56+00:00",
+  "generated_at": "2026-08-19T08:24:13+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -10,7 +10,7 @@
     {
       "step": "site_read",
       "ok": true,
-      "elapsed_ms": 974,
+      "elapsed_ms": 732,
       "result": {
         "result": true
       }
@@ -18,7 +18,7 @@
     {
       "step": "package_search",
       "ok": true,
-      "elapsed_ms": 901,
+      "elapsed_ms": 1032,
       "result": {
         "count": 18141,
         "results_len": 3,
@@ -65,7 +65,7 @@
     {
       "step": "package_list",
       "ok": true,
-      "elapsed_ms": 522,
+      "elapsed_ms": 541,
       "result": {
         "len": 5,
         "sample": [
@@ -78,7 +78,7 @@
     {
       "step": "organization_list",
       "ok": true,
-      "elapsed_ms": 540,
+      "elapsed_ms": 259,
       "result": {
         "len": 5,
         "sample": [
@@ -91,7 +91,7 @@
     {
       "step": "group_list",
       "ok": true,
-      "elapsed_ms": 278,
+      "elapsed_ms": 242,
       "result": {
         "len": 5,
         "sample": [
@@ -104,7 +104,7 @@
     {
       "step": "tag_list",
       "ok": true,
-      "elapsed_ms": 1007,
+      "elapsed_ms": 1240,
       "result": {
         "len": 5745,
         "sample": [
@@ -117,7 +117,7 @@
     {
       "step": "package_show",
       "ok": true,
-      "elapsed_ms": 630,
+      "elapsed_ms": 588,
       "result": {
         "id": "314b5242-257e-4c67-8b51-bff3bcdb53c8",
         "title": "給与勧告の仕組み",

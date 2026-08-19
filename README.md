@@ -20,7 +20,8 @@
 ## 台帳
 
 台帳の中身は [docs/REGISTRY.md](docs/REGISTRY.md)（人間向け）と `registry/registry.json`（機械向け）。
-どちらも `registry/build.py` の生成物なので、ここに一覧を再掲しない — 二重管理は必ずずれる。
+各情報源から実際に取得できる項目は [docs/FIELDS.md](docs/FIELDS.md)。
+いずれも `registry/build.py` の生成物なので、ここに一覧を再掲しない — 二重管理は必ずずれる。
 
 ## 使い方
 
@@ -43,10 +44,12 @@ registry/sources/*.yaml       台帳エントリ（1 エンドポイント 1 フ
 registry/blocked.yaml         到達不能で登録できなかった候補の待避所
 registry/build.py             検証 + 生成。status は results/ からのみ導出する
 registry/registry.json        生成物（機械向け）
-docs/REGISTRY.md              生成物（人間向け）
+docs/REGISTRY.md              生成物（人間向け）。情報源の一覧と検証状況
+docs/FIELDS.md                生成物。各情報源から取得できる項目の一覧
 verify/_report.py             検証スクリプト共通の実行記録ユーティリティ
 verify/verify_*.py            情報源ごとの検証スクリプト
 verify/verify_reachability.py 全ホストの到達性を実測。egress の変化を検知する
+verify/extract_fields.py      取得できる項目を仕様と実データから抽出する
 verify/run_all.sh             全情報源の再検証 + 台帳再生成
 results/*.json                検証の生ログ。台帳の status の唯一の根拠
 docs/jgrants-mcp-verification.md  jGrants MCP の詳細な検証レポート

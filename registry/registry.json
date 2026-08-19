@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T07:41:17+00:00",
+  "generated_at": "2026-08-19T08:24:44+00:00",
   "generated_by": "registry/build.py",
   "stale_after_days": 90,
   "sources": [
@@ -101,7 +101,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T07:40:56+00:00",
+        "verified_at": "2026-08-19T08:24:13+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -117,43 +117,43 @@
           {
             "step": "site_read",
             "outcome": "ok",
-            "elapsed_ms": 974,
+            "elapsed_ms": 732,
             "note": null
           },
           {
             "step": "package_search",
             "outcome": "ok",
-            "elapsed_ms": 901,
+            "elapsed_ms": 1032,
             "note": null
           },
           {
             "step": "package_list",
             "outcome": "ok",
-            "elapsed_ms": 522,
+            "elapsed_ms": 541,
             "note": null
           },
           {
             "step": "organization_list",
             "outcome": "ok",
-            "elapsed_ms": 540,
+            "elapsed_ms": 259,
             "note": null
           },
           {
             "step": "group_list",
             "outcome": "ok",
-            "elapsed_ms": 278,
+            "elapsed_ms": 242,
             "note": null
           },
           {
             "step": "tag_list",
             "outcome": "ok",
-            "elapsed_ms": 1007,
+            "elapsed_ms": 1240,
             "note": null
           },
           {
             "step": "package_show",
             "outcome": "ok",
-            "elapsed_ms": 630,
+            "elapsed_ms": 588,
             "note": null
           }
         ],
@@ -269,7 +269,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T07:40:51+00:00",
+        "verified_at": "2026-08-19T08:24:08+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -285,43 +285,43 @@
           {
             "step": "fetch_openapi_spec",
             "outcome": "ok",
-            "elapsed_ms": 950,
+            "elapsed_ms": 836,
             "note": null
           },
           {
             "step": "GET /laws",
             "outcome": "ok",
-            "elapsed_ms": 286,
+            "elapsed_ms": 292,
             "note": null
           },
           {
             "step": "GET /law_revisions/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 255,
+            "elapsed_ms": 266,
             "note": null
           },
           {
             "step": "GET /law_data/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 309,
+            "elapsed_ms": 289,
             "note": null
           },
           {
             "step": "GET /keyword",
             "outcome": "ok",
-            "elapsed_ms": 1525,
+            "elapsed_ms": 1564,
             "note": null
           },
           {
             "step": "GET /law_file/xml/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 328,
+            "elapsed_ms": 338,
             "note": null
           },
           {
             "step": "GET /attachment/{law_revision_id}",
             "outcome": "ok",
-            "elapsed_ms": 436,
+            "elapsed_ms": 518,
             "note": null
           }
         ],
@@ -436,7 +436,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T07:41:16+00:00",
+        "verified_at": "2026-08-19T08:24:27+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -458,49 +458,49 @@
           {
             "step": "list_tools",
             "outcome": "ok",
-            "elapsed_ms": 19,
+            "elapsed_ms": 17,
             "note": null
           },
           {
             "step": "list_resources",
             "outcome": "ok",
-            "elapsed_ms": 10,
+            "elapsed_ms": 7,
             "note": null
           },
           {
             "step": "list_prompts",
             "outcome": "ok",
-            "elapsed_ms": 10,
+            "elapsed_ms": 6,
             "note": null
           },
           {
             "step": "call:ping",
             "outcome": "ok",
-            "elapsed_ms": 16,
+            "elapsed_ms": 10,
             "note": null
           },
           {
             "step": "call:search_subsidies",
             "outcome": "ok",
-            "elapsed_ms": 1437,
+            "elapsed_ms": 1606,
             "note": null
           },
           {
             "step": "call:get_subsidy_detail",
             "outcome": "ok",
-            "elapsed_ms": 244,
+            "elapsed_ms": 249,
             "note": null
           },
           {
             "step": "call:get_subsidy_overview",
             "outcome": "ok",
-            "elapsed_ms": 1905,
+            "elapsed_ms": 1842,
             "note": null
           },
           {
             "step": "call:get_file_content",
             "outcome": "ok",
-            "elapsed_ms": 2401,
+            "elapsed_ms": 2126,
             "note": null
           }
         ],
@@ -605,7 +605,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T07:41:03+00:00",
+        "verified_at": "2026-08-19T08:24:15+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -621,55 +621,55 @@
           {
             "step": "GET /regular.xml (定時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 607,
+            "elapsed_ms": 611,
             "note": null
           },
           {
             "step": "GET /extra.xml (随時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 61,
+            "elapsed_ms": 71,
             "note": null
           },
           {
             "step": "GET /eqvol.xml (地震火山・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 60,
+            "elapsed_ms": 67,
             "note": null
           },
           {
             "step": "GET /other.xml (その他・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 58,
+            "elapsed_ms": 67,
             "note": null
           },
           {
             "step": "GET /regular_l.xml (定時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 1957,
+            "elapsed_ms": 406,
             "note": null
           },
           {
             "step": "GET /extra_l.xml (随時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 1947,
+            "elapsed_ms": 247,
             "note": null
           },
           {
             "step": "GET /eqvol_l.xml (地震火山・長期)",
             "outcome": "ok",
-            "elapsed_ms": 572,
+            "elapsed_ms": 73,
             "note": null
           },
           {
             "step": "GET /other_l.xml (その他・長期)",
             "outcome": "ok",
-            "elapsed_ms": 550,
+            "elapsed_ms": 70,
             "note": null
           },
           {
             "step": "GET 電文本体",
             "outcome": "ok",
-            "elapsed_ms": 530,
+            "elapsed_ms": 142,
             "note": null
           }
         ],
@@ -679,7 +679,7 @@
   ],
   "blocked_candidates": [],
   "reachability": {
-    "_generated_at": "2026-08-19T07:40:46+00:00",
+    "_generated_at": "2026-08-19T08:24:03+00:00",
     "api.jgrants-portal.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,

@@ -25,8 +25,10 @@ SOURCES_DIR = REPO_ROOT / "registry" / "sources"
 SCHEMA_PATH = REPO_ROOT / "registry" / "schema.json"
 BLOCKED_PATH = REPO_ROOT / "registry" / "blocked.yaml"
 REACHABILITY_PATH = REPO_ROOT / "results" / "reachability.json"
+FIELDS_PATH = REPO_ROOT / "results" / "fields.json"
 REGISTRY_JSON = REPO_ROOT / "registry" / "registry.json"
 REGISTRY_MD = REPO_ROOT / "docs" / "REGISTRY.md"
+FIELDS_MD = REPO_ROOT / "docs" / "FIELDS.md"
 
 # 検証結果がこれより古ければ stale。政府 API の仕様変更に気づける程度の間隔。
 STALE_AFTER = timedelta(days=90)
@@ -349,6 +351,61 @@ def _render_entry(s: dict) -> list[str]:
     return lines
 
 
+ORIGIN_LABEL = {
+    "spec": "仕様由来（提供側が定義した正式な項目）",
+    "observed": "実データ由来（レスポンスを読んで列挙。網羅の保証は無い）",
+    "spec+observed": "入力は仕様由来、戻り値は実データ由来",
+}
+
+
+def render_fields(fields: dict, entry_names: dict[str, str]) -> str:
+    """取得できる項目の一覧。台帳がエンドポイント粒度で止まる 1 段下を埋める。"""
+    lines = [
+        "# 取得できる項目の一覧",
+        "",
+        "**このファイルは `registry/build.py` が `results/fields.json` から生成する。**",
+        "更新するには `verify/extract_fields.py` を実行してからビルドし直す。",
+        "",
+        f"- 生成日時: {fields.get('generated_at', '-')}",
+        "",
+        "項目の出所は情報源ごとに違う。**仕様由来**は提供側が定義した正式な項目、",
+        "**実データ由来**はレスポンスを実際に読んで列挙したもので、サンプルに現れなかった",
+        "項目は落ちている可能性がある。どちらなのかを各節の冒頭に示す。",
+        "",
+    ]
+
+    for source_id, data in fields.get("sources", {}).items():
+        name = entry_names.get(source_id, source_id)
+        lines += ["", f"## {name} (`{source_id}`)", ""]
+        if "error" in data:
+            lines += [f"抽出できていない: {data['error']}", ""]
+            continue
+        lines += [
+            f"- 出所: {ORIGIN_LABEL.get(data['origin'], data['origin'])}",
+            f"- 抽出方法: {data['origin_detail']}",
+            f"- 参照元: {data['source_url']}",
+        ]
+        for obj in data["objects"]:
+            lines += ["", f"### {obj['name']}", "", "| 項目 | 型 | 説明 |", "|---|---|---|"]
+            lines += [
+                f"| `{f['name']}` | {f['type']} | {f['description']} |" for f in obj["fields"]
+            ]
+        if data["enums"]:
+            lines += ["", "### 取りうる値が決まっている項目", "", "| 項目 | 値 |", "|---|---|"]
+            lines += [
+                f"| `{e['name']}` | {', '.join(f'`{v}`' for v in e['values'])} |"
+                for e in data["enums"]
+            ]
+
+    return "\n".join(lines) + "\n"
+
+
+def load_fields() -> dict:
+    if not FIELDS_PATH.is_file():
+        return {}
+    return json.loads(FIELDS_PATH.read_text(encoding="utf-8"))
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="生成せず、生成物が最新かだけ確認する")
@@ -363,6 +420,9 @@ def main() -> int:
 
     registry = build_registry(entries, datetime.now(timezone.utc))
     markdown = render_markdown(registry)
+    fields = load_fields()
+    entry_names = {e["id"]: e["name"] for e in entries}
+    fields_markdown = render_fields(fields, entry_names) if fields else None
     # generated_at は毎回変わるため、最新かどうかの比較からは外す。
     comparable = {k: v for k, v in registry.items() if k != "generated_at"}
 
@@ -376,6 +436,10 @@ def main() -> int:
                 stale.append(str(REGISTRY_JSON.relative_to(REPO_ROOT)))
         if not REGISTRY_MD.is_file() or _strip_generated_at(REGISTRY_MD.read_text(encoding="utf-8")) != _strip_generated_at(markdown):
             stale.append(str(REGISTRY_MD.relative_to(REPO_ROOT)))
+        if fields_markdown and (
+            not FIELDS_MD.is_file() or FIELDS_MD.read_text(encoding="utf-8") != fields_markdown
+        ):
+            stale.append(str(FIELDS_MD.relative_to(REPO_ROOT)))
         if stale:
             print("生成物が最新ではない: " + ", ".join(stale), file=sys.stderr)
             print("registry/build.py を実行して更新すること", file=sys.stderr)
@@ -388,11 +452,14 @@ def main() -> int:
     )
     REGISTRY_MD.parent.mkdir(parents=True, exist_ok=True)
     REGISTRY_MD.write_text(markdown, encoding="utf-8")
+    if fields_markdown:
+        FIELDS_MD.write_text(fields_markdown, encoding="utf-8")
 
     for s in registry["sources"]:
         v = s["verification"]
         print(f"  {s['id']}: {v['status']}" + (f" ({v['reason']})" if v.get("reason") else ""))
-    print(f"{len(entries)} 件 -> {REGISTRY_JSON.relative_to(REPO_ROOT)}, {REGISTRY_MD.relative_to(REPO_ROOT)}")
+    outputs = [REGISTRY_JSON, REGISTRY_MD] + ([FIELDS_MD] if fields_markdown else [])
+    print(f"{len(entries)} 件 -> " + ", ".join(str(p.relative_to(REPO_ROOT)) for p in outputs))
     return 0
 
 
