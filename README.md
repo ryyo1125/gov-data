@@ -19,12 +19,8 @@
 
 ## 台帳
 
-生成物は [docs/REGISTRY.md](docs/REGISTRY.md)（人間向け）と `registry/registry.json`（機械向け）。
-
-| ID | 名称 | 提供元 | 権威性 | 方式 |
-|---|---|---|---|---|
-| `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | 一次公開元が直接提供 | REST API |
-| `jgrants-mcp` | Jグランツ MCP Server | デジタル庁 | 一次公開元自身によるラッパー | MCP |
+台帳の中身は [docs/REGISTRY.md](docs/REGISTRY.md)（人間向け）と `registry/registry.json`（機械向け）。
+どちらも `registry/build.py` の生成物なので、ここに一覧を再掲しない — 二重管理は必ずずれる。
 
 ## 使い方
 
@@ -41,6 +37,7 @@
 ## 構成
 
 ```
+.claude/skills/gov-data-registry/  エントリ追加手順のスキル
 registry/schema.json          台帳エントリのスキーマ。手書き禁止フィールドをここで縛る
 registry/sources/*.yaml       台帳エントリ（1 エンドポイント 1 ファイル、人が書く）
 registry/build.py             検証 + 生成。status は results/ からのみ導出する
