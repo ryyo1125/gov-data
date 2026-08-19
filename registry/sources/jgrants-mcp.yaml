@@ -1,0 +1,78 @@
+id: jgrants-mcp
+name: Jグランツ MCP Server
+summary: デジタル庁が運用する補助金電子申請システム「Jグランツ」の公開 API を、デジタル庁自身が MCP サーバーとして実装したもの。
+
+data_source:
+  provider: デジタル庁
+  authority: official_wrapper
+  primary_source_url: https://www.jgrants-portal.go.jp/
+
+access:
+  method: mcp
+  endpoint: http://127.0.0.1:8000/mcp
+  transport: streamable-http
+  spec_url: https://developers.digital.go.jp/documents/jgrants/api/
+  implementation:
+    name: digital-go-jp/jgrants-mcp-server
+    maintainer: デジタル庁
+    repository: https://github.com/digital-go-jp/jgrants-mcp-server
+    license: MIT
+    version_verified: "2.0.0"
+
+content:
+  categories:
+    - 補助金・助成金
+  formats:
+    - json
+    - markdown
+    - pdf
+    - docx
+    - csv
+  update_frequency: undocumented
+  coverage: 検証時点で get_subsidy_overview が全 189 件を集計。募集中・募集予定の補助金が対象。
+
+requirements:
+  auth: not_required
+  auth_note: 検証時、API キー等を一切設定せずに全ツールが応答した。ただし公式ドキュメントに認証要否の記述は無い。
+  credential_env: []
+  rate_limit: undocumented
+  terms_url: null
+  attribution_required: "yes"
+  attribution_text: 本ツールで取得した情報を利用・公開する際は「Jグランツ（jGrants）からの出典」である旨を明記すること。
+
+stability:
+  notes:
+    - 公式ドキュメントに API のバージョン管理方針・サポート終了予定の記述は無い。
+    - ベース URL は https://api.jgrants-portal.go.jp/exp/v1/public であり、パスに exp を含む。
+
+reachability:
+  hosts:
+    - host: api.jgrants-portal.go.jp
+      role: api
+      note: MCP サーバーが実際に叩く先。
+    - host: www.jgrants-portal.go.jp
+      role: portal
+    - host: developers.digital.go.jp
+      role: docs
+    - host: www.digital.go.jp
+      role: portal
+      note: 検証環境の egress ポリシーで 403。API 側には影響しない。
+
+verify:
+  script: verify/verify_jgrants_mcp.py
+  result: results/jgrants-mcp.json
+  command: ./verify/run_jgrants_verification.sh
+
+findings:
+  - claim: get_subsidy_overview は keyword を受け取らない。引数は output_format のみ。
+    evidence: keyword を渡して pydantic の unexpected_keyword_argument で失敗。jgrants_mcp_server/core.py:233 のシグネチャで確認。
+  - claim: initialize が返す serverInfo.version は FastMCP 自体の版数で、アプリの版数は ping でしか取れない。
+    evidence: results/jgrants-mcp.json の initialize が 3.4.7、call:ping が 2.0.0 を返した。
+  - claim: get_file_content は事前に同じ subsidy_id で get_subsidy_detail を呼ぶ必要がある。
+    evidence: get_subsidy_detail が JGRANTS_FILES_DIR 配下へ保存したファイルのみ読める（core.py:630 以降）。
+  - claim: 添付ファイルを持たない補助金が多く、検索結果の先頭だけでは get_file_content を検証できない。
+    evidence: 検証スクリプトで先頭 5 件まで詳細を引き直す実装が必要だった（verify_jgrants_mcp.py の FILE_PROBE_LIMIT）。
+  - claim: 公式ドキュメントには認証要否・レート制限・利用規約・API 安定性の記述が無い。
+    evidence: https://developers.digital.go.jp/documents/jgrants/api/ を参照して該当記述が無いことを確認。
+  - claim: 出典表示義務はドキュメントではなくツールの docstring にのみ書かれている。
+    evidence: jgrants_mcp_server/core.py の各ツール docstring に「出典表示」の記載。

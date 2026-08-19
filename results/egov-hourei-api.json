@@ -1,0 +1,216 @@
+{
+  "source_id": "egov-hourei-api",
+  "target": "https://laws.e-gov.go.jp/api/2",
+  "generated_at": "2026-08-19T06:15:00+00:00",
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
+  },
+  "spec": {
+    "url": "https://laws.e-gov.go.jp/api/2/swagger-ui/lawapi-v2.yaml",
+    "spec_version": "2.1.139",
+    "paths": [
+      "/attachment/{law_revision_id}",
+      "/keyword",
+      "/law_data/{law_id_or_num_or_revision_id}",
+      "/law_file/{file_type}/{law_id_or_num_or_revision_id}",
+      "/law_revisions/{law_id_or_num}",
+      "/laws"
+    ],
+    "declares_security_scheme": false,
+    "bytes": 125750
+  },
+  "sample_law_id": "321CONSTITUTION",
+  "steps": [
+    {
+      "step": "fetch_openapi_spec",
+      "ok": true,
+      "elapsed_ms": 879,
+      "result": {
+        "url": "https://laws.e-gov.go.jp/api/2/swagger-ui/lawapi-v2.yaml",
+        "spec_version": "2.1.139",
+        "paths": [
+          "/attachment/{law_revision_id}",
+          "/keyword",
+          "/law_data/{law_id_or_num_or_revision_id}",
+          "/law_file/{file_type}/{law_id_or_num_or_revision_id}",
+          "/law_revisions/{law_id_or_num}",
+          "/laws"
+        ],
+        "declares_security_scheme": false,
+        "bytes": 125750
+      }
+    },
+    {
+      "step": "GET /laws",
+      "ok": true,
+      "elapsed_ms": 272,
+      "result": {
+        "_truncated": true,
+        "_original_chars": 1704,
+        "_head": "{\"top_level_keys\": [\"count\", \"laws\", \"total_count\"], \"total_count\": 1, \"count\": 1, \"laws_len\": 1, \"laws_first\": {\"law_info\": {\"law_type\": \"Constitution\", \"law_id\": \"321CONSTITUTION\", \"law_num\": \"昭和二十一年憲法\", \"law_num_era\": \"Showa\", \"law_num_year\": 21, \"law_num_type\": \"Constitution\", \"law_num_num\": \"ION\", \"promulgation_date\": \"1946-11-03\"}, \"revision_info\": {\"law_revision_id\": \"321CONSTITUTION_19470503_000000000000000\", \"law_type\": \"Constitution\", \"law_title\": \"日本国憲法\", \"law_title_kana\": \"にほんこくけんぽう\", \"abbrev\": null, \"category\": \"憲法\", \"updated\": \"2024-01-24T10:56:25+09:00\", \"amendment_promulgate_date\": \"1946-11-03\", \"amendment_enforcement_date\": \"1947-05-03\", \"amendment_enforcement_comment\": null, \"amendment_scheduled_enforcement_date\": null, \"amendment_law_id\": \"\", \"amendment_law_title\": \"\", \"amendment_law_title_kana\": \"\", \"amendment_law_num\": null, \"amendment_type\": \"1\", \"repeal_status\": \"None\", \"repeal_date\": null, \"remain_in_force\": false, \"mission\": \"New\", \"current_revision_status\": \"CurrentEnforced\"}, \"current_revision_info\": {\"law_revision_id\": \"321CONSTITUTION_19470503_000000000000000\", \"law_type\": \"Constitution\", \"law_title\": \"日本国憲法\", \"law_title_kana\": \"にほんこくけんぽう\", \"abbrev\": null, \"category\": \"憲法\", \"updated\": \"2024-01-24T10:56:25+09:00\", \"amendment_promulgate_date\": \"1946-11-03\", \"amendment_enforcement_date\": \"1947-05-03\", \"amendment_enforcement_comment\": null, \"amendment_scheduled_enforcement_date\": null, \"amendment_law_id\": \"\", \"amendment_law_title\": \"\", \"amendment_law_"
+      }
+    },
+    {
+      "step": "GET /law_revisions/{law_id}",
+      "ok": true,
+      "elapsed_ms": 281,
+      "result": {
+        "top_level_keys": [
+          "law_info",
+          "revisions"
+        ],
+        "revisions_len": 1,
+        "revisions_first": {
+          "law_revision_id": "321CONSTITUTION_19470503_000000000000000",
+          "law_type": "Constitution",
+          "law_title": "日本国憲法",
+          "law_title_kana": "にほんこくけんぽう",
+          "abbrev": null,
+          "category": "憲法",
+          "updated": "2024-01-24T10:56:25+09:00",
+          "amendment_promulgate_date": "1946-11-03",
+          "amendment_enforcement_date": "1947-05-03",
+          "amendment_enforcement_comment": null,
+          "amendment_scheduled_enforcement_date": null,
+          "amendment_law_id": "",
+          "amendment_law_title": "",
+          "amendment_law_title_kana": "",
+          "amendment_law_num": null,
+          "amendment_type": "1",
+          "repeal_status": "None",
+          "repeal_date": null,
+          "remain_in_force": false,
+          "mission": "New",
+          "current_revision_status": "CurrentEnforced"
+        },
+        "law_info": {
+          "law_type": "Constitution",
+          "law_id": "321CONSTITUTION",
+          "law_num": "昭和二十一年憲法",
+          "law_num_era": "Showa",
+          "law_num_year": 21,
+          "law_num_type": "Constitution",
+          "law_num_num": "ION",
+          "promulgation_date": "1946-11-03"
+        }
+      }
+    },
+    {
+      "step": "GET /law_data/{law_id}",
+      "ok": true,
+      "elapsed_ms": 299,
+      "result": {
+        "top_level_keys": [
+          "attached_files_info",
+          "law_full_text",
+          "law_info",
+          "revision_info"
+        ],
+        "law_info": {
+          "law_type": "Constitution",
+          "law_id": "321CONSTITUTION",
+          "law_num": "昭和二十一年憲法",
+          "law_num_era": "Showa",
+          "law_num_year": 21,
+          "law_num_type": "Constitution",
+          "law_num_num": "000",
+          "promulgation_date": "1946-11-03"
+        },
+        "attached_files_len": 0,
+        "law_full_text_type": "dict"
+      }
+    },
+    {
+      "step": "GET /keyword",
+      "ok": true,
+      "elapsed_ms": 1478,
+      "result": {
+        "top_level_keys": [
+          "items",
+          "next_offset",
+          "sentence_count",
+          "total_count"
+        ],
+        "total_count": 2793,
+        "next_offset": 3,
+        "items_len": 1,
+        "items_first": {
+          "law_info": {
+            "law_type": "Act",
+            "law_id": "129AC0000000089",
+            "law_num": "明治二十九年法律第八十九号",
+            "law_num_era": "Meiji",
+            "law_num_year": 29,
+            "law_num_type": "Act",
+            "law_num_num": "089",
+            "promulgation_date": "1896-04-27"
+          },
+          "revision_info": {
+            "law_revision_id": "129AC0000000089_20260624_508AC0000000045",
+            "law_type": "Act",
+            "law_title": "民法",
+            "law_title_kana": "みんぽう",
+            "abbrev": "",
+            "category": "民事",
+            "updated": "2026-06-24T10:54:14+09:00",
+            "amendment_promulgate_date": "2026-06-24",
+            "amendment_enforcement_date": "2026-06-24",
+            "amendment_enforcement_comment": null,
+            "amendment_scheduled_enforcement_date": null,
+            "amendment_law_id": "508AC0000000045",
+            "amendment_law_title": "民法等の一部を改正する法律",
+            "amendment_law_title_kana": null,
+            "amendment_law_num": "令和八年法律第四十五号",
+            "amendment_type": "3",
+            "repeal_status": "None",
+            "repeal_date": null,
+            "remain_in_force": false,
+            "mission": "New",
+            "current_revision_status": "PreviousEnforced"
+          },
+          "sentences": [
+            {
+              "position": "caption",
+              "text": "（行政機関の保有する<span>個人情報</span>の保護に関する法律及び独立行政法人等の保有する<span>個人情報</span>の保護に関する法律の廃止）"
+            },
+            {
+              "position": "amendsupplprovision",
+              "text": "行政機関の保有する<span>個人情報</span>の保護に関する法律（平成十五年法律第五十八号）"
+            },
+            {
+              "position": "amendsupplprovision",
+              "text": "独立行政法人等の保有する<span>個人情報</span>の保護に関する法律（平成十五年法律第五十九号）"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "step": "GET /law_file/xml/{law_id}",
+      "ok": true,
+      "elapsed_ms": 331,
+      "result": {
+        "status": 200,
+        "content_type": "application/octet-stream",
+        "bytes": 76207
+      }
+    },
+    {
+      "step": "GET /attachment/{law_revision_id}",
+      "ok": true,
+      "elapsed_ms": 448,
+      "result": {
+        "status": 200,
+        "content_type": "application/octet-stream",
+        "bytes": 154725
+      }
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "ok": 7,
+    "skipped": 0,
+    "failed": 0
+  }
+}

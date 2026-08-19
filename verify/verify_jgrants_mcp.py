@@ -3,12 +3,12 @@
 
 Streamable-HTTP で起動済みの MCP サーバーに接続し、
 initialize / tools・resources・prompts の列挙 / 各ツールの実行を順に試して
-結果を JSON で書き出す。
+結果を results/ に書き出す。
 
 使い方:
     python -m jgrants_mcp_server.core --host 127.0.0.1 --port 8000   # 別プロセスで起動
     python verify/verify_jgrants_mcp.py --url http://127.0.0.1:8000/mcp \
-        --out results/jgrants-verification.json
+        --out results/jgrants-mcp.json
 """
 
 from __future__ import annotations
@@ -17,102 +17,50 @@ import argparse
 import asyncio
 import json
 import sys
-import time
-import traceback
+from pathlib import Path
 from typing import Any
 
 from fastmcp import Client
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _report import Reporter  # noqa: E402
+
+SOURCE_ID = "jgrants-mcp"
+# 検索結果の先頭が添付ファイルを持たないことが多いため、何件まで詳細を引き直すか。
 FILE_PROBE_LIMIT = 5
 
 
-def _unwrap(result: Any) -> Any:
-    """CallToolResult から人間/機械が読める形を取り出す。"""
-    data = getattr(result, "data", None)
-    if data is not None:
-        return data
-    structured = getattr(result, "structured_content", None)
-    if structured is not None:
-        return structured
-    blocks = getattr(result, "content", None) or []
-    texts = [getattr(b, "text", None) for b in blocks]
-    texts = [t for t in texts if t]
-    return texts[0] if len(texts) == 1 else texts
-
-
-def _preview(value: Any, limit: int = 1500) -> Any:
-    """レポートに載せるため大きな戻り値を切り詰める。"""
-    text = value if isinstance(value, str) else json.dumps(value, ensure_ascii=False, default=str)
-    if len(text) <= limit:
-        return value
-    return {"_truncated": True, "_original_chars": len(text), "_head": text[:limit]}
-
-
-async def run_step(report: list[dict], name: str, coro) -> Any:
-    """1 ステップ実行し、成功/失敗と所要時間を report に記録する。"""
-    started = time.monotonic()
-    try:
-        value = await coro
-    except Exception as exc:  # noqa: BLE001 - 検証目的なので全例外を記録する
-        report.append(
-            {
-                "step": name,
-                "ok": False,
-                "elapsed_ms": round((time.monotonic() - started) * 1000),
-                "error": f"{type(exc).__name__}: {exc}",
-                "traceback": traceback.format_exc(limit=3),
-            }
-        )
-        return None
-    report.append(
-        {
-            "step": name,
-            "ok": True,
-            "elapsed_ms": round((time.monotonic() - started) * 1000),
-            "result": _preview(value),
-        }
-    )
-    return value
-
-
-async def verify(url: str, keyword: str) -> dict:
-    report: list[dict] = []
+async def verify(url: str, keyword: str) -> Reporter:
+    reporter = Reporter(SOURCE_ID, url)
     client = Client(url)
 
     async with client:
-        await run_step(report, "initialize", _initialize(client))
+        await reporter.step("initialize", _initialize(client))
 
-        tools = await run_step(report, "list_tools", _list_tools(client))
-        await run_step(report, "list_resources", _list_resources(client))
-        await run_step(report, "list_prompts", _list_prompts(client))
+        tools = await reporter.step("list_tools", _list_tools(client))
+        await reporter.step("list_resources", _list_resources(client))
+        await reporter.step("list_prompts", _list_prompts(client))
 
-        await run_step(report, "call:ping", _call(client, "ping", {}))
+        await reporter.step("call:ping", _call(client, "ping", {}))
 
-        search = await run_step(
-            report,
-            "call:search_subsidies",
-            _call(client, "search_subsidies", {"keyword": keyword}),
+        search = await reporter.step(
+            "call:search_subsidies", _call(client, "search_subsidies", {"keyword": keyword})
         )
 
         subsidy_id = _first_subsidy_id(search)
         detail = None
         if subsidy_id:
-            detail = await run_step(
-                report,
+            detail = await reporter.step(
                 "call:get_subsidy_detail",
                 _call(client, "get_subsidy_detail", {"subsidy_id": subsidy_id}),
             )
         else:
-            report.append(
-                {
-                    "step": "call:get_subsidy_detail",
-                    "ok": False,
-                    "error": "search_subsidies の戻り値から補助金 ID を取得できなかったため未実行",
-                }
+            reporter.skip(
+                "call:get_subsidy_detail",
+                "search_subsidies の戻り値から補助金 ID を取得できなかった",
             )
 
-        await run_step(
-            report,
+        await reporter.step(
             "call:get_subsidy_overview",
             _call(client, "get_subsidy_overview", {"output_format": "json"}),
         )
@@ -120,8 +68,7 @@ async def verify(url: str, keyword: str) -> dict:
         target = await _find_downloaded_file(client, search, detail, subsidy_id)
         if target:
             file_owner, filename = target
-            await run_step(
-                report,
+            await reporter.step(
                 "call:get_file_content",
                 _call(
                     client,
@@ -130,28 +77,14 @@ async def verify(url: str, keyword: str) -> dict:
                 ),
             )
         else:
-            report.append(
-                {
-                    "step": "call:get_file_content",
-                    "ok": True,
-                    "skipped": True,
-                    "note": f"検索結果の先頭 {FILE_PROBE_LIMIT} 件に添付ファイルが無かったため未実行",
-                }
+            reporter.skip(
+                "call:get_file_content",
+                f"検索結果の先頭 {FILE_PROBE_LIMIT} 件に添付ファイルが無かった",
             )
 
-    tool_names = sorted(t.name for t in (tools or []))
-    return {
-        "url": url,
-        "keyword": keyword,
-        "tools": tool_names,
-        "steps": report,
-        "summary": {
-            "total": len(report),
-            "ok": sum(1 for s in report if s.get("ok") and not s.get("skipped")),
-            "skipped": sum(1 for s in report if s.get("skipped")),
-            "failed": sum(1 for s in report if not s.get("ok")),
-        },
-    }
+    reporter.extra["keyword"] = keyword
+    reporter.extra["tools"] = sorted(t.name for t in (tools or []))
+    return reporter
 
 
 async def _initialize(client: Client) -> dict:
@@ -179,6 +112,19 @@ async def _list_prompts(client: Client) -> list[str]:
 
 async def _call(client: Client, tool: str, args: dict) -> Any:
     return _unwrap(await client.call_tool(tool, args))
+
+
+def _unwrap(result: Any) -> Any:
+    """CallToolResult から人間/機械が読める形を取り出す。"""
+    data = getattr(result, "data", None)
+    if data is not None:
+        return data
+    structured = getattr(result, "structured_content", None)
+    if structured is not None:
+        return structured
+    blocks = getattr(result, "content", None) or []
+    texts = [t for t in (getattr(b, "text", None) for b in blocks) if t]
+    return texts[0] if len(texts) == 1 else texts
 
 
 def _subsidy_ids(search_result: Any) -> list[str]:
@@ -262,28 +208,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--url", default="http://127.0.0.1:8000/mcp", help="MCP エンドポイント")
     parser.add_argument("--keyword", default="IT導入", help="search_subsidies に渡すキーワード")
-    parser.add_argument("--out", default="results/jgrants-verification.json", help="結果 JSON の出力先")
+    parser.add_argument("--out", default="results/jgrants-mcp.json", help="結果 JSON の出力先")
     args = parser.parse_args()
 
-    result = asyncio.run(verify(args.url, args.keyword))
-
-    with open(args.out, "w", encoding="utf-8") as fh:
-        json.dump(result, fh, ensure_ascii=False, indent=2)
-
-    summary = result["summary"]
-    print(f"tools: {', '.join(result['tools']) or '(none)'}")
-    for step in result["steps"]:
-        if step.get("skipped"):
-            print(f"  [SKIP] {step['step']} - {step.get('note')}")
-        elif step.get("ok"):
-            print(f"  [OK  ] {step['step']}")
-        else:
-            print(f"  [FAIL] {step['step']} - {step.get('error')}")
-    print(
-        f"{summary['ok']} ok / {summary['skipped']} skipped / {summary['failed']} failed"
-        f" (total {summary['total']}) -> {args.out}"
-    )
-    return 0 if summary["failed"] == 0 else 1
+    reporter = asyncio.run(verify(args.url, args.keyword))
+    reporter.write(args.out)
+    print(f"tools: {', '.join(reporter.extra['tools']) or '(none)'}")
+    return reporter.print_console(args.out)
 
 
 if __name__ == "__main__":

@@ -25,7 +25,7 @@
 ```
 
 このスクリプトが、リポジトリの clone → `uv venv` + 依存インストール → サーバー起動 →
-`verify/verify_jgrants_mcp.py` による検証 → `results/jgrants-verification.json` への
+`verify/verify_jgrants_mcp.py` による検証 → `results/jgrants-mcp.json` への
 結果書き出しまでを一括で行う。
 
 ## 検証結果

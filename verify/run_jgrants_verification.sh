@@ -11,7 +11,7 @@ WORK_DIR="${1:-$REPO_ROOT/.work}"
 SERVER_DIR="$WORK_DIR/jgrants-mcp-server"
 PORT="${PORT:-8000}"
 KEYWORD="${KEYWORD:-IT導入}"
-OUT="${OUT:-$REPO_ROOT/results/jgrants-verification.json}"
+OUT="${OUT:-$REPO_ROOT/results/jgrants-mcp.json}"
 
 mkdir -p "$WORK_DIR" "$(dirname "$OUT")"
 

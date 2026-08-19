@@ -1,0 +1,69 @@
+id: egov-hourei-api
+name: e-Gov 法令 API Version 2
+summary: デジタル庁が運用する e-Gov 法令検索の法令データを提供する HTTP API。法令一覧・改正履歴・本文・全文検索・添付ファイルを取得できる。
+
+data_source:
+  provider: デジタル庁（e-Gov）
+  authority: primary_official
+  primary_source_url: https://laws.e-gov.go.jp/
+
+access:
+  method: rest_api
+  endpoint: https://laws.e-gov.go.jp/api/2
+  spec_url: https://laws.e-gov.go.jp/api/2/swagger-ui/lawapi-v2.yaml
+  spec_version: 2.1.139
+
+content:
+  categories:
+    - 法令
+  formats:
+    - json
+    - xml
+    - pdf
+  update_frequency: undocumented
+  coverage: 検証時点で /laws の total_count が 9541 件。全文検索は法令本文（law_full_text）を対象とする。
+
+requirements:
+  auth: not_required
+  auth_note: OpenAPI 仕様に securitySchemes の定義が無く、認証情報なしで全 6 エンドポイントが 200 を返した。
+  credential_env: []
+  rate_limit: undocumented
+  terms_url: null
+  attribution_required: undocumented
+  attribution_text: ""
+
+stability:
+  notes:
+    - OpenAPI 仕様の「注意事項」に、以下は試行版であり仕様変更が発生する場合があると明記されている。
+    - 試行版の対象は、法令本文取得 API が返す JSON 形式データ、法令本文ファイル取得 API の JSON 形式データ、キーワード検索 API で名称に law_num を含むパラメータ指定時のレスポンス。
+    - Version 1（https://laws.e-gov.go.jp/apitop/）を改良開発した後継 API であると仕様に記載。
+
+reachability:
+  hosts:
+    - host: laws.e-gov.go.jp
+      role: api
+      note: API・OpenAPI 仕様・XML 一括ダウンロードのすべてがこのホスト。
+    - host: www.e-gov.go.jp
+      role: portal
+      note: 検証環境の egress ポリシーで 403。利用規約ページがここにあるため規約を確認できていない。
+
+verify:
+  script: verify/verify_egov_hourei.py
+  result: results/egov-hourei-api.json
+  command: .work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json
+
+findings:
+  - claim: 認証は不要。API キーの登録手続きも存在しない。
+    evidence: 仕様に securitySchemes が無いことを検証スクリプトが declares_security_scheme=false として記録。加えて認証情報なしで 6 エンドポイントすべてが 200 を返した。
+  - claim: 添付ファイルが存在しない law_revision_id を /attachment に渡すと、HTTP 200 でも 404 でもなく HTTP 400 で code 404003 が返る。
+    evidence: 321CONSTITUTION_19470503_000000000000000 を指定して {"code":"404003","message":"指定のパラメータで取得できる添付ファイルは存在しません。"} を確認。
+  - claim: law_revision_id は law_info ではなく revision_info 配下にある。
+    evidence: /law_data のレスポンスで law_info に revision id が無く、revision_info.law_revision_id に存在することを確認。
+  - claim: law_revision_id は改正のたびに変わるため、検証スクリプトにハードコードできない。
+    evidence: law_revision_id の書式が {law_id}_{施行日}_{改正法令 ID} であり、民法は 129AC0000000089_20260624_508AC0000000045 だった。
+  - claim: 添付ファイルを持つ法令は少数。省令 40 件を走査して 3 件のみ該当した。
+    evidence: /laws?law_type=MinisterialOrdinance の先頭 40 件について law_data の attached_files_info を確認。
+  - claim: 利用規約・出典表示義務・レート制限は未確認。
+    evidence: 規約ページのある www.e-gov.go.jp が検証環境の egress ポリシーで 403。OpenAPI 仕様にも該当記述が無い。到達できないだけであり、規約が存在しないという意味ではない。
+  - claim: API とは別に XML 一括ダウンロードが提供されている。
+    evidence: OpenAPI 仕様の description に https://laws.e-gov.go.jp/bulkdownload?file_section=1&only_xml_flag=true が記載。
