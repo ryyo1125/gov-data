@@ -1,0 +1,14 @@
+provider_id,provider_name,provider_type,is_primary_source,official_url,evidence_level,evidence_ref,recorded_at
+P001,デジタル庁,政府機関,yes,https://www.digital.go.jp/,E1,EV-AJO,2026-08-19
+P002,総務省統計局（e-Stat運営）,政府機関,yes,https://www.e-stat.go.jp/,E1,EV-AJO,2026-08-19
+P003,国税庁,政府機関,yes,https://www.houjin-bangou.nta.go.jp/,E1,EV-AJO,2026-08-19
+P004,国土交通省,政府機関,yes,https://www.mlit.go.jp/,E1,EV-AJO,2026-08-19
+P005,厚生労働省,政府機関,yes,https://www.mhlw.go.jp/,E1,EV-AJO,2026-08-19
+P006,地方厚生局（厚労省地方支分部局）,政府機関,yes,https://kouseikyoku.mhlw.go.jp/,E1,EV-WS,2026-08-19
+P007,金融庁,政府機関,yes,https://disclosure.edinet-fsa.go.jp/,E1,EV-AJO,2026-08-19
+P008,日本銀行,中央銀行,yes,https://www.stat-search.boj.or.jp/,E1,EV-AJO,2026-08-19
+P009,法務省,政府機関,yes,https://www.moj.go.jp/,E1,EV-AJO,2026-08-19
+P010,警察庁,政府機関,yes,https://www.npa.go.jp/,E1,EV-AJO,2026-08-19
+P011,独立行政法人福祉医療機構（WAM）,独法・公的機関,no,https://www.wam.go.jp/,E1,EV-AJO,2026-08-19
+P012,japan-opendata（有志コミュニティ）,有志,no,https://github.com/japan-opendata/awesome-japan-opendata,E3,EV-AJO,2026-08-19
+P013,医療介護情報局（民間）,民間,no,https://caremap.jp/,E1,EV-WS,2026-08-19

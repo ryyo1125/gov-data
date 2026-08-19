@@ -1,0 +1,21 @@
+source_id,provider_id,source_name,delivery_method,data_categories,formats,data_update_freq,auth_required,license,attribution_required,connection_verified,evidence_level,evidence_ref,primary_url,recorded_at,reverify_after,notes
+S001,P001,e-Gov APIカタログ,Webカタログ,行政APIの登録簿,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,no,E1,EV-WS,https://api-catalog.e-gov.go.jp/info/ja/apicatalog/list,2026-08-19,2026-09-19,★探索の起点。政府API群の公式登録簿。最優先でE2検証すべき
+S002,P001,Jグランツ 補助金API,REST API,補助金公募情報,JSON,UNKNOWN,no,UNKNOWN,yes,no,E3,EV-JG-MCP,https://api.jgrants-portal.go.jp/exp/v1/public,2026-08-19,2026-09-19,出典明記義務あり。詳細は docs/jgrants-field-reference.md
+S003,P001,Jグランツ公式MCPサーバー,MCPサーバー(自ホスト),補助金公募情報,MCP/JSON,UNKNOWN,no,MIT,yes,yes,E3,EV-JG-MCP,https://github.com/digital-go-jp/jgrants-mcp-server,2026-08-19,2026-09-19,MCP層は実行確認済。API到達は環境依存
+S004,P001,DATA GO JP（オープンデータカタログ）,Webカタログ+API,横断カタログ,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://www.data.go.jp/,2026-08-19,2026-09-19,カタログAPIの提供ありとの記載。未検証
+S005,P002,e-Stat API機能,REST API,政府統計,UNKNOWN,UNKNOWN,yes(appId),UNKNOWN,UNKNOWN,no,E1,EV-WS,https://www.e-stat.go.jp/api/,2026-08-19,2026-09-19,公式MCPは存在しない。要利用登録
+S006,P003,法人番号公表サイト ダウンロード/Web API,REST API+一括DL,法人基本3情報,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://www.houjin-bangou.nta.go.jp/download/,2026-08-19,2026-09-19,名寄せの基盤になりうる
+S007,P004,不動産情報ライブラリ,REST API+一括DL,不動産取引価格/地価,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://www.reinfolib.mlit.go.jp/,2026-08-19,2026-09-19,旧・土地総合情報システム
+S008,P004,国土交通データプラットフォーム(MLIT DPF),GraphQL API+MCPサーバー,国土/インフラ/地理空間,UNKNOWN,UNKNOWN,yes(APIキー),UNKNOWN,UNKNOWN,no,E1,EV-WS,https://github.com/MLIT-DATA-PLATFORM/mlit-dpf-mcp,2026-08-19,2026-09-19,公式MCPあり。要アカウント登録+アプリ登録
+S009,P004,国土数値情報ダウンロードサービス,一括DL,地理空間,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://nlftp.mlit.go.jp/ksj/,2026-08-19,2026-11-19,
+S010,P006,施設基準の届出受理医療機関名簿,Webページ+ファイルDL,保険医療機関/施設基準届出,PDF(他形式は要確認),月次(要確認),no,UNKNOWN,UNKNOWN,no,E1,EV-WS,https://kouseikyoku.mhlw.go.jp/,2026-08-19,2026-09-19,★医療MVPの本命候補。8地方厚生局ごとに別掲載=横断取得の設計が要る
+S011,P005,NDBオープンデータ,一括DL,レセプト由来の医療統計,UNKNOWN,年次(要確認),no,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000177182.html,2026-08-19,2026-11-19,
+S012,P005,歯科保健医療に関するオープンデータ,一括DL,歯科,UNKNOWN,UNKNOWN,no,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000158505_00001.html,2026-08-19,2026-11-19,歯科に特化した数少ない公式データ
+S013,P005,介護サービス情報公表システム,Web検索システム,介護事業所,UNKNOWN,UNKNOWN,no,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://www.kaigokensaku.mhlw.go.jp/,2026-08-19,2026-11-19,
+S014,P011,障害福祉サービス等情報公表システム オープンデータ,一括DL,障害福祉事業所,UNKNOWN,UNKNOWN,no,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://www.wam.go.jp/content/wamnet/pcpub/top/sfkopendata/,2026-08-19,2026-11-19,
+S015,P007,EDINET,Web+API(要確認),有価証券報告書等,XBRL他,随時,UNKNOWN,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://disclosure.edinet-fsa.go.jp,2026-08-19,2026-11-19,
+S016,P008,日本銀行 時系列統計データ,一括DL,物価/短観/資金循環等16データセット,CSV(Shift_JIS)のZIP,UNKNOWN,no,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://www.stat-search.boj.or.jp/,2026-08-19,2026-11-19,認証不要との記載
+S017,P009,登記所備付地図データ,一括DL,公図/地図,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://www.moj.go.jp/MINJI/minji05_00494.html,2026-08-19,2026-11-19,
+S018,P010,交通事故統計オープンデータ,一括DL,交通事故,UNKNOWN,UNKNOWN,no,UNKNOWN,UNKNOWN,no,E1,EV-AJO,https://www.npa.go.jp/publications/statistics/koutsuu/opendata/index_opendata.html,2026-08-19,2026-11-19,
+S019,P001,e-Gov 法令API,REST API,法令本文,UNKNOWN,UNKNOWN,no,UNKNOWN,UNKNOWN,no,E1,EV-WS,https://laws.e-gov.go.jp/,2026-08-19,2026-09-19,公式MCPは存在しない。第三者MCP実装が複数あり
+S020,P013,医療機関届出情報データベース,Web検索システム,保険医療機関/届出項目,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,no,E1,EV-WS,https://caremap.jp/cities/search/facility,2026-08-19,2026-11-19,民間の再配布。一次情報は地方厚生局(S010)。利用規約の確認必須
