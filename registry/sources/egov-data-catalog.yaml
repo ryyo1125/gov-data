@@ -18,7 +18,10 @@ content:
   formats:
     - json
   update_frequency: undocumented
-  coverage: 検証時点で package_search の count が 18141 件、tag_list が 5745 件。
+  coverage: 府省庁が公開するデータセットのメタデータを収録する。実データそのものは各データセットの resource が指す先にある。
+  measured:
+    - package_search の count は 18141 件
+    - tag_list は 5745 件
 
 requirements:
   auth: not_required

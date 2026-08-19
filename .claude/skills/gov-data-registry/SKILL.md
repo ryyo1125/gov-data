@@ -40,10 +40,13 @@ e-Stat のような API 群を 1 エントリにまとめると、認証も到�
 仕様を調べ切ってから「そもそも繋がらない」と分かって全部が無駄になる。
 
 ```bash
-python verify/verify_reachability.py --out results/reachability.json
+.work/toolvenv/bin/python verify/verify_reachability.py --out results/reachability.json
 ```
 
-新しいホストは `registry/blocked.yaml` に候補として足してから回すと、そのホストも実測される。
+`.work/toolvenv` は `./verify/run_all.sh` が作る。無ければ先に一度回すこと。
+システムの `python` には httpx も PyYAML も入っていないので動かない。
+
+新しいホストは `registry/blocked.yaml` の `candidates:` に足してから回すと、そのホストも実測される。
 
 **到達できない場合、そこで止まる。** 二次情報（Web 検索結果や解説記事）だけを根拠に
 エントリを書いてはいけない。それは推測を台帳に入れる行為で、この台帳が防ごうとしている
@@ -85,6 +88,12 @@ e-Gov ポータルにあり、しかも適用範囲が「e-gov.go.jp 及びそ�
 
 `verify/verify_<id>.py` を作り、`verify/_report.py` の `Reporter` を使う。
 全検証が同じ形の JSON を出すことで、`build.py` が結果を機械的に読める。
+
+`results/` には性質の違う 3 種類が入る。混同しないこと。
+
+- `results/<エントリ id>.json` — エントリ 1 件の検証結果。台帳の status の根拠になる
+- `results/reachability.json` — ホストの到達性。自環境の状態であって提供側の状態ではない
+- `results/fields.json` — 取得できる項目の抽出結果。検証ではないので status には効かない
 
 ```python
 reporter = Reporter(SOURCE_ID, target)
@@ -148,6 +157,7 @@ curl や httpx では通ることがある（実際に xml.kishou.go.jp と www.
   - `primary_official`: 一次公開元が直接提供
   - `official_wrapper`: 一次公開元自身によるラッパー実装
   - `third_party_wrapper`: 第三者によるラッパー
+  - `unknown`: 提供主体を確認できなかった場合。分からないことを分かると書かないための逃げ道
 - **`requirements.auth` に `not_required` と書けるのは、認証情報なしで実際に
   応答したときだけ。** 仕様に記述が無いだけなら `undocumented`。
   両方に該当するなら `not_required` にして `auth_note` に事情を書く
@@ -156,7 +166,11 @@ curl や httpx では通ることがある（実際に xml.kishou.go.jp と www.
   限らない。気象庁の電文は「予報の値を編集する行為は気象業務法第 17 条の許可が
   必要」で、これを知らずに加工すると違法になる。確認していないなら、その旨を
   要素として書く（空配列は「制約が無いことを確認した」の意味になる）
-- **`content.coverage` の件数は検証時の実測値だと明記する。** 数字は必ず動く
+- **件数などの実測値は `content.coverage` ではなく `content.measured` に書く。**
+  coverage は質的な説明、measured は「検証スクリプトが実際に取得した数値」。
+  ビルドが measured の数値を results と突き合わせるので、取得していない数値を
+  書くと落ちる。毎分変わるような数値はそもそも載せず `measured: []` にする
+  （＝実測値を載せないと判断した、という意思表示）
 - **`stability.notes` には一次資料に明記された記述だけ。** URL の見た目からの
   推測（`/exp/` が実験版を意味する等）は、事実として `notes` に書かず、
   「パスに exp を含む」という観察事実だけを書く
@@ -187,10 +201,28 @@ findings:
 
 （`.work/toolvenv` は `./verify/run_all.sh` が作る。無ければ先にそれを一度回す。）
 
-スキーマ違反、`id` とファイル名の不一致、結果ファイルの `source_id` 不整合は
-ここで落ちる。落ちたら直す。**通らないまま「登録した」と報告しない。**
+ここで落ちるのは次の場合。落ちたら直す。**通らないまま「登録した」と報告しない。**
+
+- スキーマ違反（型・必須項目・列挙値）
+- `id` とファイル名の不一致
+- `verify.script` が存在しない、または `verify/run_all.sh` から実行されない
+- 結果ファイルがあるのに `source_id` がエントリ id と一致しない
+- `content.measured` に書いた数値が、対応する検証結果に見当たらない
+
+一方、**結果ファイルがまだ無いのは落ちない**。未検証は正当な状態なので、
+`unverified` として台帳に出るだけになる。「ビルドが通った」＝「検証済み」ではないので、
+ビルドの出力で各エントリの状態を必ず確認すること。
 
 `--check` は生成物が最新かだけを見る。CI や定期実行で使う。
+
+台帳の規律はすべてこの検査に依存しているので、検査自体にも回帰テストがある。
+`build.py` の判定を変えたら `bash registry/test_build.sh` を回すこと。
+上に並べた「落ちる／落ちない」の条件は、そこで実際に壊して確かめている。
+
+**新しい検証スクリプトは `verify/run_all.sh` にも足す。** これを忘れると、
+そのエントリだけ定期再検証から漏れて黙って腐る。忘れてもビルドが落ちるようにしてあるが、
+落ちてから直すのではなく最初から足しておくこと。MCP サーバーのように起動が要るものは、
+`run_jgrants_verification.sh` のようにラッパー経由で呼んでよい。
 
 新しい情報源を足したら `verify/extract_fields.py` にも抽出処理を足す。台帳は
 「どこから何が取れるか」をエンドポイント粒度で答えるが、それだけでは

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T08:54:53+00:00",
+  "generated_at": "2026-08-19T09:10:11+00:00",
   "generated_by": "registry/build.py",
   "stale_after_days": 90,
   "sources": [
@@ -25,7 +25,11 @@
           "json"
         ],
         "update_frequency": "undocumented",
-        "coverage": "検証時点で package_search の count が 18141 件、tag_list が 5745 件。"
+        "coverage": "府省庁が公開するデータセットのメタデータを収録する。実データそのものは各データセットの resource が指す先にある。",
+        "measured": [
+          "package_search の count は 18141 件",
+          "tag_list は 5745 件"
+        ]
       },
       "requirements": {
         "auth": "not_required",
@@ -109,7 +113,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T08:53:39+00:00",
+        "verified_at": "2026-08-19T09:08:47+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -125,43 +129,43 @@
           {
             "step": "site_read",
             "outcome": "ok",
-            "elapsed_ms": 1065,
+            "elapsed_ms": 838,
             "note": null
           },
           {
             "step": "package_search",
             "outcome": "ok",
-            "elapsed_ms": 339,
+            "elapsed_ms": 571,
             "note": null
           },
           {
             "step": "package_list",
             "outcome": "ok",
-            "elapsed_ms": 552,
+            "elapsed_ms": 241,
             "note": null
           },
           {
             "step": "organization_list",
             "outcome": "ok",
-            "elapsed_ms": 244,
+            "elapsed_ms": 263,
             "note": null
           },
           {
             "step": "group_list",
             "outcome": "ok",
-            "elapsed_ms": 249,
+            "elapsed_ms": 256,
             "note": null
           },
           {
             "step": "tag_list",
             "outcome": "ok",
-            "elapsed_ms": 794,
+            "elapsed_ms": 683,
             "note": null
           },
           {
             "step": "package_show",
             "outcome": "ok",
-            "elapsed_ms": 569,
+            "elapsed_ms": 587,
             "note": null
           }
         ],
@@ -193,7 +197,10 @@
           "pdf"
         ],
         "update_frequency": "undocumented",
-        "coverage": "検証時点で /laws の total_count が 9541 件。全文検索は法令本文（law_full_text）を対象とする。"
+        "coverage": "法令一覧・改正履歴・本文・添付ファイルを提供。全文検索は法令本文（law_full_text）を対象とする。",
+        "measured": [
+          "/laws の total_count は 9541 件（全法令）"
+        ]
       },
       "requirements": {
         "auth": "not_required",
@@ -277,14 +284,14 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T08:53:35+00:00",
+        "verified_at": "2026-08-19T09:08:43+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
         },
         "summary": {
-          "total": 7,
-          "ok": 7,
+          "total": 8,
+          "ok": 8,
           "skipped": 0,
           "blocked": 0,
           "failed": 0
@@ -293,43 +300,49 @@
           {
             "step": "fetch_openapi_spec",
             "outcome": "ok",
-            "elapsed_ms": 807,
+            "elapsed_ms": 989,
+            "note": null
+          },
+          {
+            "step": "GET /laws（全件数）",
+            "outcome": "ok",
+            "elapsed_ms": 1098,
             "note": null
           },
           {
             "step": "GET /laws",
             "outcome": "ok",
-            "elapsed_ms": 256,
+            "elapsed_ms": 337,
             "note": null
           },
           {
             "step": "GET /law_revisions/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 386,
+            "elapsed_ms": 279,
             "note": null
           },
           {
             "step": "GET /law_data/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 326,
+            "elapsed_ms": 311,
             "note": null
           },
           {
             "step": "GET /keyword",
             "outcome": "ok",
-            "elapsed_ms": 1382,
+            "elapsed_ms": 1406,
             "note": null
           },
           {
             "step": "GET /law_file/xml/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 314,
+            "elapsed_ms": 324,
             "note": null
           },
           {
             "step": "GET /attachment/{law_revision_id}",
             "outcome": "ok",
-            "elapsed_ms": 397,
+            "elapsed_ms": 502,
             "note": null
           }
         ],
@@ -370,7 +383,10 @@
           "csv"
         ],
         "update_frequency": "undocumented",
-        "coverage": "検証時点で get_subsidy_overview が全 189 件を集計。募集中・募集予定の補助金が対象。"
+        "coverage": "募集中・募集予定の補助金が対象。過去の募集は含まれない。",
+        "measured": [
+          "get_subsidy_overview が集計した総数は 189 件"
+        ]
       },
       "requirements": {
         "auth": "not_required",
@@ -453,7 +469,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T08:53:55+00:00",
+        "verified_at": "2026-08-19T09:09:15+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -475,49 +491,49 @@
           {
             "step": "list_tools",
             "outcome": "ok",
-            "elapsed_ms": 17,
+            "elapsed_ms": 24,
             "note": null
           },
           {
             "step": "list_resources",
             "outcome": "ok",
-            "elapsed_ms": 8,
+            "elapsed_ms": 12,
             "note": null
           },
           {
             "step": "list_prompts",
             "outcome": "ok",
-            "elapsed_ms": 6,
+            "elapsed_ms": 9,
             "note": null
           },
           {
             "step": "call:ping",
             "outcome": "ok",
-            "elapsed_ms": 10,
+            "elapsed_ms": 12,
             "note": null
           },
           {
             "step": "call:search_subsidies",
             "outcome": "ok",
-            "elapsed_ms": 1358,
+            "elapsed_ms": 1430,
             "note": null
           },
           {
             "step": "call:get_subsidy_detail",
             "outcome": "ok",
-            "elapsed_ms": 239,
+            "elapsed_ms": 288,
             "note": null
           },
           {
             "step": "call:get_subsidy_overview",
             "outcome": "ok",
-            "elapsed_ms": 1804,
+            "elapsed_ms": 1818,
             "note": null
           },
           {
             "step": "call:get_file_content",
             "outcome": "ok",
-            "elapsed_ms": 2207,
+            "elapsed_ms": 2318,
             "note": null
           }
         ],
@@ -550,7 +566,8 @@
           "xml"
         ],
         "update_frequency": "高頻度フィード（regular / extra / eqvol / other）は毎分更新で直近少なくとも 10 分の入電を掲載。長期フィード（同名 + _l）は毎時更新で数日間の全入電を掲載。",
-        "coverage": "検証時点の entry 数は高頻度で 647 / 220 / 29 / 32 件、長期で 9686 / 6672 / 605 / 428 件。"
+        "coverage": "定時・随時・地震火山・その他の 4 系統について、高頻度と長期の 2 種類のフィードを提供。 entry 数は入電のたびに変わるため件数は台帳に書かない（実測は results/jma-xml.json を参照）。",
+        "measured": []
       },
       "requirements": {
         "auth": "not_required",
@@ -626,7 +643,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T08:53:43+00:00",
+        "verified_at": "2026-08-19T09:09:02+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -642,55 +659,55 @@
           {
             "step": "GET /regular.xml (定時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 673,
+            "elapsed_ms": 2354,
             "note": null
           },
           {
             "step": "GET /extra.xml (随時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 68,
+            "elapsed_ms": 1437,
             "note": null
           },
           {
             "step": "GET /eqvol.xml (地震火山・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 65,
+            "elapsed_ms": 806,
             "note": null
           },
           {
             "step": "GET /other.xml (その他・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 70,
+            "elapsed_ms": 794,
             "note": null
           },
           {
             "step": "GET /regular_l.xml (定時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 1910,
+            "elapsed_ms": 2950,
             "note": null
           },
           {
             "step": "GET /extra_l.xml (随時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 442,
+            "elapsed_ms": 2447,
             "note": null
           },
           {
             "step": "GET /eqvol_l.xml (地震火山・長期)",
             "outcome": "ok",
-            "elapsed_ms": 76,
+            "elapsed_ms": 832,
             "note": null
           },
           {
             "step": "GET /other_l.xml (その他・長期)",
             "outcome": "ok",
-            "elapsed_ms": 549,
+            "elapsed_ms": 819,
             "note": null
           },
           {
             "step": "GET 電文本体",
             "outcome": "ok",
-            "elapsed_ms": 155,
+            "elapsed_ms": 1986,
             "note": null
           }
         ],
@@ -700,7 +717,7 @@
   ],
   "blocked_candidates": [],
   "reachability": {
-    "_generated_at": "2026-08-19T08:53:30+00:00",
+    "_generated_at": "2026-08-19T09:08:37+00:00",
     "api.jgrants-portal.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,

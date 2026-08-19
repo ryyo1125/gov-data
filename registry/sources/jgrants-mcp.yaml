@@ -29,7 +29,9 @@ content:
     - docx
     - csv
   update_frequency: undocumented
-  coverage: 検証時点で get_subsidy_overview が全 189 件を集計。募集中・募集予定の補助金が対象。
+  coverage: 募集中・募集予定の補助金が対象。過去の募集は含まれない。
+  measured:
+    - get_subsidy_overview が集計した総数は 189 件
 
 requirements:
   auth: not_required

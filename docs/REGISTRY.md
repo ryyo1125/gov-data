@@ -4,7 +4,7 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-19T08:54:53+00:00
+- 生成日時: 2026-08-19T09:10:11+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
@@ -12,7 +12,7 @@
 | ID | 名称 | 提供元 | 権威性 | 方式 | 認証 | 出典表示 | 状態 | 最終検証 |
 |---|---|---|---|---|---|---|---|---|
 | `egov-data-catalog` | e-Gov データポータル（CKAN API） | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-19 |
-| `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-19 |
+| `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (8/8) | 2026-08-19 |
 | `jgrants-mcp` | Jグランツ MCP Server | デジタル庁 | official_wrapper | mcp | not_required | yes | 検証済 (9/9) | 2026-08-19 |
 | `jma-xml` | 気象庁防災情報XML（PULL型 Atom フィード） | 気象庁 | primary_official | rest_api | not_required | undocumented | 検証済 (9/9) | 2026-08-19 |
 
@@ -32,7 +32,9 @@
 - 種類: オープンデータのメタデータ
 - 形式: json
 - 更新頻度: undocumented
-- 収録範囲: 検証時点で package_search の count が 18141 件、tag_list が 5745 件。
+- 収録範囲: 府省庁が公開するデータセットのメタデータを収録する。実データそのものは各データセットの resource が指す先にある。
+- 実測値: package_search の count は 18141 件
+- 実測値: tag_list は 5745 件
 
 ### 接続要件
 
@@ -56,20 +58,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T08:53:39+00:00
+- 最終検証: 2026-08-19T09:08:47+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_data_catalog.py --out results/egov-data-catalog.json`
 - 検証スクリプト: `verify/verify_egov_data_catalog.py` / 結果: `results/egov-data-catalog.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `site_read` | OK | 1065 ms |  |
-| `package_search` | OK | 339 ms |  |
-| `package_list` | OK | 552 ms |  |
-| `organization_list` | OK | 244 ms |  |
-| `group_list` | OK | 249 ms |  |
-| `tag_list` | OK | 794 ms |  |
-| `package_show` | OK | 569 ms |  |
+| `site_read` | OK | 838 ms |  |
+| `package_search` | OK | 571 ms |  |
+| `package_list` | OK | 241 ms |  |
+| `organization_list` | OK | 263 ms |  |
+| `group_list` | OK | 256 ms |  |
+| `tag_list` | OK | 683 ms |  |
+| `package_show` | OK | 587 ms |  |
 
 ### 実行して分かったこと
 
@@ -108,7 +110,8 @@
 - 種類: 法令
 - 形式: json / xml / pdf
 - 更新頻度: undocumented
-- 収録範囲: 検証時点で /laws の total_count が 9541 件。全文検索は法令本文（law_full_text）を対象とする。
+- 収録範囲: 法令一覧・改正履歴・本文・添付ファイルを提供。全文検索は法令本文（law_full_text）を対象とする。
+- 実測値: /laws の total_count は 9541 件（全法令）
 
 ### 接続要件
 
@@ -133,20 +136,21 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T08:53:35+00:00
+- 最終検証: 2026-08-19T09:08:43+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json`
 - 検証スクリプト: `verify/verify_egov_hourei.py` / 結果: `results/egov-hourei-api.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `fetch_openapi_spec` | OK | 807 ms |  |
-| `GET /laws` | OK | 256 ms |  |
-| `GET /law_revisions/{law_id}` | OK | 386 ms |  |
-| `GET /law_data/{law_id}` | OK | 326 ms |  |
-| `GET /keyword` | OK | 1382 ms |  |
-| `GET /law_file/xml/{law_id}` | OK | 314 ms |  |
-| `GET /attachment/{law_revision_id}` | OK | 397 ms |  |
+| `fetch_openapi_spec` | OK | 989 ms |  |
+| `GET /laws（全件数）` | OK | 1098 ms |  |
+| `GET /laws` | OK | 337 ms |  |
+| `GET /law_revisions/{law_id}` | OK | 279 ms |  |
+| `GET /law_data/{law_id}` | OK | 311 ms |  |
+| `GET /keyword` | OK | 1406 ms |  |
+| `GET /law_file/xml/{law_id}` | OK | 324 ms |  |
+| `GET /attachment/{law_revision_id}` | OK | 502 ms |  |
 
 ### 実行して分かったこと
 
@@ -186,7 +190,8 @@
 - 種類: 補助金・助成金
 - 形式: json / markdown / pdf / docx / csv
 - 更新頻度: undocumented
-- 収録範囲: 検証時点で get_subsidy_overview が全 189 件を集計。募集中・募集予定の補助金が対象。
+- 収録範囲: 募集中・募集予定の補助金が対象。過去の募集は含まれない。
+- 実測値: get_subsidy_overview が集計した総数は 189 件
 
 ### 接続要件
 
@@ -213,7 +218,7 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T08:53:55+00:00
+- 最終検証: 2026-08-19T09:09:15+00:00
 - 再現コマンド: `./verify/run_jgrants_verification.sh`
 - 検証スクリプト: `verify/verify_jgrants_mcp.py` / 結果: `results/jgrants-mcp.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
@@ -221,14 +226,14 @@
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
 | `initialize` | OK | 0 ms |  |
-| `list_tools` | OK | 17 ms |  |
-| `list_resources` | OK | 8 ms |  |
-| `list_prompts` | OK | 6 ms |  |
-| `call:ping` | OK | 10 ms |  |
-| `call:search_subsidies` | OK | 1358 ms |  |
-| `call:get_subsidy_detail` | OK | 239 ms |  |
-| `call:get_subsidy_overview` | OK | 1804 ms |  |
-| `call:get_file_content` | OK | 2207 ms |  |
+| `list_tools` | OK | 24 ms |  |
+| `list_resources` | OK | 12 ms |  |
+| `list_prompts` | OK | 9 ms |  |
+| `call:ping` | OK | 12 ms |  |
+| `call:search_subsidies` | OK | 1430 ms |  |
+| `call:get_subsidy_detail` | OK | 288 ms |  |
+| `call:get_subsidy_overview` | OK | 1818 ms |  |
+| `call:get_file_content` | OK | 2318 ms |  |
 
 ### 実行して分かったこと
 
@@ -263,7 +268,7 @@
 - 種類: 気象警報・注意報 / 天気概況 / 地震・火山情報 / 海上警報
 - 形式: atom / xml
 - 更新頻度: 高頻度フィード（regular / extra / eqvol / other）は毎分更新で直近少なくとも 10 分の入電を掲載。長期フィード（同名 + _l）は毎時更新で数日間の全入電を掲載。
-- 収録範囲: 検証時点の entry 数は高頻度で 647 / 220 / 29 / 32 件、長期で 9686 / 6672 / 605 / 428 件。
+- 収録範囲: 定時・随時・地震火山・その他の 4 系統について、高頻度と長期の 2 種類のフィードを提供。 entry 数は入電のたびに変わるため件数は台帳に書かない（実測は results/jma-xml.json を参照）。
 
 ### 接続要件
 
@@ -289,22 +294,22 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T08:53:43+00:00
+- 最終検証: 2026-08-19T09:09:02+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_jma_xml.py --out results/jma-xml.json`
 - 検証スクリプト: `verify/verify_jma_xml.py` / 結果: `results/jma-xml.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `GET /regular.xml (定時・高頻度)` | OK | 673 ms |  |
-| `GET /extra.xml (随時・高頻度)` | OK | 68 ms |  |
-| `GET /eqvol.xml (地震火山・高頻度)` | OK | 65 ms |  |
-| `GET /other.xml (その他・高頻度)` | OK | 70 ms |  |
-| `GET /regular_l.xml (定時・長期)` | OK | 1910 ms |  |
-| `GET /extra_l.xml (随時・長期)` | OK | 442 ms |  |
-| `GET /eqvol_l.xml (地震火山・長期)` | OK | 76 ms |  |
-| `GET /other_l.xml (その他・長期)` | OK | 549 ms |  |
-| `GET 電文本体` | OK | 155 ms |  |
+| `GET /regular.xml (定時・高頻度)` | OK | 2354 ms |  |
+| `GET /extra.xml (随時・高頻度)` | OK | 1437 ms |  |
+| `GET /eqvol.xml (地震火山・高頻度)` | OK | 806 ms |  |
+| `GET /other.xml (その他・高頻度)` | OK | 794 ms |  |
+| `GET /regular_l.xml (定時・長期)` | OK | 2950 ms |  |
+| `GET /extra_l.xml (随時・長期)` | OK | 2447 ms |  |
+| `GET /eqvol_l.xml (地震火山・長期)` | OK | 832 ms |  |
+| `GET /other_l.xml (その他・長期)` | OK | 819 ms |  |
+| `GET 電文本体` | OK | 1986 ms |  |
 
 ### 実行して分かったこと
 
@@ -323,7 +328,7 @@
 
 ## 到達性の実測
 
-`verify/verify_reachability.py` の実測結果（2026-08-19T08:53:30+00:00）。
+`verify/verify_reachability.py` の実測結果（2026-08-19T09:08:37+00:00）。
 到達できないことは、そのサービスが存在しないことを意味しない。
 
 | ホスト | 結果 | 詳細 |

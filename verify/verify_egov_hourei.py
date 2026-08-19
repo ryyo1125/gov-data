@@ -38,6 +38,9 @@ async def verify(base_url: str) -> Reporter:
     async with httpx.AsyncClient(base_url=base_url, timeout=60.0, trust_env=True) as client:
         spec = await reporter.step("fetch_openapi_spec", _fetch_spec(client))
 
+        # 収録全件数。台帳の coverage に書く数値はこのステップの実測から取る。
+        await reporter.step("GET /laws（全件数）", _get_json(client, "/laws", {"limit": 1}))
+
         laws = await reporter.step(
             "GET /laws", _get_json(client, "/laws", {"limit": 3, "law_type": "Constitution"})
         )

@@ -22,7 +22,10 @@ content:
     - atom
     - xml
   update_frequency: 高頻度フィード（regular / extra / eqvol / other）は毎分更新で直近少なくとも 10 分の入電を掲載。長期フィード（同名 + _l）は毎時更新で数日間の全入電を掲載。
-  coverage: 検証時点の entry 数は高頻度で 647 / 220 / 29 / 32 件、長期で 9686 / 6672 / 605 / 428 件。
+  coverage: >-
+    定時・随時・地震火山・その他の 4 系統について、高頻度と長期の 2 種類のフィードを提供。
+    entry 数は入電のたびに変わるため件数は台帳に書かない（実測は results/jma-xml.json を参照）。
+  measured: []
 
 requirements:
   auth: not_required

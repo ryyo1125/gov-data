@@ -21,7 +21,9 @@ content:
     - xml
     - pdf
   update_frequency: undocumented
-  coverage: 検証時点で /laws の total_count が 9541 件。全文検索は法令本文（law_full_text）を対象とする。
+  coverage: 法令一覧・改正履歴・本文・添付ファイルを提供。全文検索は法令本文（law_full_text）を対象とする。
+  measured:
+    - /laws の total_count は 9541 件（全法令）
 
 requirements:
   auth: not_required

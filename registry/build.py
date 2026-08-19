@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -48,6 +49,7 @@ STATUS_LABEL = {
 def load_entries() -> tuple[list[dict], list[str]]:
     """sources/*.yaml を読み、スキーマ検証を通してエントリ一覧とエラー一覧を返す。"""
     validator = Draft202012Validator(json.loads(SCHEMA_PATH.read_text(encoding="utf-8")))
+    runner_scripts = _runner_scripts()
     entries: list[dict] = []
     errors: list[str] = []
 
@@ -71,13 +73,81 @@ def load_entries() -> tuple[list[dict], list[str]]:
         if entry.get("id") != path.stem:
             errors.append(f"{rel}: id '{entry.get('id')}' がファイル名 '{path.stem}' と一致しない")
 
-        script = REPO_ROOT / entry.get("verify", {}).get("script", "")
+        script_rel = entry.get("verify", {}).get("script", "")
+        script = REPO_ROOT / script_rel
         if not script.is_file():
-            errors.append(f"{rel}: verify.script が存在しない: {entry.get('verify', {}).get('script')}")
+            errors.append(f"{rel}: verify.script が存在しない: {script_rel}")
+        elif script_rel not in runner_scripts:
+            # 再検証の一括実行から漏れると、そのエントリだけ黙って腐る。
+            errors.append(
+                f"{rel}: verify.script が verify/run_all.sh から実行されない: {script_rel}"
+            )
+
+        errors.extend(_result_errors(rel, entry))
+        errors.extend(_measured_errors(rel, entry))
 
         entries.append(entry)
 
     return entries, errors
+
+
+def _runner_scripts() -> set[str]:
+    """run_all.sh と、そこから呼ばれるシェルスクリプトが実行する検証スクリプトを集める。"""
+    text = ""
+    pending = [REPO_ROOT / "verify" / "run_all.sh"]
+    seen: set[Path] = set()
+    while pending:
+        path = pending.pop()
+        if path in seen or not path.is_file():
+            continue
+        seen.add(path)
+        content = path.read_text(encoding="utf-8")
+        text += content
+        for sibling in (REPO_ROOT / "verify").glob("*.sh"):
+            if sibling.name in content:
+                pending.append(sibling)
+    return {
+        f"verify/{path.name}" for path in (REPO_ROOT / "verify").glob("*.py") if path.name in text
+    }
+
+
+def _result_errors(rel: Path, entry: dict) -> list[str]:
+    """結果ファイルがあるのに、それがこのエントリのものでない場合はエラーにする。
+
+    結果が「まだ無い」のは未検証という正当な状態だが、別のエントリの結果を
+    指してしまうのは設定ミスなので、unverified で流さず気づけるようにする。
+    """
+    result_rel = entry.get("verify", {}).get("result", "")
+    path = REPO_ROOT / result_rel
+    if not path.is_file():
+        return []
+    source_id = json.loads(path.read_text(encoding="utf-8")).get("source_id")
+    if source_id != entry.get("id"):
+        return [f"{rel}: {result_rel} の source_id '{source_id}' がエントリ id と一致しない"]
+    return []
+
+
+def _measured_errors(rel: Path, entry: dict) -> list[str]:
+    """measured に書いた数値が、対応する検証結果に現れるかを確かめる。
+
+    件数を手で書くと必ず腐り、しかも腐っても誰も気づかない。検証していない
+    数値を書くことも防ぎたい。ただし自然文から数値を拾うと「4 系統」のような
+    件数でない数値まで拾ってしまうため、実測値は measured に隔離して検査する。
+
+    結果ファイルがまだ無いのは未検証という正当な状態なので、ここでは何も言わない。
+    """
+    measured = entry.get("content", {}).get("measured") or []
+    numbers = [n for item in measured for n in re.findall(r"\d[\d,]*", item)]
+    path = REPO_ROOT / entry.get("verify", {}).get("result", "")
+    if not numbers or not path.is_file():
+        return []
+    blob = path.read_text(encoding="utf-8")
+    missing = [n for n in numbers if n.replace(",", "") not in blob]
+    if missing:
+        return [
+            f"{rel}: measured の数値が検証結果に見当たらない（未検証か陳腐化）: {', '.join(missing)}"
+        ]
+    return []
 
 
 def derive_verification(entry: dict, now: datetime) -> dict:
@@ -302,6 +372,10 @@ def _render_entry(s: dict) -> list[str]:
         f"- 形式: {' / '.join(s['content']['formats'])}",
         f"- 更新頻度: {s['content']['update_frequency']}",
         f"- 収録範囲: {s['content']['coverage']}",
+    ]
+    if s["content"].get("measured"):
+        lines += [f"- 実測値: {m}" for m in s["content"]["measured"]]
+    lines += [
         "",
         "### 接続要件",
         "",

@@ -129,7 +129,8 @@
         "categories",
         "formats",
         "update_frequency",
-        "coverage"
+        "coverage",
+        "measured"
       ],
       "properties": {
         "categories": {
@@ -152,7 +153,14 @@
         },
         "coverage": {
           "type": "string",
-          "description": "収録範囲。件数は検証時の実測値であることを明記する"
+          "description": "収録範囲の質的な説明。件数などの実測値はここではなく measured に書く"
+        },
+        "measured": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "検証スクリプトが実際に取得した数値と、その出所。ビルドが results と突き合わせるので、取得していない数値を書くと落ちる。変動が激しく書く意味の無い数値は載せない"
         }
       }
     },
