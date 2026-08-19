@@ -40,11 +40,13 @@
 .claude/skills/gov-data-registry/  エントリ追加手順のスキル
 registry/schema.json          台帳エントリのスキーマ。手書き禁止フィールドをここで縛る
 registry/sources/*.yaml       台帳エントリ（1 エンドポイント 1 ファイル、人が書く）
+registry/blocked.yaml         到達不能で登録できなかった候補の待避所
 registry/build.py             検証 + 生成。status は results/ からのみ導出する
 registry/registry.json        生成物（機械向け）
 docs/REGISTRY.md              生成物（人間向け）
 verify/_report.py             検証スクリプト共通の実行記録ユーティリティ
 verify/verify_*.py            情報源ごとの検証スクリプト
+verify/verify_reachability.py 全ホストの到達性を実測。egress の変化を検知する
 verify/run_all.sh             全情報源の再検証 + 台帳再生成
 results/*.json                検証の生ログ。台帳の status の唯一の根拠
 docs/jgrants-mcp-verification.md  jGrants MCP の詳細な検証レポート
@@ -57,6 +59,9 @@ docs/jgrants-mcp-verification.md  jGrants MCP の詳細な検証レポート
 2. 実行して結果を得る（**実行していない手順は台帳に書かない**）
 3. `registry/sources/<id>.yaml` を書く。分からないことは `undocumented` と書く
 4. `registry/build.py` を実行する。スキーマ違反や結果との不整合はここで落ちる
+
+自環境から到達できない場合は 1 の前で止まり、`registry/blocked.yaml` に候補として
+記録する。二次情報だけを根拠にエントリを書かない。
 
 ## 出典
 

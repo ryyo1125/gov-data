@@ -65,13 +65,22 @@ class Reporter:
         """前提が揃わず実行できなかったステップを、成功とも失敗とも区別して記録する。"""
         self.steps.append({"step": name, "ok": True, "skipped": True, "note": note})
 
+    def blocked(self, name: str, reason: str) -> None:
+        """自環境の egress ポリシーで到達できなかったことを記録する。
+
+        先方の障害でも仕様でもないので failed とは区別する。この状態は
+        許可リストが変われば解消するため、スクリプトを直す対象ではない。
+        """
+        self.steps.append({"step": name, "ok": False, "blocked": True, "note": reason})
+
     @property
     def summary(self) -> dict[str, int]:
         return {
             "total": len(self.steps),
             "ok": sum(1 for s in self.steps if s.get("ok") and not s.get("skipped")),
             "skipped": sum(1 for s in self.steps if s.get("skipped")),
-            "failed": sum(1 for s in self.steps if not s.get("ok")),
+            "blocked": sum(1 for s in self.steps if s.get("blocked")),
+            "failed": sum(1 for s in self.steps if not s.get("ok") and not s.get("blocked")),
         }
 
     def to_dict(self) -> dict:
@@ -98,14 +107,16 @@ class Reporter:
         """人間向けに結果を表示し、プロセスの終了コードを返す。"""
         for step in self.steps:
             if step.get("skipped"):
-                print(f"  [SKIP] {step['step']} - {step.get('note')}")
+                print(f"  [SKIP ] {step['step']} - {step.get('note')}")
+            elif step.get("blocked"):
+                print(f"  [BLOCK] {step['step']} - {step.get('note')}")
             elif step.get("ok"):
-                print(f"  [OK  ] {step['step']}")
+                print(f"  [OK   ] {step['step']}")
             else:
-                print(f"  [FAIL] {step['step']} - {step.get('error')}")
+                print(f"  [FAIL ] {step['step']} - {step.get('error')}")
         s = self.summary
         print(
-            f"{s['ok']} ok / {s['skipped']} skipped / {s['failed']} failed"
+            f"{s['ok']} ok / {s['skipped']} skipped / {s['blocked']} blocked / {s['failed']} failed"
             f" (total {s['total']}) -> {out_path}"
         )
         return 0 if s["failed"] == 0 else 1

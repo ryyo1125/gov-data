@@ -1,0 +1,173 @@
+{
+  "source_id": "reachability",
+  "target": "egress reachability",
+  "generated_at": "2026-08-19T07:07:28+00:00",
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
+  },
+  "hosts": [
+    {
+      "host": "api.jgrants-portal.go.jp",
+      "used_by": [
+        "jgrants-mcp"
+      ],
+      "role": "api"
+    },
+    {
+      "host": "data.e-gov.go.jp",
+      "used_by": [
+        "blocked:egov-data-catalog"
+      ],
+      "role": "blocked-candidate"
+    },
+    {
+      "host": "developers.digital.go.jp",
+      "used_by": [
+        "jgrants-mcp"
+      ],
+      "role": "docs"
+    },
+    {
+      "host": "laws.e-gov.go.jp",
+      "used_by": [
+        "egov-hourei-api"
+      ],
+      "role": "api"
+    },
+    {
+      "host": "www.data.go.jp",
+      "used_by": [
+        "blocked:egov-data-catalog"
+      ],
+      "role": "blocked-candidate"
+    },
+    {
+      "host": "www.data.jma.go.jp",
+      "used_by": [
+        "blocked:jma-xml"
+      ],
+      "role": "blocked-candidate"
+    },
+    {
+      "host": "www.digital.go.jp",
+      "used_by": [
+        "jgrants-mcp"
+      ],
+      "role": "portal"
+    },
+    {
+      "host": "www.e-gov.go.jp",
+      "used_by": [
+        "egov-hourei-api"
+      ],
+      "role": "portal"
+    },
+    {
+      "host": "www.jgrants-portal.go.jp",
+      "used_by": [
+        "jgrants-mcp"
+      ],
+      "role": "portal"
+    },
+    {
+      "host": "www.jma.go.jp",
+      "used_by": [
+        "blocked:jma-xml"
+      ],
+      "role": "blocked-candidate"
+    },
+    {
+      "host": "xml.kishou.go.jp",
+      "used_by": [
+        "blocked:jma-xml"
+      ],
+      "role": "blocked-candidate"
+    }
+  ],
+  "steps": [
+    {
+      "step": "api.jgrants-portal.go.jp (jgrants-mcp)",
+      "ok": true,
+      "result": {
+        "status_code": 404,
+        "final_url": "https://api.jgrants-portal.go.jp/"
+      }
+    },
+    {
+      "step": "data.e-gov.go.jp (blocked:egov-data-catalog)",
+      "ok": false,
+      "blocked": true,
+      "note": "プロキシが拒否: 403 Forbidden"
+    },
+    {
+      "step": "developers.digital.go.jp (jgrants-mcp)",
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://developers.digital.go.jp/"
+      }
+    },
+    {
+      "step": "laws.e-gov.go.jp (egov-hourei-api)",
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://laws.e-gov.go.jp/"
+      }
+    },
+    {
+      "step": "www.data.go.jp (blocked:egov-data-catalog)",
+      "ok": true,
+      "result": {
+        "status_code": 301,
+        "final_url": "https://www.data.go.jp/"
+      }
+    },
+    {
+      "step": "www.data.jma.go.jp (blocked:jma-xml)",
+      "ok": false,
+      "blocked": true,
+      "note": "プロキシが拒否: 403 Forbidden"
+    },
+    {
+      "step": "www.digital.go.jp (jgrants-mcp)",
+      "ok": false,
+      "blocked": true,
+      "note": "プロキシが拒否: 403 Forbidden"
+    },
+    {
+      "step": "www.e-gov.go.jp (egov-hourei-api)",
+      "ok": false,
+      "blocked": true,
+      "note": "プロキシが拒否: 403 Forbidden"
+    },
+    {
+      "step": "www.jgrants-portal.go.jp (jgrants-mcp)",
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://www.jgrants-portal.go.jp/"
+      }
+    },
+    {
+      "step": "www.jma.go.jp (blocked:jma-xml)",
+      "ok": false,
+      "blocked": true,
+      "note": "プロキシが拒否: 403 Forbidden"
+    },
+    {
+      "step": "xml.kishou.go.jp (blocked:jma-xml)",
+      "ok": false,
+      "blocked": true,
+      "note": "プロキシが拒否: 403 Forbidden"
+    }
+  ],
+  "summary": {
+    "total": 11,
+    "ok": 5,
+    "skipped": 0,
+    "blocked": 6,
+    "failed": 0
+  }
+}

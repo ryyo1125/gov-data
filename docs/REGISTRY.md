@@ -4,7 +4,7 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-19T06:17:48+00:00
+- 生成日時: 2026-08-19T07:07:56+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
@@ -55,20 +55,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T06:15:00+00:00
+- 最終検証: 2026-08-19T07:07:34+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json`
 - 検証スクリプト: `verify/verify_egov_hourei.py` / 結果: `results/egov-hourei-api.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `fetch_openapi_spec` | OK | 879 ms |  |
-| `GET /laws` | OK | 272 ms |  |
-| `GET /law_revisions/{law_id}` | OK | 281 ms |  |
-| `GET /law_data/{law_id}` | OK | 299 ms |  |
-| `GET /keyword` | OK | 1478 ms |  |
-| `GET /law_file/xml/{law_id}` | OK | 331 ms |  |
-| `GET /attachment/{law_revision_id}` | OK | 448 ms |  |
+| `fetch_openapi_spec` | OK | 1349 ms |  |
+| `GET /laws` | OK | 449 ms |  |
+| `GET /law_revisions/{law_id}` | OK | 413 ms |  |
+| `GET /law_data/{law_id}` | OK | 450 ms |  |
+| `GET /keyword` | OK | 1942 ms |  |
+| `GET /law_file/xml/{law_id}` | OK | 485 ms |  |
+| `GET /attachment/{law_revision_id}` | OK | 677 ms |  |
 
 ### 実行して分かったこと
 
@@ -130,7 +130,7 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-19T06:17:40+00:00
+- 最終検証: 2026-08-19T07:07:55+00:00
 - 再現コマンド: `./verify/run_jgrants_verification.sh`
 - 検証スクリプト: `verify/verify_jgrants_mcp.py` / 結果: `results/jgrants-mcp.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
@@ -139,13 +139,13 @@
 |---|---|---|---|
 | `initialize` | OK | 0 ms |  |
 | `list_tools` | OK | 19 ms |  |
-| `list_resources` | OK | 8 ms |  |
-| `list_prompts` | OK | 8 ms |  |
+| `list_resources` | OK | 9 ms |  |
+| `list_prompts` | OK | 7 ms |  |
 | `call:ping` | OK | 14 ms |  |
-| `call:search_subsidies` | OK | 2155 ms |  |
+| `call:search_subsidies` | OK | 1109 ms |  |
 | `call:get_subsidy_detail` | OK | 238 ms |  |
-| `call:get_subsidy_overview` | OK | 2505 ms |  |
-| `call:get_file_content` | OK | 2023 ms |  |
+| `call:get_subsidy_overview` | OK | 1823 ms |  |
+| `call:get_file_content` | OK | 2861 ms |  |
 
 ### 実行して分かったこと
 
@@ -161,3 +161,45 @@
   - 根拠: https://developers.digital.go.jp/documents/jgrants/api/ を参照して該当記述が無いことを確認。
 - **出典表示義務はドキュメントではなくツールの docstring にのみ書かれている。**
   - 根拠: jgrants_mcp_server/core.py の各ツール docstring に「出典表示」の記載。
+
+## 保留中の候補（到達不能で未登録）
+
+検証環境の egress ポリシーで到達できず、事実を書く根拠が得られなかったもの。
+台帳に載せていないのは提供が終わっているからではない。
+実体は `registry/blocked.yaml`。
+
+### 気象庁防災情報XML（PULL型 Atom フィード） (`jma-xml`)
+
+- 状態: 到達不可のまま
+- 調べた理由: 防災気象情報を台帳に登録するために調査した。
+- 対象ホスト: `xml.kishou.go.jp`, `www.jma.go.jp`, `www.data.jma.go.jp`
+- 到達できない理由: 3 ホストすべてが検証環境の egress ポリシーで 403（httpx.ProxyError: 403 Forbidden）。 実データはもちろん、仕様書 https://xml.kishou.go.jp/xmlpull.html にも到達できないため、 エンドポイント・更新頻度・利用規約のいずれも一次資料で確認できない。 Web 検索で得られる二次情報だけを根拠にエントリを書くことは台帳の規律に反するので登録しない。
+- 次の一手: xml.kishou.go.jp / www.jma.go.jp / www.data.jma.go.jp を egress 許可リストに追加してから、 xmlpull.html でフィード URL を確認し、verify/verify_jma_xml.py を書いて検証する。
+
+### e-Gov データポータル（CKAN API） (`egov-data-catalog`)
+
+- 状態: 到達不可のまま
+- 調べた理由: 台帳に載せる候補を機械的に洗い出せるカタログとして調査した。
+- 対象ホスト: `data.e-gov.go.jp`, `www.data.go.jp`
+- 到達できない理由: www.data.go.jp/api/3/action/* は data.e-gov.go.jp へ 301 リダイレクトされ、 そのホストが検証環境の egress ポリシーで 403。カタログ API を実行できない。
+- 次の一手: data.e-gov.go.jp を egress 許可リストに追加してから CKAN API を検証する。
+
+
+## 到達性の実測
+
+`verify/verify_reachability.py` の実測結果（2026-08-19T07:07:28+00:00）。
+到達できないことは、そのサービスが存在しないことを意味しない。
+
+| ホスト | 結果 | 詳細 |
+|---|---|---|
+| `api.jgrants-portal.go.jp` | 到達可 | HTTP 404 |
+| `data.e-gov.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `developers.digital.go.jp` | 到達可 | HTTP 200 |
+| `laws.e-gov.go.jp` | 到達可 | HTTP 200 |
+| `www.data.go.jp` | 到達可 | HTTP 301 |
+| `www.data.jma.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.digital.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.e-gov.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.jgrants-portal.go.jp` | 到達可 | HTTP 200 |
+| `www.jma.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `xml.kishou.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |

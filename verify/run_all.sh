@@ -12,6 +12,10 @@ mkdir -p "$WORK_DIR"
 uv pip install --python "$TOOL_VENV/bin/python" -q \
   -r "$REPO_ROOT/registry/requirements.txt" httpx
 
+echo "== 到達性 =="
+"$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_reachability.py" \
+  --out "$REPO_ROOT/results/reachability.json"
+
 echo "== egov-hourei-api =="
 "$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_egov_hourei.py" \
   --out "$REPO_ROOT/results/egov-hourei-api.json"

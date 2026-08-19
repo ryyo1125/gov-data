@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T06:17:48+00:00",
+  "generated_at": "2026-08-19T07:07:56+00:00",
   "generated_by": "registry/build.py",
   "stale_after_days": 90,
   "sources": [
@@ -97,7 +97,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T06:15:00+00:00",
+        "verified_at": "2026-08-19T07:07:34+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -106,49 +106,50 @@
           "total": 7,
           "ok": 7,
           "skipped": 0,
+          "blocked": 0,
           "failed": 0
         },
         "steps": [
           {
             "step": "fetch_openapi_spec",
             "outcome": "ok",
-            "elapsed_ms": 879,
+            "elapsed_ms": 1349,
             "note": null
           },
           {
             "step": "GET /laws",
             "outcome": "ok",
-            "elapsed_ms": 272,
+            "elapsed_ms": 449,
             "note": null
           },
           {
             "step": "GET /law_revisions/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 281,
+            "elapsed_ms": 413,
             "note": null
           },
           {
             "step": "GET /law_data/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 299,
+            "elapsed_ms": 450,
             "note": null
           },
           {
             "step": "GET /keyword",
             "outcome": "ok",
-            "elapsed_ms": 1478,
+            "elapsed_ms": 1942,
             "note": null
           },
           {
             "step": "GET /law_file/xml/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 331,
+            "elapsed_ms": 485,
             "note": null
           },
           {
             "step": "GET /attachment/{law_revision_id}",
             "outcome": "ok",
-            "elapsed_ms": 448,
+            "elapsed_ms": 677,
             "note": null
           }
         ],
@@ -261,7 +262,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T06:17:40+00:00",
+        "verified_at": "2026-08-19T07:07:55+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -270,6 +271,7 @@
           "total": 9,
           "ok": 9,
           "skipped": 0,
+          "blocked": 0,
           "failed": 0
         },
         "steps": [
@@ -288,13 +290,13 @@
           {
             "step": "list_resources",
             "outcome": "ok",
-            "elapsed_ms": 8,
+            "elapsed_ms": 9,
             "note": null
           },
           {
             "step": "list_prompts",
             "outcome": "ok",
-            "elapsed_ms": 8,
+            "elapsed_ms": 7,
             "note": null
           },
           {
@@ -306,7 +308,7 @@
           {
             "step": "call:search_subsidies",
             "outcome": "ok",
-            "elapsed_ms": 2155,
+            "elapsed_ms": 1109,
             "note": null
           },
           {
@@ -318,18 +320,118 @@
           {
             "step": "call:get_subsidy_overview",
             "outcome": "ok",
-            "elapsed_ms": 2505,
+            "elapsed_ms": 1823,
             "note": null
           },
           {
             "step": "call:get_file_content",
             "outcome": "ok",
-            "elapsed_ms": 2023,
+            "elapsed_ms": 2861,
             "note": null
           }
         ],
         "result_file": "results/jgrants-mcp.json"
       }
     }
-  ]
+  ],
+  "blocked_candidates": [
+    {
+      "id": "jma-xml",
+      "name": "気象庁防災情報XML（PULL型 Atom フィード）",
+      "why": "防災気象情報を台帳に登録するために調査した。",
+      "hosts": [
+        "xml.kishou.go.jp",
+        "www.jma.go.jp",
+        "www.data.jma.go.jp"
+      ],
+      "blocked_reason": "3 ホストすべてが検証環境の egress ポリシーで 403（httpx.ProxyError: 403 Forbidden）。 実データはもちろん、仕様書 https://xml.kishou.go.jp/xmlpull.html にも到達できないため、 エンドポイント・更新頻度・利用規約のいずれも一次資料で確認できない。 Web 検索で得られる二次情報だけを根拠にエントリを書くことは台帳の規律に反するので登録しない。",
+      "next_step": "xml.kishou.go.jp / www.jma.go.jp / www.data.jma.go.jp を egress 許可リストに追加してから、 xmlpull.html でフィード URL を確認し、verify/verify_jma_xml.py を書いて検証する。",
+      "promotable": false
+    },
+    {
+      "id": "egov-data-catalog",
+      "name": "e-Gov データポータル（CKAN API）",
+      "why": "台帳に載せる候補を機械的に洗い出せるカタログとして調査した。",
+      "hosts": [
+        "data.e-gov.go.jp",
+        "www.data.go.jp"
+      ],
+      "blocked_reason": "www.data.go.jp/api/3/action/* は data.e-gov.go.jp へ 301 リダイレクトされ、 そのホストが検証環境の egress ポリシーで 403。カタログ API を実行できない。",
+      "next_step": "data.e-gov.go.jp を egress 許可リストに追加してから CKAN API を検証する。",
+      "promotable": false
+    }
+  ],
+  "reachability": {
+    "_generated_at": "2026-08-19T07:07:28+00:00",
+    "api.jgrants-portal.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 404,
+        "final_url": "https://api.jgrants-portal.go.jp/"
+      }
+    },
+    "data.e-gov.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "developers.digital.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://developers.digital.go.jp/"
+      }
+    },
+    "laws.e-gov.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://laws.e-gov.go.jp/"
+      }
+    },
+    "www.data.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 301,
+        "final_url": "https://www.data.go.jp/"
+      }
+    },
+    "www.data.jma.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.digital.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.e-gov.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.jgrants-portal.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.jgrants-portal.go.jp/"
+      }
+    },
+    "www.jma.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "xml.kishou.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    }
+  }
 }

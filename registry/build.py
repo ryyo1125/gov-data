@@ -23,6 +23,8 @@ from jsonschema import Draft202012Validator
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCES_DIR = REPO_ROOT / "registry" / "sources"
 SCHEMA_PATH = REPO_ROOT / "registry" / "schema.json"
+BLOCKED_PATH = REPO_ROOT / "registry" / "blocked.yaml"
+REACHABILITY_PATH = REPO_ROOT / "results" / "reachability.json"
 REGISTRY_JSON = REPO_ROOT / "registry" / "registry.json"
 REGISTRY_MD = REPO_ROOT / "docs" / "REGISTRY.md"
 
@@ -36,6 +38,7 @@ STATUS_LABEL = {
     "verified": "検証済",
     "stale": "要再検証",
     "failed": "失敗あり",
+    "blocked": "到達不可（自環境）",
     "unverified": "未検証",
 }
 
@@ -94,6 +97,9 @@ def derive_verification(entry: dict, now: datetime) -> dict:
 
     if summary.get("failed", 0) > 0:
         status = "failed"
+    elif summary.get("blocked", 0) > 0 and summary.get("ok", 0) == 0:
+        # 自環境の egress で 1 つも実行できなかった。先方の問題ではないので failed と分ける。
+        status = "blocked"
     elif not generated_at:
         status = "unverified"
     elif now - datetime.fromisoformat(generated_at) > STALE_AFTER:
@@ -119,12 +125,48 @@ def derive_verification(entry: dict, now: datetime) -> dict:
     }
 
 
+def load_reachability() -> dict[str, dict]:
+    """実測した到達性を host -> 結果 の辞書で返す。未実測なら空。"""
+    if not REACHABILITY_PATH.is_file():
+        return {}
+    result = json.loads(REACHABILITY_PATH.read_text(encoding="utf-8"))
+    reachability = {}
+    for step in result.get("steps", []):
+        host = step["step"].split(" ")[0]
+        reachability[host] = {
+            "reachable": bool(step.get("ok")),
+            "blocked_by_egress": bool(step.get("blocked")),
+            "detail": step.get("note") or step.get("error") or step.get("result"),
+        }
+    return {"_generated_at": result.get("generated_at"), **reachability}
+
+
+def load_blocked(reachability: dict) -> list[dict]:
+    """到達不能で保留中の候補を読み、いま昇格可能になっていないかを判定する。"""
+    if not BLOCKED_PATH.is_file():
+        return []
+    blocked = yaml.safe_load(BLOCKED_PATH.read_text(encoding="utf-8")) or {}
+    candidates = []
+    for candidate in blocked.get("candidates", []):
+        hosts = candidate.get("hosts", [])
+        measured = [reachability.get(h) for h in hosts]
+        # 実測済みで、どのホストも egress に塞がれていなければ検証に進める。
+        promotable = bool(measured) and all(
+            m is not None and not m["blocked_by_egress"] for m in measured
+        )
+        candidates.append({**candidate, "promotable": promotable})
+    return candidates
+
+
 def build_registry(entries: list[dict], now: datetime) -> dict:
+    reachability = load_reachability()
     return {
         "generated_at": now.isoformat(timespec="seconds"),
         "generated_by": "registry/build.py",
         "stale_after_days": STALE_AFTER.days,
         "sources": [{**entry, "verification": derive_verification(entry, now)} for entry in entries],
+        "blocked_candidates": load_blocked(reachability),
+        "reachability": reachability,
     }
 
 
@@ -160,7 +202,67 @@ def render_markdown(registry: dict) -> str:
     for s in registry["sources"]:
         lines += _render_entry(s)
 
+    lines += _render_blocked(registry["blocked_candidates"])
+    lines += _render_reachability(registry["reachability"])
+
     return "\n".join(lines) + "\n"
+
+
+def _render_blocked(candidates: list[dict]) -> list[str]:
+    """到達不能で登録できなかった候補。調査の重複を防ぐために残す。"""
+    if not candidates:
+        return []
+    lines = [
+        "",
+        "## 保留中の候補（到達不能で未登録）",
+        "",
+        "検証環境の egress ポリシーで到達できず、事実を書く根拠が得られなかったもの。",
+        "台帳に載せていないのは提供が終わっているからではない。",
+        "実体は `registry/blocked.yaml`。",
+        "",
+    ]
+    for c in candidates:
+        state = "**いま到達可能 — 検証して昇格できる**" if c["promotable"] else "到達不可のまま"
+        lines += [
+            f"### {c['name']} (`{c['id']}`)",
+            "",
+            f"- 状態: {state}",
+            f"- 調べた理由: {c['why']}",
+            f"- 対象ホスト: {', '.join(f'`{h}`' for h in c['hosts'])}",
+            f"- 到達できない理由: {c['blocked_reason'].strip()}",
+            f"- 次の一手: {c['next_step'].strip()}",
+            "",
+        ]
+    return lines
+
+
+def _render_reachability(reachability: dict) -> list[str]:
+    """ホスト単位の実測。egress の許可リストが変われば、ここが最初に変わる。"""
+    hosts = {k: v for k, v in reachability.items() if not k.startswith("_")}
+    if not hosts:
+        return []
+    lines = [
+        "",
+        "## 到達性の実測",
+        "",
+        f"`verify/verify_reachability.py` の実測結果（{reachability.get('_generated_at', '-')}）。",
+        "到達できないことは、そのサービスが存在しないことを意味しない。",
+        "",
+        "| ホスト | 結果 | 詳細 |",
+        "|---|---|---|",
+    ]
+    for host, info in sorted(hosts.items()):
+        if info["blocked_by_egress"]:
+            state = "egress で拒否"
+        elif info["reachable"]:
+            state = "到達可"
+        else:
+            state = "不達"
+        detail = info["detail"]
+        if isinstance(detail, dict):
+            detail = f"HTTP {detail.get('status_code')}"
+        lines.append(f"| `{host}` | {state} | {detail or ''} |")
+    return lines
 
 
 def _render_entry(s: dict) -> list[str]:

@@ -1,0 +1,35 @@
+# 調査したが、検証環境の egress ポリシーで到達できず台帳に登録できなかった候補。
+#
+# 台帳（registry/sources/）は検証済みの情報源だけを載せる。到達できない情報源は
+# 事実を書く根拠が無いのでエントリにできないが、調査した記録を捨てると次に同じ
+# 調査が繰り返される。ここはその待避所であり、egress が開いたら検証して昇格させる。
+#
+# hosts に挙げたホストは verify/verify_reachability.py が毎回実測するので、
+# 許可リストが変わればここの記録と実測がずれ、気づける。
+candidates:
+  - id: jma-xml
+    name: 気象庁防災情報XML（PULL型 Atom フィード）
+    why: 防災気象情報を台帳に登録するために調査した。
+    hosts:
+      - xml.kishou.go.jp
+      - www.jma.go.jp
+      - www.data.jma.go.jp
+    blocked_reason: >-
+      3 ホストすべてが検証環境の egress ポリシーで 403（httpx.ProxyError: 403 Forbidden）。
+      実データはもちろん、仕様書 https://xml.kishou.go.jp/xmlpull.html にも到達できないため、
+      エンドポイント・更新頻度・利用規約のいずれも一次資料で確認できない。
+      Web 検索で得られる二次情報だけを根拠にエントリを書くことは台帳の規律に反するので登録しない。
+    next_step: >-
+      xml.kishou.go.jp / www.jma.go.jp / www.data.jma.go.jp を egress 許可リストに追加してから、
+      xmlpull.html でフィード URL を確認し、verify/verify_jma_xml.py を書いて検証する。
+
+  - id: egov-data-catalog
+    name: e-Gov データポータル（CKAN API）
+    why: 台帳に載せる候補を機械的に洗い出せるカタログとして調査した。
+    hosts:
+      - data.e-gov.go.jp
+      - www.data.go.jp
+    blocked_reason: >-
+      www.data.go.jp/api/3/action/* は data.e-gov.go.jp へ 301 リダイレクトされ、
+      そのホストが検証環境の egress ポリシーで 403。カタログ API を実行できない。
+    next_step: data.e-gov.go.jp を egress 許可リストに追加してから CKAN API を検証する。
