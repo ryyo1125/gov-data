@@ -21,6 +21,11 @@ if [ -n "$latest" ]; then
   recorded="$(sed -n 's/^commit: *//p' "$latest" | head -1)"
   # 最新の diary が現在の HEAD を指しているなら、引き継ぎは追いついている。
   [ "$recorded" = "$head_commit" ] && exit 0
+
+  # diary は「自分がコミットされる前の HEAD」を記録するため、handoff 直後は
+  # 必ず 1 つ古く見える。diary 自身のコミットが先端なら追いついていると見なす。
+  diary_commit="$(git log -1 --format=%h -- "$latest" 2>/dev/null)"
+  [ -n "$diary_commit" ] && [ "$diary_commit" = "$head_commit" ] && exit 0
   message="最新の引き継ぎ（$(basename "$latest")）は $recorded 時点のものですが、HEAD は $head_commit まで進んでいます。区切りがついたら /handoff で引き継ぎを更新してください。"
 else
   message="このリポジトリにはまだ引き継ぎ（.claude/diary/）がありません。区切りがついたら /handoff で残してください。コンテナは作り直されるので、書かれなかった経緯は失われます。"
