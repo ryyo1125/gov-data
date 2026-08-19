@@ -46,6 +46,9 @@
 ## 構成
 
 ```
+CLAUDE.md                     常に効く制約（手順はスキル側）
+.claude/settings.json         ハーネス。生成物の保護と検証の強制
+.claude/hooks/                その実体
 .claude/skills/gov-data-registry/  エントリ追加手順のスキル
 registry/schema.json          台帳エントリのスキーマ。手書き禁止フィールドをここで縛る
 registry/sources/*.yaml       台帳エントリ（1 エンドポイント 1 ファイル、人が書く）
