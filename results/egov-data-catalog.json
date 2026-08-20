@@ -1,7 +1,7 @@
 {
   "source_id": "egov-data-catalog",
   "target": "https://data.e-gov.go.jp/data/api/3/action",
-  "generated_at": "2026-08-20T01:00:21+00:00",
+  "generated_at": "2026-08-20T01:05:07+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -10,7 +10,7 @@
     {
       "step": "site_read",
       "ok": true,
-      "elapsed_ms": 688,
+      "elapsed_ms": 528,
       "result": {
         "result": true
       }
@@ -18,7 +18,7 @@
     {
       "step": "package_search",
       "ok": true,
-      "elapsed_ms": 342,
+      "elapsed_ms": 759,
       "result": {
         "count": 18141,
         "results_len": 3,
@@ -65,7 +65,7 @@
     {
       "step": "package_list",
       "ok": true,
-      "elapsed_ms": 225,
+      "elapsed_ms": 279,
       "result": {
         "len": 5,
         "sample": [
@@ -78,7 +78,7 @@
     {
       "step": "organization_list",
       "ok": true,
-      "elapsed_ms": 226,
+      "elapsed_ms": 225,
       "result": {
         "len": 5,
         "sample": [
@@ -91,7 +91,7 @@
     {
       "step": "group_list",
       "ok": true,
-      "elapsed_ms": 223,
+      "elapsed_ms": 231,
       "result": {
         "len": 5,
         "sample": [
@@ -104,7 +104,7 @@
     {
       "step": "tag_list",
       "ok": true,
-      "elapsed_ms": 622,
+      "elapsed_ms": 1182,
       "result": {
         "len": 5745,
         "sample": [
@@ -117,7 +117,7 @@
     {
       "step": "package_show",
       "ok": true,
-      "elapsed_ms": 589,
+      "elapsed_ms": 284,
       "result": {
         "id": "3098f2a3-0787-4a93-9f20-a13d67f1831d",
         "title": "平成30年報告_全国がん登録",

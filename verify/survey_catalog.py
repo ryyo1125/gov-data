@@ -29,6 +29,8 @@ SEMI_STRUCTURED = ["XLSX", "XLS"]
 
 FACET_LIMIT = 100
 SAMPLES_PER_ORG = 3
+# 全件取得のページサイズ。機械可読データは全体の 1 割に満たないので全部引ける。
+PAGE_SIZE = 100
 
 
 async def survey(base_url: str) -> dict:
@@ -47,6 +49,8 @@ async def survey(base_url: str) -> dict:
         for fmt in MACHINE_READABLE:
             machine_by_format[fmt] = await _count(client, f"res_format:{fmt}")
 
+        machine_tags = await _facet(client, "tags", machine_query)
+
         samples = []
         for org in sorted(machine_by_org, key=lambda o: -o["count"])[:5]:
             samples.append(
@@ -55,6 +59,9 @@ async def survey(base_url: str) -> dict:
                     "datasets": await _samples(client, machine_query, org["name"]),
                 }
             )
+
+        # 母集団が小さいので全件引ける。候補選びは一覧を見ないと始まらない。
+        machine_datasets = await _all_datasets(client, machine_query)
 
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -76,7 +83,9 @@ async def survey(base_url: str) -> dict:
             "query": machine_query,
             "by_format": machine_by_format,
             "by_organization": sorted(machine_by_org, key=lambda o: -o["count"]),
+            "by_tag": sorted(machine_tags, key=lambda t: -t["count"]),
             "samples": samples,
+            "datasets": machine_datasets,
         },
         "definitions": {
             "machine_readable": MACHINE_READABLE,
@@ -136,6 +145,37 @@ async def _samples(client: httpx.AsyncClient, query: str, organization: str) -> 
     ]
 
 
+async def _all_datasets(client: httpx.AsyncClient, query: str) -> list[dict]:
+    """条件に合うデータセットを全件返す。件数が多い条件には使わないこと。"""
+    datasets, start = [], 0
+    while True:
+        response = await client.get(
+            "/package_search", params={"rows": PAGE_SIZE, "start": start, "fq": query}
+        )
+        response.raise_for_status()
+        result = response.json()["result"]
+        page = result["results"]
+        if not page:
+            break
+        for p in page:
+            datasets.append(
+                {
+                    "title": p.get("title"),
+                    "name": p.get("name"),
+                    "organization": (p.get("organization") or {}).get("title"),
+                    "formats": sorted(
+                        {r.get("format") for r in (p.get("resources") or []) if r.get("format")}
+                    ),
+                    "frequency_of_update": p.get("frequency_of_update"),
+                    "tags": sorted(t.get("display_name") or t.get("name") for t in (p.get("tags") or [])),
+                }
+            )
+        start += PAGE_SIZE
+        if start >= result["count"]:
+            break
+    return datasets
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", default=BASE_URL, help="CKAN API のベース URL")
@@ -150,6 +190,7 @@ def main() -> int:
     machine = totals["machine_readable_datasets"]
     print(f"  データセット {totals['datasets']:,} 件 / {totals['organizations']} 組織")
     print(f"  機械可読を含むもの {machine:,} 件（{machine / totals['datasets'] * 100:.1f}%）")
+    print(f"  うち一覧を取得できたもの {len(result['machine_readable']['datasets']):,} 件")
     print(f"-> {args.out}")
     return 0
 

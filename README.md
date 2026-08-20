@@ -63,6 +63,7 @@ registry/registry.json        生成物（機械向け）
 docs/REGISTRY.md              生成物（人間向け）。情報源の一覧と検証状況
 docs/FIELDS.md                生成物。各情報源から取得できる項目の一覧
 docs/SURVEY.md                生成物。カタログから見た「何が存在するか」の俯瞰
+docs/MACHINE_READABLE.md      生成物。機械可読データを含むデータセットの全件一覧
 verify/_report.py             検証スクリプト共通の実行記録ユーティリティ
 verify/verify_*.py            情報源ごとの検証スクリプト
 verify/verify_reachability.py 全ホストの到達性を実測。egress の変化を検知する

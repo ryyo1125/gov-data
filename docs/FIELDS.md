@@ -3,7 +3,7 @@
 **このファイルは `registry/build.py` が `results/fields.json` から生成する。**
 更新するには `verify/extract_fields.py` を実行してからビルドし直す。
 
-- 生成日時: 2026-08-20T01:01:20+00:00
+- 生成日時: 2026-08-20T01:06:18+00:00
 
 項目の出所は情報源ごとに違う。**仕様由来**は提供側が定義した正式な項目、
 **実データ由来**はレスポンスを実際に読んで列挙したもので、サンプルに現れなかった
@@ -467,7 +467,7 @@
 | `Report/Body/Warning` | 要素 |  |
 | `Report/Body/Warning/Item` | 要素 |  |
 
-### 電文 Body: 気象特別警報・警報・注意報（実データ由来 / extra フィード）
+### 電文 Body: 気象警報・注意報（Ｈ２７）（実データ由来 / extra フィード）
 
 この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
 
@@ -495,6 +495,8 @@
 | `Report/Body/Notice` | 要素 |  |
 | `Report/Body/Warning` | 要素 |  |
 | `Report/Body/Warning/Item` | 要素 |  |
+| `Report/Body/MeteorologicalInfos` | 要素 |  |
+| `Report/Body/MeteorologicalInfos/TimeSeriesInfo` | 要素 |  |
 
 ### 電文 Body: 震源・震度に関する情報（実データ由来 / eqvol フィード）
 

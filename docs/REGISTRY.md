@@ -4,7 +4,7 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-20T01:02:31+00:00
+- 生成日時: 2026-08-20T01:06:52+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
@@ -58,20 +58,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T01:00:21+00:00
+- 最終検証: 2026-08-20T01:05:07+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_data_catalog.py --out results/egov-data-catalog.json`
 - 検証スクリプト: `verify/verify_egov_data_catalog.py` / 結果: `results/egov-data-catalog.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `site_read` | OK | 688 ms |  |
-| `package_search` | OK | 342 ms |  |
-| `package_list` | OK | 225 ms |  |
-| `organization_list` | OK | 226 ms |  |
-| `group_list` | OK | 223 ms |  |
-| `tag_list` | OK | 622 ms |  |
-| `package_show` | OK | 589 ms |  |
+| `site_read` | OK | 528 ms |  |
+| `package_search` | OK | 759 ms |  |
+| `package_list` | OK | 279 ms |  |
+| `organization_list` | OK | 225 ms |  |
+| `group_list` | OK | 231 ms |  |
+| `tag_list` | OK | 1182 ms |  |
+| `package_show` | OK | 284 ms |  |
 
 ### 実行して分かったこと
 
@@ -138,21 +138,21 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T01:00:17+00:00
+- 最終検証: 2026-08-20T01:05:04+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json`
 - 検証スクリプト: `verify/verify_egov_hourei.py` / 結果: `results/egov-hourei-api.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `fetch_openapi_spec` | OK | 488 ms |  |
-| `GET /laws（全件数）` | OK | 997 ms |  |
-| `GET /laws` | OK | 264 ms |  |
-| `GET /law_revisions/{law_id}` | OK | 388 ms |  |
-| `GET /law_data/{law_id}` | OK | 295 ms |  |
-| `GET /keyword` | OK | 1645 ms |  |
-| `GET /law_file/xml/{law_id}` | OK | 298 ms |  |
-| `GET /attachment/{law_revision_id}` | OK | 530 ms |  |
+| `fetch_openapi_spec` | OK | 592 ms |  |
+| `GET /laws（全件数）` | OK | 1048 ms |  |
+| `GET /laws` | OK | 348 ms |  |
+| `GET /law_revisions/{law_id}` | OK | 321 ms |  |
+| `GET /law_data/{law_id}` | OK | 454 ms |  |
+| `GET /keyword` | OK | 2542 ms |  |
+| `GET /law_file/xml/{law_id}` | OK | 317 ms |  |
+| `GET /attachment/{law_revision_id}` | OK | 481 ms |  |
 
 ### 実行して分かったこと
 
@@ -219,7 +219,7 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T01:00:36+00:00
+- 最終検証: 2026-08-20T01:05:22+00:00
 - 再現コマンド: `./verify/run_jgrants_verification.sh`
 - 検証スクリプト: `verify/verify_jgrants_mcp.py` / 結果: `results/jgrants-mcp.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
@@ -227,14 +227,14 @@
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
 | `initialize` | OK | 0 ms |  |
-| `list_tools` | OK | 20 ms |  |
-| `list_resources` | OK | 8 ms |  |
-| `list_prompts` | OK | 6 ms |  |
+| `list_tools` | OK | 19 ms |  |
+| `list_resources` | OK | 9 ms |  |
+| `list_prompts` | OK | 7 ms |  |
 | `call:ping` | OK | 10 ms |  |
-| `call:search_subsidies` | OK | 1421 ms |  |
-| `call:get_subsidy_detail` | OK | 208 ms |  |
-| `call:get_subsidy_overview` | OK | 1797 ms |  |
-| `call:get_file_content` | OK | 2360 ms |  |
+| `call:search_subsidies` | OK | 913 ms |  |
+| `call:get_subsidy_detail` | OK | 198 ms |  |
+| `call:get_subsidy_overview` | OK | 1736 ms |  |
+| `call:get_file_content` | OK | 2182 ms |  |
 
 ### 実行して分かったこと
 
@@ -301,22 +301,22 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T01:00:24+00:00
+- 最終検証: 2026-08-20T01:05:11+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_jma_xml.py --out results/jma-xml.json`
 - 検証スクリプト: `verify/verify_jma_xml.py` / 結果: `results/jma-xml.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `GET /regular.xml (定時・高頻度)` | OK | 443 ms |  |
-| `GET /extra.xml (随時・高頻度)` | OK | 53 ms |  |
-| `GET /eqvol.xml (地震火山・高頻度)` | OK | 70 ms |  |
+| `GET /regular.xml (定時・高頻度)` | OK | 880 ms |  |
+| `GET /extra.xml (随時・高頻度)` | OK | 51 ms |  |
+| `GET /eqvol.xml (地震火山・高頻度)` | OK | 45 ms |  |
 | `GET /other.xml (その他・高頻度)` | OK | 45 ms |  |
-| `GET /regular_l.xml (定時・長期)` | OK | 893 ms |  |
-| `GET /extra_l.xml (随時・長期)` | OK | 686 ms |  |
-| `GET /eqvol_l.xml (地震火山・長期)` | OK | 534 ms |  |
-| `GET /other_l.xml (その他・長期)` | OK | 519 ms |  |
-| `GET 電文本体` | OK | 152 ms |  |
+| `GET /regular_l.xml (定時・長期)` | OK | 806 ms |  |
+| `GET /extra_l.xml (随時・長期)` | OK | 230 ms |  |
+| `GET /eqvol_l.xml (地震火山・長期)` | OK | 550 ms |  |
+| `GET /other_l.xml (その他・長期)` | OK | 521 ms |  |
+| `GET 電文本体` | OK | 153 ms |  |
 
 ### 実行して分かったこと
 
@@ -335,7 +335,7 @@
 
 ## 到達性の実測
 
-`verify/verify_reachability.py` の実測結果（2026-08-20T01:00:12+00:00）。
+`verify/verify_reachability.py` の実測結果（2026-08-20T01:04:57+00:00）。
 到達できないことは、そのサービスが存在しないことを意味しない。
 
 | ホスト | 結果 | 詳細 |

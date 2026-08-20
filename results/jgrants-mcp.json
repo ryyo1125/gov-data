@@ -1,7 +1,7 @@
 {
   "source_id": "jgrants-mcp",
   "target": "http://127.0.0.1:8000/mcp",
-  "generated_at": "2026-08-20T01:00:36+00:00",
+  "generated_at": "2026-08-20T01:05:22+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -47,7 +47,7 @@
     {
       "step": "list_tools",
       "ok": true,
-      "elapsed_ms": 20,
+      "elapsed_ms": 19,
       "result": {
         "_truncated": true,
         "_original_chars": 6252,
@@ -57,7 +57,7 @@
     {
       "step": "list_resources",
       "ok": true,
-      "elapsed_ms": 8,
+      "elapsed_ms": 9,
       "result": [
         "jgrants://guidelines"
       ]
@@ -65,7 +65,7 @@
     {
       "step": "list_prompts",
       "ok": true,
-      "elapsed_ms": 6,
+      "elapsed_ms": 7,
       "result": [
         "subsidy_search_guide",
         "api_usage_agreement"
@@ -79,13 +79,13 @@
         "status": "ok",
         "server": "jGrants MCP Server",
         "version": "2.0.0",
-        "timestamp": "2026-08-20T01:00:28.609135+00:00"
+        "timestamp": "2026-08-20T01:05:15.425842+00:00"
       }
     },
     {
       "step": "call:search_subsidies",
       "ok": true,
-      "elapsed_ms": 1421,
+      "elapsed_ms": 913,
       "result": {
         "total_count": 4,
         "subsidies": [
@@ -145,7 +145,7 @@
     {
       "step": "call:get_subsidy_detail",
       "ok": true,
-      "elapsed_ms": 208,
+      "elapsed_ms": 198,
       "result": {
         "_truncated": true,
         "_original_chars": 1988,
@@ -155,7 +155,7 @@
     {
       "step": "call:get_subsidy_overview",
       "ok": true,
-      "elapsed_ms": 1797,
+      "elapsed_ms": 1736,
       "result": {
         "_truncated": true,
         "_original_chars": 7052,
@@ -165,7 +165,7 @@
     {
       "step": "call:get_file_content",
       "ok": true,
-      "elapsed_ms": 2360,
+      "elapsed_ms": 2182,
       "result": {
         "_truncated": true,
         "_original_chars": 27560,

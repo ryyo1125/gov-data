@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T01:01:20+00:00",
+  "generated_at": "2026-08-20T01:06:18+00:00",
   "generated_by": "verify/extract_fields.py",
   "sources": {
     "egov-hourei-api": {
@@ -1681,7 +1681,7 @@
           ]
         },
         {
-          "name": "電文 Body: 気象特別警報・警報・注意報（実データ由来 / extra フィード）",
+          "name": "電文 Body: 気象警報・注意報（Ｈ２７）（実データ由来 / extra フィード）",
           "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
@@ -1812,6 +1812,18 @@
             },
             {
               "name": "Report/Body/Warning/Item",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/MeteorologicalInfos",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/MeteorologicalInfos/TimeSeriesInfo",
               "type": "要素",
               "description": "",
               "example": ""

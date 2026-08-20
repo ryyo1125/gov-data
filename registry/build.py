@@ -32,6 +32,7 @@ REGISTRY_JSON = REPO_ROOT / "registry" / "registry.json"
 REGISTRY_MD = REPO_ROOT / "docs" / "REGISTRY.md"
 FIELDS_MD = REPO_ROOT / "docs" / "FIELDS.md"
 SURVEY_MD = REPO_ROOT / "docs" / "SURVEY.md"
+MACHINE_MD = REPO_ROOT / "docs" / "MACHINE_READABLE.md"
 
 # 検証結果がこれより古ければ stale。政府 API の仕様変更に気づける程度の間隔。
 STALE_AFTER = timedelta(days=90)
@@ -546,7 +547,25 @@ def render_survey(survey: dict) -> str:
     ]
     lines += [f"| {o['label']} | {o['count']:,} |" for o in machine["by_organization"]]
 
-    lines += ["", "### 代表例", ""]
+    lines += [
+        "",
+        "### 話題の内訳",
+        "",
+        "機械可読データを含むデータセットに付いているタグ（上位 25 件）。",
+        "1 つのデータセットが複数のタグを持つため、合計は件数を超える。",
+        "",
+        "| タグ | データセット数 |",
+        "|---|---|",
+    ]
+    lines += [f"| {t['label']} | {t['count']:,} |" for t in machine.get("by_tag", [])[:25]]
+    lines += [
+        "",
+        f"**全 {len(machine.get('datasets', [])):,} 件の一覧は "
+        "[MACHINE_READABLE.md](MACHINE_READABLE.md) にある。**",
+        "",
+        "### 代表例",
+        "",
+    ]
     for sample in machine["samples"]:
         lines += [f"**{sample['organization']}**", ""]
         for d in sample["datasets"]:
@@ -591,6 +610,46 @@ def render_survey(survey: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+def render_machine_readable(survey: dict) -> str:
+    """機械可読データを含むデータセットの全件一覧。台帳に昇格させる候補はここから選ぶ。
+
+    SURVEY.md に混ぜると分布が読めなくなるので分けている。こちらは通読するもの
+    ではなく、組織を決めてから絞り込んで見るための索引。
+    """
+    machine = survey["machine_readable"]
+    datasets = machine.get("datasets") or []
+    by_org: dict[str, list[dict]] = {}
+    for d in datasets:
+        by_org.setdefault(d.get("organization") or "(組織不明)", []).append(d)
+
+    lines = [
+        "# 機械可読データを含むデータセット一覧",
+        "",
+        "**このファイルは `registry/build.py` が `results/catalog-survey.json` から生成する。**",
+        "更新するには `verify/survey_catalog.py` を実行してからビルドし直す。",
+        "",
+        f"- 生成日時: {survey.get('generated_at', '-')}",
+        f"- 対象: {machine['query']}",
+        f"- 件数: {len(datasets):,} 件 / 全 {survey['totals']['datasets']:,} 件",
+        "",
+        "これは**存在の一覧であって、取得できることの保証ではない**。",
+        "実際に取れることを確かめたものだけが台帳（[REGISTRY.md](REGISTRY.md)）に載る。",
+        "ライセンスはカタログが持っていないため、再配布の可否は個々の提供元に当たること。",
+        "",
+        "## 組織別",
+        "",
+    ]
+    for org in sorted(by_org, key=lambda o: -len(by_org[o])):
+        entries = by_org[org]
+        lines += [f"### {org}（{len(entries):,} 件）", "", "| データセット | 形式 | 更新頻度 |", "|---|---|---|"]
+        for d in sorted(entries, key=lambda x: x.get("title") or ""):
+            url = f"https://data.e-gov.go.jp/data/dataset/{d['name']}"
+            formats = " / ".join(f for f in d["formats"] if f) or "-"
+            lines.append(f"| [{d['title']}]({url}) | {formats} | {d.get('frequency_of_update') or '-'} |")
+        lines.append("")
+    return "\n".join(lines) + "\n"
+
+
 def load_survey() -> dict:
     if not SURVEY_PATH.is_file():
         return {}
@@ -622,6 +681,7 @@ def main() -> int:
     fields_markdown = render_fields(fields, entry_names) if fields else None
     survey = load_survey()
     survey_markdown = render_survey(survey) if survey else None
+    machine_markdown = render_machine_readable(survey) if survey else None
     # generated_at は毎回変わるため、最新かどうかの比較からは外す。
     comparable = {k: v for k, v in registry.items() if k != "generated_at"}
 
@@ -643,6 +703,10 @@ def main() -> int:
             not SURVEY_MD.is_file() or SURVEY_MD.read_text(encoding="utf-8") != survey_markdown
         ):
             stale.append(str(SURVEY_MD.relative_to(REPO_ROOT)))
+        if machine_markdown and (
+            not MACHINE_MD.is_file() or MACHINE_MD.read_text(encoding="utf-8") != machine_markdown
+        ):
+            stale.append(str(MACHINE_MD.relative_to(REPO_ROOT)))
         if stale:
             print("生成物が最新ではない: " + ", ".join(stale), file=sys.stderr)
             print("registry/build.py を実行して更新すること", file=sys.stderr)
@@ -659,6 +723,8 @@ def main() -> int:
         FIELDS_MD.write_text(fields_markdown, encoding="utf-8")
     if survey_markdown:
         SURVEY_MD.write_text(survey_markdown, encoding="utf-8")
+    if machine_markdown:
+        MACHINE_MD.write_text(machine_markdown, encoding="utf-8")
 
     for s in registry["sources"]:
         v = s["verification"]
@@ -667,6 +733,7 @@ def main() -> int:
         [REGISTRY_JSON, REGISTRY_MD]
         + ([FIELDS_MD] if fields_markdown else [])
         + ([SURVEY_MD] if survey_markdown else [])
+        + ([MACHINE_MD] if machine_markdown else [])
     )
     print(f"{len(entries)} 件 -> " + ", ".join(str(p.relative_to(REPO_ROOT)) for p in outputs))
     return 0
