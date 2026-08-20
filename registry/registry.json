@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T01:37:26+00:00",
+  "generated_at": "2026-08-20T02:07:14+00:00",
   "generated_by": "registry/build.py",
   "stale_after_days": 90,
   "sources": [
@@ -782,7 +782,7 @@
     }
   ],
   "reachability": {
-    "_generated_at": "2026-08-20T01:35:08+00:00",
+    "_generated_at": "2026-08-20T02:06:01+00:00",
     "api.houjin-bangou.nta.go.jp": {
       "reachable": false,
       "blocked_by_egress": true,
