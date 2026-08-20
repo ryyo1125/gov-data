@@ -4,7 +4,7 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-20T02:14:00+00:00
+- 生成日時: 2026-08-20T02:47:39+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
@@ -58,20 +58,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T01:35:17+00:00
+- 最終検証: 2026-08-20T02:43:40+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_data_catalog.py --out results/egov-data-catalog.json`
 - 検証スクリプト: `verify/verify_egov_data_catalog.py` / 結果: `results/egov-data-catalog.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `site_read` | OK | 641 ms |  |
-| `package_search` | OK | 293 ms |  |
-| `package_list` | OK | 226 ms |  |
-| `organization_list` | OK | 217 ms |  |
-| `group_list` | OK | 217 ms |  |
-| `tag_list` | OK | 734 ms |  |
-| `package_show` | OK | 295 ms |  |
+| `site_read` | OK | 492 ms |  |
+| `package_search` | OK | 295 ms |  |
+| `package_list` | OK | 528 ms |  |
+| `organization_list` | OK | 225 ms |  |
+| `group_list` | OK | 220 ms |  |
+| `tag_list` | OK | 630 ms |  |
+| `package_show` | OK | 281 ms |  |
 
 ### 実行して分かったこと
 
@@ -138,21 +138,21 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T01:35:14+00:00
+- 最終検証: 2026-08-20T02:43:37+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json`
 - 検証スクリプト: `verify/verify_egov_hourei.py` / 結果: `results/egov-hourei-api.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `fetch_openapi_spec` | OK | 695 ms |  |
-| `GET /laws（全件数）` | OK | 1151 ms |  |
-| `GET /laws` | OK | 266 ms |  |
-| `GET /law_revisions/{law_id}` | OK | 269 ms |  |
-| `GET /law_data/{law_id}` | OK | 291 ms |  |
-| `GET /keyword` | OK | 1864 ms |  |
-| `GET /law_file/xml/{law_id}` | OK | 322 ms |  |
-| `GET /attachment/{law_revision_id}` | OK | 526 ms |  |
+| `fetch_openapi_spec` | OK | 936 ms |  |
+| `GET /laws（全件数）` | OK | 1020 ms |  |
+| `GET /laws` | OK | 285 ms |  |
+| `GET /law_revisions/{law_id}` | OK | 276 ms |  |
+| `GET /law_data/{law_id}` | OK | 315 ms |  |
+| `GET /keyword` | OK | 1485 ms |  |
+| `GET /law_file/xml/{law_id}` | OK | 287 ms |  |
+| `GET /attachment/{law_revision_id}` | OK | 351 ms |  |
 
 ### 実行して分かったこと
 
@@ -219,7 +219,7 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T01:35:42+00:00
+- 最終検証: 2026-08-20T02:44:03+00:00
 - 再現コマンド: `./verify/run_jgrants_verification.sh`
 - 検証スクリプト: `verify/verify_jgrants_mcp.py` / 結果: `results/jgrants-mcp.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
@@ -227,14 +227,14 @@
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
 | `initialize` | OK | 0 ms |  |
-| `list_tools` | OK | 20 ms |  |
-| `list_resources` | OK | 9 ms |  |
-| `list_prompts` | OK | 7 ms |  |
-| `call:ping` | OK | 12 ms |  |
-| `call:search_subsidies` | OK | 1522 ms |  |
-| `call:get_subsidy_detail` | OK | 205 ms |  |
-| `call:get_subsidy_overview` | OK | 1657 ms |  |
-| `call:get_file_content` | OK | 2491 ms |  |
+| `list_tools` | OK | 19 ms |  |
+| `list_resources` | OK | 7 ms |  |
+| `list_prompts` | OK | 5 ms |  |
+| `call:ping` | OK | 10 ms |  |
+| `call:search_subsidies` | OK | 1342 ms |  |
+| `call:get_subsidy_detail` | OK | 207 ms |  |
+| `call:get_subsidy_overview` | OK | 1934 ms |  |
+| `call:get_file_content` | OK | 2655 ms |  |
 
 ### 実行して分かったこと
 
@@ -301,22 +301,22 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T01:35:22+00:00
+- 最終検証: 2026-08-20T02:43:46+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_jma_xml.py --out results/jma-xml.json`
 - 検証スクリプト: `verify/verify_jma_xml.py` / 結果: `results/jma-xml.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `GET /regular.xml (定時・高頻度)` | OK | 423 ms |  |
-| `GET /extra.xml (随時・高頻度)` | OK | 58 ms |  |
-| `GET /eqvol.xml (地震火山・高頻度)` | OK | 51 ms |  |
-| `GET /other.xml (その他・高頻度)` | OK | 53 ms |  |
-| `GET /regular_l.xml (定時・長期)` | OK | 2069 ms |  |
-| `GET /extra_l.xml (随時・長期)` | OK | 1758 ms |  |
-| `GET /eqvol_l.xml (地震火山・長期)` | OK | 539 ms |  |
-| `GET /other_l.xml (その他・長期)` | OK | 57 ms |  |
-| `GET 電文本体` | OK | 56 ms |  |
+| `GET /regular.xml (定時・高頻度)` | OK | 438 ms |  |
+| `GET /extra.xml (随時・高頻度)` | OK | 52 ms |  |
+| `GET /eqvol.xml (地震火山・高頻度)` | OK | 45 ms |  |
+| `GET /other.xml (その他・高頻度)` | OK | 543 ms |  |
+| `GET /regular_l.xml (定時・長期)` | OK | 2126 ms |  |
+| `GET /extra_l.xml (随時・長期)` | OK | 676 ms |  |
+| `GET /eqvol_l.xml (地震火山・長期)` | OK | 52 ms |  |
+| `GET /other_l.xml (その他・長期)` | OK | 955 ms |  |
+| `GET 電文本体` | OK | 215 ms |  |
 
 ### 実行して分かったこと
 
@@ -358,22 +358,22 @@
 
 ## 到達性の実測
 
-`verify/verify_reachability.py` の実測結果（2026-08-20T02:13:19+00:00）。
+`verify/verify_reachability.py` の実測結果（2026-08-20T02:47:21+00:00）。
 到達できないことは、そのサービスが存在しないことを意味しない。
 
 | ホスト | 結果 | 詳細 |
 |---|---|---|
 | `api.houjin-bangou.nta.go.jp` | 到達可 | HTTP 404 |
-| `api.jgrants-portal.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `api.jgrants-portal.go.jp` | 到達可 | HTTP 404 |
 | `cyberjapandata.gsi.go.jp` | 到達可 | HTTP 200 |
-| `data.e-gov.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `data.e-gov.go.jp` | 到達可 | HTTP 301 |
 | `data.e-stat.go.jp` | 到達可 | HTTP 301 |
-| `developers.digital.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `files.microcms-assets.io` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `developers.digital.go.jp` | 到達可 | HTTP 200 |
+| `files.microcms-assets.io` | 到達可 | HTTP 403 |
 | `housyasen.env.go.jp` | 到達可 | HTTP 200 |
 | `ikilog.biodic.go.jp` | 到達可 | HTTP 200 |
 | `ip-data.jpo.go.jp` | 到達可 | HTTP 302 |
-| `laws.e-gov.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `laws.e-gov.go.jp` | 到達可 | HTTP 200 |
 | `maps.gsi.go.jp` | 到達可 | HTTP 200 |
 | `ndlsearch.ndl.go.jp` | 到達可 | HTTP 200 |
 | `nlftp.mlit.go.jp` | 到達可 | HTTP 200 |
@@ -382,16 +382,17 @@
 | `saigai.gsi.go.jp` | 到達可 | HTTP 200 |
 | `warp.ndl.go.jp` | 到達可 | HTTP 200 |
 | `www.bb.mof.go.jp` | 到達可 | HTTP 301 |
-| `www.data.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.data.jma.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.digital.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.e-gov.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.data.go.jp` | 到達可 | HTTP 301 |
+| `www.data.jma.go.jp` | 到達可 | HTTP 200 |
+| `www.digital.go.jp` | 到達可 | HTTP 200 |
+| `www.e-gov.go.jp` | 到達可 | HTTP 403 |
+| `www.e-stat.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
 | `www.esri.cao.go.jp` | 到達可 | HTTP 200 |
 | `www.hokoukukan.go.jp` | 到達可 | HTTP 403 |
 | `www.iryou.teikyouseido.mhlw.go.jp` | 到達可 | HTTP 301 |
-| `www.jgrants-portal.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.jgrants-portal.go.jp` | 到達可 | HTTP 200 |
 | `www.jinji.go.jp` | 到達可 | HTTP 200 |
-| `www.jma.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.jma.go.jp` | 到達可 | HTTP 302 |
 | `www.jstage.jst.go.jp` | 到達可 | HTTP 200 |
 | `www.kanpo.go.jp` | 到達可 | HTTP 200 |
 | `www.kodokensaku.mlit.go.jp` | 到達可 | HTTP 200 |
@@ -404,4 +405,4 @@
 | `www.soumu.go.jp` | 到達可 | HTTP 200 |
 | `www5.cao.go.jp` | 到達可 | HTTP 200 |
 | `www8.cao.go.jp` | 到達可 | HTTP 200 |
-| `xml.kishou.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `xml.kishou.go.jp` | 到達可 | HTTP 200 |

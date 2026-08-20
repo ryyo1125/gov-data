@@ -1,7 +1,7 @@
 {
   "source_id": "reachability",
   "target": "egress reachability",
-  "generated_at": "2026-08-20T02:13:19+00:00",
+  "generated_at": "2026-08-20T02:47:21+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -31,7 +31,8 @@
     {
       "host": "data.e-gov.go.jp",
       "used_by": [
-        "egov-data-catalog"
+        "egov-data-catalog",
+        "survey:catalog"
       ],
       "role": "api"
     },
@@ -59,14 +60,16 @@
     {
       "host": "housyasen.env.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "ikilog.biodic.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
@@ -87,7 +90,8 @@
     {
       "host": "maps.gsi.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
@@ -108,7 +112,8 @@
     {
       "host": "notice.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
@@ -122,21 +127,24 @@
     {
       "host": "saigai.gsi.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "warp.ndl.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "www.bb.mof.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
@@ -150,14 +158,16 @@
     {
       "host": "www.data.jma.go.jp",
       "used_by": [
-        "jma-xml"
+        "jma-xml",
+        "survey:catalog"
       ],
       "role": "api"
     },
     {
       "host": "www.digital.go.jp",
       "used_by": [
-        "jgrants-mcp"
+        "jgrants-mcp",
+        "survey:catalog"
       ],
       "role": "portal"
     },
@@ -170,16 +180,25 @@
       "role": "terms"
     },
     {
+      "host": "www.e-stat.go.jp",
+      "used_by": [
+        "survey:catalog"
+      ],
+      "role": "catalog-resource"
+    },
+    {
       "host": "www.esri.cao.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "www.hokoukukan.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
@@ -200,7 +219,8 @@
     {
       "host": "www.jinji.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
@@ -228,35 +248,40 @@
     {
       "host": "www.kodokensaku.mlit.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "www.maff.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "www.mext.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "www.mofa.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "www.npa.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
@@ -270,28 +295,32 @@
     {
       "host": "www.rinya.maff.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "www.soumu.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "www5.cao.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
     {
       "host": "www8.cao.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts"
+        "blocked:catalog-resource-hosts",
+        "survey:catalog"
       ],
       "role": "blocked-candidate"
     },
@@ -314,9 +343,11 @@
     },
     {
       "step": "api.jgrants-portal.go.jp (jgrants-mcp)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 404,
+        "final_url": "https://api.jgrants-portal.go.jp/"
+      }
     },
     {
       "step": "cyberjapandata.gsi.go.jp (blocked:api-candidates-sweep)",
@@ -327,10 +358,12 @@
       }
     },
     {
-      "step": "data.e-gov.go.jp (egov-data-catalog)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "step": "data.e-gov.go.jp (egov-data-catalog, survey:catalog)",
+      "ok": true,
+      "result": {
+        "status_code": 301,
+        "final_url": "https://data.e-gov.go.jp/"
+      }
     },
     {
       "step": "data.e-stat.go.jp (blocked:api-candidates-sweep)",
@@ -342,18 +375,22 @@
     },
     {
       "step": "developers.digital.go.jp (jgrants-mcp)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://developers.digital.go.jp/"
+      }
     },
     {
       "step": "files.microcms-assets.io (jgrants-mcp)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 403,
+        "final_url": "https://files.microcms-assets.io/"
+      }
     },
     {
-      "step": "housyasen.env.go.jp (blocked:catalog-resource-hosts)",
+      "step": "housyasen.env.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -361,7 +398,7 @@
       }
     },
     {
-      "step": "ikilog.biodic.go.jp (blocked:catalog-resource-hosts)",
+      "step": "ikilog.biodic.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -378,12 +415,14 @@
     },
     {
       "step": "laws.e-gov.go.jp (egov-hourei-api)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://laws.e-gov.go.jp/"
+      }
     },
     {
-      "step": "maps.gsi.go.jp (blocked:catalog-resource-hosts)",
+      "step": "maps.gsi.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -407,7 +446,7 @@
       }
     },
     {
-      "step": "notice.go.jp (blocked:catalog-resource-hosts)",
+      "step": "notice.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -423,7 +462,7 @@
       }
     },
     {
-      "step": "saigai.gsi.go.jp (blocked:catalog-resource-hosts)",
+      "step": "saigai.gsi.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -431,7 +470,7 @@
       }
     },
     {
-      "step": "warp.ndl.go.jp (blocked:catalog-resource-hosts)",
+      "step": "warp.ndl.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -439,7 +478,7 @@
       }
     },
     {
-      "step": "www.bb.mof.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.bb.mof.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 301,
@@ -448,30 +487,44 @@
     },
     {
       "step": "www.data.go.jp (egov-data-catalog)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 301,
+        "final_url": "https://www.data.go.jp/"
+      }
     },
     {
-      "step": "www.data.jma.go.jp (jma-xml)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "step": "www.data.jma.go.jp (jma-xml, survey:catalog)",
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://www.data.jma.go.jp/"
+      }
     },
     {
-      "step": "www.digital.go.jp (jgrants-mcp)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "step": "www.digital.go.jp (jgrants-mcp, survey:catalog)",
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://www.digital.go.jp/"
+      }
     },
     {
       "step": "www.e-gov.go.jp (egov-data-catalog, egov-hourei-api)",
+      "ok": true,
+      "result": {
+        "status_code": 403,
+        "final_url": "https://www.e-gov.go.jp/"
+      }
+    },
+    {
+      "step": "www.e-stat.go.jp (survey:catalog)",
       "ok": false,
       "blocked": true,
       "note": "プロキシが拒否: 403 Forbidden"
     },
     {
-      "step": "www.esri.cao.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.esri.cao.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -479,7 +532,7 @@
       }
     },
     {
-      "step": "www.hokoukukan.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.hokoukukan.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 403,
@@ -496,12 +549,14 @@
     },
     {
       "step": "www.jgrants-portal.go.jp (jgrants-mcp)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://www.jgrants-portal.go.jp/"
+      }
     },
     {
-      "step": "www.jinji.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.jinji.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -510,9 +565,11 @@
     },
     {
       "step": "www.jma.go.jp (jma-xml)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 302,
+        "final_url": "https://www.jma.go.jp/"
+      }
     },
     {
       "step": "www.jstage.jst.go.jp (blocked:api-candidates-sweep)",
@@ -531,7 +588,7 @@
       }
     },
     {
-      "step": "www.kodokensaku.mlit.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.kodokensaku.mlit.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -539,7 +596,7 @@
       }
     },
     {
-      "step": "www.maff.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.maff.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -547,7 +604,7 @@
       }
     },
     {
-      "step": "www.mext.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.mext.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -555,7 +612,7 @@
       }
     },
     {
-      "step": "www.mofa.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.mofa.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 403,
@@ -563,7 +620,7 @@
       }
     },
     {
-      "step": "www.npa.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.npa.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -579,7 +636,7 @@
       }
     },
     {
-      "step": "www.rinya.maff.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.rinya.maff.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -587,7 +644,7 @@
       }
     },
     {
-      "step": "www.soumu.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www.soumu.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -595,7 +652,7 @@
       }
     },
     {
-      "step": "www5.cao.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www5.cao.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -603,7 +660,7 @@
       }
     },
     {
-      "step": "www8.cao.go.jp (blocked:catalog-resource-hosts)",
+      "step": "www8.cao.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -612,16 +669,18 @@
     },
     {
       "step": "xml.kishou.go.jp (jma-xml)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://xml.kishou.go.jp/"
+      }
     }
   ],
   "summary": {
-    "total": 42,
-    "ok": 30,
+    "total": 43,
+    "ok": 42,
     "skipped": 0,
-    "blocked": 12,
+    "blocked": 1,
     "failed": 0
   }
 }

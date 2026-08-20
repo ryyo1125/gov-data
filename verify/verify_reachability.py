@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import json
 import sys
 from pathlib import Path
 
@@ -42,6 +43,16 @@ def collect_hosts() -> list[dict]:
             for host in candidate.get("hosts", []):
                 hosts.setdefault(host, {"host": host, "used_by": [], "role": "blocked-candidate"})
                 hosts[host]["used_by"].append(f"blocked:{candidate['id']}")
+
+    # 俯瞰が見つけた実ファイルの置き場も含める。台帳と待避所だけを見ていると、
+    # そのとき到達できていたホストは記録されず、後から塞がれても気づけない。
+    # 実際に www.e-stat.go.jp（機械可読データ 503 件分）がこの穴から漏れた。
+    survey_path = REPO_ROOT / "results" / "catalog-survey.json"
+    if survey_path.is_file():
+        survey = json.loads(survey_path.read_text(encoding="utf-8"))
+        for host in (survey.get("machine_readable", {}).get("resource_hosts") or {}):
+            hosts.setdefault(host, {"host": host, "used_by": [], "role": "catalog-resource"})
+            hosts[host]["used_by"].append("survey:catalog")
 
     return [hosts[k] for k in sorted(hosts)]
 
