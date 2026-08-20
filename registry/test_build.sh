@@ -12,14 +12,27 @@ BACKUP="$(mktemp -d)"
 TARGET="registry/sources/jma-xml.yaml"
 cd "$REPO_ROOT"
 
+# 入力（sources / results / run_all.sh）だけでなく生成物も退避する。
+# このテストは build.py を何度も走らせるため、戻さないと生成物の生成日時だけが
+# 書き換わり、実質的な変更が無いのに毎回差分が出る。ノイズは本物の変更を隠す。
+GENERATED="docs/REGISTRY.md docs/FIELDS.md registry/registry.json"
+
 cp -r registry/sources "$BACKUP/sources"
 cp -r results "$BACKUP/results"
 cp verify/run_all.sh "$BACKUP/run_all.sh"
+mkdir -p "$BACKUP/generated"
+for g in $GENERATED; do
+  [ -f "$g" ] && cp "$g" "$BACKUP/generated/$(basename "$g")"
+done
+
 restore() {
   rm -rf registry/sources results
   cp -r "$BACKUP/sources" registry/sources
   cp -r "$BACKUP/results" results
   cp "$BACKUP/run_all.sh" verify/run_all.sh
+  for g in $GENERATED; do
+    [ -f "$BACKUP/generated/$(basename "$g")" ] && cp "$BACKUP/generated/$(basename "$g")" "$g"
+  done
 }
 trap 'restore; rm -rf "$BACKUP"' EXIT
 
