@@ -3,7 +3,7 @@
 **このファイルは `registry/build.py` が `results/fields.json` から生成する。**
 更新するには `verify/extract_fields.py` を実行してからビルドし直す。
 
-- 生成日時: 2026-08-19T09:10:08+00:00
+- 生成日時: 2026-08-20T00:57:23+00:00
 
 項目の出所は情報源ごとに違う。**仕様由来**は提供側が定義した正式な項目、
 **実データ由来**はレスポンスを実際に読んで列挙したもので、サンプルに現れなかった
@@ -467,7 +467,7 @@
 | `Report/Body/Warning` | 要素 |  |
 | `Report/Body/Warning/Item` | 要素 |  |
 
-### 電文 Body: 気象警報・注意報（Ｈ２７）（実データ由来 / extra フィード）
+### 電文 Body: 気象特別警報・警報・注意報（実データ由来 / extra フィード）
 
 この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
 
@@ -495,10 +495,43 @@
 | `Report/Body/Notice` | 要素 |  |
 | `Report/Body/Warning` | 要素 |  |
 | `Report/Body/Warning/Item` | 要素 |  |
-| `Report/Body/MeteorologicalInfos` | 要素 |  |
-| `Report/Body/MeteorologicalInfos/TimeSeriesInfo` | 要素 |  |
 
-### 電文 Body: 降灰予報（定時）（実データ由来 / eqvol フィード）
+### 電文 Body: 震源・震度に関する情報（実データ由来 / eqvol フィード）
+
+この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
+
+| 項目 | 型 | 説明 |
+|---|---|---|
+| `Report/Control` | 要素 |  |
+| `Report/Control/Title` | 要素 |  |
+| `Report/Control/DateTime` | 要素 |  |
+| `Report/Control/Status` | 要素 |  |
+| `Report/Control/EditorialOffice` | 要素 |  |
+| `Report/Control/PublishingOffice` | 要素 |  |
+| `Report/Head` | 要素 |  |
+| `Report/Head/Title` | 要素 |  |
+| `Report/Head/ReportDateTime` | 要素 |  |
+| `Report/Head/TargetDateTime` | 要素 |  |
+| `Report/Head/EventID` | 要素 |  |
+| `Report/Head/InfoType` | 要素 |  |
+| `Report/Head/Serial` | 要素 |  |
+| `Report/Head/InfoKind` | 要素 |  |
+| `Report/Head/InfoKindVersion` | 要素 |  |
+| `Report/Head/Headline` | 要素 |  |
+| `Report/Head/Headline/Text` | 要素 |  |
+| `Report/Body` | 要素 |  |
+| `Report/Body/Earthquake` | 要素 |  |
+| `Report/Body/Earthquake/OriginTime` | 要素 |  |
+| `Report/Body/Earthquake/ArrivalTime` | 要素 |  |
+| `Report/Body/Earthquake/Hypocenter` | 要素 |  |
+| `Report/Body/Earthquake/Magnitude` | 要素 |  |
+| `Report/Body/Intensity` | 要素 |  |
+| `Report/Body/Intensity/Observation` | 要素 |  |
+| `Report/Body/Comments` | 要素 |  |
+| `Report/Body/Comments/ForecastComment` | 要素 |  |
+| `Report/Body/Comments/VarComment` | 要素 |  |
+
+### 電文 Body: 全般海上警報（臨時）（Ｈ２９）（実データ由来 / other フィード）
 
 この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
 
@@ -524,51 +557,15 @@
 | `Report/Head/Headline/Text` | 要素 |  |
 | `Report/Head/Headline/Information` | 要素 |  |
 | `Report/Body` | 要素 |  |
-| `Report/Body/VolcanoInfo` | 要素 |  |
-| `Report/Body/VolcanoInfo/Item` | 要素 |  |
-| `Report/Body/AshInfos` | 要素 |  |
-| `Report/Body/AshInfos/AshInfo` | 要素 |  |
-| `Report/Body/VolcanoInfoContent` | 要素 |  |
-| `Report/Body/VolcanoInfoContent/VolcanoHeadline` | 要素 |  |
-| `Report/Body/VolcanoInfoContent/VolcanoActivity` | 要素 |  |
-| `Report/Body/VolcanoInfoContent/VolcanoPrevention` | 要素 |  |
-
-### 電文 Body: 地方海上警報（Ｈ２８）（実データ由来 / other フィード）
-
-この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
-
-| 項目 | 型 | 説明 |
-|---|---|---|
-| `Report/Control` | 要素 |  |
-| `Report/Control/Title` | 要素 |  |
-| `Report/Control/DateTime` | 要素 |  |
-| `Report/Control/Status` | 要素 |  |
-| `Report/Control/EditorialOffice` | 要素 |  |
-| `Report/Control/PublishingOffice` | 要素 |  |
-| `Report/Head` | 要素 |  |
-| `Report/Head/Title` | 要素 |  |
-| `Report/Head/ReportDateTime` | 要素 |  |
-| `Report/Head/TargetDateTime` | 要素 |  |
-| `Report/Head/ValidDateTime` | 要素 |  |
-| `Report/Head/EventID` | 要素 |  |
-| `Report/Head/InfoType` | 要素 |  |
-| `Report/Head/Serial` | 要素 |  |
-| `Report/Head/InfoKind` | 要素 |  |
-| `Report/Head/InfoKindVersion` | 要素 |  |
-| `Report/Head/Headline` | 要素 |  |
-| `Report/Head/Headline/Text` | 要素 |  |
-| `Report/Head/Headline/Information` | 要素 |  |
-| `Report/Body` | 要素 |  |
-| `Report/Body/Warning` | 要素 |  |
-| `Report/Body/Warning/Item` | 要素 |  |
+| `Report/Body/Notice` | 要素 |  |
 | `Report/Body/MeteorologicalInfos` | 要素 |  |
 | `Report/Body/MeteorologicalInfos/MeteorologicalInfo` | 要素 |  |
 
 ## Jグランツ MCP Server (`jgrants-mcp`)
 
 - 出所: 入力は仕様由来、戻り値は実データ由来
-- 抽出方法: 入力項目は MCP のツール定義（説明も定義に書かれているもの）。戻り値の項目は実レスポンスから列挙。公式 OpenAPI 仕様 jgrants-api.yaml は microCMS のアセット CDN にあり、当環境の egress ポリシーで取得できないため未反映
-- 参照元: http://127.0.0.1:8321/mcp
+- 抽出方法: 入力項目は MCP のツール定義。戻り値の項目は実レスポンスから列挙し、説明は公式 OpenAPI（補助金情報取得API 1.0）の同名項目から引いた。仕様側のオブジェクト定義も併記している
+- 参照元: https://files.microcms-assets.io/assets/7c793323a46a46b7bb9a2ac7d0023301/2bad5ef79255448f8381d9cf2a14dbfc/jgrants-api.yaml
 
 ### get_file_content（入力）
 
@@ -620,23 +617,23 @@
 
 ### search_subsidies の戻り値（subsidies[]）
 
-検索にヒットした補助金 1 件分。詳細は id を get_subsidy_detail に渡して取る。
+検索にヒットした補助金 1 件分。説明は公式 OpenAPI の同名項目から引いている。
 
 | 項目 | 型 | 説明 |
 |---|---|---|
-| `acceptance_end_datetime` | string |  |
-| `acceptance_start_datetime` | string |  |
+| `acceptance_end_datetime` | string | 募集終了日時（Acceptance end date） |
+| `acceptance_start_datetime` | string | 募集開始日時（Acceptance start date） |
 | `id` | string |  |
-| `institution_name` | null | サンプル内では常に null |
+| `institution_name` | null | 制度名（Institution name） / サンプル内では常に null |
 | `name` | string |  |
-| `subsidy_max_limit` | number |  |
+| `subsidy_max_limit` | number | 補助額上限（Subsidy maximum amount） 入力値以下の補助額上限が設定されている補助金に絞り込む。 |
 | `target_area_search` | string |  |
-| `target_number_of_employees` | string |  |
+| `target_number_of_employees` | string | 従業員数（Number of employees） |
 | `title` | string |  |
 
 ### get_subsidy_detail の戻り値
 
-補助金 1 件の詳細。files に添付ファイルの保存結果が入る。
+補助金 1 件の詳細。files は MCP サーバーが添付を保存した結果で、公式 API には無い項目。
 
 | 項目 | 型 | 説明 |
 |---|---|---|
@@ -649,6 +646,168 @@
 | `last_updated` | null | サンプル内では常に null |
 | `save_directory` | string |  |
 | `status` | string |  |
-| `subsidy_max_limit` | number |  |
+| `subsidy_max_limit` | number | 補助額上限（Subsidy maximum amount） 入力値以下の補助額上限が設定されている補助金に絞り込む。 |
 | `target` | object |  |
 | `title` | string |  |
+
+### file_data（公式 OpenAPI 由来）
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `name` | string | ファイル名（File name） | `ガイドライン.pdf` |
+| `data` | string | データ（File data） Base64形式 |  |
+
+### type_1（公式 OpenAPI 由来）
+
+補助金詳細照会結果情報（Result of querying subsidy detail）
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `id` | string | 補助金ID（Subsidy ID） | `S0J0w00wer0wUgr77E` |
+| `name` | string | 補助金番号（Subsidy number） | `S-01100011` |
+| `title` | string | 補助金名（Subsidy name） | `小規模事業者補助金` |
+| `subsidy_catch_phrase` | string | 補助金のキャッチコピー（Advertising slogan） | `小規模事業者の生産性向上と持続的発展を図る` |
+| `detail` | string | 補助金のサマリー（Purpose / Overview） | `小規模事業者が取り組む販路開拓等の取組の経費の一部を補助することにより、生産性向上と持続的発展を図ることを目的とします。` |
+| `use_purpose` | string | 利用目的（Use of subsidies） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・新たな事業を行いたい ・販路拡大・海外展開をしたい ・イベント・事業運営支援がほしい ・事業を引き継ぎたい ・研究開発・実証事業を行いたい ・人材育成を行いたい ・資金繰りを改善したい ・設備整備・IT導入をしたい ・雇用・職場環境を改善したい ・エコ・SDGs活動支援がほしい ・災害（自然災害、感染症等）支援がほしい ・教育・子育て・少子化支援がほしい ・スポーツ・文化支援がほしい ・安全・防災対策支援がほしい ・まちづくり・地域振興支援がほしい | `新たな事業を行いたい / 設備整備・IT導入をしたい` |
+| `industry` | string | 業種（Industry） 値が複数ある場合は、半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・農業、林業 ・漁業 ・鉱業、採石業、砂利採取業 ・建設業 ・製造業 ・電気・ガス・熱供給・水道業 ・情報通信業 ・運輸業、郵便業 ・卸売業、小売業 ・金融業、保険業 ・不動産業、物品賃貸業 ・学術研究、専門・技術サービス業 ・宿泊業、飲食サービス業 ・生活関連サービス業、娯楽業 ・教育、学習支援業 ・医療、福祉 ・複合サービス事業 ・サービス業（他に分類されないもの） ・公務（他に分類されるものを除く） ・分類不能の産業 | `情報通信業 / 教育、学習支援業` |
+| `target_area_search` | string | 補助対象地域（Target area to search） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・全国 ・北海道地方 ・東北地方 ・関東・甲信越地方 ・東海・北陸地方 ・近畿地方 ・中国地方 ・四国地方 ・九州・沖縄地方 ・北海道 ・青森県 ・岩手県 ・宮城県 ・秋田県 ・山形県 ・福島県 ・茨城県 ・栃木県 ・群馬県 ・埼玉県 ・千葉県 ・東京都 ・神奈川県 ・新潟県 ・富山県 ・石川県 ・福井県 ・山梨県 ・長野県 ・岐阜県 ・静岡県 ・愛知県 ・三重県 ・滋賀県 ・京都府 ・大阪府 ・兵庫県 ・奈良県 ・和歌山県 ・鳥取県 ・島根県 ・岡山県 ・広島県 ・山口県 ・徳島県 ・香川県 ・愛媛県 ・高知県 ・福岡県 ・佐賀県 ・長崎県 ・熊本県 ・大分県 ・宮崎県 ・鹿児島県 ・沖縄県 ・海外 | `東京都 / 大阪府` |
+| `target_area_detail` | string | 補助対象地域詳細（Target area detail） | `全国` |
+| `target_number_of_employees` | string | 従業員数（Number of employees） | `20名以下` |
+| `subsidy_rate` | string | 補助率（Subsidy rate） | `20%` |
+| `subsidy_max_limit` | integer | 補助額上限（Subsidy maximum amount） 入力値以下の補助額上限が設定されている補助金に絞り込む。 | `10000000` |
+| `acceptance_start_datetime` | string | 募集開始日時（Acceptance start date） | `2020-02-28 16:41:41.090000+00:00` |
+| `acceptance_end_datetime` | string | 募集終了日時（Acceptance end date） | `2021-02-28 16:41:41.090000+00:00` |
+| `project_end_deadline` | string | 事業終了期限（Project end deadline） | `2020-07-31 15:00:00+00:00` |
+| `request_reception_presence` | string | 申請受付有無（Request acceptability） ・有：申請を受付ける ・無：申請を受付けない | `有` |
+| `is_enable_multiple_request` | boolean | 複数回申請可否（Multiple requests acceptability） ・true：申請可 ・false：申請不可 | `False` |
+| `front_subsidy_detail_page_url` | string | 事業者向け補助金詳細画面URL | `https://jgrants-2-xxx/subsidy/999999999999999999` |
+| `application_guidelines` | file_data[] | 公募要領（Application guidelines） | `{'name': '公募要領.pdf', 'data': 'JVBERi0xLjQKJe'}` |
+| `outline_of_grant` | file_data[] | 交付要綱.pdf | `{'name': '交付要綱.pdf', 'data': 'JVBERi0xLjQKJe'}` |
+| `application_form` | file_data[] | 申請様式（Application form） | `{'name': '申請様式.pdf', 'data': 'JVBERi0xLjQKJe'}` |
+| `institution_name` | string | 制度名（Institution name） | `小規模事業者生産性向上支援事業` |
+
+### subsidy-details-response（公式 OpenAPI 由来）
+
+補助金詳細照会結果情報（Result of querying subsidy detail）
+
+| 項目 | 型 | 説明 |
+|---|---|---|
+| `metadata` | Metadata | API仕様公開URL（API Specification URL） |
+| `result` | type_1[] | 補助金詳細照会結果情報（Result of retrieving subsidy detail） |
+
+### type（公式 OpenAPI 由来）
+
+補助金一覧検索結果情報（Result of querying subsidies list）
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `id` | string | 補助金ID（Subsidy ID） | `S0J0w00wer0wUgr77E` |
+| `name` | string | 補助金番号（Subsidy number） | `S-01100011` |
+| `title` | string | 補助金名（Subsidy name） | `小規模事業者補助金` |
+| `target_area_search` | string | 補助対象地域（Target area to search） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・全国 ・北海道地方 ・東北地方 ・関東・甲信越地方 ・東海・北陸地方 ・近畿地方 ・中国地方 ・四国地方 ・九州・沖縄地方 ・北海道 ・青森県 ・岩手県 ・宮城県 ・秋田県 ・山形県 ・福島県 ・茨城県 ・栃木県 ・群馬県 ・埼玉県 ・千葉県 ・東京都 ・神奈川県 ・新潟県 ・富山県 ・石川県 ・福井県 ・山梨県 ・長野県 ・岐阜県 ・静岡県 ・愛知県 ・三重県 ・滋賀県 ・京都府 ・大阪府 ・兵庫県 ・奈良県 ・和歌山県 ・鳥取県 ・島根県 ・岡山県 ・広島県 ・山口県 ・徳島県 ・香川県 ・愛媛県 ・高知県 ・福岡県 ・佐賀県 ・長崎県 ・熊本県 ・大分県 ・宮崎県 ・鹿児島県 ・沖縄県 ・海外 | `東京都 / 大阪府` |
+| `subsidy_max_limit` | number | 補助額上限（Subsidy maximum amount） 入力値以下の補助額上限が設定されている補助金に絞り込む。 | `10000000` |
+| `acceptance_start_datetime` | string | 募集開始日時（Acceptance start date） | `2020-02-28 16:41:41.090000+00:00` |
+| `acceptance_end_datetime` | string | 募集終了日時（Acceptance end date） | `2021-02-28 16:41:41.090000+00:00` |
+| `target_number_of_employees` | string | 従業員数（Number of employees） | `20名以下` |
+| `institution_name` | string | 制度名（Institution name） | `小規模事業者生産性向上支援事業` |
+
+### subsidiesRequest（公式 OpenAPI 由来）
+
+| 項目 | 型 | 説明 |
+|---|---|---|
+| `keyword` | string | 検索キーワード（Keyword for search） 最小文字数は2文字とする（スペース入力不可）。 大文字・小文字や全角・半角の表記ゆれを許容する（例：IoTとIOT、IoTとⅠoＴ、カタカナとｶﾀｶﾅを区別しない）。 |
+| `sort` | string | ソート項目名（Field name to order by） ソート項目名で指定した項目をソート順で並替える。 ・created_date：作成日時 ・acceptance_start_datetime：募集開始日時 ・acceptance_end_datetime：募集終了日時 |
+| `order` | string | ソート順（Sort order） ソート項目名で指定した項目をソート順で並替える。 ・ASC：昇順 ・DESC：降順 |
+| `acceptance` | string | 募集期間内絞込要否（Within an acceptance period） ・0：否 ・1：要 |
+| `use_purpose` | string | 利用目的（Use of subsidies） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・新たな事業を行いたい ・販路拡大・海外展開をしたい ・イベント・事業運営支援がほしい ・事業を引き継ぎたい ・研究開発・実証事業を行いたい ・人材育成を行いたい ・資金繰りを改善したい ・設備整備・IT導入をしたい ・雇用・職場環境を改善したい ・エコ・SDGs活動支援がほしい ・災害（自然災害、感染症等）支援がほしい ・教育・子育て・少子化支援がほしい ・スポーツ・文化支援がほしい ・安全・防災対策支援がほしい ・まちづくり・地域振興支援がほしい |
+| `industry` | string | 業種（Industry） 値が複数ある場合は、半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・農業、林業 ・漁業 ・鉱業、採石業、砂利採取業 ・建設業 ・製造業 ・電気・ガス・熱供給・水道業 ・情報通信業 ・運輸業、郵便業 ・卸売業、小売業 ・金融業、保険業 ・不動産業、物品賃貸業 ・学術研究、専門・技術サービス業 ・宿泊業、飲食サービス業 ・生活関連サービス業、娯楽業 ・教育、学習支援業 ・医療、福祉 ・複合サービス事業 ・サービス業（他に分類されないもの） ・公務（他に分類されるものを除く） ・分類不能の産業 |
+| `target_number_of_employees` | string | 従業員数（Number of employees） |
+| `target_area_search` | string | 補助対象地域（Target area to search） |
+| `institution_name` | string | 制度名（Institution name） |
+
+### subsidy-summaries-response（公式 OpenAPI 由来）
+
+補助金一覧検索結果情報（Result of querying subsidies list）
+
+| 項目 | 型 | 説明 |
+|---|---|---|
+| `metadata` | Metadata |  |
+| `result` | type[] | 補助金一覧検索結果情報（Result of querying subsidies list） |
+
+### ResultFile（公式 OpenAPI 由来）
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `name` | string | ファイル名（File name） | `ガイドライン.pdf` |
+| `data` | string | データ（File data） Base64形式 |  |
+
+### Workflow（公式 OpenAPI 由来）
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `id` | string | ワークフローID（id） | `a0GBE000005RJTW2A4` |
+| `target_area_search` | string | 補助対象地域（Target area to search） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・全国 ・北海道地方 ・東北地方 ・関東・甲信越地方 ・東海・北陸地方 ・近畿地方 ・中国地方 ・四国地方 ・九州・沖縄地方 ・北海道 ・青森県 ・岩手県 ・宮城県 ・秋田県 ・山形県 ・福島県 ・茨城県 ・栃木県 ・群馬県 ・埼玉県 ・千葉県 ・東京都 ・神奈川県 ・新潟県 ・富山県 ・石川県 ・福井県 ・山梨県 ・長野県 ・岐阜県 ・静岡県 ・愛知県 ・三重県 ・滋賀県 ・京都府 ・大阪府 ・兵庫県 ・奈良県 ・和歌山県 ・鳥取県 ・島根県 ・岡山県 ・広島県 ・山口県 ・徳島県 ・香川県 ・愛媛県 ・高知県 ・福岡県 ・佐賀県 ・長崎県 ・熊本県 ・大分県 ・宮崎県 ・鹿児島県 ・沖縄県 ・海外 | `東京都 / 大阪府` |
+| `target_area_detail` | string | 補助対象地域詳細（Target area detail） | `全国` |
+| `fiscal_year_round` | string | 募集名（fiscal_year_round） | `第54回` |
+| `acceptance_start_datetime` | string | 募集開始日時（Acceptance start date） | `2020-02-28 16:41:41.090000+00:00` |
+| `acceptance_end_datetime` | string | 募集終了日時（Acceptance end date） | `2021-02-28 16:41:41.090000+00:00` |
+| `project_end_deadline` | string | 事業終了期限（Project end deadline） | `2020-07-31 15:00:00+00:00` |
+
+### type_1_v2（公式 OpenAPI 由来）
+
+補助金詳細照会結果情報 V2（Result of querying subsidy detail V2）
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `id` | string | 補助金ID（Subsidy ID） | `S0J0w00wer0wUgr77E` |
+| `name` | string | 補助金番号（Subsidy number） | `S-01100011` |
+| `title` | string | 補助金名（Subsidy name） | `小規模事業者補助金` |
+| `subsidy_catch_phrase` | string | 補助金のキャッチコピー（Advertising slogan） | `小規模事業者の生産性向上と持続的発展を図る` |
+| `detail` | string | 補助金のサマリー（Purpose / Overview） | `小規模事業者が取り組む販路開拓等の取組の経費の一部を補助することにより、生産性向上と持続的発展を図ることを目的とします。` |
+| `use_purpose` | string | 利用目的（Use of subsidies） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・新たな事業を行いたい ・販路拡大・海外展開をしたい ・イベント・事業運営支援がほしい ・事業を引き継ぎたい ・研究開発・実証事業を行いたい ・人材育成を行いたい ・資金繰りを改善したい ・設備整備・IT導入をしたい ・雇用・職場環境を改善したい ・エコ・SDGs活動支援がほしい ・災害（自然災害、感染症等）支援がほしい ・教育・子育て・少子化支援がほしい ・スポーツ・文化支援がほしい ・安全・防災対策支援がほしい ・まちづくり・地域振興支援がほしい | `新たな事業を行いたい / 設備整備・IT導入をしたい` |
+| `industry` | string | 業種（Industry） 値が複数ある場合は、半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・農業、林業 ・漁業 ・鉱業、採石業、砂利採取業 ・建設業 ・製造業 ・電気・ガス・熱供給・水道業 ・情報通信業 ・運輸業、郵便業 ・卸売業、小売業 ・金融業、保険業 ・不動産業、物品賃貸業 ・学術研究、専門・技術サービス業 ・宿泊業、飲食サービス業 ・生活関連サービス業、娯楽業 ・教育、学習支援業 ・医療、福祉 ・複合サービス事業 ・サービス業（他に分類されないもの） ・公務（他に分類されるものを除く） ・分類不能の産業 | `情報通信業 / 教育、学習支援業` |
+| `target_number_of_employees` | string | 従業員数（Number of employees） | `20名以下` |
+| `subsidy_rate` | string | 補助率（Subsidy rate） | `20%` |
+| `subsidy_max_limit` | integer | 補助額上限（Subsidy maximum amount） 入力値以下の補助額上限が設定されている補助金に絞り込む。 | `10000000` |
+| `request_reception_presence` | string | 申請受付有無（Request acceptability） ・有：申請を受付ける ・無：申請を受付けない | `有` |
+| `is_enable_multiple_request` | boolean | 複数回申請可否（Multiple requests acceptability） ・true：申請可 ・false：申請不可 | `False` |
+| `front_subsidy_detail_page_url` | string | 事業者向け補助金詳細画面URL | `https://jgrants-2-xxx/subsidy/999999999999999999` |
+| `granttype` | string | 類型（granttype） | `一般型` |
+| `application_guidelines` | ResultFile[] | 公募要領（Application guidelines） | `{'name': '公募要領.pdf', 'data': 'JVBERi0xLjQKJe'}` |
+| `outline_of_grant` | ResultFile[] | 交付要綱.pdf | `{'name': '交付要綱.pdf', 'data': 'JVBERi0xLjQKJe'}` |
+| `application_form` | ResultFile[] | 申請様式（Application form） | `{'name': '申請様式.pdf', 'data': 'JVBERi0xLjQKJe'}` |
+| `workflow` | Workflow[] | ワークフロー（workflow） | `[{'id': 'a0GBE000005RJTW2A4', 'target_area_search': '大分県', 'target_area_detail': '全国', 'fiscal_year_round': '第54回', 'acceptance_start_datetime': '2025-10-01T15:00Z', 'acceptance_end_datetime': '2026-03-21T15:00Z', 'project_end_deadline': '2027-12-31T15:00Z'}]` |
+| `institution_name` | string | 制度名（Institution name） | `小規模事業者生産性向上支援事業` |
+
+### subsidy-details-response-v2（公式 OpenAPI 由来）
+
+補助金詳細照会結果情報 V2（Result of querying subsidy detail V2）
+
+| 項目 | 型 | 説明 |
+|---|---|---|
+| `metadata` | Metadata | API仕様公開URL（API Specification URL） |
+| `result` | type_1_v2[] | 補助金詳細照会結果情報（Result of retrieving subsidy detail） |
+
+### Metadata（公式 OpenAPI 由来）
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `type` | string | API仕様公開URL（API Specification URL） | `https://developers.digital.go.jp/documents/jgrants/api/` |
+| `resultset` | Resultset |  |  |
+
+### Resultset（公式 OpenAPI 由来）
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `count` | integer | 取得件数（Number of results） | `1` |
+
+### 500-error-response（公式 OpenAPI 由来）
+
+エラー情報（Result of error）
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `type` | string | API仕様公開URL（API Specification URL） | `https://developers.digital.go.jp/documents/jgrants/api/` |
+| `errorCode` | string | エラーコード（Error code） ・E-ML-9999：内部サーバエラー | `E-ML-9999` |
+| `title` | string | エラータイトル（Error title） | `Internal Server Error` |
+| `instance` | string | HTTPリクエストURI（HTTP request URI） | `/api/subsidies` |

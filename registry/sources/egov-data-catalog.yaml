@@ -70,8 +70,10 @@ findings:
   - claim: package_list が返すのは CKAN 標準のデータセット名ではなく日付らしき文字列である。
     evidence: package_list?limit=5 の戻り値が ["20160621", "20170627", "20180710"] だった。
   - claim: メタデータ項目の定義書が公開されていない。項目の意味は、データセット画面に出る日本語ラベルを同じ値の API 項目と突き合わせて推定するしかない。
-    evidence: data.e-gov.go.jp の /info/ja/help と /info/ja/about-site を辿ってもメタデータ項目の仕様へのリンクが無く、API も項目説明を返さない。値による突合で説明を付けられたのは 87 項目中 22 項目にとどまった。
+    evidence: data.e-gov.go.jp の /info/ja/help と /info/ja/about-site を辿ってもメタデータ項目の仕様へのリンクが無く、API も項目説明を返さない。実測は results/fields.json を参照。
   - claim: データセット画面のメタデータは「e-Govデータポータル標準」と「自治体標準ODS オープンデータ一覧」の 2 系統に分かれ、HTML 上も別クラスで区別されている。
     evidence: データセット画面の tr が metadata_basic_field と metadata_detail_field に分かれており、画面上も「一部表示／全て表示」で切り替えられる。
+  - claim: 値による突合で付けられる説明の数は実行ごとに変動する。package_search が返すデータセットが毎回同じとは限らず、値が空の項目は突合できないため。
+    evidence: 同じスクリプトの連続実行で、説明を付けられた項目数が 22 と 19 に変わった。抽出手法に由来する揺れであり、提供側の変更ではない。
   - claim: package_show は id を渡さないと HTTP 409 を返す。404 ではない。
     evidence: /package_show?limit=1 で 409 と success=false を確認。

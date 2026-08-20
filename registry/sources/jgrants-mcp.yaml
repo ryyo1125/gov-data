@@ -11,7 +11,7 @@ access:
   method: mcp
   endpoint: http://127.0.0.1:8000/mcp
   transport: streamable-http
-  spec_url: https://developers.digital.go.jp/documents/jgrants/api/
+  spec_url: https://files.microcms-assets.io/assets/7c793323a46a46b7bb9a2ac7d0023301/2bad5ef79255448f8381d9cf2a14dbfc/jgrants-api.yaml
   implementation:
     name: digital-go-jp/jgrants-mcp-server
     maintainer: デジタル庁
@@ -62,7 +62,7 @@ reachability:
       role: portal
     - host: files.microcms-assets.io
       role: spec
-      note: 公式 OpenAPI 仕様 jgrants-api.yaml の実体。政府ドメインではない CDN のため許可リストから漏れやすい。
+      note: 公式 OpenAPI 仕様 jgrants-api.yaml の実体。政府ドメインではない CDN のため許可リストから漏れやすい。到達できないと項目の説明が埋まらない。
 
 verify:
   script: verify/verify_jgrants_mcp.py
@@ -80,7 +80,13 @@ findings:
     evidence: 検証スクリプトで先頭 5 件まで詳細を引き直す実装が必要だった（verify_jgrants_mcp.py の FILE_PROBE_LIMIT）。
   - claim: 公式ドキュメントには認証要否・レート制限・利用規約・API 安定性の記述が無い。
     evidence: https://developers.digital.go.jp/documents/jgrants/api/ を参照して該当記述が無いことを確認。
-  - claim: 公式 OpenAPI 仕様 jgrants-api.yaml は developers.digital.go.jp ではなく microCMS のアセット CDN（files.microcms-assets.io）にホストされており、当環境の egress ポリシーで取得できない。戻り値の項目説明が埋められないのはこのため。
-    evidence: 仕様ページの HTML 内リンクが https://files.microcms-assets.io/assets/.../jgrants-api.yaml を指しており、当該ホストへの CONNECT がプロキシに 403 で拒否されることを確認。
+  - claim: 公式 OpenAPI 仕様 jgrants-api.yaml は developers.digital.go.jp ではなく microCMS のアセット CDN（files.microcms-assets.io）にホストされている。政府ドメインだけを許可しても到達できない。
+    evidence: 仕様ページの HTML 内リンクが https://files.microcms-assets.io/assets/.../jgrants-api.yaml を指しており、当該ホストは当初プロキシに 403 で拒否されていた。許可追加後に HTTP 200 で 39,919 バイトを取得できた。
+  - claim: ベース URL の /exp/ は公式仕様に含まれる。MCP サーバーが叩く https://api.jgrants-portal.go.jp/exp/v1/public は仕様どおりであって、実験版を独自に叩いているわけではない。
+    evidence: 公式仕様の servers[0].url が https://api.jgrants-portal.go.jp/exp で、paths が /v1/public/subsidies などの相対パスになっている。
+  - claim: 公式仕様にも securitySchemes とレート制限の定義が無い。認証要否とレート制限が未記載なのは、ドキュメントページだけの問題ではない。
+    evidence: jgrants-api.yaml 全文に securitySchemes / security の記述が無く、「制限」「回数」「レート」「利用規約」「出典」のいずれの語も出現しないことを確認。
+  - claim: 補助金詳細の API には v1 と v2 があり、返す項目数が違う（v1 は 22 項目、v2 は 19 項目）。MCP サーバーが使うのは v1。
+    evidence: 公式仕様の paths に /v1/public/subsidies/id/{id} と /v2/public/subsidies/id/{id} があり、schemas の type_1（22 プロパティ）と type_1_v2（19 プロパティ）に対応している。
   - claim: 出典表示義務はドキュメントではなくツールの docstring にのみ書かれている。
     evidence: jgrants_mcp_server/core.py の各ツール docstring に「出典表示」の記載。

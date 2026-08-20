@@ -1,7 +1,7 @@
 {
   "source_id": "egov-data-catalog",
   "target": "https://data.e-gov.go.jp/data/api/3/action",
-  "generated_at": "2026-08-19T09:08:47+00:00",
+  "generated_at": "2026-08-20T00:56:20+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -10,7 +10,7 @@
     {
       "step": "site_read",
       "ok": true,
-      "elapsed_ms": 838,
+      "elapsed_ms": 1503,
       "result": {
         "result": true
       }
@@ -18,11 +18,23 @@
     {
       "step": "package_search",
       "ok": true,
-      "elapsed_ms": 571,
+      "elapsed_ms": 698,
       "result": {
         "count": 18141,
         "results_len": 3,
         "results_sample": [
+          {
+            "id": "3098f2a3-0787-4a93-9f20-a13d67f1831d",
+            "title": "平成30年報告_全国がん登録",
+            "organization": "厚生労働省",
+            "license_id": null,
+            "license_title": null,
+            "frequency_of_update": "1年",
+            "num_resources": 1,
+            "resource_formats": [
+              "PDF"
+            ]
+          },
           {
             "id": "314b5242-257e-4c67-8b51-bff3bcdb53c8",
             "title": "給与勧告の仕組み",
@@ -46,18 +58,6 @@
             "resource_formats": [
               "PDF"
             ]
-          },
-          {
-            "id": "5f62f8e4-834c-4974-b479-fcd3646ad36d",
-            "title": "平成20年_平成20年度(2008年)岩手・宮城内陸地震被害の状況・政府の主な対応一覧",
-            "organization": "内閣府",
-            "license_id": null,
-            "license_title": null,
-            "frequency_of_update": "不定期",
-            "num_resources": 65,
-            "resource_formats": [
-              "PDF"
-            ]
           }
         ]
       }
@@ -65,7 +65,7 @@
     {
       "step": "package_list",
       "ok": true,
-      "elapsed_ms": 241,
+      "elapsed_ms": 483,
       "result": {
         "len": 5,
         "sample": [
@@ -78,7 +78,7 @@
     {
       "step": "organization_list",
       "ok": true,
-      "elapsed_ms": 263,
+      "elapsed_ms": 866,
       "result": {
         "len": 5,
         "sample": [
@@ -91,7 +91,7 @@
     {
       "step": "group_list",
       "ok": true,
-      "elapsed_ms": 256,
+      "elapsed_ms": 854,
       "result": {
         "len": 5,
         "sample": [
@@ -104,7 +104,7 @@
     {
       "step": "tag_list",
       "ok": true,
-      "elapsed_ms": 683,
+      "elapsed_ms": 1857,
       "result": {
         "len": 5745,
         "sample": [
@@ -117,14 +117,14 @@
     {
       "step": "package_show",
       "ok": true,
-      "elapsed_ms": 587,
+      "elapsed_ms": 472,
       "result": {
-        "id": "314b5242-257e-4c67-8b51-bff3bcdb53c8",
-        "title": "給与勧告の仕組み",
-        "organization": "人事院",
+        "id": "3098f2a3-0787-4a93-9f20-a13d67f1831d",
+        "title": "平成30年報告_全国がん登録",
+        "organization": "厚生労働省",
         "license_id": null,
         "license_title": null,
-        "frequency_of_update": "少なくとも年1回",
+        "frequency_of_update": "1年",
         "num_resources": 1,
         "resource_formats": [
           "PDF"

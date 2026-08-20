@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T09:10:08+00:00",
+  "generated_at": "2026-08-20T00:57:23+00:00",
   "generated_by": "verify/extract_fields.py",
   "sources": {
     "egov-hourei-api": {
@@ -1681,7 +1681,7 @@
           ]
         },
         {
-          "name": "電文 Body: 気象警報・注意報（Ｈ２７）（実データ由来 / extra フィード）",
+          "name": "電文 Body: 気象特別警報・警報・注意報（実データ由来 / extra フィード）",
           "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
@@ -1815,15 +1815,177 @@
               "type": "要素",
               "description": "",
               "example": ""
-            },
+            }
+          ]
+        },
+        {
+          "name": "電文 Body: 震源・震度に関する情報（実データ由来 / eqvol フィード）",
+          "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
+          "fields": [
             {
-              "name": "Report/Body/MeteorologicalInfos",
+              "name": "Report/Control",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/MeteorologicalInfos/TimeSeriesInfo",
+              "name": "Report/Control/Title",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Control/DateTime",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Control/Status",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Control/EditorialOffice",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Control/PublishingOffice",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/Title",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/ReportDateTime",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/TargetDateTime",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/EventID",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/InfoType",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/Serial",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/InfoKind",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/InfoKindVersion",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/Headline",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/Headline/Text",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Earthquake",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Earthquake/OriginTime",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Earthquake/ArrivalTime",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Earthquake/Hypocenter",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Earthquake/Magnitude",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Intensity",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Intensity/Observation",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Comments",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Comments/ForecastComment",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Comments/VarComment",
               "type": "要素",
               "description": "",
               "example": ""
@@ -1831,7 +1993,7 @@
           ]
         },
         {
-          "name": "電文 Body: 降灰予報（定時）（実データ由来 / eqvol フィード）",
+          "name": "電文 Body: 全般海上警報（臨時）（Ｈ２９）（実データ由来 / other フィード）",
           "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
@@ -1955,187 +2117,7 @@
               "example": ""
             },
             {
-              "name": "Report/Body/VolcanoInfo",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/VolcanoInfo/Item",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/AshInfos",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/AshInfos/AshInfo",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/VolcanoInfoContent",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/VolcanoInfoContent/VolcanoHeadline",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/VolcanoInfoContent/VolcanoActivity",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/VolcanoInfoContent/VolcanoPrevention",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            }
-          ]
-        },
-        {
-          "name": "電文 Body: 地方海上警報（Ｈ２８）（実データ由来 / other フィード）",
-          "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
-          "fields": [
-            {
-              "name": "Report/Control",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Control/Title",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Control/DateTime",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Control/Status",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Control/EditorialOffice",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Control/PublishingOffice",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/Title",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/ReportDateTime",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/TargetDateTime",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/ValidDateTime",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/EventID",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/InfoType",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/Serial",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/InfoKind",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/InfoKindVersion",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/Headline",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/Headline/Text",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Head/Headline/Information",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/Warning",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/Warning/Item",
+              "name": "Report/Body/Notice",
               "type": "要素",
               "description": "",
               "example": ""
@@ -2159,8 +2141,8 @@
     },
     "jgrants-mcp": {
       "origin": "spec+observed",
-      "origin_detail": "入力項目は MCP のツール定義（説明も定義に書かれているもの）。戻り値の項目は実レスポンスから列挙。公式 OpenAPI 仕様 jgrants-api.yaml は microCMS のアセット CDN にあり、当環境の egress ポリシーで取得できないため未反映",
-      "source_url": "http://127.0.0.1:8321/mcp",
+      "origin_detail": "入力項目は MCP のツール定義。戻り値の項目は実レスポンスから列挙し、説明は公式 OpenAPI（補助金情報取得API 1.0）の同名項目から引いた。仕様側のオブジェクト定義も併記している",
+      "source_url": "https://files.microcms-assets.io/assets/7c793323a46a46b7bb9a2ac7d0023301/2bad5ef79255448f8381d9cf2a14dbfc/jgrants-api.yaml",
       "objects": [
         {
           "name": "get_file_content（入力）",
@@ -2271,18 +2253,18 @@
         },
         {
           "name": "search_subsidies の戻り値（subsidies[]）",
-          "description": "検索にヒットした補助金 1 件分。詳細は id を get_subsidy_detail に渡して取る。",
+          "description": "検索にヒットした補助金 1 件分。説明は公式 OpenAPI の同名項目から引いている。",
           "fields": [
             {
               "name": "acceptance_end_datetime",
               "type": "string",
-              "description": "",
+              "description": "募集終了日時（Acceptance end date）",
               "example": ""
             },
             {
               "name": "acceptance_start_datetime",
               "type": "string",
-              "description": "",
+              "description": "募集開始日時（Acceptance start date）",
               "example": ""
             },
             {
@@ -2294,7 +2276,7 @@
             {
               "name": "institution_name",
               "type": "null",
-              "description": "サンプル内では常に null",
+              "description": "制度名（Institution name） / サンプル内では常に null",
               "example": ""
             },
             {
@@ -2306,7 +2288,7 @@
             {
               "name": "subsidy_max_limit",
               "type": "number",
-              "description": "",
+              "description": "補助額上限（Subsidy maximum amount） 入力値以下の補助額上限が設定されている補助金に絞り込む。",
               "example": ""
             },
             {
@@ -2318,7 +2300,7 @@
             {
               "name": "target_number_of_employees",
               "type": "string",
-              "description": "",
+              "description": "従業員数（Number of employees）",
               "example": ""
             },
             {
@@ -2331,7 +2313,7 @@
         },
         {
           "name": "get_subsidy_detail の戻り値",
-          "description": "補助金 1 件の詳細。files に添付ファイルの保存結果が入る。",
+          "description": "補助金 1 件の詳細。files は MCP サーバーが添付を保存した結果で、公式 API には無い項目。",
           "fields": [
             {
               "name": "acceptance_end",
@@ -2390,7 +2372,7 @@
             {
               "name": "subsidy_max_limit",
               "type": "number",
-              "description": "",
+              "description": "補助額上限（Subsidy maximum amount） 入力値以下の補助額上限が設定されている補助金に絞り込む。",
               "example": ""
             },
             {
@@ -2404,6 +2386,582 @@
               "type": "string",
               "description": "",
               "example": ""
+            }
+          ]
+        },
+        {
+          "name": "file_data（公式 OpenAPI 由来）",
+          "description": "",
+          "fields": [
+            {
+              "name": "name",
+              "type": "string",
+              "description": "ファイル名（File name）",
+              "example": "ガイドライン.pdf"
+            },
+            {
+              "name": "data",
+              "type": "string",
+              "description": "データ（File data） Base64形式",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "type_1（公式 OpenAPI 由来）",
+          "description": "補助金詳細照会結果情報（Result of querying subsidy detail）",
+          "fields": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "補助金ID（Subsidy ID）",
+              "example": "S0J0w00wer0wUgr77E"
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": "補助金番号（Subsidy number）",
+              "example": "S-01100011"
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "description": "補助金名（Subsidy name）",
+              "example": "小規模事業者補助金"
+            },
+            {
+              "name": "subsidy_catch_phrase",
+              "type": "string",
+              "description": "補助金のキャッチコピー（Advertising slogan）",
+              "example": "小規模事業者の生産性向上と持続的発展を図る"
+            },
+            {
+              "name": "detail",
+              "type": "string",
+              "description": "補助金のサマリー（Purpose / Overview）",
+              "example": "小規模事業者が取り組む販路開拓等の取組の経費の一部を補助することにより、生産性向上と持続的発展を図ることを目的とします。"
+            },
+            {
+              "name": "use_purpose",
+              "type": "string",
+              "description": "利用目的（Use of subsidies） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・新たな事業を行いたい ・販路拡大・海外展開をしたい ・イベント・事業運営支援がほしい ・事業を引き継ぎたい ・研究開発・実証事業を行いたい ・人材育成を行いたい ・資金繰りを改善したい ・設備整備・IT導入をしたい ・雇用・職場環境を改善したい ・エコ・SDGs活動支援がほしい ・災害（自然災害、感染症等）支援がほしい ・教育・子育て・少子化支援がほしい ・スポーツ・文化支援がほしい ・安全・防災対策支援がほしい ・まちづくり・地域振興支援がほしい",
+              "example": "新たな事業を行いたい / 設備整備・IT導入をしたい"
+            },
+            {
+              "name": "industry",
+              "type": "string",
+              "description": "業種（Industry） 値が複数ある場合は、半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・農業、林業 ・漁業 ・鉱業、採石業、砂利採取業 ・建設業 ・製造業 ・電気・ガス・熱供給・水道業 ・情報通信業 ・運輸業、郵便業 ・卸売業、小売業 ・金融業、保険業 ・不動産業、物品賃貸業 ・学術研究、専門・技術サービス業 ・宿泊業、飲食サービス業 ・生活関連サービス業、娯楽業 ・教育、学習支援業 ・医療、福祉 ・複合サービス事業 ・サービス業（他に分類されないもの） ・公務（他に分類されるものを除く） ・分類不能の産業",
+              "example": "情報通信業 / 教育、学習支援業"
+            },
+            {
+              "name": "target_area_search",
+              "type": "string",
+              "description": "補助対象地域（Target area to search） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・全国 ・北海道地方 ・東北地方 ・関東・甲信越地方 ・東海・北陸地方 ・近畿地方 ・中国地方 ・四国地方 ・九州・沖縄地方 ・北海道 ・青森県 ・岩手県 ・宮城県 ・秋田県 ・山形県 ・福島県 ・茨城県 ・栃木県 ・群馬県 ・埼玉県 ・千葉県 ・東京都 ・神奈川県 ・新潟県 ・富山県 ・石川県 ・福井県 ・山梨県 ・長野県 ・岐阜県 ・静岡県 ・愛知県 ・三重県 ・滋賀県 ・京都府 ・大阪府 ・兵庫県 ・奈良県 ・和歌山県 ・鳥取県 ・島根県 ・岡山県 ・広島県 ・山口県 ・徳島県 ・香川県 ・愛媛県 ・高知県 ・福岡県 ・佐賀県 ・長崎県 ・熊本県 ・大分県 ・宮崎県 ・鹿児島県 ・沖縄県 ・海外",
+              "example": "東京都 / 大阪府"
+            },
+            {
+              "name": "target_area_detail",
+              "type": "string",
+              "description": "補助対象地域詳細（Target area detail）",
+              "example": "全国"
+            },
+            {
+              "name": "target_number_of_employees",
+              "type": "string",
+              "description": "従業員数（Number of employees）",
+              "example": "20名以下"
+            },
+            {
+              "name": "subsidy_rate",
+              "type": "string",
+              "description": "補助率（Subsidy rate）",
+              "example": "20%"
+            },
+            {
+              "name": "subsidy_max_limit",
+              "type": "integer",
+              "description": "補助額上限（Subsidy maximum amount） 入力値以下の補助額上限が設定されている補助金に絞り込む。",
+              "example": "10000000"
+            },
+            {
+              "name": "acceptance_start_datetime",
+              "type": "string",
+              "description": "募集開始日時（Acceptance start date）",
+              "example": "2020-02-28 16:41:41.090000+00:00"
+            },
+            {
+              "name": "acceptance_end_datetime",
+              "type": "string",
+              "description": "募集終了日時（Acceptance end date）",
+              "example": "2021-02-28 16:41:41.090000+00:00"
+            },
+            {
+              "name": "project_end_deadline",
+              "type": "string",
+              "description": "事業終了期限（Project end deadline）",
+              "example": "2020-07-31 15:00:00+00:00"
+            },
+            {
+              "name": "request_reception_presence",
+              "type": "string",
+              "description": "申請受付有無（Request acceptability） ・有：申請を受付ける ・無：申請を受付けない",
+              "example": "有"
+            },
+            {
+              "name": "is_enable_multiple_request",
+              "type": "boolean",
+              "description": "複数回申請可否（Multiple requests acceptability） ・true：申請可 ・false：申請不可",
+              "example": "False"
+            },
+            {
+              "name": "front_subsidy_detail_page_url",
+              "type": "string",
+              "description": "事業者向け補助金詳細画面URL",
+              "example": "https://jgrants-2-xxx/subsidy/999999999999999999"
+            },
+            {
+              "name": "application_guidelines",
+              "type": "file_data[]",
+              "description": "公募要領（Application guidelines）",
+              "example": "{'name': '公募要領.pdf', 'data': 'JVBERi0xLjQKJe'}"
+            },
+            {
+              "name": "outline_of_grant",
+              "type": "file_data[]",
+              "description": "交付要綱.pdf",
+              "example": "{'name': '交付要綱.pdf', 'data': 'JVBERi0xLjQKJe'}"
+            },
+            {
+              "name": "application_form",
+              "type": "file_data[]",
+              "description": "申請様式（Application form）",
+              "example": "{'name': '申請様式.pdf', 'data': 'JVBERi0xLjQKJe'}"
+            },
+            {
+              "name": "institution_name",
+              "type": "string",
+              "description": "制度名（Institution name）",
+              "example": "小規模事業者生産性向上支援事業"
+            }
+          ]
+        },
+        {
+          "name": "subsidy-details-response（公式 OpenAPI 由来）",
+          "description": "補助金詳細照会結果情報（Result of querying subsidy detail）",
+          "fields": [
+            {
+              "name": "metadata",
+              "type": "Metadata",
+              "description": "API仕様公開URL（API Specification URL）",
+              "example": ""
+            },
+            {
+              "name": "result",
+              "type": "type_1[]",
+              "description": "補助金詳細照会結果情報（Result of retrieving subsidy detail）",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "type（公式 OpenAPI 由来）",
+          "description": "補助金一覧検索結果情報（Result of querying subsidies list）",
+          "fields": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "補助金ID（Subsidy ID）",
+              "example": "S0J0w00wer0wUgr77E"
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": "補助金番号（Subsidy number）",
+              "example": "S-01100011"
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "description": "補助金名（Subsidy name）",
+              "example": "小規模事業者補助金"
+            },
+            {
+              "name": "target_area_search",
+              "type": "string",
+              "description": "補助対象地域（Target area to search） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・全国 ・北海道地方 ・東北地方 ・関東・甲信越地方 ・東海・北陸地方 ・近畿地方 ・中国地方 ・四国地方 ・九州・沖縄地方 ・北海道 ・青森県 ・岩手県 ・宮城県 ・秋田県 ・山形県 ・福島県 ・茨城県 ・栃木県 ・群馬県 ・埼玉県 ・千葉県 ・東京都 ・神奈川県 ・新潟県 ・富山県 ・石川県 ・福井県 ・山梨県 ・長野県 ・岐阜県 ・静岡県 ・愛知県 ・三重県 ・滋賀県 ・京都府 ・大阪府 ・兵庫県 ・奈良県 ・和歌山県 ・鳥取県 ・島根県 ・岡山県 ・広島県 ・山口県 ・徳島県 ・香川県 ・愛媛県 ・高知県 ・福岡県 ・佐賀県 ・長崎県 ・熊本県 ・大分県 ・宮崎県 ・鹿児島県 ・沖縄県 ・海外",
+              "example": "東京都 / 大阪府"
+            },
+            {
+              "name": "subsidy_max_limit",
+              "type": "number",
+              "description": "補助額上限（Subsidy maximum amount） 入力値以下の補助額上限が設定されている補助金に絞り込む。",
+              "example": "10000000"
+            },
+            {
+              "name": "acceptance_start_datetime",
+              "type": "string",
+              "description": "募集開始日時（Acceptance start date）",
+              "example": "2020-02-28 16:41:41.090000+00:00"
+            },
+            {
+              "name": "acceptance_end_datetime",
+              "type": "string",
+              "description": "募集終了日時（Acceptance end date）",
+              "example": "2021-02-28 16:41:41.090000+00:00"
+            },
+            {
+              "name": "target_number_of_employees",
+              "type": "string",
+              "description": "従業員数（Number of employees）",
+              "example": "20名以下"
+            },
+            {
+              "name": "institution_name",
+              "type": "string",
+              "description": "制度名（Institution name）",
+              "example": "小規模事業者生産性向上支援事業"
+            }
+          ]
+        },
+        {
+          "name": "subsidiesRequest（公式 OpenAPI 由来）",
+          "description": "",
+          "fields": [
+            {
+              "name": "keyword",
+              "type": "string",
+              "description": "検索キーワード（Keyword for search） 最小文字数は2文字とする（スペース入力不可）。 大文字・小文字や全角・半角の表記ゆれを許容する（例：IoTとIOT、IoTとⅠoＴ、カタカナとｶﾀｶﾅを区別しない）。",
+              "example": ""
+            },
+            {
+              "name": "sort",
+              "type": "string",
+              "description": "ソート項目名（Field name to order by） ソート項目名で指定した項目をソート順で並替える。 ・created_date：作成日時 ・acceptance_start_datetime：募集開始日時 ・acceptance_end_datetime：募集終了日時",
+              "example": ""
+            },
+            {
+              "name": "order",
+              "type": "string",
+              "description": "ソート順（Sort order） ソート項目名で指定した項目をソート順で並替える。 ・ASC：昇順 ・DESC：降順",
+              "example": ""
+            },
+            {
+              "name": "acceptance",
+              "type": "string",
+              "description": "募集期間内絞込要否（Within an acceptance period） ・0：否 ・1：要",
+              "example": ""
+            },
+            {
+              "name": "use_purpose",
+              "type": "string",
+              "description": "利用目的（Use of subsidies） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・新たな事業を行いたい ・販路拡大・海外展開をしたい ・イベント・事業運営支援がほしい ・事業を引き継ぎたい ・研究開発・実証事業を行いたい ・人材育成を行いたい ・資金繰りを改善したい ・設備整備・IT導入をしたい ・雇用・職場環境を改善したい ・エコ・SDGs活動支援がほしい ・災害（自然災害、感染症等）支援がほしい ・教育・子育て・少子化支援がほしい ・スポーツ・文化支援がほしい ・安全・防災対策支援がほしい ・まちづくり・地域振興支援がほしい",
+              "example": ""
+            },
+            {
+              "name": "industry",
+              "type": "string",
+              "description": "業種（Industry） 値が複数ある場合は、半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・農業、林業 ・漁業 ・鉱業、採石業、砂利採取業 ・建設業 ・製造業 ・電気・ガス・熱供給・水道業 ・情報通信業 ・運輸業、郵便業 ・卸売業、小売業 ・金融業、保険業 ・不動産業、物品賃貸業 ・学術研究、専門・技術サービス業 ・宿泊業、飲食サービス業 ・生活関連サービス業、娯楽業 ・教育、学習支援業 ・医療、福祉 ・複合サービス事業 ・サービス業（他に分類されないもの） ・公務（他に分類されるものを除く） ・分類不能の産業",
+              "example": ""
+            },
+            {
+              "name": "target_number_of_employees",
+              "type": "string",
+              "description": "従業員数（Number of employees）",
+              "example": ""
+            },
+            {
+              "name": "target_area_search",
+              "type": "string",
+              "description": "補助対象地域（Target area to search）",
+              "example": ""
+            },
+            {
+              "name": "institution_name",
+              "type": "string",
+              "description": "制度名（Institution name）",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "subsidy-summaries-response（公式 OpenAPI 由来）",
+          "description": "補助金一覧検索結果情報（Result of querying subsidies list）",
+          "fields": [
+            {
+              "name": "metadata",
+              "type": "Metadata",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "result",
+              "type": "type[]",
+              "description": "補助金一覧検索結果情報（Result of querying subsidies list）",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "ResultFile（公式 OpenAPI 由来）",
+          "description": "",
+          "fields": [
+            {
+              "name": "name",
+              "type": "string",
+              "description": "ファイル名（File name）",
+              "example": "ガイドライン.pdf"
+            },
+            {
+              "name": "data",
+              "type": "string",
+              "description": "データ（File data） Base64形式",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "Workflow（公式 OpenAPI 由来）",
+          "description": "",
+          "fields": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "ワークフローID（id）",
+              "example": "a0GBE000005RJTW2A4"
+            },
+            {
+              "name": "target_area_search",
+              "type": "string",
+              "description": "補助対象地域（Target area to search） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・全国 ・北海道地方 ・東北地方 ・関東・甲信越地方 ・東海・北陸地方 ・近畿地方 ・中国地方 ・四国地方 ・九州・沖縄地方 ・北海道 ・青森県 ・岩手県 ・宮城県 ・秋田県 ・山形県 ・福島県 ・茨城県 ・栃木県 ・群馬県 ・埼玉県 ・千葉県 ・東京都 ・神奈川県 ・新潟県 ・富山県 ・石川県 ・福井県 ・山梨県 ・長野県 ・岐阜県 ・静岡県 ・愛知県 ・三重県 ・滋賀県 ・京都府 ・大阪府 ・兵庫県 ・奈良県 ・和歌山県 ・鳥取県 ・島根県 ・岡山県 ・広島県 ・山口県 ・徳島県 ・香川県 ・愛媛県 ・高知県 ・福岡県 ・佐賀県 ・長崎県 ・熊本県 ・大分県 ・宮崎県 ・鹿児島県 ・沖縄県 ・海外",
+              "example": "東京都 / 大阪府"
+            },
+            {
+              "name": "target_area_detail",
+              "type": "string",
+              "description": "補助対象地域詳細（Target area detail）",
+              "example": "全国"
+            },
+            {
+              "name": "fiscal_year_round",
+              "type": "string",
+              "description": "募集名（fiscal_year_round）",
+              "example": "第54回"
+            },
+            {
+              "name": "acceptance_start_datetime",
+              "type": "string",
+              "description": "募集開始日時（Acceptance start date）",
+              "example": "2020-02-28 16:41:41.090000+00:00"
+            },
+            {
+              "name": "acceptance_end_datetime",
+              "type": "string",
+              "description": "募集終了日時（Acceptance end date）",
+              "example": "2021-02-28 16:41:41.090000+00:00"
+            },
+            {
+              "name": "project_end_deadline",
+              "type": "string",
+              "description": "事業終了期限（Project end deadline）",
+              "example": "2020-07-31 15:00:00+00:00"
+            }
+          ]
+        },
+        {
+          "name": "type_1_v2（公式 OpenAPI 由来）",
+          "description": "補助金詳細照会結果情報 V2（Result of querying subsidy detail V2）",
+          "fields": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "補助金ID（Subsidy ID）",
+              "example": "S0J0w00wer0wUgr77E"
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "description": "補助金番号（Subsidy number）",
+              "example": "S-01100011"
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "description": "補助金名（Subsidy name）",
+              "example": "小規模事業者補助金"
+            },
+            {
+              "name": "subsidy_catch_phrase",
+              "type": "string",
+              "description": "補助金のキャッチコピー（Advertising slogan）",
+              "example": "小規模事業者の生産性向上と持続的発展を図る"
+            },
+            {
+              "name": "detail",
+              "type": "string",
+              "description": "補助金のサマリー（Purpose / Overview）",
+              "example": "小規模事業者が取り組む販路開拓等の取組の経費の一部を補助することにより、生産性向上と持続的発展を図ることを目的とします。"
+            },
+            {
+              "name": "use_purpose",
+              "type": "string",
+              "description": "利用目的（Use of subsidies） 値が複数ある場合は、「 / 」（半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・新たな事業を行いたい ・販路拡大・海外展開をしたい ・イベント・事業運営支援がほしい ・事業を引き継ぎたい ・研究開発・実証事業を行いたい ・人材育成を行いたい ・資金繰りを改善したい ・設備整備・IT導入をしたい ・雇用・職場環境を改善したい ・エコ・SDGs活動支援がほしい ・災害（自然災害、感染症等）支援がほしい ・教育・子育て・少子化支援がほしい ・スポーツ・文化支援がほしい ・安全・防災対策支援がほしい ・まちづくり・地域振興支援がほしい",
+              "example": "新たな事業を行いたい / 設備整備・IT導入をしたい"
+            },
+            {
+              "name": "industry",
+              "type": "string",
+              "description": "業種（Industry） 値が複数ある場合は、半角スペース＋半角スラッシュ＋半角スペース）で区切る。 ・農業、林業 ・漁業 ・鉱業、採石業、砂利採取業 ・建設業 ・製造業 ・電気・ガス・熱供給・水道業 ・情報通信業 ・運輸業、郵便業 ・卸売業、小売業 ・金融業、保険業 ・不動産業、物品賃貸業 ・学術研究、専門・技術サービス業 ・宿泊業、飲食サービス業 ・生活関連サービス業、娯楽業 ・教育、学習支援業 ・医療、福祉 ・複合サービス事業 ・サービス業（他に分類されないもの） ・公務（他に分類されるものを除く） ・分類不能の産業",
+              "example": "情報通信業 / 教育、学習支援業"
+            },
+            {
+              "name": "target_number_of_employees",
+              "type": "string",
+              "description": "従業員数（Number of employees）",
+              "example": "20名以下"
+            },
+            {
+              "name": "subsidy_rate",
+              "type": "string",
+              "description": "補助率（Subsidy rate）",
+              "example": "20%"
+            },
+            {
+              "name": "subsidy_max_limit",
+              "type": "integer",
+              "description": "補助額上限（Subsidy maximum amount） 入力値以下の補助額上限が設定されている補助金に絞り込む。",
+              "example": "10000000"
+            },
+            {
+              "name": "request_reception_presence",
+              "type": "string",
+              "description": "申請受付有無（Request acceptability） ・有：申請を受付ける ・無：申請を受付けない",
+              "example": "有"
+            },
+            {
+              "name": "is_enable_multiple_request",
+              "type": "boolean",
+              "description": "複数回申請可否（Multiple requests acceptability） ・true：申請可 ・false：申請不可",
+              "example": "False"
+            },
+            {
+              "name": "front_subsidy_detail_page_url",
+              "type": "string",
+              "description": "事業者向け補助金詳細画面URL",
+              "example": "https://jgrants-2-xxx/subsidy/999999999999999999"
+            },
+            {
+              "name": "granttype",
+              "type": "string",
+              "description": "類型（granttype）",
+              "example": "一般型"
+            },
+            {
+              "name": "application_guidelines",
+              "type": "ResultFile[]",
+              "description": "公募要領（Application guidelines）",
+              "example": "{'name': '公募要領.pdf', 'data': 'JVBERi0xLjQKJe'}"
+            },
+            {
+              "name": "outline_of_grant",
+              "type": "ResultFile[]",
+              "description": "交付要綱.pdf",
+              "example": "{'name': '交付要綱.pdf', 'data': 'JVBERi0xLjQKJe'}"
+            },
+            {
+              "name": "application_form",
+              "type": "ResultFile[]",
+              "description": "申請様式（Application form）",
+              "example": "{'name': '申請様式.pdf', 'data': 'JVBERi0xLjQKJe'}"
+            },
+            {
+              "name": "workflow",
+              "type": "Workflow[]",
+              "description": "ワークフロー（workflow）",
+              "example": "[{'id': 'a0GBE000005RJTW2A4', 'target_area_search': '大分県', 'target_area_detail': '全国', 'fiscal_year_round': '第54回', 'acceptance_start_datetime': '2025-10-01T15:00Z', 'acceptance_end_datetime': '2026-03-21T15:00Z', 'project_end_deadline': '2027-12-31T15:00Z'}]"
+            },
+            {
+              "name": "institution_name",
+              "type": "string",
+              "description": "制度名（Institution name）",
+              "example": "小規模事業者生産性向上支援事業"
+            }
+          ]
+        },
+        {
+          "name": "subsidy-details-response-v2（公式 OpenAPI 由来）",
+          "description": "補助金詳細照会結果情報 V2（Result of querying subsidy detail V2）",
+          "fields": [
+            {
+              "name": "metadata",
+              "type": "Metadata",
+              "description": "API仕様公開URL（API Specification URL）",
+              "example": ""
+            },
+            {
+              "name": "result",
+              "type": "type_1_v2[]",
+              "description": "補助金詳細照会結果情報（Result of retrieving subsidy detail）",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "Metadata（公式 OpenAPI 由来）",
+          "description": "",
+          "fields": [
+            {
+              "name": "type",
+              "type": "string",
+              "description": "API仕様公開URL（API Specification URL）",
+              "example": "https://developers.digital.go.jp/documents/jgrants/api/"
+            },
+            {
+              "name": "resultset",
+              "type": "Resultset",
+              "description": "",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "Resultset（公式 OpenAPI 由来）",
+          "description": "",
+          "fields": [
+            {
+              "name": "count",
+              "type": "integer",
+              "description": "取得件数（Number of results）",
+              "example": "1"
+            }
+          ]
+        },
+        {
+          "name": "500-error-response（公式 OpenAPI 由来）",
+          "description": "エラー情報（Result of error）",
+          "fields": [
+            {
+              "name": "type",
+              "type": "string",
+              "description": "API仕様公開URL（API Specification URL）",
+              "example": "https://developers.digital.go.jp/documents/jgrants/api/"
+            },
+            {
+              "name": "errorCode",
+              "type": "string",
+              "description": "エラーコード（Error code） ・E-ML-9999：内部サーバエラー",
+              "example": "E-ML-9999"
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "description": "エラータイトル（Error title）",
+              "example": "Internal Server Error"
+            },
+            {
+              "name": "instance",
+              "type": "string",
+              "description": "HTTPリクエストURI（HTTP request URI）",
+              "example": "/api/subsidies"
             }
           ]
         }

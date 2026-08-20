@@ -39,6 +39,12 @@ CKAN_BASE = "https://data.e-gov.go.jp/data/api/3/action"
 CKAN_DATASET_PAGE = "https://data.e-gov.go.jp/data/dataset"
 JMA_FEED_BASE = "https://www.data.jma.go.jp/developer/xml/feed"
 JMA_XSD_ZIP = "https://xml.kishou.go.jp/jmaxml_20241031_Schema%28xsd%29.zip"
+# Jグランツの公式 OpenAPI。デジタル庁の開発者サイトではなく microCMS の
+# アセット CDN にホストされているため、政府ドメインの許可だけでは到達できない。
+JGRANTS_SPEC_URL = (
+    "https://files.microcms-assets.io/assets/"
+    "7c793323a46a46b7bb9a2ac7d0023301/2bad5ef79255448f8381d9cf2a14dbfc/jgrants-api.yaml"
+)
 ATOM = "{http://www.w3.org/2005/Atom}"
 XS = "{http://www.w3.org/2001/XMLSchema}"
 
@@ -418,6 +424,8 @@ def _element_paths(root: ET.Element, max_depth: int = 3) -> list[str]:
 async def extract_jgrants_fields(url: str) -> dict:
     from fastmcp import Client
 
+    spec, spec_objects, descriptions = await _jgrants_spec()
+
     client = Client(url)
     async with client:
         tools = await client.list_tools()
@@ -448,8 +456,8 @@ async def extract_jgrants_fields(url: str) -> dict:
             objects.append(
                 {
                     "name": "search_subsidies の戻り値（subsidies[]）",
-                    "description": "検索にヒットした補助金 1 件分。詳細は id を get_subsidy_detail に渡して取る。",
-                    "fields": _as_fields(collected, {}),
+                    "description": "検索にヒットした補助金 1 件分。説明は公式 OpenAPI の同名項目から引いている。",
+                    "fields": _as_fields(collected, descriptions),
                 }
             )
 
@@ -459,22 +467,67 @@ async def extract_jgrants_fields(url: str) -> dict:
             objects.append(
                 {
                     "name": "get_subsidy_detail の戻り値",
-                    "description": "補助金 1 件の詳細。files に添付ファイルの保存結果が入る。",
-                    "fields": _as_fields(collected, {}),
+                    "description": "補助金 1 件の詳細。files は MCP サーバーが添付を保存した結果で、公式 API には無い項目。",
+                    "fields": _as_fields(collected, descriptions),
                 }
             )
+
+    # 公式仕様のオブジェクトは、MCP を経由せず API を直接叩く場合の参照にもなる。
+    objects.extend(spec_objects)
 
     return {
         "origin": "spec+observed",
         "origin_detail": (
-            "入力項目は MCP のツール定義（説明も定義に書かれているもの）。"
-            "戻り値の項目は実レスポンスから列挙。公式 OpenAPI 仕様 jgrants-api.yaml は "
-            "microCMS のアセット CDN にあり、当環境の egress ポリシーで取得できないため未反映"
+            f"入力項目は MCP のツール定義。戻り値の項目は実レスポンスから列挙し、説明は"
+            f"公式 OpenAPI（{spec.get('info', {}).get('title')} {spec.get('info', {}).get('version')}）の"
+            "同名項目から引いた。仕様側のオブジェクト定義も併記している"
         ),
-        "source_url": url,
+        "source_url": JGRANTS_SPEC_URL,
         "objects": objects,
         "enums": [],
     }
+
+
+async def _jgrants_spec() -> tuple[dict, list[dict], dict[str, str]]:
+    """公式 OpenAPI を取得し、オブジェクト定義と「項目名 → 説明」の対応を返す。
+
+    MCP のレスポンスは公式 API の項目をそのまま通すため、名前で突き合わせれば
+    実データ由来の項目に仕様の説明を付けられる。同名で説明が食い違う項目は、
+    どちらが正しいか決められないので対応から外す。
+    """
+    async with httpx.AsyncClient(timeout=90.0, trust_env=True) as client:
+        response = await client.get(JGRANTS_SPEC_URL)
+        response.raise_for_status()
+    spec = yaml.safe_load(response.text)
+
+    objects, seen = [], {}
+    for name, schema in (spec.get("components", {}).get("schemas") or {}).items():
+        properties = schema.get("properties") or {}
+        if not properties:
+            continue
+        objects.append(
+            {
+                "name": f"{name}（公式 OpenAPI 由来）",
+                "description": _clean(schema.get("description")),
+                "fields": [
+                    {
+                        "name": field,
+                        "type": _schema_type(definition),
+                        "description": _clean(definition.get("description")),
+                        "example": _clean(str(definition.get("example", ""))),
+                    }
+                    for field, definition in properties.items()
+                ],
+            }
+        )
+        for field, definition in properties.items():
+            description = _clean(definition.get("description"))
+            if not description:
+                continue
+            seen.setdefault(field, set()).add(description)
+
+    descriptions = {k: next(iter(v)) for k, v in seen.items() if len(v) == 1}
+    return spec, objects, descriptions
 
 
 # --------------------------------------------------------------------------

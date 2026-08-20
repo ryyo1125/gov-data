@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T09:17:14+00:00",
+  "generated_at": "2026-08-20T00:57:23+00:00",
   "generated_by": "registry/build.py",
   "stale_after_days": 90,
   "sources": [
@@ -100,11 +100,15 @@
         },
         {
           "claim": "メタデータ項目の定義書が公開されていない。項目の意味は、データセット画面に出る日本語ラベルを同じ値の API 項目と突き合わせて推定するしかない。",
-          "evidence": "data.e-gov.go.jp の /info/ja/help と /info/ja/about-site を辿ってもメタデータ項目の仕様へのリンクが無く、API も項目説明を返さない。値による突合で説明を付けられたのは 87 項目中 22 項目にとどまった。"
+          "evidence": "data.e-gov.go.jp の /info/ja/help と /info/ja/about-site を辿ってもメタデータ項目の仕様へのリンクが無く、API も項目説明を返さない。実測は results/fields.json を参照。"
         },
         {
           "claim": "データセット画面のメタデータは「e-Govデータポータル標準」と「自治体標準ODS オープンデータ一覧」の 2 系統に分かれ、HTML 上も別クラスで区別されている。",
           "evidence": "データセット画面の tr が metadata_basic_field と metadata_detail_field に分かれており、画面上も「一部表示／全て表示」で切り替えられる。"
+        },
+        {
+          "claim": "値による突合で付けられる説明の数は実行ごとに変動する。package_search が返すデータセットが毎回同じとは限らず、値が空の項目は突合できないため。",
+          "evidence": "同じスクリプトの連続実行で、説明を付けられた項目数が 22 と 19 に変わった。抽出手法に由来する揺れであり、提供側の変更ではない。"
         },
         {
           "claim": "package_show は id を渡さないと HTTP 409 を返す。404 ではない。",
@@ -113,7 +117,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T09:08:47+00:00",
+        "verified_at": "2026-08-20T00:56:20+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -129,43 +133,43 @@
           {
             "step": "site_read",
             "outcome": "ok",
-            "elapsed_ms": 838,
+            "elapsed_ms": 1503,
             "note": null
           },
           {
             "step": "package_search",
             "outcome": "ok",
-            "elapsed_ms": 571,
+            "elapsed_ms": 698,
             "note": null
           },
           {
             "step": "package_list",
             "outcome": "ok",
-            "elapsed_ms": 241,
+            "elapsed_ms": 483,
             "note": null
           },
           {
             "step": "organization_list",
             "outcome": "ok",
-            "elapsed_ms": 263,
+            "elapsed_ms": 866,
             "note": null
           },
           {
             "step": "group_list",
             "outcome": "ok",
-            "elapsed_ms": 256,
+            "elapsed_ms": 854,
             "note": null
           },
           {
             "step": "tag_list",
             "outcome": "ok",
-            "elapsed_ms": 683,
+            "elapsed_ms": 1857,
             "note": null
           },
           {
             "step": "package_show",
             "outcome": "ok",
-            "elapsed_ms": 587,
+            "elapsed_ms": 472,
             "note": null
           }
         ],
@@ -284,7 +288,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T09:08:43+00:00",
+        "verified_at": "2026-08-20T00:56:13+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -300,49 +304,49 @@
           {
             "step": "fetch_openapi_spec",
             "outcome": "ok",
-            "elapsed_ms": 989,
+            "elapsed_ms": 670,
             "note": null
           },
           {
             "step": "GET /laws（全件数）",
             "outcome": "ok",
-            "elapsed_ms": 1098,
+            "elapsed_ms": 993,
             "note": null
           },
           {
             "step": "GET /laws",
             "outcome": "ok",
-            "elapsed_ms": 337,
+            "elapsed_ms": 289,
             "note": null
           },
           {
             "step": "GET /law_revisions/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 279,
+            "elapsed_ms": 270,
             "note": null
           },
           {
             "step": "GET /law_data/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 311,
+            "elapsed_ms": 273,
             "note": null
           },
           {
             "step": "GET /keyword",
             "outcome": "ok",
-            "elapsed_ms": 1406,
+            "elapsed_ms": 1663,
             "note": null
           },
           {
             "step": "GET /law_file/xml/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 324,
+            "elapsed_ms": 350,
             "note": null
           },
           {
             "step": "GET /attachment/{law_revision_id}",
             "outcome": "ok",
-            "elapsed_ms": 502,
+            "elapsed_ms": 537,
             "note": null
           }
         ],
@@ -362,7 +366,7 @@
         "method": "mcp",
         "endpoint": "http://127.0.0.1:8000/mcp",
         "transport": "streamable-http",
-        "spec_url": "https://developers.digital.go.jp/documents/jgrants/api/",
+        "spec_url": "https://files.microcms-assets.io/assets/7c793323a46a46b7bb9a2ac7d0023301/2bad5ef79255448f8381d9cf2a14dbfc/jgrants-api.yaml",
         "implementation": {
           "name": "digital-go-jp/jgrants-mcp-server",
           "maintainer": "デジタル庁",
@@ -428,7 +432,7 @@
           {
             "host": "files.microcms-assets.io",
             "role": "spec",
-            "note": "公式 OpenAPI 仕様 jgrants-api.yaml の実体。政府ドメインではない CDN のため許可リストから漏れやすい。"
+            "note": "公式 OpenAPI 仕様 jgrants-api.yaml の実体。政府ドメインではない CDN のため許可リストから漏れやすい。到達できないと項目の説明が埋まらない。"
           }
         ]
       },
@@ -459,8 +463,20 @@
           "evidence": "https://developers.digital.go.jp/documents/jgrants/api/ を参照して該当記述が無いことを確認。"
         },
         {
-          "claim": "公式 OpenAPI 仕様 jgrants-api.yaml は developers.digital.go.jp ではなく microCMS のアセット CDN（files.microcms-assets.io）にホストされており、当環境の egress ポリシーで取得できない。戻り値の項目説明が埋められないのはこのため。",
-          "evidence": "仕様ページの HTML 内リンクが https://files.microcms-assets.io/assets/.../jgrants-api.yaml を指しており、当該ホストへの CONNECT がプロキシに 403 で拒否されることを確認。"
+          "claim": "公式 OpenAPI 仕様 jgrants-api.yaml は developers.digital.go.jp ではなく microCMS のアセット CDN（files.microcms-assets.io）にホストされている。政府ドメインだけを許可しても到達できない。",
+          "evidence": "仕様ページの HTML 内リンクが https://files.microcms-assets.io/assets/.../jgrants-api.yaml を指しており、当該ホストは当初プロキシに 403 で拒否されていた。許可追加後に HTTP 200 で 39,919 バイトを取得できた。"
+        },
+        {
+          "claim": "ベース URL の /exp/ は公式仕様に含まれる。MCP サーバーが叩く https://api.jgrants-portal.go.jp/exp/v1/public は仕様どおりであって、実験版を独自に叩いているわけではない。",
+          "evidence": "公式仕様の servers[0].url が https://api.jgrants-portal.go.jp/exp で、paths が /v1/public/subsidies などの相対パスになっている。"
+        },
+        {
+          "claim": "公式仕様にも securitySchemes とレート制限の定義が無い。認証要否とレート制限が未記載なのは、ドキュメントページだけの問題ではない。",
+          "evidence": "jgrants-api.yaml 全文に securitySchemes / security の記述が無く、「制限」「回数」「レート」「利用規約」「出典」のいずれの語も出現しないことを確認。"
+        },
+        {
+          "claim": "補助金詳細の API には v1 と v2 があり、返す項目数が違う（v1 は 22 項目、v2 は 19 項目）。MCP サーバーが使うのは v1。",
+          "evidence": "公式仕様の paths に /v1/public/subsidies/id/{id} と /v2/public/subsidies/id/{id} があり、schemas の type_1（22 プロパティ）と type_1_v2（19 プロパティ）に対応している。"
         },
         {
           "claim": "出典表示義務はドキュメントではなくツールの docstring にのみ書かれている。",
@@ -469,7 +485,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T09:09:15+00:00",
+        "verified_at": "2026-08-20T00:56:35+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -491,49 +507,49 @@
           {
             "step": "list_tools",
             "outcome": "ok",
-            "elapsed_ms": 24,
+            "elapsed_ms": 19,
             "note": null
           },
           {
             "step": "list_resources",
             "outcome": "ok",
-            "elapsed_ms": 12,
+            "elapsed_ms": 8,
             "note": null
           },
           {
             "step": "list_prompts",
             "outcome": "ok",
-            "elapsed_ms": 9,
+            "elapsed_ms": 6,
             "note": null
           },
           {
             "step": "call:ping",
             "outcome": "ok",
-            "elapsed_ms": 12,
+            "elapsed_ms": 9,
             "note": null
           },
           {
             "step": "call:search_subsidies",
             "outcome": "ok",
-            "elapsed_ms": 1430,
+            "elapsed_ms": 1284,
             "note": null
           },
           {
             "step": "call:get_subsidy_detail",
             "outcome": "ok",
-            "elapsed_ms": 288,
+            "elapsed_ms": 195,
             "note": null
           },
           {
             "step": "call:get_subsidy_overview",
             "outcome": "ok",
-            "elapsed_ms": 1818,
+            "elapsed_ms": 1689,
             "note": null
           },
           {
             "step": "call:get_file_content",
             "outcome": "ok",
-            "elapsed_ms": 2318,
+            "elapsed_ms": 2350,
             "note": null
           }
         ],
@@ -643,7 +659,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-19T09:09:02+00:00",
+        "verified_at": "2026-08-20T00:56:24+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -659,55 +675,55 @@
           {
             "step": "GET /regular.xml (定時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 2354,
+            "elapsed_ms": 481,
             "note": null
           },
           {
             "step": "GET /extra.xml (随時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 1437,
+            "elapsed_ms": 52,
             "note": null
           },
           {
             "step": "GET /eqvol.xml (地震火山・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 806,
+            "elapsed_ms": 47,
             "note": null
           },
           {
             "step": "GET /other.xml (その他・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 794,
+            "elapsed_ms": 75,
             "note": null
           },
           {
             "step": "GET /regular_l.xml (定時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 2950,
+            "elapsed_ms": 997,
             "note": null
           },
           {
             "step": "GET /extra_l.xml (随時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 2447,
+            "elapsed_ms": 694,
             "note": null
           },
           {
             "step": "GET /eqvol_l.xml (地震火山・長期)",
             "outcome": "ok",
-            "elapsed_ms": 832,
+            "elapsed_ms": 549,
             "note": null
           },
           {
             "step": "GET /other_l.xml (その他・長期)",
             "outcome": "ok",
-            "elapsed_ms": 819,
+            "elapsed_ms": 516,
             "note": null
           },
           {
             "step": "GET 電文本体",
             "outcome": "ok",
-            "elapsed_ms": 1986,
+            "elapsed_ms": 157,
             "note": null
           }
         ],
@@ -717,7 +733,7 @@
   ],
   "blocked_candidates": [],
   "reachability": {
-    "_generated_at": "2026-08-19T09:08:37+00:00",
+    "_generated_at": "2026-08-20T00:56:07+00:00",
     "api.jgrants-portal.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -743,9 +759,12 @@
       }
     },
     "files.microcms-assets.io": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 403,
+        "final_url": "https://files.microcms-assets.io/"
+      }
     },
     "laws.e-gov.go.jp": {
       "reachable": true,

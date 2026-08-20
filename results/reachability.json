@@ -1,7 +1,7 @@
 {
   "source_id": "reachability",
   "target": "egress reachability",
-  "generated_at": "2026-08-19T09:08:37+00:00",
+  "generated_at": "2026-08-20T00:56:07+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -120,9 +120,11 @@
     },
     {
       "step": "files.microcms-assets.io (jgrants-mcp)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 403,
+        "final_url": "https://files.microcms-assets.io/"
+      }
     },
     {
       "step": "laws.e-gov.go.jp (egov-hourei-api)",
@@ -191,9 +193,9 @@
   ],
   "summary": {
     "total": 12,
-    "ok": 11,
+    "ok": 12,
     "skipped": 0,
-    "blocked": 1,
+    "blocked": 0,
     "failed": 0
   }
 }
