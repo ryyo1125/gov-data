@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T02:07:14+00:00",
+  "generated_at": "2026-08-20T02:14:00+00:00",
   "generated_by": "registry/build.py",
   "stale_after_days": 90,
   "sources": [
@@ -749,7 +749,7 @@
       ],
       "blocked_reason": "候補として挙げた 16 ホストのうち 15 がプロキシに 403 で拒否された （到達できたのは既に許可済みの api.e-stat.go.jp のみ）。一次資料に到達できないため、 提供内容・認証要否・利用規約のいずれも確認できない。egress は許可リスト方式であり、 許可されていないホストは一律に塞がれる。二次情報だけを根拠に候補の性質を 書くことは台帳の規律に反するので、ここには「調べようとして到達できなかった」 という事実だけを残す。",
       "next_step": "これらのホストを egress 許可リストに追加したうえで、各サービスの一次資料 （OpenAPI 仕様や API ドキュメント）に到達し、認証要否を確認してから検証に進む。",
-      "promotable": false
+      "promotable": true
     },
     {
       "id": "catalog-resource-hosts",
@@ -778,256 +778,310 @@
       ],
       "blocked_reason": "実ファイルの置き場 23 ホストのうち 19 がプロキシに 403 で拒否され、 機械可読データセット 1,121 件のうち到達できるのは 513 件（46%）にとどまる。 到達できないのは提供が止まっているからではなく、この環境の egress ポリシーで 許可されていないため。件数の多い順に housyasen.env.go.jp（299 件）、 www.bb.mof.go.jp（150 件）、warp.ndl.go.jp（52 件）。",
       "next_step": "件数の多いホストから egress 許可リストに追加する。追加後は verify/survey_catalog.py を回せば到達できるデータセット数が更新される。",
-      "promotable": false
+      "promotable": true
     }
   ],
   "reachability": {
-    "_generated_at": "2026-08-20T02:06:01+00:00",
+    "_generated_at": "2026-08-20T02:13:19+00:00",
     "api.houjin-bangou.nta.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "api.jgrants-portal.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
       "detail": {
         "status_code": 404,
-        "final_url": "https://api.jgrants-portal.go.jp/"
+        "final_url": "https://api.houjin-bangou.nta.go.jp/"
       }
+    },
+    "api.jgrants-portal.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
     },
     "cyberjapandata.gsi.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://cyberjapandata.gsi.go.jp/"
+      }
     },
     "data.e-gov.go.jp": {
-      "reachable": true,
-      "blocked_by_egress": false,
-      "detail": {
-        "status_code": 301,
-        "final_url": "https://data.e-gov.go.jp/"
-      }
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
     },
     "data.e-stat.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "developers.digital.go.jp": {
-      "reachable": true,
-      "blocked_by_egress": false,
-      "detail": {
-        "status_code": 200,
-        "final_url": "https://developers.digital.go.jp/"
-      }
-    },
-    "files.microcms-assets.io": {
-      "reachable": true,
-      "blocked_by_egress": false,
-      "detail": {
-        "status_code": 403,
-        "final_url": "https://files.microcms-assets.io/"
-      }
-    },
-    "housyasen.env.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "ikilog.biodic.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "ip-data.jpo.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "laws.e-gov.go.jp": {
-      "reachable": true,
-      "blocked_by_egress": false,
-      "detail": {
-        "status_code": 200,
-        "final_url": "https://laws.e-gov.go.jp/"
-      }
-    },
-    "maps.gsi.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "ndlsearch.ndl.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "nlftp.mlit.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "notice.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "opendata.resas-portal.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "saigai.gsi.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "warp.ndl.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.bb.mof.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.data.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
       "detail": {
         "status_code": 301,
-        "final_url": "https://www.data.go.jp/"
+        "final_url": "https://data.e-stat.go.jp/"
       }
     },
-    "www.data.jma.go.jp": {
+    "developers.digital.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "files.microcms-assets.io": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "housyasen.env.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
       "detail": {
         "status_code": 200,
-        "final_url": "https://www.data.jma.go.jp/"
+        "final_url": "https://housyasen.env.go.jp/"
       }
     },
-    "www.digital.go.jp": {
+    "ikilog.biodic.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
       "detail": {
         "status_code": 200,
-        "final_url": "https://www.digital.go.jp/"
+        "final_url": "https://ikilog.biodic.go.jp/"
       }
     },
-    "www.e-gov.go.jp": {
-      "reachable": true,
-      "blocked_by_egress": false,
-      "detail": {
-        "status_code": 403,
-        "final_url": "https://www.e-gov.go.jp/"
-      }
-    },
-    "www.esri.cao.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.hokoukukan.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.iryou.teikyouseido.mhlw.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.jgrants-portal.go.jp": {
-      "reachable": true,
-      "blocked_by_egress": false,
-      "detail": {
-        "status_code": 200,
-        "final_url": "https://www.jgrants-portal.go.jp/"
-      }
-    },
-    "www.jinji.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.jma.go.jp": {
+    "ip-data.jpo.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
       "detail": {
         "status_code": 302,
-        "final_url": "https://www.jma.go.jp/"
+        "final_url": "https://ip-data.jpo.go.jp/"
       }
     },
-    "www.jstage.jst.go.jp": {
+    "laws.e-gov.go.jp": {
       "reachable": false,
       "blocked_by_egress": true,
       "detail": "プロキシが拒否: 403 Forbidden"
     },
-    "www.kanpo.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.kodokensaku.mlit.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.maff.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.mext.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.mofa.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.npa.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.reinfolib.mlit.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.rinya.maff.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www.soumu.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www5.cao.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "www8.cao.go.jp": {
-      "reachable": false,
-      "blocked_by_egress": true,
-      "detail": "プロキシが拒否: 403 Forbidden"
-    },
-    "xml.kishou.go.jp": {
+    "maps.gsi.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
       "detail": {
         "status_code": 200,
-        "final_url": "https://xml.kishou.go.jp/"
+        "final_url": "https://maps.gsi.go.jp/"
       }
+    },
+    "ndlsearch.ndl.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://ndlsearch.ndl.go.jp/"
+      }
+    },
+    "nlftp.mlit.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://nlftp.mlit.go.jp/"
+      }
+    },
+    "notice.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://notice.go.jp/"
+      }
+    },
+    "opendata.resas-portal.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://opendata.resas-portal.go.jp/"
+      }
+    },
+    "saigai.gsi.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://saigai.gsi.go.jp/"
+      }
+    },
+    "warp.ndl.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://warp.ndl.go.jp/"
+      }
+    },
+    "www.bb.mof.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 301,
+        "final_url": "https://www.bb.mof.go.jp/"
+      }
+    },
+    "www.data.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.data.jma.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.digital.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.e-gov.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.esri.cao.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.esri.cao.go.jp/"
+      }
+    },
+    "www.hokoukukan.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 403,
+        "final_url": "https://www.hokoukukan.go.jp/"
+      }
+    },
+    "www.iryou.teikyouseido.mhlw.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 301,
+        "final_url": "https://www.iryou.teikyouseido.mhlw.go.jp/"
+      }
+    },
+    "www.jgrants-portal.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.jinji.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.jinji.go.jp/"
+      }
+    },
+    "www.jma.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.jstage.jst.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.jstage.jst.go.jp/"
+      }
+    },
+    "www.kanpo.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.kanpo.go.jp/"
+      }
+    },
+    "www.kodokensaku.mlit.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.kodokensaku.mlit.go.jp/"
+      }
+    },
+    "www.maff.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.maff.go.jp/"
+      }
+    },
+    "www.mext.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.mext.go.jp/"
+      }
+    },
+    "www.mofa.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 403,
+        "final_url": "https://www.mofa.go.jp/"
+      }
+    },
+    "www.npa.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.npa.go.jp/"
+      }
+    },
+    "www.reinfolib.mlit.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.reinfolib.mlit.go.jp/"
+      }
+    },
+    "www.rinya.maff.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.rinya.maff.go.jp/"
+      }
+    },
+    "www.soumu.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www.soumu.go.jp/"
+      }
+    },
+    "www5.cao.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www5.cao.go.jp/"
+      }
+    },
+    "www8.cao.go.jp": {
+      "reachable": true,
+      "blocked_by_egress": false,
+      "detail": {
+        "status_code": 200,
+        "final_url": "https://www8.cao.go.jp/"
+      }
+    },
+    "xml.kishou.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
     }
   }
 }

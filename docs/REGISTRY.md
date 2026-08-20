@@ -4,7 +4,7 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-20T02:07:14+00:00
+- 生成日時: 2026-08-20T02:14:00+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
@@ -341,7 +341,7 @@
 
 ### 公的機関の API 候補（一括調査） (`api-candidates-sweep`)
 
-- 状態: 到達不可のまま
+- 状態: **いま到達可能 — 検証して昇格できる**
 - 調べた理由: 台帳の幅を広げるため、政府・公的機関が提供する API を横断的に探した。 カタログには API 形式のリソースが 1 件も無く、デジタル庁の開発者サイトにも 公開 API は Jグランツしか載っていないため、省庁ごとに個別に当たる必要がある。
 - 対象ホスト: `ndlsearch.ndl.go.jp`, `www.jstage.jst.go.jp`, `cyberjapandata.gsi.go.jp`, `data.e-stat.go.jp`, `api.houjin-bangou.nta.go.jp`, `opendata.resas-portal.go.jp`, `www.reinfolib.mlit.go.jp`, `nlftp.mlit.go.jp`, `www.kanpo.go.jp`, `ip-data.jpo.go.jp`, `www.iryou.teikyouseido.mhlw.go.jp`
 - 到達できない理由: 候補として挙げた 16 ホストのうち 15 がプロキシに 403 で拒否された （到達できたのは既に許可済みの api.e-stat.go.jp のみ）。一次資料に到達できないため、 提供内容・認証要否・利用規約のいずれも確認できない。egress は許可リスト方式であり、 許可されていないホストは一律に塞がれる。二次情報だけを根拠に候補の性質を 書くことは台帳の規律に反するので、ここには「調べようとして到達できなかった」 という事実だけを残す。
@@ -349,7 +349,7 @@
 
 ### e-Gov データポータルの実ファイル置き場 (`catalog-resource-hosts`)
 
-- 状態: 到達不可のまま
+- 状態: **いま到達可能 — 検証して昇格できる**
 - 調べた理由: カタログに載る機械可読データセット 1,121 件のうち、実際にファイルを取得できるのが どれだけあるかを確かめた。カタログ自体は到達できても、実ファイルは省庁ごとの ホストに置かれているため、そちらが塞がれていれば取得できない。
 - 対象ホスト: `housyasen.env.go.jp`, `www.bb.mof.go.jp`, `warp.ndl.go.jp`, `www.esri.cao.go.jp`, `www.jinji.go.jp`, `www.soumu.go.jp`, `www5.cao.go.jp`, `www.mofa.go.jp`, `ikilog.biodic.go.jp`, `www.rinya.maff.go.jp`, `www.hokoukukan.go.jp`, `www.mext.go.jp`, `www.npa.go.jp`, `www8.cao.go.jp`, `www.maff.go.jp`, `maps.gsi.go.jp`, `notice.go.jp`, `saigai.gsi.go.jp`, `www.kodokensaku.mlit.go.jp`
 - 到達できない理由: 実ファイルの置き場 23 ホストのうち 19 がプロキシに 403 で拒否され、 機械可読データセット 1,121 件のうち到達できるのは 513 件（46%）にとどまる。 到達できないのは提供が止まっているからではなく、この環境の egress ポリシーで 許可されていないため。件数の多い順に housyasen.env.go.jp（299 件）、 www.bb.mof.go.jp（150 件）、warp.ndl.go.jp（52 件）。
@@ -358,50 +358,50 @@
 
 ## 到達性の実測
 
-`verify/verify_reachability.py` の実測結果（2026-08-20T02:06:01+00:00）。
+`verify/verify_reachability.py` の実測結果（2026-08-20T02:13:19+00:00）。
 到達できないことは、そのサービスが存在しないことを意味しない。
 
 | ホスト | 結果 | 詳細 |
 |---|---|---|
-| `api.houjin-bangou.nta.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `api.jgrants-portal.go.jp` | 到達可 | HTTP 404 |
-| `cyberjapandata.gsi.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `data.e-gov.go.jp` | 到達可 | HTTP 301 |
-| `data.e-stat.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `developers.digital.go.jp` | 到達可 | HTTP 200 |
-| `files.microcms-assets.io` | 到達可 | HTTP 403 |
-| `housyasen.env.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `ikilog.biodic.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `ip-data.jpo.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `laws.e-gov.go.jp` | 到達可 | HTTP 200 |
-| `maps.gsi.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `ndlsearch.ndl.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `nlftp.mlit.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `notice.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `opendata.resas-portal.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `saigai.gsi.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `warp.ndl.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.bb.mof.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.data.go.jp` | 到達可 | HTTP 301 |
-| `www.data.jma.go.jp` | 到達可 | HTTP 200 |
-| `www.digital.go.jp` | 到達可 | HTTP 200 |
-| `www.e-gov.go.jp` | 到達可 | HTTP 403 |
-| `www.esri.cao.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.hokoukukan.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.iryou.teikyouseido.mhlw.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.jgrants-portal.go.jp` | 到達可 | HTTP 200 |
-| `www.jinji.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.jma.go.jp` | 到達可 | HTTP 302 |
-| `www.jstage.jst.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.kanpo.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.kodokensaku.mlit.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.maff.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.mext.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.mofa.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.npa.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.reinfolib.mlit.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.rinya.maff.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www.soumu.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www5.cao.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `www8.cao.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
-| `xml.kishou.go.jp` | 到達可 | HTTP 200 |
+| `api.houjin-bangou.nta.go.jp` | 到達可 | HTTP 404 |
+| `api.jgrants-portal.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `cyberjapandata.gsi.go.jp` | 到達可 | HTTP 200 |
+| `data.e-gov.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `data.e-stat.go.jp` | 到達可 | HTTP 301 |
+| `developers.digital.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `files.microcms-assets.io` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `housyasen.env.go.jp` | 到達可 | HTTP 200 |
+| `ikilog.biodic.go.jp` | 到達可 | HTTP 200 |
+| `ip-data.jpo.go.jp` | 到達可 | HTTP 302 |
+| `laws.e-gov.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `maps.gsi.go.jp` | 到達可 | HTTP 200 |
+| `ndlsearch.ndl.go.jp` | 到達可 | HTTP 200 |
+| `nlftp.mlit.go.jp` | 到達可 | HTTP 200 |
+| `notice.go.jp` | 到達可 | HTTP 200 |
+| `opendata.resas-portal.go.jp` | 到達可 | HTTP 200 |
+| `saigai.gsi.go.jp` | 到達可 | HTTP 200 |
+| `warp.ndl.go.jp` | 到達可 | HTTP 200 |
+| `www.bb.mof.go.jp` | 到達可 | HTTP 301 |
+| `www.data.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.data.jma.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.digital.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.e-gov.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.esri.cao.go.jp` | 到達可 | HTTP 200 |
+| `www.hokoukukan.go.jp` | 到達可 | HTTP 403 |
+| `www.iryou.teikyouseido.mhlw.go.jp` | 到達可 | HTTP 301 |
+| `www.jgrants-portal.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.jinji.go.jp` | 到達可 | HTTP 200 |
+| `www.jma.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `www.jstage.jst.go.jp` | 到達可 | HTTP 200 |
+| `www.kanpo.go.jp` | 到達可 | HTTP 200 |
+| `www.kodokensaku.mlit.go.jp` | 到達可 | HTTP 200 |
+| `www.maff.go.jp` | 到達可 | HTTP 200 |
+| `www.mext.go.jp` | 到達可 | HTTP 200 |
+| `www.mofa.go.jp` | 到達可 | HTTP 403 |
+| `www.npa.go.jp` | 到達可 | HTTP 200 |
+| `www.reinfolib.mlit.go.jp` | 到達可 | HTTP 200 |
+| `www.rinya.maff.go.jp` | 到達可 | HTTP 200 |
+| `www.soumu.go.jp` | 到達可 | HTTP 200 |
+| `www5.cao.go.jp` | 到達可 | HTTP 200 |
+| `www8.cao.go.jp` | 到達可 | HTTP 200 |
+| `xml.kishou.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
