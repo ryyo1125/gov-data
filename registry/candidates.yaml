@@ -1,0 +1,117 @@
+# 台帳に載せる前の候補。調べたが、まだ検証していない情報源をここに置く。
+#
+# 台帳（registry/sources/）は検証済みのものだけを載せる。検証していないものを
+# 混ぜると台帳の価値が消えるが、調べた記録を捨てると次に同じ調査が繰り返される。
+# ここはその中間状態の置き場であり、検証できたら registry/sources/ へ昇格させる。
+#
+# blocker は「なぜまだ検証していないか」であって、その情報源の性質ではない。
+#   unreachable  自環境から到達できない。一次資料にも当たれないので何も書けない
+#   credentials  到達はできるが、認証情報が手元に無いので実行できない
+#   not_started  到達でき、認証も要らないか未確認。単にまだ着手していない
+#
+# hosts に挙げたホストは verify/verify_reachability.py が毎回実測する。
+# 許可リストが変わればここの記録と実測がずれ、build.py が知らせる。
+#
+# 候補には、その情報源が何を提供するかを書かないこと。一次資料に当たる前に
+# 書けるのは「名前」「ホスト」「なぜ調べたか」だけで、それ以外は推測になる。
+candidates:
+  - id: estat-api
+    name: e-Stat API（政府統計の総合窓口）
+    why: 政府統計を扱うなら最初に当たる情報源のため。
+    hosts:
+      - api.e-stat.go.jp
+      - www.e-stat.go.jp
+    blocker: credentials
+    blocker_detail: >-
+      利用には appId が必要で、まだ取得していない。ホストには到達できるので
+      一次資料（API 仕様）は読めるが、実際に叩いて確かめることができない。
+      検証できないものは台帳に載せないという原則により、ここで保留する。
+    next_step: appId を取得したうえで、公開されている各エンドポイントを検証する。
+
+  - id: ndl-search
+    name: 国立国会図書館サーチ
+    why: 書誌情報を横断的に扱える公的な情報源として。
+    hosts: [ndlsearch.ndl.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: API 仕様に当たり、認証要否と提供されるエンドポイントを確認する。
+
+  - id: jstage
+    name: J-STAGE
+    why: 学術論文の書誌・全文を扱う公的な情報源として。
+    hosts: [www.jstage.jst.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: API 仕様に当たり、認証要否と提供されるエンドポイントを確認する。
+
+  - id: gsi-maps
+    name: 国土地理院（地理院タイル・地図）
+    why: 地理空間情報の基盤として。
+    hosts: [cyberjapandata.gsi.go.jp, maps.gsi.go.jp, saigai.gsi.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: 提供仕様に当たり、認証要否と利用条件を確認する。
+
+  - id: estat-lod
+    name: 統計 LOD
+    why: 統計データを RDF/SPARQL で扱える経路として。e-Stat API とは別系統。
+    hosts: [data.e-stat.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: 提供仕様に当たり、認証要否とエンドポイントを確認する。
+
+  - id: houjin-bangou
+    name: 法人番号システム Web-API（国税庁）
+    why: 法人の名寄せに使える公的な識別子として。
+    hosts: [api.houjin-bangou.nta.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: API 仕様に当たり、認証要否（アプリケーション ID の要否）を確認する。
+
+  - id: resas
+    name: RESAS API（地域経済分析システム）
+    why: 地域経済の統計を扱う情報源として。
+    hosts: [opendata.resas-portal.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: API 仕様に当たり、認証要否を確認する。
+
+  - id: reinfolib
+    name: 不動産情報ライブラリ（国土交通省）
+    why: 不動産取引価格などを扱う情報源として。
+    hosts: [www.reinfolib.mlit.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: API 仕様に当たり、認証要否を確認する。
+
+  - id: nlftp-mlit
+    name: 国土数値情報（国土交通省）
+    why: 地理空間の統計データを扱う情報源として。
+    hosts: [nlftp.mlit.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: 提供仕様に当たり、API の有無と利用条件を確認する。
+
+  - id: kanpo
+    name: 官報
+    why: 法令の公布や公示を一次で追える情報源として。
+    hosts: [www.kanpo.go.jp, notice.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: 機械可読な提供経路があるかを確認する。
+
+  - id: jpo-ip-data
+    name: 特許庁 IP Data
+    why: 産業財産権の情報を扱う情報源として。
+    hosts: [ip-data.jpo.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: API 仕様に当たり、認証要否を確認する。
+
+  - id: iryou-teikyou
+    name: 医療機関等情報提供制度（厚生労働省）
+    why: 医療機関の所在や機能を扱う情報源として。
+    hosts: [www.iryou.teikyouseido.mhlw.go.jp]
+    blocker: not_started
+    blocker_detail: ホストに到達できるようになったが、一次資料をまだ読んでいない。
+    next_step: 機械可読な提供経路があるかを確認する。

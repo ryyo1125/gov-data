@@ -36,13 +36,13 @@ def collect_hosts() -> list[dict]:
             hosts.setdefault(host["host"], {"host": host["host"], "used_by": [], "role": host.get("role", "")})
             hosts[host["host"]]["used_by"].append(entry["id"])
 
-    blocked_path = REPO_ROOT / "registry" / "blocked.yaml"
-    if blocked_path.is_file():
-        blocked = yaml.safe_load(blocked_path.read_text(encoding="utf-8")) or {}
-        for candidate in blocked.get("candidates", []):
+    candidates_path = REPO_ROOT / "registry" / "candidates.yaml"
+    if candidates_path.is_file():
+        candidates = yaml.safe_load(candidates_path.read_text(encoding="utf-8")) or {}
+        for candidate in candidates.get("candidates", []):
             for host in candidate.get("hosts", []):
-                hosts.setdefault(host, {"host": host, "used_by": [], "role": "blocked-candidate"})
-                hosts[host]["used_by"].append(f"blocked:{candidate['id']}")
+                hosts.setdefault(host, {"host": host, "used_by": [], "role": "candidate"})
+                hosts[host]["used_by"].append(f"candidate:{candidate['id']}")
 
     # 俯瞰が見つけた実ファイルの置き場も含める。台帳と待避所だけを見ていると、
     # そのとき到達できていたホストは記録されず、後から塞がれても気づけない。

@@ -1,7 +1,7 @@
 {
   "source_id": "jma-xml",
   "target": "https://www.data.jma.go.jp/developer/xml/feed",
-  "generated_at": "2026-08-20T02:43:46+00:00",
+  "generated_at": "2026-08-20T02:59:04+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -20,64 +20,64 @@
     {
       "step": "GET /regular.xml (定時・高頻度)",
       "ok": true,
-      "elapsed_ms": 438,
+      "elapsed_ms": 655,
       "result": {
         "status": 200,
         "content_type": "text/xml",
         "bytes": 367152,
         "feed_title": "高頻度（定時）",
-        "feed_updated": "2026-08-20T11:41:42+09:00",
+        "feed_updated": "2026-08-20T11:51:32+09:00",
         "entry_count": 752,
         "first_entry": {
           "title": "気象警報・注意報（Ｒ０６）（集約通報）",
-          "updated": "2026-08-20T02:40:57Z",
-          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820024101_0_VPWS50_010000.xml"
+          "updated": "2026-08-20T02:50:52Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820025055_0_VPWS50_010000.xml"
         },
-        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820024101_0_VPWS50_010000.xml"
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820025055_0_VPWS50_010000.xml"
       }
     },
     {
       "step": "GET /extra.xml (随時・高頻度)",
       "ok": true,
-      "elapsed_ms": 52,
+      "elapsed_ms": 55,
       "result": {
         "status": 200,
         "content_type": "text/xml",
-        "bytes": 223474,
+        "bytes": 225262,
         "feed_title": "高頻度（随時）",
-        "feed_updated": "2026-08-20T11:30:49+09:00",
-        "entry_count": 388,
+        "feed_updated": "2026-08-20T11:52:56+09:00",
+        "entry_count": 391,
         "first_entry": {
-          "title": "気象特別警報・警報・注意報",
-          "updated": "2026-08-20T02:30:19Z",
-          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820023021_0_VPWW53_340000.xml"
+          "title": "気象警報・注意報（Ｈ２７）",
+          "updated": "2026-08-20T02:52:33Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820025234_0_VPWW54_020000.xml"
         },
-        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820023021_0_VPWW53_340000.xml"
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820025234_0_VPWW54_020000.xml"
       }
     },
     {
       "step": "GET /eqvol.xml (地震火山・高頻度)",
       "ok": true,
-      "elapsed_ms": 45,
+      "elapsed_ms": 47,
       "result": {
         "status": 200,
         "content_type": "text/xml",
-        "bytes": 27115,
+        "bytes": 27632,
         "feed_title": "高頻度（地震火山）",
-        "feed_updated": "2026-08-20T11:01:22+09:00",
-        "entry_count": 37,
+        "feed_updated": "2026-08-20T11:43:26+09:00",
+        "entry_count": 38,
         "first_entry": {
-          "title": "降灰予報（定時）",
-          "updated": "2026-08-20T02:00:00Z",
-          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820020052_0_VFVO53_010000.xml"
+          "title": "震源・震度に関する情報",
+          "updated": "2026-08-20T02:43:02Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820024303_0_VXSE53_270000.xml"
         },
-        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820020052_0_VFVO53_010000.xml"
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820024303_0_VXSE53_270000.xml"
       }
     },
     {
       "step": "GET /other.xml (その他・高頻度)",
       "ok": true,
-      "elapsed_ms": 543,
+      "elapsed_ms": 513,
       "result": {
         "status": 200,
         "content_type": "text/xml",
@@ -96,64 +96,64 @@
     {
       "step": "GET /regular_l.xml (定時・長期)",
       "ok": true,
-      "elapsed_ms": 2126,
+      "elapsed_ms": 396,
       "result": {
         "status": 200,
         "content_type": "text/xml",
-        "bytes": 4672655,
+        "bytes": 4671188,
         "feed_title": "長期（定時）",
-        "feed_updated": "2026-08-20T11:41:42+09:00",
-        "entry_count": 9560,
+        "feed_updated": "2026-08-20T11:51:32+09:00",
+        "entry_count": 9557,
         "first_entry": {
           "title": "気象警報・注意報（Ｒ０６）（集約通報）",
-          "updated": "2026-08-20T02:40:57Z",
-          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820024101_0_VPWS50_010000.xml"
+          "updated": "2026-08-20T02:50:52Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820025055_0_VPWS50_010000.xml"
         },
-        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820024101_0_VPWS50_010000.xml"
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820025055_0_VPWS50_010000.xml"
       }
     },
     {
       "step": "GET /extra_l.xml (随時・長期)",
       "ok": true,
-      "elapsed_ms": 676,
+      "elapsed_ms": 204,
       "result": {
         "status": 200,
         "content_type": "text/xml",
-        "bytes": 3592660,
+        "bytes": 3580875,
         "feed_title": "長期（随時）",
-        "feed_updated": "2026-08-20T11:30:49+09:00",
-        "entry_count": 6128,
+        "feed_updated": "2026-08-20T11:52:56+09:00",
+        "entry_count": 6109,
         "first_entry": {
-          "title": "気象特別警報・警報・注意報",
-          "updated": "2026-08-20T02:30:19Z",
-          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820023021_0_VPWW53_340000.xml"
+          "title": "気象警報・注意報（Ｈ２７）",
+          "updated": "2026-08-20T02:52:33Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820025234_0_VPWW54_020000.xml"
         },
-        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820023021_0_VPWW53_340000.xml"
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820025234_0_VPWW54_020000.xml"
       }
     },
     {
       "step": "GET /eqvol_l.xml (地震火山・長期)",
       "ok": true,
-      "elapsed_ms": 52,
+      "elapsed_ms": 531,
       "result": {
         "status": 200,
         "content_type": "text/xml",
         "bytes": 419396,
         "feed_title": "長期（地震火山）",
-        "feed_updated": "2026-08-20T11:01:22+09:00",
+        "feed_updated": "2026-08-20T11:43:26+09:00",
         "entry_count": 600,
         "first_entry": {
-          "title": "降灰予報（定時）",
-          "updated": "2026-08-20T02:00:00Z",
-          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820020052_0_VFVO53_010000.xml"
+          "title": "震源・震度に関する情報",
+          "updated": "2026-08-20T02:43:02Z",
+          "id": "https://www.data.jma.go.jp/developer/xml/data/20260820024303_0_VXSE53_270000.xml"
         },
-        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820020052_0_VFVO53_010000.xml"
+        "first_entry_link": "https://www.data.jma.go.jp/developer/xml/data/20260820024303_0_VXSE53_270000.xml"
       }
     },
     {
       "step": "GET /other_l.xml (その他・長期)",
       "ok": true,
-      "elapsed_ms": 955,
+      "elapsed_ms": 525,
       "result": {
         "status": 200,
         "content_type": "text/xml",
@@ -172,12 +172,12 @@
     {
       "step": "GET 電文本体",
       "ok": true,
-      "elapsed_ms": 215,
+      "elapsed_ms": 157,
       "result": {
-        "url": "https://www.data.jma.go.jp/developer/xml/data/20260820024101_0_VPWS50_010000.xml",
+        "url": "https://www.data.jma.go.jp/developer/xml/data/20260820025055_0_VPWS50_010000.xml",
         "status": 200,
         "content_type": "text/xml",
-        "bytes": 1948973,
+        "bytes": 1950203,
         "root_tag": "{http://xml.kishou.go.jp/jmaxml1/}Report",
         "child_tags": [
           "{http://xml.kishou.go.jp/jmaxml1/}Control",

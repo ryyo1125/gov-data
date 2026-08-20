@@ -1,18 +1,25 @@
 {
   "source_id": "reachability",
   "target": "egress reachability",
-  "generated_at": "2026-08-20T02:47:21+00:00",
+  "generated_at": "2026-08-20T02:58:51+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
   },
   "hosts": [
     {
+      "host": "api.e-stat.go.jp",
+      "used_by": [
+        "candidate:estat-api"
+      ],
+      "role": "candidate"
+    },
+    {
       "host": "api.houjin-bangou.nta.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:houjin-bangou"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "api.jgrants-portal.go.jp",
@@ -24,9 +31,9 @@
     {
       "host": "cyberjapandata.gsi.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:gsi-maps"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "data.e-gov.go.jp",
@@ -39,9 +46,9 @@
     {
       "host": "data.e-stat.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:estat-lod"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "developers.digital.go.jp",
@@ -60,25 +67,23 @@
     {
       "host": "housyasen.env.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "ikilog.biodic.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "ip-data.jpo.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:jpo-ip-data"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "laws.e-gov.go.jp",
@@ -90,63 +95,61 @@
     {
       "host": "maps.gsi.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
+        "candidate:gsi-maps",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "ndlsearch.ndl.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:ndl-search"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "nlftp.mlit.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:nlftp-mlit"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "notice.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
+        "candidate:kanpo",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "opendata.resas-portal.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:resas"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "saigai.gsi.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
+        "candidate:gsi-maps",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "warp.ndl.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www.bb.mof.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www.data.go.jp",
@@ -182,32 +185,31 @@
     {
       "host": "www.e-stat.go.jp",
       "used_by": [
+        "candidate:estat-api",
+        "survey:catalog"
+      ],
+      "role": "candidate"
+    },
+    {
+      "host": "www.esri.cao.go.jp",
+      "used_by": [
         "survey:catalog"
       ],
       "role": "catalog-resource"
     },
     {
-      "host": "www.esri.cao.go.jp",
-      "used_by": [
-        "blocked:catalog-resource-hosts",
-        "survey:catalog"
-      ],
-      "role": "blocked-candidate"
-    },
-    {
       "host": "www.hokoukukan.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www.iryou.teikyouseido.mhlw.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:iryou-teikyou"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "www.jgrants-portal.go.jp",
@@ -219,10 +221,9 @@
     {
       "host": "www.jinji.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www.jma.go.jp",
@@ -234,95 +235,86 @@
     {
       "host": "www.jstage.jst.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:jstage"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "www.kanpo.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:kanpo"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "www.kodokensaku.mlit.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www.maff.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www.mext.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www.mofa.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www.npa.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www.reinfolib.mlit.go.jp",
       "used_by": [
-        "blocked:api-candidates-sweep"
+        "candidate:reinfolib"
       ],
-      "role": "blocked-candidate"
+      "role": "candidate"
     },
     {
       "host": "www.rinya.maff.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www.soumu.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www5.cao.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "www8.cao.go.jp",
       "used_by": [
-        "blocked:catalog-resource-hosts",
         "survey:catalog"
       ],
-      "role": "blocked-candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "xml.kishou.go.jp",
@@ -334,7 +326,15 @@
   ],
   "steps": [
     {
-      "step": "api.houjin-bangou.nta.go.jp (blocked:api-candidates-sweep)",
+      "step": "api.e-stat.go.jp (candidate:estat-api)",
+      "ok": true,
+      "result": {
+        "status_code": 403,
+        "final_url": "https://api.e-stat.go.jp/"
+      }
+    },
+    {
+      "step": "api.houjin-bangou.nta.go.jp (candidate:houjin-bangou)",
       "ok": true,
       "result": {
         "status_code": 404,
@@ -350,7 +350,7 @@
       }
     },
     {
-      "step": "cyberjapandata.gsi.go.jp (blocked:api-candidates-sweep)",
+      "step": "cyberjapandata.gsi.go.jp (candidate:gsi-maps)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -366,7 +366,7 @@
       }
     },
     {
-      "step": "data.e-stat.go.jp (blocked:api-candidates-sweep)",
+      "step": "data.e-stat.go.jp (candidate:estat-lod)",
       "ok": true,
       "result": {
         "status_code": 301,
@@ -390,7 +390,7 @@
       }
     },
     {
-      "step": "housyasen.env.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "housyasen.env.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -398,7 +398,7 @@
       }
     },
     {
-      "step": "ikilog.biodic.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "ikilog.biodic.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -406,7 +406,7 @@
       }
     },
     {
-      "step": "ip-data.jpo.go.jp (blocked:api-candidates-sweep)",
+      "step": "ip-data.jpo.go.jp (candidate:jpo-ip-data)",
       "ok": true,
       "result": {
         "status_code": 302,
@@ -422,7 +422,7 @@
       }
     },
     {
-      "step": "maps.gsi.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "maps.gsi.go.jp (candidate:gsi-maps, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -430,7 +430,7 @@
       }
     },
     {
-      "step": "ndlsearch.ndl.go.jp (blocked:api-candidates-sweep)",
+      "step": "ndlsearch.ndl.go.jp (candidate:ndl-search)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -438,7 +438,7 @@
       }
     },
     {
-      "step": "nlftp.mlit.go.jp (blocked:api-candidates-sweep)",
+      "step": "nlftp.mlit.go.jp (candidate:nlftp-mlit)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -446,7 +446,7 @@
       }
     },
     {
-      "step": "notice.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "notice.go.jp (candidate:kanpo, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -454,7 +454,7 @@
       }
     },
     {
-      "step": "opendata.resas-portal.go.jp (blocked:api-candidates-sweep)",
+      "step": "opendata.resas-portal.go.jp (candidate:resas)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -462,7 +462,7 @@
       }
     },
     {
-      "step": "saigai.gsi.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "saigai.gsi.go.jp (candidate:gsi-maps, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -470,7 +470,7 @@
       }
     },
     {
-      "step": "warp.ndl.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "warp.ndl.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -478,7 +478,7 @@
       }
     },
     {
-      "step": "www.bb.mof.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.bb.mof.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 301,
@@ -518,13 +518,15 @@
       }
     },
     {
-      "step": "www.e-stat.go.jp (survey:catalog)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "step": "www.e-stat.go.jp (candidate:estat-api, survey:catalog)",
+      "ok": true,
+      "result": {
+        "status_code": 200,
+        "final_url": "https://www.e-stat.go.jp/"
+      }
     },
     {
-      "step": "www.esri.cao.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.esri.cao.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -532,7 +534,7 @@
       }
     },
     {
-      "step": "www.hokoukukan.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.hokoukukan.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 403,
@@ -540,7 +542,7 @@
       }
     },
     {
-      "step": "www.iryou.teikyouseido.mhlw.go.jp (blocked:api-candidates-sweep)",
+      "step": "www.iryou.teikyouseido.mhlw.go.jp (candidate:iryou-teikyou)",
       "ok": true,
       "result": {
         "status_code": 301,
@@ -556,7 +558,7 @@
       }
     },
     {
-      "step": "www.jinji.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.jinji.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -572,7 +574,7 @@
       }
     },
     {
-      "step": "www.jstage.jst.go.jp (blocked:api-candidates-sweep)",
+      "step": "www.jstage.jst.go.jp (candidate:jstage)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -580,7 +582,7 @@
       }
     },
     {
-      "step": "www.kanpo.go.jp (blocked:api-candidates-sweep)",
+      "step": "www.kanpo.go.jp (candidate:kanpo)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -588,7 +590,7 @@
       }
     },
     {
-      "step": "www.kodokensaku.mlit.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.kodokensaku.mlit.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -596,7 +598,7 @@
       }
     },
     {
-      "step": "www.maff.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.maff.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -604,7 +606,7 @@
       }
     },
     {
-      "step": "www.mext.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.mext.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -612,7 +614,7 @@
       }
     },
     {
-      "step": "www.mofa.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.mofa.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 403,
@@ -620,7 +622,7 @@
       }
     },
     {
-      "step": "www.npa.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.npa.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -628,7 +630,7 @@
       }
     },
     {
-      "step": "www.reinfolib.mlit.go.jp (blocked:api-candidates-sweep)",
+      "step": "www.reinfolib.mlit.go.jp (candidate:reinfolib)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -636,7 +638,7 @@
       }
     },
     {
-      "step": "www.rinya.maff.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.rinya.maff.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -644,7 +646,7 @@
       }
     },
     {
-      "step": "www.soumu.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www.soumu.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -652,7 +654,7 @@
       }
     },
     {
-      "step": "www5.cao.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www5.cao.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -660,7 +662,7 @@
       }
     },
     {
-      "step": "www8.cao.go.jp (blocked:catalog-resource-hosts, survey:catalog)",
+      "step": "www8.cao.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -677,10 +679,10 @@
     }
   ],
   "summary": {
-    "total": 43,
-    "ok": 42,
+    "total": 44,
+    "ok": 44,
     "skipped": 0,
-    "blocked": 1,
+    "blocked": 0,
     "failed": 0
   }
 }

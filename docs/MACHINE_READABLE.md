@@ -3,11 +3,11 @@
 **このファイルは `registry/build.py` が `results/catalog-survey.json` から生成する。**
 更新するには `verify/survey_catalog.py` を実行してからビルドし直す。
 
-- 生成日時: 2026-08-20T02:45:39+00:00
+- 生成日時: 2026-08-20T03:00:49+00:00
 - 対象: res_format:(CSV OR XML OR JSON OR RDF OR GeoJSON OR TSV OR JSON-LD OR API)
 - 件数: 1,121 件 / 全 18,141 件
 
-- 実ファイルに到達できるもの: 618 件
+- 実ファイルに到達できるもの: 1,121 件
 
 これは**存在の一覧であって、取得できることの保証ではない**。
 「実ファイル」の列は置き場のホストへ到達できるかを見ているだけで、
@@ -18,490 +18,490 @@
 
 ## 組織別
 
-### 厚生労働省（480 件 / うち実ファイルに到達できるもの 0 件）
+### 厚生労働省（480 件 / うち実ファイルに到達できるもの 480 件）
 
 | データセット | 形式 | 更新頻度 | 実ファイル |
 |---|---|---|---|
-| [1_第1表食中毒事件・患者・死者数，原因食品・都道府県－保健所設置市及び特別区（再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0037) | CSV | - | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0067) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0078) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0089) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0016) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0095) | CSV | 1年 | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0042) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1836) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0101) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0086) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0064) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0075) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0086) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160630_0030) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0012) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0039) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1744) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0098) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0083) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0062) | CSV / XLS | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0073) | CSV / XLS | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0084) | CSV / XLS | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160630_0028) | CSV / XLS | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0010) | CSV / XLSX | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0037) | CSV / XLSX | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1651) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0096) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0081) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0063) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0074) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0085) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160630_0029) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0011) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0038) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1713) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0097) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0082) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0066) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0077) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0088) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0015) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0094) | CSV | 1年 | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0041) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1797) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0100) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0085) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0061) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0072) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0083) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0014) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0009) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0093) | CSV | 1年 | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0036) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1594) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0095) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0080) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0068) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0079) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0090) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0017) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160630_0032) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0014) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0096) | CSV | 1年 | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0043) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1862) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0102) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0087) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0065) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0076) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0087) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160630_0031) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0013) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0040) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1777) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0099) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0084) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0069) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0080) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0091) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0018) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0097) | CSV | 1年 | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0015) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0044) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1889) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0103) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0088) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0060) | CSV / XLS | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0071) | CSV / XLS | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0082) | CSV / XLS | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0013) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0092) | CSV | 1年 | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0035) | CSV / XLS | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1540) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0094) | CSV | Yearly | **到達不可** |
-| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0079) | CSV | Yearly | **到達不可** |
-| [人口動態調査](https://data.e-gov.go.jp/data/dataset/mhlw-jindou-toukei) | CSV | １年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0042) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0043) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0044) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0223) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0060) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0009) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0186) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0057) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0042) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0022) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0072) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_人口_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0060) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_人口_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0061) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_人口_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0062) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_人口_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0229) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_人口_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0066) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_人口_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0015) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_人口_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0362) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_人口_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0063) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_人口_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0048) | CSV / ビジュアル分析(Tableau) | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_出生_年次_2016年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0025) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_出生_年次_2016年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0026) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_出生_年次_2016年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0027) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_婚姻_年次_2016年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0030) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_婚姻_年次_2016年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0031) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0028) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0033) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0034) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0035) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0036) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_5](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0037) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_6](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0038) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死産_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0029) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_離婚_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0032) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_1-1 出生数，出生の場所・出生時の立会者・都道府県・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0090) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_1-2 出生数，出生の場所・出生時の立会者・都道府県・市区町村別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0183) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_2 出生数，性・出生月・都道府県（20大都市再掲）・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0184) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_3 出生数，出生当時の世帯の主な仕事・都道府県（20大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0185) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_4 出生数，2500g未満の出生数（再掲），性・母の年齢（各歳）・出生順位・都道府県（20大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0186) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_5-1 出生数，性・母の年齢（５歳階級）・都道府県・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0187) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_5-2 出生数，性・母の年齢（５歳階級）・都道府県・市区町村別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0188) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0091) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0092) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_1-1_出生数，出生の場所・出生時の立会者・都道府県・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0409) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_1-2_出生数，出生の場所・出生時の立会者・都道府県・市区町村別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0410) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_2_出生数，性・出生月・都道府県・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0411) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_3_出生数，出生当時の世帯の主な仕事・都道府県（21大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0412) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_4_出生数，2500g未満出生数（再掲），性・母の年齢（各歳）・出生順位・都道府県（21大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0413) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_5-1_出生数，性・母の年齢（５歳階級）・都道府県・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0414) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_5-2_出生数，性・母の年齢（５歳階級）・都道府県・市区町村別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0415) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2015年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0076) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2015年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0077) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2015年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0078) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2017年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0484) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2017年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0614) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2017年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0744) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0074) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_1-1](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0075) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_1-1](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0073) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_1-2](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0076) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0077) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0078) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0079) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_5-1](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0080) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_5-2](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0081) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0059) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_1-1](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0060) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_1-1](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0058) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_1-2](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0061) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0062) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0063) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0064) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_5-1](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0065) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_5-2](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0066) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0043) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0042) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0041) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0040) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0039) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0038) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0037) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0093) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0092) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0091) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0090) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0089) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0088) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0087) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0099) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0100) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0101) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2014年_同居時年齢＿夫－妻の届出時の年齢（５歳階級）・結婚生活に入る前の世帯の主な仕事・都道府県（21大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20151211_0408) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2014年_夫－妻の同居時の年齢（５歳階級）・結婚生活に入る前の世帯の主な仕事・都道府県（21大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0242) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2015年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0081) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2015年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0082) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1079) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2017年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0942) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2017年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1072) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2018年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0084) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2018年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0085) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2019年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0069) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2019年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0070) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0050) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0049) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0100) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0099) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0093) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0094) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0095) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0240) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0079) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0789) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0082) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0067) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0047) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0046) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0045) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0044) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0097) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0096) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0095) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0094) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0105) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0106) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0107) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0244) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0085) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0086) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0087) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0088) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_5](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0089) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_6](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0090) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2017年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1149) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2017年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1279) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2017年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1409) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0091) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0087) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0088) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0089) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0090) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0076) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0072) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0073) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0074) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0075) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0057) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0056) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0055) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0054) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0053) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0052) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0107) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0106) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0105) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0104) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0103) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0102) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0096) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0097) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0098) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0241) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0080) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0891) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0083) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0068) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0048) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0098) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0102) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0103) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0104) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0243) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0083) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2015年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0084) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1080) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0086) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0071) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0051) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0101) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0069) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0070) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0071) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0232) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0069) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0018) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0393) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0066) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0051) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0030) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0080) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0063) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0064) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0065) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0230) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0067) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0016) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0371) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0064) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0049) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0028) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0078) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0087) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0088) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0089) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0238) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0075) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0024) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0471) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0072) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0057) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0036) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0086) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0075) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0076) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0077) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0234) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0071) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0408) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0068) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0053) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0032) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0082) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0020) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0078) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0079) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0080) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0235) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0072) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0021) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0411) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0069) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0054) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0033) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0083) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0066) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0067) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0068) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0231) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0068) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0017) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0392) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0065) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0050) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0029) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0079) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0084) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0085) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0086) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0237) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0006) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0074) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0023) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0434) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0071) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0056) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0035) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0085) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0072) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0073) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0074) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0233) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0070) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0019) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0394) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0067) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0052) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0031) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0081) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0081) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0082) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0083) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0236) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0073) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0022) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0423) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0070) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0055) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0034) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0084) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0036) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0037) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0038) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0221) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0058) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0007) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0067) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0055) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0040) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0020) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0070) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_分類表_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0030) | CSV / PDF / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_分類表_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0031) | CSV / PDF / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_分類表_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0032) | CSV / PDF / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_分類表_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0219) | CSV / PDF / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0057) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0058) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0059) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0228) | CSV | - | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0065) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0014) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0335) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0062) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0047) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0027) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_別表_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0077) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0048) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0049) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0050) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0225) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0062) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0250) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0059) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0044) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0024) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0074) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_周産期死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0011) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0051) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0052) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0053) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0226) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0063) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0012) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0270) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0060) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0045) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0025) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_婚姻_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0075) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0039) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0040) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0041) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0222) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0059) | CSV / XLS / XLSX | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0005) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0008) |   / CSV / XLSX | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0124) | CSV / XLSX | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0056) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0041) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0021) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0071) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0045) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0046) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0047) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0224) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0061) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0010) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0217) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0058) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0043) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0023) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_死産_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0073) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0033) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0034) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0035) | CSV / XLS | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0220) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0057) | CSV / XLSX | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0006) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0013) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0054) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0039) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0019) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_総覧_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0069) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0054) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0055) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0056) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0227) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0064) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0013) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0309) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0061) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0046) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0026) | CSV | 1年 | **到達不可** |
-| [人口動態調査_人口動態統計_確定数_離婚_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0076) | CSV | 1年 | **到達不可** |
-| [介護サービス施設・事業所調査](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0051) | CSV | 1年 | **到達不可** |
-| [国民生活基礎調査](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0052) | CSV | 3年 | **到達不可** |
-| [平成12年（概要）薬事工業生産動態統計調査_年次_2000年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0019) |   / CSV | 1年 | **到達不可** |
-| [平成13年（概要）薬事工業生産動態統計調査_年次_2001年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0018) | CSV | 1年 | **到達不可** |
-| [平成14年（概要）薬事工業生産動態統計調査_年次_2002年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0017) | CSV | 1年 | **到達不可** |
-| [平成15年（概要）薬事工業生産動態統計調査_年次_2003年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0016) | CSV / PDF | 1年 | **到達不可** |
-| [平成16年（概要）薬事工業生産動態統計調査_年次_2004年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0015) | CSV / PDF | 1年 | **到達不可** |
-| [社会福祉施設等調査](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0050) | CSV | 1年 | **到達不可** |
-| [食中毒統計調査_令和元年食中毒統計調査_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0036) | CSV | - | **到達不可** |
-| [食中毒統計調査＿令和４年食中毒統計調査＿年次＿2022年](https://data.e-gov.go.jp/data/dataset/mhlw_20260619_2022) | CSV | - | **到達不可** |
-| [食中毒統計調査＿令和５年食中毒統計調査＿年次＿2023年](https://data.e-gov.go.jp/data/dataset/mhlw_20260623_2023) | CSV | １年 | **到達不可** |
-| [食中毒統計調査＿令和６年食中毒統計調査＿年次＿2024年](https://data.e-gov.go.jp/data/dataset/mhlw_20260624_2024) | CSV | - | **到達不可** |
-| [食中毒統計調査＿令和７年食中毒統計調査＿年次＿2025年](https://data.e-gov.go.jp/data/dataset/mhlw_20260624_2025) | CSV | - | **到達不可** |
+| [1_第1表食中毒事件・患者・死者数，原因食品・都道府県－保健所設置市及び特別区（再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0037) | CSV | - | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0067) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0078) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0089) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0016) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0095) | CSV | 1年 | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0042) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1836) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0101) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0086) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0064) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0075) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0086) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160630_0030) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0012) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0039) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1744) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0098) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0083) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0062) | CSV / XLS | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0073) | CSV / XLS | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0084) | CSV / XLS | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160630_0028) | CSV / XLS | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0010) | CSV / XLSX | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0037) | CSV / XLSX | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1651) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0096) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0081) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0063) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0074) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0085) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160630_0029) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0011) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0038) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1713) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0097) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0082) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0066) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0077) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0088) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0015) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0094) | CSV | 1年 | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0041) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1797) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0100) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0085) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0061) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0072) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0083) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0014) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0009) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0093) | CSV | 1年 | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0036) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1594) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0095) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0080) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0068) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0079) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0090) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0017) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160630_0032) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0014) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0096) | CSV | 1年 | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0043) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1862) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0102) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0087) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0065) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0076) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0087) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160630_0031) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0013) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0040) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1777) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0099) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0084) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0069) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0080) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0091) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0018) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0097) | CSV | 1年 | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0015) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0044) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1889) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0103) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0088) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2011](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0060) | CSV / XLS | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2012](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0071) | CSV / XLS | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2013](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0082) | CSV / XLS | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2014](https://data.e-gov.go.jp/data/dataset/mhlw_20160201_0013) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2015](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0092) | CSV | 1年 | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2016](https://data.e-gov.go.jp/data/dataset/mhlw_20180521_0035) | CSV / XLS | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2017](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1540) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2018](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0094) | CSV | Yearly | 到達可 |
+| [Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2019](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0079) | CSV | Yearly | 到達可 |
+| [人口動態調査](https://data.e-gov.go.jp/data/dataset/mhlw-jindou-toukei) | CSV | １年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0042) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0043) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0044) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0223) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0060) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0009) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0186) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0057) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0042) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0022) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0072) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_人口_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0060) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_人口_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0061) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_人口_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0062) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_人口_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0229) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_人口_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0066) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_人口_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0015) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_人口_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0362) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_人口_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0063) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_人口_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0048) | CSV / ビジュアル分析(Tableau) | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_出生_年次_2016年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0025) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_出生_年次_2016年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0026) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_出生_年次_2016年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0027) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_婚姻_年次_2016年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0030) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_婚姻_年次_2016年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0031) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0028) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0033) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0034) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0035) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0036) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_5](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0037) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_6](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0038) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死産_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0029) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_離婚_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0032) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_1-1 出生数，出生の場所・出生時の立会者・都道府県・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0090) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_1-2 出生数，出生の場所・出生時の立会者・都道府県・市区町村別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0183) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_2 出生数，性・出生月・都道府県（20大都市再掲）・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0184) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_3 出生数，出生当時の世帯の主な仕事・都道府県（20大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0185) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_4 出生数，2500g未満の出生数（再掲），性・母の年齢（各歳）・出生順位・都道府県（20大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0186) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_5-1 出生数，性・母の年齢（５歳階級）・都道府県・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0187) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_5-2 出生数，性・母の年齢（５歳階級）・都道府県・市区町村別](https://data.e-gov.go.jp/data/dataset/mhlw_20150910_0188) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0091) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0092) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_1-1_出生数，出生の場所・出生時の立会者・都道府県・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0409) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_1-2_出生数，出生の場所・出生時の立会者・都道府県・市区町村別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0410) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_2_出生数，性・出生月・都道府県・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0411) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_3_出生数，出生当時の世帯の主な仕事・都道府県（21大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0412) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_4_出生数，2500g未満出生数（再掲），性・母の年齢（各歳）・出生順位・都道府県（21大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0413) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_5-1_出生数，性・母の年齢（５歳階級）・都道府県・保健所別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0414) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_5-2_出生数，性・母の年齢（５歳階級）・都道府県・市区町村別](https://data.e-gov.go.jp/data/dataset/mhlw_20151215_0415) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2015年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0076) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2015年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0077) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2015年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0078) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2017年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0484) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2017年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0614) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2017年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0744) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0074) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_1-1](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0075) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_1-1](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0073) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_1-2](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0076) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0077) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0078) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0079) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_5-1](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0080) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_5-2](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0081) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0059) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_1-1](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0060) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_1-1](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0058) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_1-2](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0061) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0062) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0063) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0064) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_5-1](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0065) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_5-2](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0066) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0043) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0042) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0041) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0040) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0039) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0038) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0037) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0093) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0092) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0091) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0090) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0089) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0088) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0087) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0099) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0100) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0101) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2014年_同居時年齢＿夫－妻の届出時の年齢（５歳階級）・結婚生活に入る前の世帯の主な仕事・都道府県（21大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20151211_0408) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2014年_夫－妻の同居時の年齢（５歳階級）・結婚生活に入る前の世帯の主な仕事・都道府県（21大都市再掲）別](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0242) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2015年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0081) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2015年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0082) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1079) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2017年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0942) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2017年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1072) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2018年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0084) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2018年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0085) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2019年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0069) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2019年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0070) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0050) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0049) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0100) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0099) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0093) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0094) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0095) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0240) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0079) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0789) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0082) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0067) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0047) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0046) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0045) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0044) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0097) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0096) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0095) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0094) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0105) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0106) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0107) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0244) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0085) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0086) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0087) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0088) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_5](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0089) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_6](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0090) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2017年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1149) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2017年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1279) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2017年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1409) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0091) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0087) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0088) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0089) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0090) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0076) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_1](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0072) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0073) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_3](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0074) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_4](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0075) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0057) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0056) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0055) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0054) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0053) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0052) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0107) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0106) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0105) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0104) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0103) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0102) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0096) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0097) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0098) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0241) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0080) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0891) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0083) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0068) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0048) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0098) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0102) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0103) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0104) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0243) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0083) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2015年_2](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0084) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_1080) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0086) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0071) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0051) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0101) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0069) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0070) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0071) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0232) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0069) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0018) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0393) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0066) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0051) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0030) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0080) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0063) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0064) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0065) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0230) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0067) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0016) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0371) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0064) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0049) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0028) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0078) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0087) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0088) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0089) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0238) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0075) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0024) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0471) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0072) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0057) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0036) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0086) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0075) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0076) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0077) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0234) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0071) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0408) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0068) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0053) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0032) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0082) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0020) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0078) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0079) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0080) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0235) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0072) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0021) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0411) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0069) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0054) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0033) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0083) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0066) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0067) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0068) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0231) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0068) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0017) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0392) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0065) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0050) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0029) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0079) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0084) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0085) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0086) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0237) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0006) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0074) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0023) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0434) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0071) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0056) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0035) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0085) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0072) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0073) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0074) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0233) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0070) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0019) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0394) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0067) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0052) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0031) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0081) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0081) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0082) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0083) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0236) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0073) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0022) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0423) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0070) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0055) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0034) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0084) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0036) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0037) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0038) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0221) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0058) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0007) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0067) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0055) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0040) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0020) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_出生_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0070) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_分類表_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0030) | CSV / PDF / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_分類表_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0031) | CSV / PDF / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_分類表_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0032) | CSV / PDF / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_分類表_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0219) | CSV / PDF / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0057) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0058) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0059) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0228) | CSV | - | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0065) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0014) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0335) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0062) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0047) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0027) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_別表_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0077) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0048) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0049) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0050) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0225) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0062) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0250) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0059) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0044) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0024) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0074) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_周産期死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0011) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0051) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0052) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0053) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0226) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0063) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0012) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0270) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0060) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0045) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0025) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_婚姻_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0075) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0039) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0040) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0041) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0222) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0059) | CSV / XLS / XLSX | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170508_0005) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0008) |   / CSV / XLSX | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0124) | CSV / XLSX | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0056) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0041) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0021) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死亡_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0071) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0045) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0046) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0047) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0224) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0061) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0010) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0217) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0058) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0043) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0023) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_死産_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0073) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0033) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0034) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0035) | CSV / XLS | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0220) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0057) | CSV / XLSX | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0006) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0013) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0054) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0039) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0019) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_総覧_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0069) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2011年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0054) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2012年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0055) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2013年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0056) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2014年](https://data.e-gov.go.jp/data/dataset/mhlw_20151130_0227) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2015年](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0064) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2016年](https://data.e-gov.go.jp/data/dataset/mhlw_20171204_0013) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2017年](https://data.e-gov.go.jp/data/dataset/mhlw_20181127_0309) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2018年](https://data.e-gov.go.jp/data/dataset/mhlw_20200217_0061) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2019年](https://data.e-gov.go.jp/data/dataset/mhlw_20201124_0046) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2020年](https://data.e-gov.go.jp/data/dataset/mhlw_20211015_0026) | CSV | 1年 | 到達可 |
+| [人口動態調査_人口動態統計_確定数_離婚_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0076) | CSV | 1年 | 到達可 |
+| [介護サービス施設・事業所調査](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0051) | CSV | 1年 | 到達可 |
+| [国民生活基礎調査](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0052) | CSV | 3年 | 到達可 |
+| [平成12年（概要）薬事工業生産動態統計調査_年次_2000年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0019) |   / CSV | 1年 | 到達可 |
+| [平成13年（概要）薬事工業生産動態統計調査_年次_2001年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0018) | CSV | 1年 | 到達可 |
+| [平成14年（概要）薬事工業生産動態統計調査_年次_2002年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0017) | CSV | 1年 | 到達可 |
+| [平成15年（概要）薬事工業生産動態統計調査_年次_2003年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0016) | CSV / PDF | 1年 | 到達可 |
+| [平成16年（概要）薬事工業生産動態統計調査_年次_2004年](https://data.e-gov.go.jp/data/dataset/mhlw_20150902_0015) | CSV / PDF | 1年 | 到達可 |
+| [社会福祉施設等調査](https://data.e-gov.go.jp/data/dataset/mhlw_20170209_0050) | CSV | 1年 | 到達可 |
+| [食中毒統計調査_令和元年食中毒統計調査_年次_2021年](https://data.e-gov.go.jp/data/dataset/mhlw_20230120_0036) | CSV | - | 到達可 |
+| [食中毒統計調査＿令和４年食中毒統計調査＿年次＿2022年](https://data.e-gov.go.jp/data/dataset/mhlw_20260619_2022) | CSV | - | 到達可 |
+| [食中毒統計調査＿令和５年食中毒統計調査＿年次＿2023年](https://data.e-gov.go.jp/data/dataset/mhlw_20260623_2023) | CSV | １年 | 到達可 |
+| [食中毒統計調査＿令和６年食中毒統計調査＿年次＿2024年](https://data.e-gov.go.jp/data/dataset/mhlw_20260624_2024) | CSV | - | 到達可 |
+| [食中毒統計調査＿令和７年食中毒統計調査＿年次＿2025年](https://data.e-gov.go.jp/data/dataset/mhlw_20260624_2025) | CSV | - | 到達可 |
 
 ### 環境省（307 件 / うち実ファイルに到達できるもの 307 件）
 
@@ -1033,34 +1033,34 @@
 | [財政力指数：総務省『地方財政統計年報』](https://data.e-gov.go.jp/data/dataset/cao_20150109_0023) | CSV / XLS | 更新しない | 到達可 |
 | [農業産出額：農林水産省『生産農業所得統計』](https://data.e-gov.go.jp/data/dataset/cao_20150109_0016) | CSV / XLS | 更新しない | 到達可 |
 
-### 総務省（48 件 / うち実ファイルに到達できるもの 30 件）
+### 総務省（48 件 / うち実ファイルに到達できるもの 48 件）
 
 | データセット | 形式 | 更新頻度 | 実ファイル |
 |---|---|---|---|
-| [CSV形式による主要時系列データ](https://data.e-gov.go.jp/data/dataset/soumu_20200825_0039) | CSV | - | **到達不可** |
+| [CSV形式による主要時系列データ](https://data.e-gov.go.jp/data/dataset/soumu_20200825_0039) | CSV | - | 到達可 |
 | [NOTICE_実施状況](https://data.e-gov.go.jp/data/dataset/soumu_20200825_0049) | CSV | 1月 | 到達可 |
 | [インターネット利用人口の推移](https://data.e-gov.go.jp/data/dataset/soumu_20140909_0695) | CSV / XLS | - | 到達可 |
 | [インターネット普及率の推移](https://data.e-gov.go.jp/data/dataset/soumu_20140909_0696) | CSV / XLS | - | 到達可 |
 | [ブロードバンドサービス等の契約数の推移（四半期）](https://data.e-gov.go.jp/data/dataset/soumu_20140909_0697) | CSV / XLS | - | 到達可 |
-| [令和元年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20200603_0016) | CSV / XLS | 1年 | **到達不可** |
-| [令和元年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20200603_0015) | CSV / XLS | 1年 | **到達不可** |
-| [令和元年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20200603_0017) | CSV / XLS | 1年 | **到達不可** |
-| [令和２年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20211001_0008) | CSV / XLS | 1年 | **到達不可** |
-| [令和２年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20211001_0007) | CSV / XLS | 1年 | **到達不可** |
-| [令和２年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20211001_0009) | CSV / XLS | 1年 | **到達不可** |
-| [令和３年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20221207_0023) | CSV / XLS | 1年 | **到達不可** |
-| [令和３年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20221207_0025) | CSV / XLS | 1年 | **到達不可** |
-| [令和３年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20221207_0024) | CSV / XLS | 1年 | **到達不可** |
+| [令和元年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20200603_0016) | CSV / XLS | 1年 | 到達可 |
+| [令和元年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20200603_0015) | CSV / XLS | 1年 | 到達可 |
+| [令和元年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20200603_0017) | CSV / XLS | 1年 | 到達可 |
+| [令和２年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20211001_0008) | CSV / XLS | 1年 | 到達可 |
+| [令和２年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20211001_0007) | CSV / XLS | 1年 | 到達可 |
+| [令和２年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20211001_0009) | CSV / XLS | 1年 | 到達可 |
+| [令和３年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20221207_0023) | CSV / XLS | 1年 | 到達可 |
+| [令和３年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20221207_0025) | CSV / XLS | 1年 | 到達可 |
+| [令和３年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20221207_0024) | CSV / XLS | 1年 | 到達可 |
 | [公害等調整委員会年次報告_平成28年度](https://data.e-gov.go.jp/data/dataset/soumu_20170629_0001) | CSV / HTML / PDF | 1年 | 到達可 |
 | [利用場所別にみたパソコンからのインターネット利用者数・比率の推移](https://data.e-gov.go.jp/data/dataset/soumu_20140909_0700) | CSV / XLS | - | 到達可 |
 | [平成26年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20160325_0039) | CSV / HTML / XLS | 1年 | 到達可 |
-| [平成28年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20180312_0022) | CSV / XLS | 1年 | **到達不可** |
-| [平成29年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20181127_0024) | CSV / XLS | - | **到達不可** |
-| [平成29年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20181127_0023) | CSV / XLS | 1年 | **到達不可** |
-| [平成29年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20181127_0025) | CSV / XLS | - | **到達不可** |
-| [平成30年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20191028_0017) |   / CSV / XLS | - | **到達不可** |
-| [平成30年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20191028_0016) | CSV / XLS | 1年 | **到達不可** |
-| [平成30年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20191028_0018) | CSV / XLS | - | **到達不可** |
+| [平成28年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20180312_0022) | CSV / XLS | 1年 | 到達可 |
+| [平成29年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20181127_0024) | CSV / XLS | - | 到達可 |
+| [平成29年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20181127_0023) | CSV / XLS | 1年 | 到達可 |
+| [平成29年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20181127_0025) | CSV / XLS | - | 到達可 |
+| [平成30年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20191028_0017) |   / CSV / XLS | - | 到達可 |
+| [平成30年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20191028_0016) | CSV / XLS | 1年 | 到達可 |
+| [平成30年通信利用動向調査](https://data.e-gov.go.jp/data/dataset/soumu_20191028_0018) | CSV / XLS | - | 到達可 |
 | [情報通信白書_令和2年版(7)](https://data.e-gov.go.jp/data/dataset/soumu_20201106_0012) | CSV / XLSX | 1年 | 到達可 |
 | [情報通信白書_令和2年版(8)](https://data.e-gov.go.jp/data/dataset/soumu_20201106_0013) | CSV | 1年 | 到達可 |
 | [情報通信白書_令和2年版(9)](https://data.e-gov.go.jp/data/dataset/soumu_20201106_0014) | CSV | 1年 | 到達可 |
@@ -1082,7 +1082,7 @@
 | [情報通信白書_平成30年版(9)](https://data.e-gov.go.jp/data/dataset/soumu_20181127_0035) | CSV | 1年 | 到達可 |
 | [情報通信統計データベース](https://data.e-gov.go.jp/data/dataset/soumu_20160325_0033) | CSV / XLS | 不定期 | 到達可 |
 | [情報通信統計データベース](https://data.e-gov.go.jp/data/dataset/soumu_20160325_0057) | CSV / XLS | 不定期 | 到達可 |
-| [男女別人口及び世帯数 －町丁・字等](https://data.e-gov.go.jp/data/dataset/soumu_20140909_0398) | CSV | - | **到達不可** |
+| [男女別人口及び世帯数 －町丁・字等](https://data.e-gov.go.jp/data/dataset/soumu_20140909_0398) | CSV | - | 到達可 |
 | [端末別にみた個人のインターネット利用者数・比率の推移](https://data.e-gov.go.jp/data/dataset/soumu_20140909_0699) | CSV / XLS | - | 到達可 |
 | [自宅におけるパソコンからのインターネット接続方法の推移](https://data.e-gov.go.jp/data/dataset/soumu_20140909_0698) | CSV / XLS | - | 到達可 |
 
@@ -1141,13 +1141,13 @@
 | [気象観測_竜巻等の突風データベース](https://data.e-gov.go.jp/data/dataset/mlit_20140919_0748) | CSV / HTML | 不定期 | 到達可 |
 | [電子国土基本図（地名情報）「住居表示住所」のダウンロード](https://data.e-gov.go.jp/data/dataset/mlit_20140919_3007) | HTML / PDF / XML | 不定期 | 到達可 |
 
-### 外務省（10 件 / うち実ファイルに到達できるもの 8 件）
+### 外務省（10 件 / うち実ファイルに到達できるもの 10 件）
 
 | データセット | 形式 | 更新頻度 | 実ファイル |
 |---|---|---|---|
 | [海外在留邦人数調査統計_平成30年版](https://data.e-gov.go.jp/data/dataset/mofa_20210303_0002) | CSV / XLSX | 1年 | 到達可 |
-| [海外在留邦人数調査統計_平成２４年_速報版](https://data.e-gov.go.jp/data/dataset/mofa_20170207_0001) | CSV / XLSX | 1年 | **到達不可** |
-| [海外在留邦人数調査統計_平成２５年_要約版](https://data.e-gov.go.jp/data/dataset/mofa_20170207_0002) | CSV / XLS | 1年 | **到達不可** |
+| [海外在留邦人数調査統計_平成２４年_速報版](https://data.e-gov.go.jp/data/dataset/mofa_20170207_0001) | CSV / XLSX | 1年 | 到達可 |
+| [海外在留邦人数調査統計_平成２５年_要約版](https://data.e-gov.go.jp/data/dataset/mofa_20170207_0002) | CSV / XLS | 1年 | 到達可 |
 | [海外在留邦人数調査統計_平成２６年_要約版](https://data.e-gov.go.jp/data/dataset/mofa_20160325_0005) | CSV / XLS | 1年 | 到達可 |
 | [海外在留邦人数調査統計_平成２６年_詳細版](https://data.e-gov.go.jp/data/dataset/mofa_20160325_0006) | CSV / XLSX | 1年 | 到達可 |
 | [海外在留邦人数調査統計_平成２７年_要約版](https://data.e-gov.go.jp/data/dataset/mofa_20160325_0007) | CSV / XLSX | 1年 | 到達可 |
@@ -1169,15 +1169,15 @@
 | [森林・林業白書のローデータ（CSV） 平成27年度（平成28年5月17日公表） 1/2](https://data.e-gov.go.jp/data/dataset/maff_20161206_0022) | CSV | 1年 | 到達可 |
 | [森林・林業白書のローデータ（CSV） 平成27年度（平成28年5月17日公表） 2/2](https://data.e-gov.go.jp/data/dataset/maff_20161206_0023) | CSV | 1年 | 到達可 |
 
-### 警察庁（7 件 / うち実ファイルに到達できるもの 4 件）
+### 警察庁（7 件 / うち実ファイルに到達できるもの 7 件）
 
 | データセット | 形式 | 更新頻度 | 実ファイル |
 |---|---|---|---|
 | [令和３年12月の特殊詐欺認知・検挙状況等について（CSV）](https://data.e-gov.go.jp/data/dataset/npa_20211001_0024) | CSV | 1月 | 到達可 |
 | [全国警察施設名称位置等_令和６年度](https://data.e-gov.go.jp/data/dataset/npa_20221124_0001) | CSV / XLSX | １年 | 到達可 |
-| [犯罪統計資料_令和4年(１～9月)](https://data.e-gov.go.jp/data/dataset/npa_20221124_0025) | CSV / PDF / XLS | 1年 | **到達不可** |
-| [犯罪統計資料_令和２年(１～12月)【確定値】](https://data.e-gov.go.jp/data/dataset/npa_20210602_0025) | CSV / PDF / XLS | 1年 | **到達不可** |
-| [犯罪統計資料_令和３年(１～12月)【確定値】](https://data.e-gov.go.jp/data/dataset/npa_20220530_0018) | CSV / PDF / XLS | 1年 | **到達不可** |
+| [犯罪統計資料_令和4年(１～9月)](https://data.e-gov.go.jp/data/dataset/npa_20221124_0025) | CSV / PDF / XLS | 1年 | 到達可 |
+| [犯罪統計資料_令和２年(１～12月)【確定値】](https://data.e-gov.go.jp/data/dataset/npa_20210602_0025) | CSV / PDF / XLS | 1年 | 到達可 |
+| [犯罪統計資料_令和３年(１～12月)【確定値】](https://data.e-gov.go.jp/data/dataset/npa_20220530_0018) | CSV / PDF / XLS | 1年 | 到達可 |
 | [警備業データ](https://data.e-gov.go.jp/data/dataset/npa_20221124_0058) | CSV | １年 | 到達可 |
 | [高度化PICS整備交差点](https://data.e-gov.go.jp/data/dataset/npa_20221124_0054) | CSV | 不定期 | 到達可 |
 

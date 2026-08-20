@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T02:45:39+00:00",
+  "generated_at": "2026-08-20T03:00:49+00:00",
   "generated_by": "verify/survey_catalog.py",
   "source": {
     "name": "e-Gov データポータル（CKAN API）",
@@ -1417,7 +1417,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "食中毒統計調査＿令和７年食中毒統計調査＿年次＿2025年",
@@ -1431,7 +1431,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "食中毒統計調査＿令和４年食中毒統計調査＿年次＿2022年",
@@ -1445,7 +1445,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "食中毒統計調査＿令和５年食中毒統計調査＿年次＿2023年",
@@ -1459,7 +1459,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "食中毒統計調査_令和元年食中毒統計調査_年次_2021年",
@@ -1473,7 +1473,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "公害健康被害補償制度 現存被認定者数",
@@ -9234,7 +9234,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "気象観測_竜巻等の突風データベース",
@@ -9352,7 +9352,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "情報通信白書_令和2年版(7)",
@@ -9391,7 +9391,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "海外在留邦人数調査統計_平成２６年_詳細版",
@@ -9486,7 +9486,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死亡_年次_2017年",
@@ -9505,7 +9505,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "情報通信白書_令和元年版(6)",
@@ -9543,7 +9543,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "課税対象所得：総務省『市町村税課税状況等の調』",
@@ -9626,7 +9626,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死亡_年次_2016年",
@@ -9646,7 +9646,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "情報通信白書_平成29年版（７）",
@@ -9679,7 +9679,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "社会福祉施設等調査",
@@ -9693,7 +9693,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "公害等調整委員会年次報告_平成28年度",
@@ -9865,7 +9865,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "製造品出荷額等：経済産業省『工業統計調査』",
@@ -9903,7 +9903,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "平成28年通信利用動向調査",
@@ -9922,7 +9922,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2012",
@@ -9941,7 +9941,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_総覧_年次_2013年",
@@ -9960,7 +9960,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "令和２年通信利用動向調査",
@@ -9979,7 +9979,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "ブロードバンドサービス等の契約数の推移（四半期）",
@@ -10018,7 +10018,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_分類表_年次_2012年",
@@ -10038,7 +10038,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死亡_年次_2018年",
@@ -10057,7 +10057,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "令和３年通信利用動向調査",
@@ -10076,7 +10076,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "出生数：厚生労働省『人口動態調査』",
@@ -10114,7 +10114,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_総覧_年次_2011年",
@@ -10133,7 +10133,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "令和２年通信利用動向調査",
@@ -10152,7 +10152,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "平成29年通信利用動向調査",
@@ -10171,7 +10171,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "平成29年通信利用動向調査",
@@ -10190,7 +10190,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死亡_年次_2012年",
@@ -10209,7 +10209,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "犯罪統計資料_令和３年(１～12月)【確定値】",
@@ -10231,7 +10231,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "令和２年通信利用動向調査",
@@ -10250,7 +10250,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "端末別にみた個人のインターネット利用者数・比率の推移",
@@ -10305,7 +10305,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "令和３年通信利用動向調査",
@@ -10324,7 +10324,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "情報通信統計データベース",
@@ -10361,7 +10361,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_分類表_年次_2011年",
@@ -10381,7 +10381,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "事業所数：総務省『事業所・企業統計調査』、『経済センサス－基礎調査』",
@@ -10437,7 +10437,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死亡_年次_2013年",
@@ -10456,7 +10456,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2011",
@@ -10475,7 +10475,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "犯罪統計資料_令和２年(１～12月)【確定値】",
@@ -10497,7 +10497,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2011",
@@ -10516,7 +10516,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死亡_年次_2014年",
@@ -10535,7 +10535,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "令和元年通信利用動向調査",
@@ -10554,7 +10554,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2014",
@@ -10573,7 +10573,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_総覧_年次_2012年",
@@ -10592,7 +10592,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "平成30年通信利用動向調査",
@@ -10612,7 +10612,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2016",
@@ -10631,7 +10631,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "インターネット普及率の推移",
@@ -10704,7 +10704,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "情報通信白書_平成28年版（5/10）",
@@ -10762,7 +10762,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "平成30年通信利用動向調査",
@@ -10781,7 +10781,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "犯罪統計資料_令和4年(１～9月)",
@@ -10803,7 +10803,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "予算書関連_平成14年度",
@@ -12871,7 +12871,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "予算書関連_昭和52年度",
@@ -13031,7 +13031,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "決算書関連_昭和58年度",
@@ -13735,7 +13735,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "利用場所別にみたパソコンからのインターネット利用者数・比率の推移",
@@ -13790,7 +13790,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "令和元年通信利用動向調査",
@@ -13809,7 +13809,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "農業産出額：農林水産省『生産農業所得統計』",
@@ -13881,7 +13881,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "バリアフリーの基準を満たした施設に関する情報",
@@ -13952,7 +13952,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "平成16年（概要）薬事工業生産動態統計調査_年次_2004年",
@@ -13971,7 +13971,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "予算書関連_昭和54年度",
@@ -14059,7 +14059,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "国際観光ホテル整備法に基づいて登録されたホテル・旅館の一覧（英語版）",
@@ -14105,7 +14105,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年",
@@ -14123,7 +14123,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年",
@@ -14141,7 +14141,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年",
@@ -14159,7 +14159,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年",
@@ -14177,7 +14177,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2021年",
@@ -14195,7 +14195,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2021年",
@@ -14213,7 +14213,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2021年",
@@ -14231,7 +14231,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2021年",
@@ -14249,7 +14249,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2021年",
@@ -14267,7 +14267,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年",
@@ -14285,7 +14285,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年",
@@ -14303,7 +14303,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年",
@@ -14321,7 +14321,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2021年",
@@ -14339,7 +14339,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年",
@@ -14357,7 +14357,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年",
@@ -14375,7 +14375,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年",
@@ -14393,7 +14393,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年",
@@ -14411,7 +14411,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年",
@@ -14429,7 +14429,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年",
@@ -14447,7 +14447,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2021年",
@@ -14465,7 +14465,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2021年",
@@ -14483,7 +14483,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2021年",
@@ -14501,7 +14501,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2021年",
@@ -14519,7 +14519,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2021年",
@@ -14537,7 +14537,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2021年",
@@ -14555,7 +14555,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2021年",
@@ -14573,7 +14573,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2021年",
@@ -14591,7 +14591,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2021年",
@@ -14609,7 +14609,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2021年",
@@ -14627,7 +14627,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2021年",
@@ -14645,7 +14645,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2021年",
@@ -14663,7 +14663,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2021年",
@@ -14681,7 +14681,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期_年次_2021年",
@@ -14699,7 +14699,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2021年",
@@ -14717,7 +14717,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2021年",
@@ -14735,7 +14735,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2021年",
@@ -14753,7 +14753,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_総覧_年次_2021年",
@@ -14771,7 +14771,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2014年_同居時年齢＿夫－妻の届出時の年齢（５歳階級）・結婚生活に入る前の世帯の主な仕事・都道府県（21大都市再掲）別",
@@ -14789,7 +14789,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_5-2 出生数，性・母の年齢（５歳階級）・都道府県・市区町村別",
@@ -14807,7 +14807,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_4 出生数，2500g未満の出生数（再掲），性・母の年齢（各歳）・出生順位・都道府県（20大都市再掲）別",
@@ -14825,7 +14825,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_3 出生数，出生当時の世帯の主な仕事・都道府県（20大都市再掲）別",
@@ -14843,7 +14843,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "1_第1表食中毒事件・患者・死者数，原因食品・都道府県－保健所設置市及び特別区（再掲）別",
@@ -14857,7 +14857,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "CSV形式による主要時系列データ",
@@ -14875,7 +14875,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "男女別人口及び世帯数 －町丁・字等",
@@ -14892,7 +14892,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Quarterly Estimates of GDP Apr. - Jun. 2015 (The Second Preliminary)(Benchmark year=2005)",
@@ -15082,7 +15082,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "平成13年（概要）薬事工業生産動態統計調査_年次_2001年",
@@ -15100,7 +15100,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "平成14年（概要）薬事工業生産動態統計調査_年次_2002年",
@@ -15118,7 +15118,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "決算書関連_昭和22年度",
@@ -16507,7 +16507,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2013",
@@ -16525,7 +16525,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2013",
@@ -16543,7 +16543,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2013",
@@ -16561,7 +16561,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2013",
@@ -16579,7 +16579,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2013",
@@ -16597,7 +16597,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2013",
@@ -16615,7 +16615,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2013",
@@ -16633,7 +16633,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2012",
@@ -16651,7 +16651,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2012",
@@ -16669,7 +16669,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2012",
@@ -16687,7 +16687,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2012",
@@ -16705,7 +16705,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2012",
@@ -16723,7 +16723,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2012",
@@ -16741,7 +16741,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2012",
@@ -16759,7 +16759,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2012",
@@ -16777,7 +16777,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2011",
@@ -16795,7 +16795,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2011",
@@ -16813,7 +16813,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2011",
@@ -16831,7 +16831,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2011",
@@ -16849,7 +16849,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2011",
@@ -16867,7 +16867,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2011",
@@ -16885,7 +16885,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2011",
@@ -16903,7 +16903,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2011",
@@ -16921,7 +16921,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年",
@@ -16939,7 +16939,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年",
@@ -16957,7 +16957,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年",
@@ -16975,7 +16975,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年",
@@ -16993,7 +16993,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年",
@@ -17011,7 +17011,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2020年",
@@ -17029,7 +17029,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2020年",
@@ -17047,7 +17047,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2020年",
@@ -17065,7 +17065,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2020年",
@@ -17083,7 +17083,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2020年",
@@ -17101,7 +17101,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年",
@@ -17119,7 +17119,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年",
@@ -17137,7 +17137,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年",
@@ -17155,7 +17155,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2020年",
@@ -17173,7 +17173,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年",
@@ -17191,7 +17191,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年",
@@ -17209,7 +17209,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年",
@@ -17227,7 +17227,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年",
@@ -17245,7 +17245,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年",
@@ -17263,7 +17263,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年",
@@ -17281,7 +17281,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2020年",
@@ -17299,7 +17299,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2020年",
@@ -17317,7 +17317,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2020年",
@@ -17335,7 +17335,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2020年",
@@ -17353,7 +17353,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2020年",
@@ -17371,7 +17371,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2020年",
@@ -17389,7 +17389,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2020年",
@@ -17407,7 +17407,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2020年",
@@ -17425,7 +17425,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2020年",
@@ -17443,7 +17443,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2020年",
@@ -17461,7 +17461,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2020年",
@@ -17479,7 +17479,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2020年",
@@ -17497,7 +17497,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2020年",
@@ -17515,7 +17515,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期_年次_2020年",
@@ -17533,7 +17533,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2020年",
@@ -17551,7 +17551,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2020年",
@@ -17569,7 +17569,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2020年",
@@ -17587,7 +17587,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_総覧_年次_2020年",
@@ -17605,7 +17605,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2017",
@@ -17623,7 +17623,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2017",
@@ -17641,7 +17641,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2017",
@@ -17659,7 +17659,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2017",
@@ -17677,7 +17677,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2017",
@@ -17695,7 +17695,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2017",
@@ -17713,7 +17713,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2017",
@@ -17731,7 +17731,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2017",
@@ -17749,7 +17749,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2017",
@@ -17767,7 +17767,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2017年_3",
@@ -17785,7 +17785,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2017年_2",
@@ -17803,7 +17803,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2017年_1",
@@ -17821,7 +17821,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2017年",
@@ -17839,7 +17839,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2017年",
@@ -17857,7 +17857,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2017年_2",
@@ -17875,7 +17875,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2017年_1",
@@ -17893,7 +17893,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2017年",
@@ -17911,7 +17911,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2017年",
@@ -17929,7 +17929,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2017年_3",
@@ -17947,7 +17947,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2017年_2",
@@ -17965,7 +17965,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2017年_1",
@@ -17983,7 +17983,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2017年",
@@ -18001,7 +18001,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2017年",
@@ -18019,7 +18019,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2017年",
@@ -18037,7 +18037,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2017年",
@@ -18055,7 +18055,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2017年",
@@ -18073,7 +18073,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2017年",
@@ -18091,7 +18091,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2017年",
@@ -18109,7 +18109,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2017年",
@@ -18127,7 +18127,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2017年",
@@ -18145,7 +18145,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2017年",
@@ -18163,7 +18163,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2017年",
@@ -18181,7 +18181,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2017年",
@@ -18199,7 +18199,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期_年次_2017年",
@@ -18217,7 +18217,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2017年",
@@ -18235,7 +18235,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2017年",
@@ -18253,7 +18253,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2017年",
@@ -18271,7 +18271,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_総覧_年次_2017年",
@@ -18289,7 +18289,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2016",
@@ -18307,7 +18307,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2016",
@@ -18325,7 +18325,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2016",
@@ -18343,7 +18343,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2016",
@@ -18361,7 +18361,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2016",
@@ -18379,7 +18379,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2016",
@@ -18397,7 +18397,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2016",
@@ -18415,7 +18415,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_6",
@@ -18433,7 +18433,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_5",
@@ -18451,7 +18451,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_4",
@@ -18469,7 +18469,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_3",
@@ -18487,7 +18487,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_2",
@@ -18505,7 +18505,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死因_年次_2016年_1",
@@ -18523,7 +18523,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_離婚_年次_2016年",
@@ -18541,7 +18541,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_婚姻_年次_2016年_2",
@@ -18559,7 +18559,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_婚姻_年次_2016年_1",
@@ -18577,7 +18577,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死産_年次_2016年",
@@ -18595,7 +18595,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2016年",
@@ -18613,7 +18613,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_出生_年次_2016年_3",
@@ -18631,7 +18631,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_出生_年次_2016年_2",
@@ -18649,7 +18649,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表 都道府県編（報告書非掲載表）_出生_年次_2016年_1",
@@ -18667,7 +18667,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2016年",
@@ -18685,7 +18685,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2016年",
@@ -18703,7 +18703,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2016年",
@@ -18721,7 +18721,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2016年",
@@ -18739,7 +18739,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期死亡_年次_2016年",
@@ -18757,7 +18757,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2016年",
@@ -18775,7 +18775,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2016年",
@@ -18793,7 +18793,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2016年",
@@ -18811,7 +18811,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2016年",
@@ -18829,7 +18829,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_人口_年次_2016年",
@@ -18847,7 +18847,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2016年",
@@ -18865,7 +18865,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2016年",
@@ -18883,7 +18883,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2016年",
@@ -18901,7 +18901,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期死亡_年次_2016年",
@@ -18919,7 +18919,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2016年",
@@ -18937,7 +18937,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2016年",
@@ -18955,7 +18955,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2016年",
@@ -18973,7 +18973,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_総覧_年次_2016年",
@@ -18991,7 +18991,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2015",
@@ -19009,7 +19009,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2015",
@@ -19027,7 +19027,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2015",
@@ -19045,7 +19045,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2015",
@@ -19063,7 +19063,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2015",
@@ -19081,7 +19081,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2015年",
@@ -19099,7 +19099,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死亡_年次_2015年",
@@ -19117,7 +19117,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2015",
@@ -19135,7 +19135,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2015",
@@ -19153,7 +19153,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2015",
@@ -19171,7 +19171,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2015",
@@ -19189,7 +19189,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2015",
@@ -19207,7 +19207,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2015",
@@ -19225,7 +19225,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_6",
@@ -19243,7 +19243,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_5",
@@ -19261,7 +19261,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_4",
@@ -19279,7 +19279,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_3",
@@ -19297,7 +19297,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_2",
@@ -19315,7 +19315,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2015年_1",
@@ -19333,7 +19333,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2015年_2",
@@ -19351,7 +19351,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2015年",
@@ -19369,7 +19369,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2015年_2",
@@ -19387,7 +19387,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2015年_1",
@@ -19405,7 +19405,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2015年",
@@ -19423,7 +19423,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2015年",
@@ -19441,7 +19441,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2015年_3",
@@ -19459,7 +19459,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2015年_2",
@@ -19477,7 +19477,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2015年_1",
@@ -19495,7 +19495,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2015年",
@@ -19513,7 +19513,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2015年",
@@ -19531,7 +19531,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2015年",
@@ -19549,7 +19549,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2015年",
@@ -19567,7 +19567,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2015年",
@@ -19585,7 +19585,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2015年",
@@ -19603,7 +19603,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2015年",
@@ -19621,7 +19621,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2015年",
@@ -19639,7 +19639,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2015年",
@@ -19657,7 +19657,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_人口_年次_2015年",
@@ -19675,7 +19675,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2015年",
@@ -19693,7 +19693,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2015年",
@@ -19711,7 +19711,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2015年",
@@ -19729,7 +19729,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期_年次_2015年",
@@ -19747,7 +19747,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2015年",
@@ -19765,7 +19765,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2015年",
@@ -19783,7 +19783,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2015年",
@@ -19801,7 +19801,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2014",
@@ -19819,7 +19819,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2014",
@@ -19837,7 +19837,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2014",
@@ -19855,7 +19855,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2014",
@@ -19873,7 +19873,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2014",
@@ -19891,7 +19891,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2014",
@@ -19909,7 +19909,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2014",
@@ -19927,7 +19927,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2014",
@@ -19945,7 +19945,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2014",
@@ -19963,7 +19963,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2014",
@@ -19981,7 +19981,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2016",
@@ -19999,7 +19999,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Quarterly Estimates of GDP Jan. - Mar. 2016 (The First Preliminary)(Benchmark year=2005)",
@@ -20341,7 +20341,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2019",
@@ -20359,7 +20359,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2019",
@@ -20377,7 +20377,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2019",
@@ -20395,7 +20395,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2019",
@@ -20413,7 +20413,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2019",
@@ -20431,7 +20431,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2019",
@@ -20449,7 +20449,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2019",
@@ -20467,7 +20467,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2019",
@@ -20485,7 +20485,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2019",
@@ -20503,7 +20503,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年",
@@ -20521,7 +20521,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_4",
@@ -20539,7 +20539,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_3",
@@ -20557,7 +20557,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_2",
@@ -20575,7 +20575,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2019年_1",
@@ -20593,7 +20593,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2019年",
@@ -20611,7 +20611,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2019年_2",
@@ -20629,7 +20629,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2019年_1",
@@ -20647,7 +20647,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2019年",
@@ -20665,7 +20665,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2019年",
@@ -20683,7 +20683,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_5-2",
@@ -20701,7 +20701,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_5-1",
@@ -20719,7 +20719,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_4",
@@ -20737,7 +20737,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_3",
@@ -20755,7 +20755,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_2",
@@ -20773,7 +20773,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_1-2",
@@ -20791,7 +20791,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_1-1",
@@ -20809,7 +20809,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年",
@@ -20827,7 +20827,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2019年_1-1",
@@ -20845,7 +20845,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2019年",
@@ -20863,7 +20863,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2019年",
@@ -20881,7 +20881,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2019年",
@@ -20899,7 +20899,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2019年",
@@ -20917,7 +20917,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2019年",
@@ -20935,7 +20935,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2019年",
@@ -20953,7 +20953,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2019年",
@@ -20971,7 +20971,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2019年",
@@ -20989,7 +20989,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2019年",
@@ -21007,7 +21007,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2019年",
@@ -21025,7 +21025,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2019年",
@@ -21043,7 +21043,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2019年",
@@ -21061,7 +21061,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期_年次_2019年",
@@ -21079,7 +21079,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2019年",
@@ -21097,7 +21097,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2019年",
@@ -21115,7 +21115,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2019年",
@@ -21133,7 +21133,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_総覧_年次_2019年",
@@ -21151,7 +21151,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "情報通信白書_令和2年版(9)",
@@ -21205,7 +21205,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Other_Yearly_2018",
@@ -21223,7 +21223,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Divorces_Yearly_2018",
@@ -21241,7 +21241,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Marriages_Yearly_2018",
@@ -21259,7 +21259,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Perinatal mortality_Yearly_2018",
@@ -21277,7 +21277,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Foetal mortality_Yearly_2018",
@@ -21295,7 +21295,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Infant mortality_Yearly_2018",
@@ -21313,7 +21313,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_General mortality_Yearly_2018",
@@ -21331,7 +21331,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Natality_Yearly_2018",
@@ -21349,7 +21349,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Summary_Yearly_2018",
@@ -21367,7 +21367,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年",
@@ -21385,7 +21385,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_4",
@@ -21403,7 +21403,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_3",
@@ -21421,7 +21421,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_2",
@@ -21439,7 +21439,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2018年_1",
@@ -21457,7 +21457,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2018年",
@@ -21475,7 +21475,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2018年_2",
@@ -21493,7 +21493,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2018年_1",
@@ -21511,7 +21511,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2018年",
@@ -21529,7 +21529,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2018年",
@@ -21547,7 +21547,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_5-2",
@@ -21565,7 +21565,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_5-1",
@@ -21583,7 +21583,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_4",
@@ -21601,7 +21601,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_3",
@@ -21619,7 +21619,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_2",
@@ -21637,7 +21637,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_1-2",
@@ -21655,7 +21655,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_1-1",
@@ -21673,7 +21673,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年",
@@ -21691,7 +21691,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2018年_1-1",
@@ -21709,7 +21709,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2018年",
@@ -21727,7 +21727,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2018年",
@@ -21745,7 +21745,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2018年",
@@ -21763,7 +21763,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2018年",
@@ -21781,7 +21781,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2018年",
@@ -21799,7 +21799,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2018年",
@@ -21817,7 +21817,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2018年",
@@ -21835,7 +21835,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2018年",
@@ -21853,7 +21853,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2018年",
@@ -21871,7 +21871,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_人口_年次_2018年",
@@ -21889,7 +21889,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2018年",
@@ -21907,7 +21907,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2018年",
@@ -21925,7 +21925,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2018年",
@@ -21943,7 +21943,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期_年次_2018年",
@@ -21961,7 +21961,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2018年",
@@ -21979,7 +21979,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2018年",
@@ -21997,7 +21997,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2018年",
@@ -22015,7 +22015,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_総覧_年次_2018年",
@@ -22033,7 +22033,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "学校給食における食堂・食器具使用状況調査（平成１５年５月１日現在） 統計表一覧_2",
@@ -22099,7 +22099,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_人口_年次_2017年",
@@ -22117,7 +22117,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "Vital Statistics_Vital statistics of Japan_Final data_Population_Yearly_2015",
@@ -22135,7 +22135,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "消費税率引上げ後の消費動向等",
@@ -22187,7 +22187,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2013年",
@@ -22205,7 +22205,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2012年",
@@ -22223,7 +22223,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死因_年次_2011年",
@@ -22241,7 +22241,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2014年",
@@ -22259,7 +22259,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2013年",
@@ -22277,7 +22277,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2012年",
@@ -22295,7 +22295,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_離婚_年次_2011年",
@@ -22313,7 +22313,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2014年_夫－妻の同居時の年齢（５歳階級）・結婚生活に入る前の世帯の主な仕事・都道府県（21大都市再掲）別",
@@ -22331,7 +22331,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2013年",
@@ -22349,7 +22349,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2012年",
@@ -22367,7 +22367,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_婚姻_年次_2011年",
@@ -22385,7 +22385,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2014年",
@@ -22403,7 +22403,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2013年",
@@ -22421,7 +22421,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2012年",
@@ -22439,7 +22439,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死産_年次_2011年",
@@ -22457,7 +22457,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2014年",
@@ -22475,7 +22475,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2013年",
@@ -22493,7 +22493,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2012年",
@@ -22511,7 +22511,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_死亡・乳児死亡_年次_2011年",
@@ -22529,7 +22529,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_5-2_出生数，性・母の年齢（５歳階級）・都道府県・市区町村別",
@@ -22547,7 +22547,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_5-1_出生数，性・母の年齢（５歳階級）・都道府県・保健所別",
@@ -22565,7 +22565,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_4_出生数，2500g未満出生数（再掲），性・母の年齢（各歳）・出生順位・都道府県（21大都市再掲）別",
@@ -22583,7 +22583,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_3_出生数，出生当時の世帯の主な仕事・都道府県（21大都市再掲）別",
@@ -22601,7 +22601,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_2_出生数，性・出生月・都道府県・保健所別",
@@ -22619,7 +22619,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_1-2_出生数，出生の場所・出生時の立会者・都道府県・市区町村別",
@@ -22637,7 +22637,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2014年_1-1_出生数，出生の場所・出生時の立会者・都道府県・保健所別",
@@ -22655,7 +22655,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2013年",
@@ -22673,7 +22673,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2012年",
@@ -22691,7 +22691,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_5-1 出生数，性・母の年齢（５歳階級）・都道府県・保健所別",
@@ -22709,7 +22709,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_2 出生数，性・出生月・都道府県（20大都市再掲）・保健所別",
@@ -22727,7 +22727,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_1-2 出生数，出生の場所・出生時の立会者・都道府県・市区町村別",
@@ -22745,7 +22745,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表　都道府県編（報告書非掲載表）_出生_年次_2011年_1-1 出生数，出生の場所・出生時の立会者・都道府県・保健所別",
@@ -22763,7 +22763,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2014年",
@@ -22781,7 +22781,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2013年",
@@ -22799,7 +22799,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2012年",
@@ -22817,7 +22817,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_別表_年次_2011年",
@@ -22835,7 +22835,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2014年",
@@ -22853,7 +22853,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2013年",
@@ -22871,7 +22871,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2012年",
@@ -22889,7 +22889,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死因_年次_2011年",
@@ -22907,7 +22907,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2014年",
@@ -22925,7 +22925,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2013年",
@@ -22943,7 +22943,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2012年",
@@ -22961,7 +22961,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_離婚_年次_2011年",
@@ -22979,7 +22979,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2014年",
@@ -22997,7 +22997,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2013年",
@@ -23015,7 +23015,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2012年",
@@ -23033,7 +23033,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_婚姻_年次_2011年",
@@ -23051,7 +23051,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2014年",
@@ -23069,7 +23069,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2013年",
@@ -23087,7 +23087,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2012年",
@@ -23105,7 +23105,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_周産期_年次_2011年",
@@ -23123,7 +23123,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2014年",
@@ -23141,7 +23141,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2013年",
@@ -23159,7 +23159,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2012年",
@@ -23177,7 +23177,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死産_年次_2011年",
@@ -23195,7 +23195,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2014年",
@@ -23213,7 +23213,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2013年",
@@ -23231,7 +23231,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2012年",
@@ -23249,7 +23249,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_乳児死亡_年次_2011年",
@@ -23267,7 +23267,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2014年",
@@ -23285,7 +23285,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2013年",
@@ -23303,7 +23303,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2012年",
@@ -23321,7 +23321,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_死亡_年次_2011年",
@@ -23339,7 +23339,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2014年",
@@ -23357,7 +23357,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2013年",
@@ -23375,7 +23375,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2012年",
@@ -23393,7 +23393,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_保管統計表（報告書非掲載表）_出生_年次_2011年",
@@ -23411,7 +23411,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_人口_年次_2014年",
@@ -23429,7 +23429,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_人口_年次_2013年",
@@ -23447,7 +23447,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_人口_年次_2012年",
@@ -23465,7 +23465,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_人口_年次_2011年",
@@ -23483,7 +23483,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2014年",
@@ -23501,7 +23501,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2013年",
@@ -23519,7 +23519,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2012年",
@@ -23537,7 +23537,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_別表_年次_2011年",
@@ -23555,7 +23555,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2014年",
@@ -23573,7 +23573,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2013年",
@@ -23591,7 +23591,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2012年",
@@ -23609,7 +23609,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_離婚_年次_2011年",
@@ -23627,7 +23627,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2014年",
@@ -23645,7 +23645,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2013年",
@@ -23663,7 +23663,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2012年",
@@ -23681,7 +23681,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_婚姻_年次_2011年",
@@ -23699,7 +23699,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期_年次_2014年",
@@ -23717,7 +23717,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期_年次_2013年",
@@ -23735,7 +23735,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期_年次_2012年",
@@ -23753,7 +23753,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_周産期_年次_2011年",
@@ -23771,7 +23771,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2014年",
@@ -23789,7 +23789,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2013年",
@@ -23807,7 +23807,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2012年",
@@ -23825,7 +23825,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_死産_年次_2011年",
@@ -23843,7 +23843,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2014年",
@@ -23861,7 +23861,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2013年",
@@ -23879,7 +23879,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2012年",
@@ -23897,7 +23897,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_乳児死亡_年次_2011年",
@@ -23915,7 +23915,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2014年",
@@ -23933,7 +23933,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2013年",
@@ -23951,7 +23951,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2012年",
@@ -23969,7 +23969,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_出生_年次_2011年",
@@ -23987,7 +23987,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "人口動態調査_人口動態統計_確定数_総覧_年次_2014年",
@@ -24005,7 +24005,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "国民生活基礎調査",
@@ -24022,7 +24022,7 @@
         "hosts": [
           "www.e-stat.go.jp"
         ],
-        "reachable": false
+        "reachable": true
       },
       {
         "title": "予算書関連_昭和22年度",
@@ -24922,8 +24922,8 @@
     ],
     "resource_hosts": {
       "www.e-stat.go.jp": {
-        "reachable": false,
-        "reason": "自環境の egress で拒否: 403 Forbidden",
+        "reachable": true,
+        "reason": "HTTP 200",
         "datasets": 503
       },
       "housyasen.env.go.jp": {
@@ -25037,7 +25037,7 @@
         "datasets": 1
       }
     },
-    "reachable_datasets": 618
+    "reachable_datasets": 1121
   },
   "definitions": {
     "machine_readable": [

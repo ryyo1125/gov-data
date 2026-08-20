@@ -46,24 +46,29 @@ e-Stat のような API 群を 1 エントリにまとめると、認証も到�
 `.work/toolvenv` は `./verify/run_all.sh` が作る。無ければ先に一度回すこと。
 システムの `python` には httpx も PyYAML も入っていないので動かない。
 
-新しいホストは `registry/blocked.yaml` の `candidates:` に足してから回すと、そのホストも実測される。
+新しいホストは `registry/candidates.yaml` の `candidates:` に足してから回すと、そのホストも実測される。
 
 **到達できない場合、そこで止まる。** 二次情報（Web 検索結果や解説記事）だけを根拠に
 エントリを書いてはいけない。それは推測を台帳に入れる行為で、この台帳が防ごうとしている
-ことそのものだ。代わりに `registry/blocked.yaml` に候補として記録する。
+ことそのものだ。代わりに `registry/candidates.yaml` に候補として記録する。
 
 ```yaml
   - id: jma-xml
     name: 気象庁防災情報XML（PULL型 Atom フィード）
     why: なぜ調べたか
     hosts: [xml.kishou.go.jp, www.jma.go.jp]
-    blocked_reason: 何がどう到達できなかったか（プロキシ 403 なのか先方の障害なのか）
+    blocker: unreachable       # unreachable / credentials / not_started
+    blocker_detail: 何がどう到達できなかったか（プロキシ 403 なのか先方の障害なのか）
     next_step: 何が解消すれば検証に進めるか
 ```
 
-記録しておけば、`build.py` が到達性の実測と突き合わせ、許可リストが広がった時点で
-「いま到達可能 — 検証して昇格できる」と表示する。調査を捨てずに済み、
-かつ検証していないものが台帳に紛れ込むこともない。
+`blocker` は「**なぜまだ検証していないか**」であって、その情報源の性質ではない。
+環境が変われば古くなるので、`build.py` が到達性の実測と突き合わせ、
+`unreachable` と書いてあるのに到達できる候補には「記録が古い」と表示する。
+
+**候補にはその情報源が何を提供するかを書かない。** 一次資料に当たる前に書けるのは
+名前とホストと調べた理由だけで、それ以外は推測になる。認証情報が無くて実行できない
+ものは `credentials`、到達できて着手していないだけなら `not_started`。
 
 ### 3. 一次資料を読む
 
@@ -126,7 +131,7 @@ MCP サーバーが対象なら、clone から起動・検証までを通しで�
 
 | 症状 | 意味 | 書き先 |
 |---|---|---|
-| プロキシから 403/407（httpx なら `ProxyError`、curl なら CONNECT tunnel failed） | 自環境の egress ポリシー | 一部なら `reachability.hosts` の `note`。全部塞がれていて検証できないなら `blocked.yaml` |
+| プロキシから 403/407（httpx なら `ProxyError`、curl なら CONNECT tunnel failed） | 自環境の egress ポリシー | 一部なら `reachability.hosts` の `note`。全部塞がれていて検証できないなら `candidates.yaml`（`blocker: unreachable`） |
 | 先方から 4xx/5xx（`status_code` が取れている） | 先方の仕様・障害 | エラーコードごと `findings` に記録 |
 | 特定のツールだけ失敗し、別のツールでは通る | ツールごとに egress の経路が違う | ツール名まで含めて `findings` に記録 |
 | 既定の User-Agent で 403、ブラウザ相当の UA で 200 | 先方の WAF | `findings` に記録。egress のせいにしない |

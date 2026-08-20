@@ -21,9 +21,10 @@
 4. **実測値は隔離する。** 件数などの数値は `content.measured` にだけ書き、
    ビルドが検証結果と突き合わせる。取得していない数値も、腐った数値も通らない。
    質的な説明は `coverage` に書き、そちらの数値は検査しない。
-5. **検証できないものは台帳に載せない。** 自環境から到達できず一次資料にも
-   当たれない候補は `registry/blocked.yaml` に待避させる。調査の記録は残しつつ、
-   検証していないものが台帳に紛れ込むのを防ぐ。egress が開けばビルドが昇格可能と教える。
+5. **検証できないものは台帳に載せない。** まだ検証していない候補は
+   `registry/candidates.yaml` に置き、なぜ保留なのかを `blocker` で持つ
+   （到達できない / 認証情報が無い / 未着手）。調査の記録は残しつつ、
+   検証していないものが台帳に紛れ込むのを防ぐ。blocker が実測と食い違えばビルドが知らせる。
 
 ## 台帳
 
@@ -56,7 +57,7 @@ CLAUDE.md                     常に効く制約（手順はスキル側）
 .claude/skills/gov-data-registry/  エントリ追加手順のスキル
 registry/schema.json          台帳エントリのスキーマ。手書き禁止フィールドをここで縛る
 registry/sources/*.yaml       台帳エントリ（1 エンドポイント 1 ファイル、人が書く）
-registry/blocked.yaml         到達不能で登録できなかった候補の待避所
+registry/candidates.yaml      台帳に入る前の候補。保留の理由を blocker で持つ
 registry/build.py             検証 + 生成。status は results/ からのみ導出する
 registry/test_build.sh        build.py の検査が効いているかの回帰テスト
 registry/registry.json        生成物（機械向け）
@@ -79,7 +80,7 @@ results/*.json                検証の生ログ。台帳の status の唯一の
 
 1. 対象を 1 エンドポイント（または 1 MCP サーバー）に絞る
 2. `verify/verify_reachability.py` で到達性を先に確かめる。到達できなければ
-   ここで止まり、`registry/blocked.yaml` に候補として記録する。
+   ここで止まり、`registry/candidates.yaml` に `blocker: unreachable` で記録する。
    二次情報だけを根拠にエントリを書かない
 3. 一次資料（OpenAPI、XML Schema、ソース）を読む。利用規約は API 側ではなく
    提供元ポータルにあることが多い

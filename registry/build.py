@@ -24,7 +24,7 @@ from jsonschema import Draft202012Validator
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCES_DIR = REPO_ROOT / "registry" / "sources"
 SCHEMA_PATH = REPO_ROOT / "registry" / "schema.json"
-BLOCKED_PATH = REPO_ROOT / "registry" / "blocked.yaml"
+CANDIDATES_PATH = REPO_ROOT / "registry" / "candidates.yaml"
 REACHABILITY_PATH = REPO_ROOT / "results" / "reachability.json"
 FIELDS_PATH = REPO_ROOT / "results" / "fields.json"
 SURVEY_PATH = REPO_ROOT / "results" / "catalog-survey.json"
@@ -216,20 +216,33 @@ def load_reachability() -> dict[str, dict]:
     return {"_generated_at": result.get("generated_at"), **reachability}
 
 
-def load_blocked(reachability: dict) -> list[dict]:
-    """到達不能で保留中の候補を読み、いま昇格可能になっていないかを判定する。"""
-    if not BLOCKED_PATH.is_file():
+def load_candidates(reachability: dict) -> list[dict]:
+    """台帳に入る前の候補を読み、記録された blocker が今も正しいかを実測と突き合わせる。
+
+    blocker は「なぜまだ検証していないか」であって情報源の性質ではないため、
+    環境が変われば古くなる。unreachable と書いてあるのに到達できるなら、
+    その記録はもう嘘なので直す必要がある。
+    """
+    if not CANDIDATES_PATH.is_file():
         return []
-    blocked = yaml.safe_load(BLOCKED_PATH.read_text(encoding="utf-8")) or {}
+    document = yaml.safe_load(CANDIDATES_PATH.read_text(encoding="utf-8")) or {}
     candidates = []
-    for candidate in blocked.get("candidates", []):
+    for candidate in document.get("candidates", []):
         hosts = candidate.get("hosts", [])
         measured = [reachability.get(h) for h in hosts]
-        # 実測済みで、どのホストも egress に塞がれていなければ検証に進める。
-        promotable = bool(measured) and all(
+        reachable = bool(measured) and all(
             m is not None and not m["blocked_by_egress"] for m in measured
         )
-        candidates.append({**candidate, "promotable": promotable})
+        blocker = candidate.get("blocker", "not_started")
+        candidates.append(
+            {
+                **candidate,
+                "reachable": reachable,
+                # 到達できるようになった unreachable は、記録が実態と食い違っている。
+                "stale_blocker": blocker == "unreachable" and reachable,
+                "actionable": reachable and blocker == "not_started",
+            }
+        )
     return candidates
 
 
@@ -240,7 +253,7 @@ def build_registry(entries: list[dict], now: datetime) -> dict:
         "generated_by": "registry/build.py",
         "stale_after_days": STALE_AFTER.days,
         "sources": [{**entry, "verification": derive_verification(entry, now)} for entry in entries],
-        "blocked_candidates": load_blocked(reachability),
+        "candidates": load_candidates(reachability),
         "reachability": reachability,
     }
 
@@ -277,34 +290,57 @@ def render_markdown(registry: dict) -> str:
     for s in registry["sources"]:
         lines += _render_entry(s)
 
-    lines += _render_blocked(registry["blocked_candidates"])
+    lines += _render_candidates(registry["candidates"])
     lines += _render_reachability(registry["reachability"])
 
     return "\n".join(lines) + "\n"
 
 
-def _render_blocked(candidates: list[dict]) -> list[str]:
-    """到達不能で登録できなかった候補。調査の重複を防ぐために残す。"""
+BLOCKER_LABEL = {
+    "unreachable": "到達できない（自環境の egress）",
+    "credentials": "認証情報が無い",
+    "not_started": "未着手",
+}
+
+
+def _render_candidates(candidates: list[dict]) -> list[str]:
+    """台帳に入る前の候補。調査の重複を防ぎ、次に何ができるかを示す。"""
     if not candidates:
         return []
+    actionable = [c for c in candidates if c["actionable"]]
     lines = [
         "",
-        "## 保留中の候補（到達不能で未登録）",
+        "## 候補（未登録）",
         "",
-        "検証環境の egress ポリシーで到達できず、事実を書く根拠が得られなかったもの。",
-        "台帳に載せていないのは提供が終わっているからではない。",
-        "実体は `registry/blocked.yaml`。",
+        "調べたが、まだ検証していない情報源。**何を提供するかは書かない** —",
+        "一次資料に当たる前に書けるのは名前とホストと調べた理由だけで、それ以外は推測になる。",
+        "実体は `registry/candidates.yaml`。",
         "",
+        f"- 候補 {len(candidates)} 件",
+        f"- **いま着手できるもの: {len(actionable)} 件**（到達でき、認証待ちでもない）",
+        "",
+        "| 候補 | 保留の理由 | ホストへの到達 |",
+        "|---|---|---|",
     ]
     for c in candidates:
-        state = "**いま到達可能 — 検証して昇格できる**" if c["promotable"] else "到達不可のまま"
+        label = BLOCKER_LABEL.get(c.get("blocker"), c.get("blocker"))
+        if c["stale_blocker"]:
+            label += " ← **記録が古い。到達できるようになっている**"
+        lines.append(
+            f"| **{c['name']}** (`{c['id']}`) | {label} | {'可' if c['reachable'] else '**不可**'} |"
+        )
+    lines.append("")
+
+    for c in candidates:
         lines += [
             f"### {c['name']} (`{c['id']}`)",
             "",
-            f"- 状態: {state}",
-            f"- 調べた理由: {c['why']}",
-            f"- 対象ホスト: {', '.join(f'`{h}`' for h in c['hosts'])}",
-            f"- 到達できない理由: {c['blocked_reason'].strip()}",
+            f"- 保留の理由: {BLOCKER_LABEL.get(c.get('blocker'), c.get('blocker'))}"
+            + ("（**記録が古い。到達できるようになっている**）" if c["stale_blocker"] else ""),
+            f"- 調べた理由: {c['why'].strip()}",
+            f"- 対象ホスト: {', '.join(f'`{h}`' for h in c['hosts'])}"
+            + f"（到達{'可' if c['reachable'] else '不可'}）",
+            f"- 詳細: {c['blocker_detail'].strip()}",
             f"- 次の一手: {c['next_step'].strip()}",
             "",
         ]
