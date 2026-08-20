@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T01:06:52+00:00",
+  "generated_at": "2026-08-20T01:37:26+00:00",
   "generated_by": "registry/build.py",
   "stale_after_days": 90,
   "sources": [
@@ -117,7 +117,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-20T01:05:07+00:00",
+        "verified_at": "2026-08-20T01:35:17+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -133,43 +133,43 @@
           {
             "step": "site_read",
             "outcome": "ok",
-            "elapsed_ms": 528,
+            "elapsed_ms": 641,
             "note": null
           },
           {
             "step": "package_search",
             "outcome": "ok",
-            "elapsed_ms": 759,
+            "elapsed_ms": 293,
             "note": null
           },
           {
             "step": "package_list",
             "outcome": "ok",
-            "elapsed_ms": 279,
+            "elapsed_ms": 226,
             "note": null
           },
           {
             "step": "organization_list",
             "outcome": "ok",
-            "elapsed_ms": 225,
+            "elapsed_ms": 217,
             "note": null
           },
           {
             "step": "group_list",
             "outcome": "ok",
-            "elapsed_ms": 231,
+            "elapsed_ms": 217,
             "note": null
           },
           {
             "step": "tag_list",
             "outcome": "ok",
-            "elapsed_ms": 1182,
+            "elapsed_ms": 734,
             "note": null
           },
           {
             "step": "package_show",
             "outcome": "ok",
-            "elapsed_ms": 284,
+            "elapsed_ms": 295,
             "note": null
           }
         ],
@@ -203,7 +203,7 @@
         "update_frequency": "undocumented",
         "coverage": "法令一覧・改正履歴・本文・添付ファイルを提供。全文検索は法令本文（law_full_text）を対象とする。",
         "measured": [
-          "/laws の total_count は 9541 件（全法令）"
+          "/laws の total_count は 9542 件（全法令）"
         ]
       },
       "requirements": {
@@ -288,7 +288,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-20T01:05:04+00:00",
+        "verified_at": "2026-08-20T01:35:14+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -304,49 +304,49 @@
           {
             "step": "fetch_openapi_spec",
             "outcome": "ok",
-            "elapsed_ms": 592,
+            "elapsed_ms": 695,
             "note": null
           },
           {
             "step": "GET /laws（全件数）",
             "outcome": "ok",
-            "elapsed_ms": 1048,
+            "elapsed_ms": 1151,
             "note": null
           },
           {
             "step": "GET /laws",
             "outcome": "ok",
-            "elapsed_ms": 348,
+            "elapsed_ms": 266,
             "note": null
           },
           {
             "step": "GET /law_revisions/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 321,
+            "elapsed_ms": 269,
             "note": null
           },
           {
             "step": "GET /law_data/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 454,
+            "elapsed_ms": 291,
             "note": null
           },
           {
             "step": "GET /keyword",
             "outcome": "ok",
-            "elapsed_ms": 2542,
+            "elapsed_ms": 1864,
             "note": null
           },
           {
             "step": "GET /law_file/xml/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 317,
+            "elapsed_ms": 322,
             "note": null
           },
           {
             "step": "GET /attachment/{law_revision_id}",
             "outcome": "ok",
-            "elapsed_ms": 481,
+            "elapsed_ms": 526,
             "note": null
           }
         ],
@@ -483,7 +483,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-20T01:05:22+00:00",
+        "verified_at": "2026-08-20T01:35:42+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -505,7 +505,7 @@
           {
             "step": "list_tools",
             "outcome": "ok",
-            "elapsed_ms": 19,
+            "elapsed_ms": 20,
             "note": null
           },
           {
@@ -523,31 +523,31 @@
           {
             "step": "call:ping",
             "outcome": "ok",
-            "elapsed_ms": 10,
+            "elapsed_ms": 12,
             "note": null
           },
           {
             "step": "call:search_subsidies",
             "outcome": "ok",
-            "elapsed_ms": 913,
+            "elapsed_ms": 1522,
             "note": null
           },
           {
             "step": "call:get_subsidy_detail",
             "outcome": "ok",
-            "elapsed_ms": 198,
+            "elapsed_ms": 205,
             "note": null
           },
           {
             "step": "call:get_subsidy_overview",
             "outcome": "ok",
-            "elapsed_ms": 1736,
+            "elapsed_ms": 1657,
             "note": null
           },
           {
             "step": "call:get_file_content",
             "outcome": "ok",
-            "elapsed_ms": 2182,
+            "elapsed_ms": 2491,
             "note": null
           }
         ],
@@ -657,7 +657,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-20T01:05:11+00:00",
+        "verified_at": "2026-08-20T01:35:22+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -673,55 +673,55 @@
           {
             "step": "GET /regular.xml (定時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 880,
+            "elapsed_ms": 423,
             "note": null
           },
           {
             "step": "GET /extra.xml (随時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 51,
+            "elapsed_ms": 58,
             "note": null
           },
           {
             "step": "GET /eqvol.xml (地震火山・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 45,
+            "elapsed_ms": 51,
             "note": null
           },
           {
             "step": "GET /other.xml (その他・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 45,
+            "elapsed_ms": 53,
             "note": null
           },
           {
             "step": "GET /regular_l.xml (定時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 806,
+            "elapsed_ms": 2069,
             "note": null
           },
           {
             "step": "GET /extra_l.xml (随時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 230,
+            "elapsed_ms": 1758,
             "note": null
           },
           {
             "step": "GET /eqvol_l.xml (地震火山・長期)",
             "outcome": "ok",
-            "elapsed_ms": 550,
+            "elapsed_ms": 539,
             "note": null
           },
           {
             "step": "GET /other_l.xml (その他・長期)",
             "outcome": "ok",
-            "elapsed_ms": 521,
+            "elapsed_ms": 57,
             "note": null
           },
           {
             "step": "GET 電文本体",
             "outcome": "ok",
-            "elapsed_ms": 153,
+            "elapsed_ms": 56,
             "note": null
           }
         ],
@@ -729,9 +729,65 @@
       }
     }
   ],
-  "blocked_candidates": [],
+  "blocked_candidates": [
+    {
+      "id": "api-candidates-sweep",
+      "name": "公的機関の API 候補（一括調査）",
+      "why": "台帳の幅を広げるため、政府・公的機関が提供する API を横断的に探した。 カタログには API 形式のリソースが 1 件も無く、デジタル庁の開発者サイトにも 公開 API は Jグランツしか載っていないため、省庁ごとに個別に当たる必要がある。",
+      "hosts": [
+        "ndlsearch.ndl.go.jp",
+        "www.jstage.jst.go.jp",
+        "cyberjapandata.gsi.go.jp",
+        "data.e-stat.go.jp",
+        "api.houjin-bangou.nta.go.jp",
+        "opendata.resas-portal.go.jp",
+        "www.reinfolib.mlit.go.jp",
+        "nlftp.mlit.go.jp",
+        "www.kanpo.go.jp",
+        "ip-data.jpo.go.jp",
+        "www.iryou.teikyouseido.mhlw.go.jp"
+      ],
+      "blocked_reason": "候補として挙げた 16 ホストのうち 15 がプロキシに 403 で拒否された （到達できたのは既に許可済みの api.e-stat.go.jp のみ）。一次資料に到達できないため、 提供内容・認証要否・利用規約のいずれも確認できない。egress は許可リスト方式であり、 許可されていないホストは一律に塞がれる。二次情報だけを根拠に候補の性質を 書くことは台帳の規律に反するので、ここには「調べようとして到達できなかった」 という事実だけを残す。",
+      "next_step": "これらのホストを egress 許可リストに追加したうえで、各サービスの一次資料 （OpenAPI 仕様や API ドキュメント）に到達し、認証要否を確認してから検証に進む。",
+      "promotable": false
+    },
+    {
+      "id": "catalog-resource-hosts",
+      "name": "e-Gov データポータルの実ファイル置き場",
+      "why": "カタログに載る機械可読データセット 1,121 件のうち、実際にファイルを取得できるのが どれだけあるかを確かめた。カタログ自体は到達できても、実ファイルは省庁ごとの ホストに置かれているため、そちらが塞がれていれば取得できない。",
+      "hosts": [
+        "housyasen.env.go.jp",
+        "www.bb.mof.go.jp",
+        "warp.ndl.go.jp",
+        "www.esri.cao.go.jp",
+        "www.jinji.go.jp",
+        "www.soumu.go.jp",
+        "www5.cao.go.jp",
+        "www.mofa.go.jp",
+        "ikilog.biodic.go.jp",
+        "www.rinya.maff.go.jp",
+        "www.hokoukukan.go.jp",
+        "www.mext.go.jp",
+        "www.npa.go.jp",
+        "www8.cao.go.jp",
+        "www.maff.go.jp",
+        "maps.gsi.go.jp",
+        "notice.go.jp",
+        "saigai.gsi.go.jp",
+        "www.kodokensaku.mlit.go.jp"
+      ],
+      "blocked_reason": "実ファイルの置き場 23 ホストのうち 19 がプロキシに 403 で拒否され、 機械可読データセット 1,121 件のうち到達できるのは 513 件（46%）にとどまる。 到達できないのは提供が止まっているからではなく、この環境の egress ポリシーで 許可されていないため。件数の多い順に housyasen.env.go.jp（299 件）、 www.bb.mof.go.jp（150 件）、warp.ndl.go.jp（52 件）。",
+      "next_step": "件数の多いホストから egress 許可リストに追加する。追加後は verify/survey_catalog.py を回せば到達できるデータセット数が更新される。",
+      "promotable": false
+    }
+  ],
   "reachability": {
-    "_generated_at": "2026-08-20T01:04:57+00:00",
+    "_generated_at": "2026-08-20T01:35:08+00:00",
+    "api.houjin-bangou.nta.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
     "api.jgrants-portal.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -740,6 +796,11 @@
         "final_url": "https://api.jgrants-portal.go.jp/"
       }
     },
+    "cyberjapandata.gsi.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
     "data.e-gov.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -747,6 +808,11 @@
         "status_code": 301,
         "final_url": "https://data.e-gov.go.jp/"
       }
+    },
+    "data.e-stat.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
     },
     "developers.digital.go.jp": {
       "reachable": true,
@@ -764,6 +830,21 @@
         "final_url": "https://files.microcms-assets.io/"
       }
     },
+    "housyasen.env.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "ikilog.biodic.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "ip-data.jpo.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
     "laws.e-gov.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -771,6 +852,46 @@
         "status_code": 200,
         "final_url": "https://laws.e-gov.go.jp/"
       }
+    },
+    "maps.gsi.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "ndlsearch.ndl.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "nlftp.mlit.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "notice.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "opendata.resas-portal.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "saigai.gsi.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "warp.ndl.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.bb.mof.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
     },
     "www.data.go.jp": {
       "reachable": true,
@@ -804,6 +925,21 @@
         "final_url": "https://www.e-gov.go.jp/"
       }
     },
+    "www.esri.cao.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.hokoukukan.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.iryou.teikyouseido.mhlw.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
     "www.jgrants-portal.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -812,6 +948,11 @@
         "final_url": "https://www.jgrants-portal.go.jp/"
       }
     },
+    "www.jinji.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
     "www.jma.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -819,6 +960,66 @@
         "status_code": 302,
         "final_url": "https://www.jma.go.jp/"
       }
+    },
+    "www.jstage.jst.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.kanpo.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.kodokensaku.mlit.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.maff.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.mext.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.mofa.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.npa.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.reinfolib.mlit.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.rinya.maff.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www.soumu.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www5.cao.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
+    "www8.cao.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
     },
     "xml.kishou.go.jp": {
       "reachable": true,

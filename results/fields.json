@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T01:06:18+00:00",
+  "generated_at": "2026-08-20T01:36:29+00:00",
   "generated_by": "verify/extract_fields.py",
   "sources": {
     "egov-hourei-api": {
@@ -1549,7 +1549,7 @@
           ]
         },
         {
-          "name": "電文 Body: 気象警報・注意報（Ｒ０６）（集約通報）（実データ由来 / regular フィード）",
+          "name": "電文 Body: 府県天気概況（実データ由来 / regular フィード）",
           "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
@@ -1655,25 +1655,43 @@
               "example": ""
             },
             {
-              "name": "Report/Head/Headline/Information",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
               "name": "Report/Body",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/Warning",
+              "name": "Report/Body/TargetArea",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/Warning/Item",
+              "name": "Report/Body/TargetArea/Name",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/TargetArea/Code",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Notice",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Comment",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Comment/Text",
               "type": "要素",
               "description": "",
               "example": ""

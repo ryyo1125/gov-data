@@ -16,6 +16,7 @@ import argparse
 import asyncio
 import json
 import sys
+import urllib.parse
 from datetime import datetime, timezone
 
 import httpx
@@ -63,6 +64,13 @@ async def survey(base_url: str) -> dict:
         # 母集団が小さいので全件引ける。候補選びは一覧を見ないと始まらない。
         machine_datasets = await _all_datasets(client, machine_query)
 
+    # カタログに載っていることと、実際にファイルを取れることは別。実ファイルは
+    # 省庁ごとのホストに置かれており、そちらが到達できなければ一覧は絵に描いた餅になる。
+    resource_hosts = await _probe_resource_hosts(machine_datasets)
+    reachable = {h for h, info in resource_hosts.items() if info["reachable"]}
+    for dataset in machine_datasets:
+        dataset["reachable"] = any(h in reachable for h in dataset["hosts"])
+
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "generated_by": "verify/survey_catalog.py",
@@ -86,6 +94,8 @@ async def survey(base_url: str) -> dict:
             "by_tag": sorted(machine_tags, key=lambda t: -t["count"]),
             "samples": samples,
             "datasets": machine_datasets,
+            "resource_hosts": resource_hosts,
+            "reachable_datasets": sum(1 for d in machine_datasets if d["reachable"]),
         },
         "definitions": {
             "machine_readable": MACHINE_READABLE,
@@ -168,12 +178,52 @@ async def _all_datasets(client: httpx.AsyncClient, query: str) -> list[dict]:
                     ),
                     "frequency_of_update": p.get("frequency_of_update"),
                     "tags": sorted(t.get("display_name") or t.get("name") for t in (p.get("tags") or [])),
+                    "hosts": sorted(_hosts_of(p)),
                 }
             )
         start += PAGE_SIZE
         if start >= result["count"]:
             break
     return datasets
+
+
+def _hosts_of(package: dict) -> set[str]:
+    """機械可読な形式のリソースが置かれているホストを集める。"""
+    machine = {f.upper() for f in MACHINE_READABLE}
+    hosts = set()
+    for resource in package.get("resources") or []:
+        url = resource.get("url") or ""
+        if (resource.get("format") or "").upper() in machine and url.startswith("http"):
+            hosts.add(urllib.parse.urlparse(url).netloc)
+    return hosts
+
+
+async def _probe_resource_hosts(datasets: list[dict]) -> dict[str, dict]:
+    """実ファイルの置き場に到達できるかを、ホスト単位で 1 回ずつ確かめる。
+
+    到達できない理由が自環境の egress ポリシーなのか先方の問題なのかは
+    区別して記録する。混同すると「提供が終わった」と誤読される。
+    """
+    counts: dict[str, int] = {}
+    for dataset in datasets:
+        for host in dataset["hosts"]:
+            counts[host] = counts.get(host, 0) + 1
+
+    async def probe(host: str) -> tuple[str, dict]:
+        try:
+            async with httpx.AsyncClient(timeout=30.0, trust_env=True, follow_redirects=False) as c:
+                response = await c.get(f"https://{host}/")
+        except httpx.ProxyError as exc:
+            return host, {"reachable": False, "reason": f"自環境の egress で拒否: {exc}"}
+        except Exception as exc:  # noqa: BLE001 - 不達の理由をそのまま残す
+            return host, {"reachable": False, "reason": f"{type(exc).__name__}: {exc}"}
+        return host, {"reachable": True, "reason": f"HTTP {response.status_code}"}
+
+    results = await asyncio.gather(*[probe(h) for h in sorted(counts)])
+    return {
+        host: {**info, "datasets": counts[host]}
+        for host, info in sorted(results, key=lambda x: -counts[x[0]])
+    }
 
 
 def main() -> int:
@@ -190,7 +240,12 @@ def main() -> int:
     machine = totals["machine_readable_datasets"]
     print(f"  データセット {totals['datasets']:,} 件 / {totals['organizations']} 組織")
     print(f"  機械可読を含むもの {machine:,} 件（{machine / totals['datasets'] * 100:.1f}%）")
-    print(f"  うち一覧を取得できたもの {len(result['machine_readable']['datasets']):,} 件")
+    machine_block = result["machine_readable"]
+    reachable = machine_block["reachable_datasets"]
+    hosts = machine_block["resource_hosts"]
+    blocked_hosts = sum(1 for i in hosts.values() if not i["reachable"])
+    print(f"  うち実ファイルに到達できるもの {reachable:,} 件")
+    print(f"  実ファイルの置き場 {len(hosts)} ホスト（うち到達不可 {blocked_hosts}）")
     print(f"-> {args.out}")
     return 0
 

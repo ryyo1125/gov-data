@@ -3,7 +3,7 @@
 **このファイルは `registry/build.py` が `results/catalog-survey.json` から生成する。**
 更新するには `verify/survey_catalog.py` を実行してからビルドし直す。
 
-- 生成日時: 2026-08-20T01:06:51+00:00
+- 生成日時: 2026-08-20T01:37:00+00:00
 - 出所: e-Gov データポータル（CKAN API）（台帳エントリ `egov-data-catalog`）
 
 台帳（[REGISTRY.md](REGISTRY.md)）が「検証済みで実際に取れるもの」を載せるのに対し、
@@ -15,6 +15,38 @@
 |---|---|
 | 公開組織 | 23 組織 |
 | 機械可読な形式を含むもの | 1,121 件（**6.2%**） |
+| うち実ファイルに到達できるもの | 513 件 |
+
+**カタログに載っていることと、実際に取れることは別。** 実ファイルは省庁ごとの
+ホストに置かれており、23 ホスト中 19 ホストへ到達できない。
+これは提供が止まっているという意味ではなく、この環境の egress ポリシーで
+許可されていないだけなので、許可すれば取得できるようになる。
+
+| 実ファイルの置き場 | データセット数 | 到達 |
+|---|---|---|
+| `www.e-stat.go.jp` | 503 | 可 |
+| `housyasen.env.go.jp` | 299 | **不可** |
+| `www.bb.mof.go.jp` | 150 | **不可** |
+| `warp.ndl.go.jp` | 52 | **不可** |
+| `www.esri.cao.go.jp` | 44 | **不可** |
+| `www.jinji.go.jp` | 31 | **不可** |
+| `www.soumu.go.jp` | 29 | **不可** |
+| `www5.cao.go.jp` | 11 | **不可** |
+| `www.mofa.go.jp` | 8 | **不可** |
+| `ikilog.biodic.go.jp` | 7 | **不可** |
+| `www.data.jma.go.jp` | 6 | 可 |
+| `www.rinya.maff.go.jp` | 6 | **不可** |
+| `www.hokoukukan.go.jp` | 5 | **不可** |
+| `www.mext.go.jp` | 4 | **不可** |
+| `www.npa.go.jp` | 4 | **不可** |
+| `data.e-gov.go.jp` | 3 | 可 |
+| `www8.cao.go.jp` | 3 | **不可** |
+| `www.maff.go.jp` | 2 | **不可** |
+| `maps.gsi.go.jp` | 1 | **不可** |
+| `notice.go.jp` | 1 | **不可** |
+| `saigai.gsi.go.jp` | 1 | **不可** |
+| `www.digital.go.jp` | 1 | 可 |
+| `www.kodokensaku.mlit.go.jp` | 1 | **不可** |
 
 **読み方の注意。** 以下の形式別の数はリソース数ではなく、その形式を 1 つ以上持つ
 **データセット数**である。1 つのデータセットが PDF と CSV を両方持てば両方に数えられるため、

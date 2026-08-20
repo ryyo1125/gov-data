@@ -512,6 +512,27 @@ def render_survey(survey: dict) -> str:
         "|---|---|",
         f"| 公開組織 | {totals['organizations']} 組織 |",
         f"| 機械可読な形式を含むもの | {totals['machine_readable_datasets']:,} 件（**{ratio:.1f}%**） |",
+    ]
+    reachable = machine.get("reachable_datasets")
+    hosts = machine.get("resource_hosts") or {}
+    if reachable is not None and hosts:
+        blocked = {h: i for h, i in hosts.items() if not i["reachable"]}
+        lines += [
+            f"| うち実ファイルに到達できるもの | {reachable:,} 件 |",
+            "",
+            "**カタログに載っていることと、実際に取れることは別。** 実ファイルは省庁ごとの",
+            f"ホストに置かれており、{len(hosts)} ホスト中 {len(blocked)} ホストへ到達できない。",
+            "これは提供が止まっているという意味ではなく、この環境の egress ポリシーで",
+            "許可されていないだけなので、許可すれば取得できるようになる。",
+            "",
+            "| 実ファイルの置き場 | データセット数 | 到達 |",
+            "|---|---|---|",
+        ]
+        lines += [
+            f"| `{host}` | {info['datasets']:,} | {'可' if info['reachable'] else '**不可**'} |"
+            for host, info in hosts.items()
+        ]
+    lines += [
         "",
         "**読み方の注意。** 以下の形式別の数はリソース数ではなく、その形式を 1 つ以上持つ",
         "**データセット数**である。1 つのデータセットが PDF と CSV を両方持てば両方に数えられるため、",
@@ -632,7 +653,12 @@ def render_machine_readable(survey: dict) -> str:
         f"- 対象: {machine['query']}",
         f"- 件数: {len(datasets):,} 件 / 全 {survey['totals']['datasets']:,} 件",
         "",
+        f"- 実ファイルに到達できるもの: {machine.get('reachable_datasets', 0):,} 件",
+        "",
         "これは**存在の一覧であって、取得できることの保証ではない**。",
+        "「実ファイル」の列は置き場のホストへ到達できるかを見ているだけで、",
+        "個々のファイルが取れることまでは確かめていない。到達不可は提供停止ではなく、",
+        "この環境の egress ポリシーで許可されていないことを意味する。",
         "実際に取れることを確かめたものだけが台帳（[REGISTRY.md](REGISTRY.md)）に載る。",
         "ライセンスはカタログが持っていないため、再配布の可否は個々の提供元に当たること。",
         "",
@@ -641,11 +667,20 @@ def render_machine_readable(survey: dict) -> str:
     ]
     for org in sorted(by_org, key=lambda o: -len(by_org[o])):
         entries = by_org[org]
-        lines += [f"### {org}（{len(entries):,} 件）", "", "| データセット | 形式 | 更新頻度 |", "|---|---|---|"]
+        reachable_count = sum(1 for d in entries if d.get("reachable"))
+        lines += [
+            f"### {org}（{len(entries):,} 件 / うち実ファイルに到達できるもの {reachable_count:,} 件）",
+            "",
+            "| データセット | 形式 | 更新頻度 | 実ファイル |",
+            "|---|---|---|---|",
+        ]
         for d in sorted(entries, key=lambda x: x.get("title") or ""):
             url = f"https://data.e-gov.go.jp/data/dataset/{d['name']}"
             formats = " / ".join(f for f in d["formats"] if f) or "-"
-            lines.append(f"| [{d['title']}]({url}) | {formats} | {d.get('frequency_of_update') or '-'} |")
+            reach = "到達可" if d.get("reachable") else "**到達不可**"
+            lines.append(
+                f"| [{d['title']}]({url}) | {formats} | {d.get('frequency_of_update') or '-'} | {reach} |"
+            )
         lines.append("")
     return "\n".join(lines) + "\n"
 
