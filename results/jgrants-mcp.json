@@ -1,7 +1,7 @@
 {
   "source_id": "jgrants-mcp",
   "target": "http://127.0.0.1:8000/mcp",
-  "generated_at": "2026-08-20T00:56:35+00:00",
+  "generated_at": "2026-08-20T01:00:36+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -47,7 +47,7 @@
     {
       "step": "list_tools",
       "ok": true,
-      "elapsed_ms": 19,
+      "elapsed_ms": 20,
       "result": {
         "_truncated": true,
         "_original_chars": 6252,
@@ -74,18 +74,18 @@
     {
       "step": "call:ping",
       "ok": true,
-      "elapsed_ms": 9,
+      "elapsed_ms": 10,
       "result": {
         "status": "ok",
         "server": "jGrants MCP Server",
         "version": "2.0.0",
-        "timestamp": "2026-08-20T00:56:28.534777+00:00"
+        "timestamp": "2026-08-20T01:00:28.609135+00:00"
       }
     },
     {
       "step": "call:search_subsidies",
       "ok": true,
-      "elapsed_ms": 1284,
+      "elapsed_ms": 1421,
       "result": {
         "total_count": 4,
         "subsidies": [
@@ -145,7 +145,7 @@
     {
       "step": "call:get_subsidy_detail",
       "ok": true,
-      "elapsed_ms": 195,
+      "elapsed_ms": 208,
       "result": {
         "_truncated": true,
         "_original_chars": 1988,
@@ -155,17 +155,17 @@
     {
       "step": "call:get_subsidy_overview",
       "ok": true,
-      "elapsed_ms": 1689,
+      "elapsed_ms": 1797,
       "result": {
         "_truncated": true,
         "_original_chars": 7052,
-        "_head": "{\"total_count\": 189, \"by_deadline_period\": {\"accepting\": 0, \"this_month\": 51, \"next_month\": 22, \"after_next_month\": 116}, \"by_amount_range\": {\"under_1m\": 27, \"under_10m\": 48, \"under_100m\": 24, \"over_100m\": 27, \"unspecified\": 63}, \"urgent_deadlines\": [{\"id\": \"a0WJ200000CDKZFMA5\", \"title\": \"令和８年度_グリーンスローモビリティ等導入促進事業\", \"days_left\": 5}, {\"id\": \"a0WJ200000CDdNjMAL\", \"title\": \"スタートアップ等を活用した農林水産分野の課題解決事業補助金\", \"days_left\": 0}, {\"id\": \"a0WJ200000CDdRCMA1\", \"title\": \"【福岡県2次】令和8年度_中小企業等海外展開支援事業費補助金（海外出願支援事業）\", \"days_left\": 1}, {\"id\": \"a0WJ200000CDdSBMA1\", \"title\": \"令和7年度補正　デジタルライフライン整備加速事業（ドローン航路整備事業）\", \"days_left\": 1}, {\"id\": \"a0WJ200000CDYtoMAH\", \"title\": \"【香川県】令和８年度中小企業等海外展開支援事業費補助金（海外出願支援事業）第２次募集\", \"days_left\": 1}, {\"id\": \"a0WJ200000CDdfVMAT\", \"title\": \"【岐阜県・2次募集】令和８年度_中小企業等海外展開支援事業費補助金（海外出願支援事業）\", \"days_left\": 4}, {\"id\": \"a0WJ200000CDdQnMAL\", \"title\": \"「ポスト5G情報通信システム基盤強化研究開発事業／フィジカルAIに向けた再帰的自己改善型AIに関する研究開発事業」の公募\", \"days_left\": 4}, {\"id\": \"a0WJ200000CDb8QMAT\", \"title\": \"令和8年度 洋上風力発電人材育成事業費補助金（第2次公募）\", \"days_left\": 4}, {\"id\": \"a0WJ200000CDYEHMA5\", \"title\": \"令和8年度中小企業生産性向上促進事業費補助金\", \"days_left\": 11}, {\"id\": \"a0WJ200000CDdNyMAL\", \"title\": \"「省電力・高速情報処理を実現するフロンティア技術等に関する俯瞰調査」の公募\", \"days_left\": 1}, {\"id\": \"a0WJ200000CDYDcMAP\", \"title\": \"令和８年度　天然ガス利用設備による強靱性向上対策事業費補助金\", \"days_left\": 12}, {\"id\": \"a0WJ200000CDdjkMAD\", \"title\": \"令和8年度地熱発電の資源量調査事業費助成金交付事業_第3回\", \"days_left\": 11}, {\"id\": \"a0WJ200000CDdlrMAD\", \"title\": \"【施行】令和8年度愛知県介護テクノロジー導入支援事業費補助金\", \"days_left\": 11}, {\"id\": \"a0WJ200000CDdR2MAL"
+        "_head": "{\"total_count\": 190, \"by_deadline_period\": {\"accepting\": 0, \"this_month\": 51, \"next_month\": 23, \"after_next_month\": 116}, \"by_amount_range\": {\"under_1m\": 27, \"under_10m\": 48, \"under_100m\": 24, \"over_100m\": 27, \"unspecified\": 64}, \"urgent_deadlines\": [{\"id\": \"a0WJ200000CDKZFMA5\", \"title\": \"令和８年度_グリーンスローモビリティ等導入促進事業\", \"days_left\": 5}, {\"id\": \"a0WJ200000CDdNjMAL\", \"title\": \"スタートアップ等を活用した農林水産分野の課題解決事業補助金\", \"days_left\": 0}, {\"id\": \"a0WJ200000CDdRCMA1\", \"title\": \"【福岡県2次】令和8年度_中小企業等海外展開支援事業費補助金（海外出願支援事業）\", \"days_left\": 1}, {\"id\": \"a0WJ200000CDdSBMA1\", \"title\": \"令和7年度補正　デジタルライフライン整備加速事業（ドローン航路整備事業）\", \"days_left\": 1}, {\"id\": \"a0WJ200000CDYtoMAH\", \"title\": \"【香川県】令和８年度中小企業等海外展開支援事業費補助金（海外出願支援事業）第２次募集\", \"days_left\": 1}, {\"id\": \"a0WJ200000CDdfVMAT\", \"title\": \"【岐阜県・2次募集】令和８年度_中小企業等海外展開支援事業費補助金（海外出願支援事業）\", \"days_left\": 4}, {\"id\": \"a0WJ200000CDdQnMAL\", \"title\": \"「ポスト5G情報通信システム基盤強化研究開発事業／フィジカルAIに向けた再帰的自己改善型AIに関する研究開発事業」の公募\", \"days_left\": 4}, {\"id\": \"a0WJ200000CDb8QMAT\", \"title\": \"令和8年度 洋上風力発電人材育成事業費補助金（第2次公募）\", \"days_left\": 4}, {\"id\": \"a0WJ200000CDYEHMA5\", \"title\": \"令和8年度中小企業生産性向上促進事業費補助金\", \"days_left\": 11}, {\"id\": \"a0WJ200000CDdNyMAL\", \"title\": \"「省電力・高速情報処理を実現するフロンティア技術等に関する俯瞰調査」の公募\", \"days_left\": 1}, {\"id\": \"a0WJ200000CDYDcMAP\", \"title\": \"令和８年度　天然ガス利用設備による強靱性向上対策事業費補助金\", \"days_left\": 12}, {\"id\": \"a0WJ200000CDdjkMAD\", \"title\": \"令和8年度地熱発電の資源量調査事業費助成金交付事業_第3回\", \"days_left\": 11}, {\"id\": \"a0WJ200000CDdlrMAD\", \"title\": \"【施行】令和8年度愛知県介護テクノロジー導入支援事業費補助金\", \"days_left\": 11}, {\"id\": \"a0WJ200000CDdR2MAL"
       }
     },
     {
       "step": "call:get_file_content",
       "ok": true,
-      "elapsed_ms": 2350,
+      "elapsed_ms": 2360,
       "result": {
         "_truncated": true,
         "_original_chars": 27560,

@@ -1,0 +1,922 @@
+{
+  "generated_at": "2026-08-20T01:01:28+00:00",
+  "generated_by": "verify/survey_catalog.py",
+  "source": {
+    "name": "e-Gov データポータル（CKAN API）",
+    "endpoint": "https://data.e-gov.go.jp/data/api/3/action",
+    "registry_entry": "egov-data-catalog"
+  },
+  "totals": {
+    "datasets": 18141,
+    "organizations": 23,
+    "machine_readable_datasets": 1121
+  },
+  "by_organization": [
+    {
+      "name": "org_1600",
+      "label": "厚生労働省",
+      "count": 2479
+    },
+    {
+      "name": "org_1700",
+      "label": "農林水産省",
+      "count": 2210
+    },
+    {
+      "name": "org_1500",
+      "label": "文部科学省",
+      "count": 1986
+    },
+    {
+      "name": "org_1900",
+      "label": "国土交通省",
+      "count": 1864
+    },
+    {
+      "name": "org_0400",
+      "label": "内閣府",
+      "count": 1741
+    },
+    {
+      "name": "org_2000",
+      "label": "環境省",
+      "count": 1679
+    },
+    {
+      "name": "org_1400",
+      "label": "財務省",
+      "count": 1008
+    },
+    {
+      "name": "org_1100",
+      "label": "総務省",
+      "count": 928
+    },
+    {
+      "name": "org_1200",
+      "label": "法務省",
+      "count": 847
+    },
+    {
+      "name": "org_0700",
+      "label": "警察庁",
+      "count": 806
+    },
+    {
+      "name": "org_0950",
+      "label": "個人情報保護委員会",
+      "count": 611
+    },
+    {
+      "name": "org_0300",
+      "label": "人事院",
+      "count": 325
+    },
+    {
+      "name": "org_2100",
+      "label": "防衛省",
+      "count": 278
+    },
+    {
+      "name": "org_0600",
+      "label": "公正取引委員会",
+      "count": 273
+    },
+    {
+      "name": "org_1300",
+      "label": "外務省",
+      "count": 259
+    },
+    {
+      "name": "org_0800",
+      "label": "金融庁",
+      "count": 222
+    },
+    {
+      "name": "org_0500",
+      "label": "宮内庁",
+      "count": 189
+    },
+    {
+      "name": "org_0900",
+      "label": "消費者庁",
+      "count": 179
+    },
+    {
+      "name": "org_0200",
+      "label": "内閣法制局",
+      "count": 150
+    },
+    {
+      "name": "org_1800",
+      "label": "経済産業省",
+      "count": 41
+    },
+    {
+      "name": "org_1000",
+      "label": "復興庁",
+      "count": 32
+    },
+    {
+      "name": "org_2200",
+      "label": "デジタル庁",
+      "count": 21
+    },
+    {
+      "name": "org_0100",
+      "label": "内閣官房",
+      "count": 13
+    }
+  ],
+  "by_format": [
+    {
+      "name": "PDF",
+      "label": "PDF",
+      "count": 9267
+    },
+    {
+      "name": "HTML",
+      "label": "HTML",
+      "count": 6447
+    },
+    {
+      "name": "XLS",
+      "label": "XLS",
+      "count": 4554
+    },
+    {
+      "name": "XLSX",
+      "label": "XLSX",
+      "count": 1703
+    },
+    {
+      "name": "CSV",
+      "label": "CSV",
+      "count": 968
+    },
+    {
+      "name": "ZIP",
+      "label": "ZIP",
+      "count": 223
+    },
+    {
+      "name": "JPEG",
+      "label": "JPEG",
+      "count": 203
+    },
+    {
+      "name": "XML",
+      "label": "XML",
+      "count": 152
+    },
+    {
+      "name": " ",
+      "label": " ",
+      "count": 102
+    },
+    {
+      "name": "GIF",
+      "label": "GIF",
+      "count": 84
+    },
+    {
+      "name": "KMZ",
+      "label": "KMZ",
+      "count": 72
+    },
+    {
+      "name": "PNG",
+      "label": "PNG",
+      "count": 47
+    },
+    {
+      "name": "DOCX",
+      "label": "DOCX",
+      "count": 21
+    },
+    {
+      "name": "DOC",
+      "label": "DOC",
+      "count": 18
+    },
+    {
+      "name": "EXE",
+      "label": "EXE",
+      "count": 16
+    },
+    {
+      "name": "epub",
+      "label": "epub",
+      "count": 14
+    },
+    {
+      "name": "TXT",
+      "label": "TXT",
+      "count": 9
+    },
+    {
+      "name": "PPTX",
+      "label": "PPTX",
+      "count": 9
+    },
+    {
+      "name": "その他",
+      "label": "その他",
+      "count": 6
+    },
+    {
+      "name": "asx",
+      "label": "asx",
+      "count": 6
+    },
+    {
+      "name": "ビジュアル分析(Tableau)",
+      "label": "ビジュアル分析(Tableau)",
+      "count": 5
+    },
+    {
+      "name": "php",
+      "label": "php",
+      "count": 5
+    },
+    {
+      "name": "KML",
+      "label": "KML",
+      "count": 5
+    },
+    {
+      "name": "MP3",
+      "label": "MP3",
+      "count": 4
+    },
+    {
+      "name": "jtd",
+      "label": "jtd",
+      "count": 3
+    },
+    {
+      "name": "md",
+      "label": "md",
+      "count": 2
+    },
+    {
+      "name": "lzh",
+      "label": "lzh",
+      "count": 1
+    },
+    {
+      "name": "jsp",
+      "label": "jsp",
+      "count": 1
+    },
+    {
+      "name": "gml",
+      "label": "gml",
+      "count": 1
+    },
+    {
+      "name": "avi",
+      "label": "avi",
+      "count": 1
+    },
+    {
+      "name": "SHP",
+      "label": "SHP",
+      "count": 1
+    },
+    {
+      "name": "ODT",
+      "label": "ODT",
+      "count": 1
+    },
+    {
+      "name": "GeoJSON",
+      "label": "GeoJSON",
+      "count": 1
+    },
+    {
+      "name": "0",
+      "label": "0",
+      "count": 1
+    }
+  ],
+  "by_update_frequency": [
+    {
+      "name": "1年",
+      "label": "1年",
+      "count": 8264
+    },
+    {
+      "name": "不定期",
+      "label": "不定期",
+      "count": 3523
+    },
+    {
+      "name": "更新しない",
+      "label": "更新しない",
+      "count": 1000
+    },
+    {
+      "name": "1月",
+      "label": "1月",
+      "count": 843
+    },
+    {
+      "name": "１年",
+      "label": "１年",
+      "count": 494
+    },
+    {
+      "name": "5年",
+      "label": "5年",
+      "count": 457
+    },
+    {
+      "name": "3月",
+      "label": "3月",
+      "count": 196
+    },
+    {
+      "name": "6月",
+      "label": "6月",
+      "count": 129
+    },
+    {
+      "name": "Yearly",
+      "label": "Yearly",
+      "count": 106
+    },
+    {
+      "name": "6時間",
+      "label": "6時間",
+      "count": 100
+    },
+    {
+      "name": "1時間",
+      "label": "1時間",
+      "count": 100
+    },
+    {
+      "name": "少なくとも年１回",
+      "label": "少なくとも年１回",
+      "count": 98
+    },
+    {
+      "name": "3年",
+      "label": "3年",
+      "count": 97
+    },
+    {
+      "name": "リアルタイム",
+      "label": "リアルタイム",
+      "count": 93
+    },
+    {
+      "name": "2年",
+      "label": "2年",
+      "count": 63
+    },
+    {
+      "name": "６月",
+      "label": "６月",
+      "count": 61
+    },
+    {
+      "name": "更新なし",
+      "label": "更新なし",
+      "count": 57
+    },
+    {
+      "name": "年1回",
+      "label": "年1回",
+      "count": 50
+    },
+    {
+      "name": "年２回",
+      "label": "年２回",
+      "count": 48
+    },
+    {
+      "name": "半期",
+      "label": "半期",
+      "count": 44
+    },
+    {
+      "name": "Quarterly",
+      "label": "Quarterly",
+      "count": 44
+    },
+    {
+      "name": "1日",
+      "label": "1日",
+      "count": 38
+    },
+    {
+      "name": "四半期",
+      "label": "四半期",
+      "count": 37
+    },
+    {
+      "name": "要すれば",
+      "label": "要すれば",
+      "count": 24
+    },
+    {
+      "name": "少なくとも年1回",
+      "label": "少なくとも年1回",
+      "count": 22
+    },
+    {
+      "name": "年一",
+      "label": "年一",
+      "count": 19
+    },
+    {
+      "name": "年",
+      "label": "年",
+      "count": 12
+    },
+    {
+      "name": "年１回",
+      "label": "年１回",
+      "count": 11
+    },
+    {
+      "name": "年４回",
+      "label": "年４回",
+      "count": 10
+    },
+    {
+      "name": "１月",
+      "label": "１月",
+      "count": 8
+    },
+    {
+      "name": "年2回",
+      "label": "年2回",
+      "count": 8
+    },
+    {
+      "name": "半年ごと",
+      "label": "半年ごと",
+      "count": 7
+    },
+    {
+      "name": "6年",
+      "label": "6年",
+      "count": 5
+    },
+    {
+      "name": "2週",
+      "label": "2週",
+      "count": 5
+    },
+    {
+      "name": "1週",
+      "label": "1週",
+      "count": 4
+    },
+    {
+      "name": "12月",
+      "label": "12月",
+      "count": 4
+    },
+    {
+      "name": "３月",
+      "label": "３月",
+      "count": 3
+    },
+    {
+      "name": "毎日",
+      "label": "毎日",
+      "count": 3
+    },
+    {
+      "name": "半年",
+      "label": "半年",
+      "count": 3
+    },
+    {
+      "name": "随時実施",
+      "label": "随時実施",
+      "count": 2
+    },
+    {
+      "name": "随時",
+      "label": "随時",
+      "count": 2
+    },
+    {
+      "name": "毎年12月（10月現在）、2月（12月現在）、5月（3月末現在）",
+      "label": "毎年12月（10月現在）、2月（12月現在）、5月（3月末現在）",
+      "count": 2
+    },
+    {
+      "name": "年4回",
+      "label": "年4回",
+      "count": 2
+    },
+    {
+      "name": "3ヶ月",
+      "label": "3ヶ月",
+      "count": 2
+    },
+    {
+      "name": "10分",
+      "label": "10分",
+      "count": 2
+    },
+    {
+      "name": "５年",
+      "label": "５年",
+      "count": 1
+    },
+    {
+      "name": "２年",
+      "label": "２年",
+      "count": 1
+    },
+    {
+      "name": "１か月",
+      "label": "１か月",
+      "count": 1
+    },
+    {
+      "name": "隔年",
+      "label": "隔年",
+      "count": 1
+    },
+    {
+      "name": "週１回",
+      "label": "週１回",
+      "count": 1
+    },
+    {
+      "name": "月報は１月 年報は１年",
+      "label": "月報は１月 年報は１年",
+      "count": 1
+    },
+    {
+      "name": "月1回",
+      "label": "月1回",
+      "count": 1
+    },
+    {
+      "name": "年4回程度",
+      "label": "年4回程度",
+      "count": 1
+    },
+    {
+      "name": "年3回",
+      "label": "年3回",
+      "count": 1
+    },
+    {
+      "name": "年1年",
+      "label": "年1年",
+      "count": 1
+    },
+    {
+      "name": "年1回（2025年度現在）",
+      "label": "年1回（2025年度現在）",
+      "count": 1
+    },
+    {
+      "name": "年1回程度",
+      "label": "年1回程度",
+      "count": 1
+    },
+    {
+      "name": "少なくとも年５回",
+      "label": "少なくとも年５回",
+      "count": 1
+    },
+    {
+      "name": "少なくとも年４回",
+      "label": "少なくとも年４回",
+      "count": 1
+    },
+    {
+      "name": "少なくとも年３回",
+      "label": "少なくとも年３回",
+      "count": 1
+    },
+    {
+      "name": "少なくとも年２回",
+      "label": "少なくとも年２回",
+      "count": 1
+    },
+    {
+      "name": "その他",
+      "label": "その他",
+      "count": 1
+    },
+    {
+      "name": "おおむね5年",
+      "label": "おおむね5年",
+      "count": 1
+    },
+    {
+      "name": "2回/年",
+      "label": "2回/年",
+      "count": 1
+    },
+    {
+      "name": "1分",
+      "label": "1分",
+      "count": 1
+    },
+    {
+      "name": "1nen ",
+      "label": "1nen ",
+      "count": 1
+    },
+    {
+      "name": "12時間",
+      "label": "12時間",
+      "count": 1
+    },
+    {
+      "name": " 1月",
+      "label": " 1月",
+      "count": 1
+    }
+  ],
+  "machine_readable": {
+    "query": "res_format:(CSV OR XML OR JSON OR RDF OR GeoJSON OR TSV OR JSON-LD OR API)",
+    "by_format": {
+      "CSV": 968,
+      "XML": 152,
+      "JSON": 0,
+      "RDF": 0,
+      "GeoJSON": 1,
+      "TSV": 0,
+      "JSON-LD": 0,
+      "API": 0
+    },
+    "by_organization": [
+      {
+        "name": "org_1600",
+        "label": "厚生労働省",
+        "count": 480
+      },
+      {
+        "name": "org_2000",
+        "label": "環境省",
+        "count": 307
+      },
+      {
+        "name": "org_1400",
+        "label": "財務省",
+        "count": 150
+      },
+      {
+        "name": "org_0400",
+        "label": "内閣府",
+        "count": 58
+      },
+      {
+        "name": "org_1100",
+        "label": "総務省",
+        "count": 48
+      },
+      {
+        "name": "org_0300",
+        "label": "人事院",
+        "count": 31
+      },
+      {
+        "name": "org_1900",
+        "label": "国土交通省",
+        "count": 14
+      },
+      {
+        "name": "org_1300",
+        "label": "外務省",
+        "count": 10
+      },
+      {
+        "name": "org_1700",
+        "label": "農林水産省",
+        "count": 8
+      },
+      {
+        "name": "org_0700",
+        "label": "警察庁",
+        "count": 7
+      },
+      {
+        "name": "org_1500",
+        "label": "文部科学省",
+        "count": 4
+      },
+      {
+        "name": "org_2200",
+        "label": "デジタル庁",
+        "count": 3
+      },
+      {
+        "name": "org_0900",
+        "label": "消費者庁",
+        "count": 1
+      }
+    ],
+    "samples": [
+      {
+        "organization": "厚生労働省",
+        "datasets": [
+          {
+            "title": "食中毒統計調査＿令和６年食中毒統計調査＿年次＿2024年",
+            "name": "mhlw_20260624_2024",
+            "url": "https://data.e-gov.go.jp/data/dataset/mhlw_20260624_2024",
+            "formats": [
+              "CSV"
+            ],
+            "frequency_of_update": ""
+          },
+          {
+            "title": "食中毒統計調査＿令和７年食中毒統計調査＿年次＿2025年",
+            "name": "mhlw_20260624_2025",
+            "url": "https://data.e-gov.go.jp/data/dataset/mhlw_20260624_2025",
+            "formats": [
+              "CSV"
+            ],
+            "frequency_of_update": ""
+          },
+          {
+            "title": "食中毒統計調査＿令和４年食中毒統計調査＿年次＿2022年",
+            "name": "mhlw_20260619_2022",
+            "url": "https://data.e-gov.go.jp/data/dataset/mhlw_20260619_2022",
+            "formats": [
+              "CSV"
+            ],
+            "frequency_of_update": ""
+          }
+        ]
+      },
+      {
+        "organization": "環境省",
+        "datasets": [
+          {
+            "title": "公害健康被害補償制度 現存被認定者数",
+            "name": "env_20250331_0001",
+            "url": "https://data.e-gov.go.jp/data/dataset/env_20250331_0001",
+            "formats": [
+              "CSV"
+            ],
+            "frequency_of_update": ""
+          },
+          {
+            "title": "レッドリスト/レッドデータブック_第５次レッドリスト",
+            "name": "env_20260420_1111",
+            "url": "https://data.e-gov.go.jp/data/dataset/env_20260420_1111",
+            "formats": [
+              "CSV"
+            ],
+            "frequency_of_update": "不定期"
+          },
+          {
+            "title": "レッドリスト/レッドデータブック_第２次レッドリスト及び改訂版レッドデータブック",
+            "name": "env_20260420_1017",
+            "url": "https://data.e-gov.go.jp/data/dataset/env_20260420_1017",
+            "formats": [
+              "CSV"
+            ],
+            "frequency_of_update": "不定期"
+          }
+        ]
+      },
+      {
+        "organization": "財務省",
+        "datasets": [
+          {
+            "title": "予算書関連_平成29年度",
+            "name": "mof_20170208_0047",
+            "url": "https://data.e-gov.go.jp/data/dataset/mof_20170208_0047",
+            "formats": [
+              "PDF",
+              "XLSX",
+              "XML",
+              "ZIP"
+            ],
+            "frequency_of_update": "1年"
+          },
+          {
+            "title": "予算書関連_平成24年度",
+            "name": "mof_20140901_0536",
+            "url": "https://data.e-gov.go.jp/data/dataset/mof_20140901_0536",
+            "formats": [
+              "PDF",
+              "XLSX",
+              "XML",
+              "ZIP"
+            ],
+            "frequency_of_update": "1年"
+          },
+          {
+            "title": "予算書関連_平成26年度",
+            "name": "mof_20140901_0667",
+            "url": "https://data.e-gov.go.jp/data/dataset/mof_20140901_0667",
+            "formats": [
+              "PDF",
+              "XLSX",
+              "XML",
+              "ZIP"
+            ],
+            "frequency_of_update": "1年"
+          }
+        ]
+      },
+      {
+        "organization": "内閣府",
+        "datasets": [
+          {
+            "title": "課税対象所得：総務省『市町村税課税状況等の調』",
+            "name": "cao_20150109_0022",
+            "url": "https://data.e-gov.go.jp/data/dataset/cao_20150109_0022",
+            "formats": [
+              "CSV",
+              "XLS",
+              "XLSX"
+            ],
+            "frequency_of_update": "更新しない"
+          },
+          {
+            "title": "従業者数：総務省『事業所・企業統計調査』、『経済センサス－基礎調査』",
+            "name": "cao_20150109_0021",
+            "url": "https://data.e-gov.go.jp/data/dataset/cao_20150109_0021",
+            "formats": [
+              "CSV",
+              "XLS"
+            ],
+            "frequency_of_update": "更新しない"
+          },
+          {
+            "title": "製造品出荷額等：経済産業省『工業統計調査』",
+            "name": "cao_20150109_0017",
+            "url": "https://data.e-gov.go.jp/data/dataset/cao_20150109_0017",
+            "formats": [
+              "CSV",
+              "XLS"
+            ],
+            "frequency_of_update": "更新しない"
+          }
+        ]
+      },
+      {
+        "organization": "総務省",
+        "datasets": [
+          {
+            "title": "情報通信白書_令和2年版(7)",
+            "name": "soumu_20201106_0012",
+            "url": "https://data.e-gov.go.jp/data/dataset/soumu_20201106_0012",
+            "formats": [
+              "CSV",
+              "XLSX"
+            ],
+            "frequency_of_update": "1年"
+          },
+          {
+            "title": "情報通信白書_令和元年版(6)",
+            "name": "soumu_20191028_0013",
+            "url": "https://data.e-gov.go.jp/data/dataset/soumu_20191028_0013",
+            "formats": [
+              "CSV",
+              "XLSX"
+            ],
+            "frequency_of_update": "1年"
+          },
+          {
+            "title": "情報通信白書_令和3年版",
+            "name": "soumu_20211001_0010",
+            "url": "https://data.e-gov.go.jp/data/dataset/soumu_20211001_0010",
+            "formats": [
+              "CSV",
+              "HTML",
+              "PDF",
+              "XLSX",
+              "epub"
+            ],
+            "frequency_of_update": "1年"
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": {
+    "machine_readable": [
+      "CSV",
+      "XML",
+      "JSON",
+      "RDF",
+      "GeoJSON",
+      "TSV",
+      "JSON-LD",
+      "API"
+    ],
+    "semi_structured": [
+      "XLSX",
+      "XLS"
+    ]
+  }
+}

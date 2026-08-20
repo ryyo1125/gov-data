@@ -57,5 +57,10 @@ else
     --out "$REPO_ROOT/results/fields.json"
 fi
 
+# カタログ俯瞰。台帳の検証とは別物（存在するものの一覧であって検証結果ではない）。
+echo "== カタログ俯瞰 =="
+"$TOOL_VENV/bin/python" "$REPO_ROOT/verify/survey_catalog.py" \
+  --out "$REPO_ROOT/results/catalog-survey.json"
+
 echo "== 台帳の再生成 =="
 "$TOOL_VENV/bin/python" "$REPO_ROOT/registry/build.py"

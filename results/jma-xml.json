@@ -1,7 +1,7 @@
 {
   "source_id": "jma-xml",
   "target": "https://www.data.jma.go.jp/developer/xml/feed",
-  "generated_at": "2026-08-20T00:56:24+00:00",
+  "generated_at": "2026-08-20T01:00:24+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
@@ -20,7 +20,7 @@
     {
       "step": "GET /regular.xml (定時・高頻度)",
       "ok": true,
-      "elapsed_ms": 481,
+      "elapsed_ms": 443,
       "result": {
         "status": 200,
         "content_type": "text/xml",
@@ -39,7 +39,7 @@
     {
       "step": "GET /extra.xml (随時・高頻度)",
       "ok": true,
-      "elapsed_ms": 52,
+      "elapsed_ms": 53,
       "result": {
         "status": 200,
         "content_type": "text/xml",
@@ -58,7 +58,7 @@
     {
       "step": "GET /eqvol.xml (地震火山・高頻度)",
       "ok": true,
-      "elapsed_ms": 47,
+      "elapsed_ms": 70,
       "result": {
         "status": 200,
         "content_type": "text/xml",
@@ -77,7 +77,7 @@
     {
       "step": "GET /other.xml (その他・高頻度)",
       "ok": true,
-      "elapsed_ms": 75,
+      "elapsed_ms": 45,
       "result": {
         "status": 200,
         "content_type": "text/xml",
@@ -96,7 +96,7 @@
     {
       "step": "GET /regular_l.xml (定時・長期)",
       "ok": true,
-      "elapsed_ms": 997,
+      "elapsed_ms": 893,
       "result": {
         "status": 200,
         "content_type": "text/xml",
@@ -115,7 +115,7 @@
     {
       "step": "GET /extra_l.xml (随時・長期)",
       "ok": true,
-      "elapsed_ms": 694,
+      "elapsed_ms": 686,
       "result": {
         "status": 200,
         "content_type": "text/xml",
@@ -134,7 +134,7 @@
     {
       "step": "GET /eqvol_l.xml (地震火山・長期)",
       "ok": true,
-      "elapsed_ms": 549,
+      "elapsed_ms": 534,
       "result": {
         "status": 200,
         "content_type": "text/xml",
@@ -153,7 +153,7 @@
     {
       "step": "GET /other_l.xml (その他・長期)",
       "ok": true,
-      "elapsed_ms": 516,
+      "elapsed_ms": 519,
       "result": {
         "status": 200,
         "content_type": "text/xml",
@@ -172,7 +172,7 @@
     {
       "step": "GET 電文本体",
       "ok": true,
-      "elapsed_ms": 157,
+      "elapsed_ms": 152,
       "result": {
         "url": "https://www.data.jma.go.jp/developer/xml/data/20260820005056_0_VPWS50_010000.xml",
         "status": 200,

@@ -27,9 +27,11 @@ SCHEMA_PATH = REPO_ROOT / "registry" / "schema.json"
 BLOCKED_PATH = REPO_ROOT / "registry" / "blocked.yaml"
 REACHABILITY_PATH = REPO_ROOT / "results" / "reachability.json"
 FIELDS_PATH = REPO_ROOT / "results" / "fields.json"
+SURVEY_PATH = REPO_ROOT / "results" / "catalog-survey.json"
 REGISTRY_JSON = REPO_ROOT / "registry" / "registry.json"
 REGISTRY_MD = REPO_ROOT / "docs" / "REGISTRY.md"
 FIELDS_MD = REPO_ROOT / "docs" / "FIELDS.md"
+SURVEY_MD = REPO_ROOT / "docs" / "SURVEY.md"
 
 # 検証結果がこれより古ければ stale。政府 API の仕様変更に気づける程度の間隔。
 STALE_AFTER = timedelta(days=90)
@@ -485,6 +487,116 @@ def render_fields(fields: dict, entry_names: dict[str, str]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def render_survey(survey: dict) -> str:
+    """カタログ俯瞰。台帳が「検証済みで取れるもの」なら、これは「存在するもの」。"""
+    totals = survey["totals"]
+    machine = survey["machine_readable"]
+    ratio = totals["machine_readable_datasets"] / totals["datasets"] * 100
+
+    lines = [
+        "# カタログ俯瞰（何が存在するか）",
+        "",
+        "**このファイルは `registry/build.py` が `results/catalog-survey.json` から生成する。**",
+        "更新するには `verify/survey_catalog.py` を実行してからビルドし直す。",
+        "",
+        f"- 生成日時: {survey.get('generated_at', '-')}",
+        f"- 出所: {survey['source']['name']}（台帳エントリ `{survey['source']['registry_entry']}`）",
+        "",
+        "台帳（[REGISTRY.md](REGISTRY.md)）が「検証済みで実際に取れるもの」を載せるのに対し、",
+        "ここは「存在するが、まだ検証していないもの」も含めた全体像を示す。役割が違うので混ぜない。",
+        "",
+        "## 規模",
+        "",
+        f"| データセット | {totals['datasets']:,} 件 |",
+        "|---|---|",
+        f"| 公開組織 | {totals['organizations']} 組織 |",
+        f"| 機械可読な形式を含むもの | {totals['machine_readable_datasets']:,} 件（**{ratio:.1f}%**） |",
+        "",
+        "**読み方の注意。** 以下の形式別の数はリソース数ではなく、その形式を 1 つ以上持つ",
+        "**データセット数**である。1 つのデータセットが PDF と CSV を両方持てば両方に数えられるため、",
+        "形式別の合計はデータセット総数を超える。「全リソースの何割が CSV か」とは読めない。",
+        "",
+        "## 提供形式",
+        "",
+        "| 形式 | データセット数 | 機械可読 |",
+        "|---|---|---|",
+    ]
+    machine_formats = set(survey["definitions"]["machine_readable"])
+    semi = set(survey["definitions"]["semi_structured"])
+    for f in survey["by_format"]:
+        if f["count"] < 10:
+            continue
+        kind = "◎" if f["label"] in machine_formats else ("△ 表計算" if f["label"] in semi else "")
+        lines.append(f"| {f['label'] or '(空)'} | {f['count']:,} | {kind} |")
+    lines += ["", "10 件未満の形式は省略している。全量は `results/catalog-survey.json` を参照。", ""]
+
+    lines += [
+        "## 機械可読データの所在",
+        "",
+        "台帳に昇格させる候補はここから探す。母集団が全体の 1 割に満たないので扱える大きさ。",
+        "",
+        "| 形式 | データセット数 |",
+        "|---|---|",
+    ]
+    lines += [f"| {fmt} | {count:,} |" for fmt, count in machine["by_format"].items()]
+    lines += [
+        "",
+        "| 組織 | 機械可読を含むデータセット数 |",
+        "|---|---|",
+    ]
+    lines += [f"| {o['label']} | {o['count']:,} |" for o in machine["by_organization"]]
+
+    lines += ["", "### 代表例", ""]
+    for sample in machine["samples"]:
+        lines += [f"**{sample['organization']}**", ""]
+        for d in sample["datasets"]:
+            formats = " / ".join(d["formats"]) or "-"
+            lines.append(
+                f"- [{d['title']}]({d['url']}) — {formats}"
+                + (f"（更新: {d['frequency_of_update']}）" if d.get("frequency_of_update") else "")
+            )
+        lines.append("")
+
+    lines += [
+        "## 組織別の全体件数",
+        "",
+        "| 組織 | データセット数 |",
+        "|---|---|",
+    ]
+    lines += [f"| {o['label']} | {o['count']:,} |" for o in survey["by_organization"]]
+
+    lines += [
+        "",
+        "## 更新頻度",
+        "",
+        "自由記述のため表記が揺れる（全角と半角、「1年」と「１年」など）。",
+        "機械処理するなら正規化が要る。上位 20 件のみ。",
+        "",
+        "| 記載値 | データセット数 |",
+        "|---|---|",
+    ]
+    lines += [f"| {f['label'] or '(空)'} | {f['count']:,} |" for f in survey["by_update_frequency"][:20]]
+
+    lines += [
+        "",
+        "## この俯瞰で分からないこと",
+        "",
+        "- **再配布の可否。** カタログはライセンス情報を実質的に持たない（台帳の",
+        "  `egov-data-catalog` の findings を参照）。個々の提供元に当たる必要がある。",
+        "- **API かどうか。** 形式に `API` を持つデータセットは存在しない。ここに載るのは",
+        "  ファイルの所在であって、機械で叩ける口があるという意味ではない。",
+        "- **実際に取得できるか。** 未検証。取れることを確かめたものだけが台帳に載る。",
+        "",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def load_survey() -> dict:
+    if not SURVEY_PATH.is_file():
+        return {}
+    return json.loads(SURVEY_PATH.read_text(encoding="utf-8"))
+
+
 def load_fields() -> dict:
     if not FIELDS_PATH.is_file():
         return {}
@@ -508,6 +620,8 @@ def main() -> int:
     fields = load_fields()
     entry_names = {e["id"]: e["name"] for e in entries}
     fields_markdown = render_fields(fields, entry_names) if fields else None
+    survey = load_survey()
+    survey_markdown = render_survey(survey) if survey else None
     # generated_at は毎回変わるため、最新かどうかの比較からは外す。
     comparable = {k: v for k, v in registry.items() if k != "generated_at"}
 
@@ -525,6 +639,10 @@ def main() -> int:
             not FIELDS_MD.is_file() or FIELDS_MD.read_text(encoding="utf-8") != fields_markdown
         ):
             stale.append(str(FIELDS_MD.relative_to(REPO_ROOT)))
+        if survey_markdown and (
+            not SURVEY_MD.is_file() or SURVEY_MD.read_text(encoding="utf-8") != survey_markdown
+        ):
+            stale.append(str(SURVEY_MD.relative_to(REPO_ROOT)))
         if stale:
             print("生成物が最新ではない: " + ", ".join(stale), file=sys.stderr)
             print("registry/build.py を実行して更新すること", file=sys.stderr)
@@ -539,11 +657,17 @@ def main() -> int:
     REGISTRY_MD.write_text(markdown, encoding="utf-8")
     if fields_markdown:
         FIELDS_MD.write_text(fields_markdown, encoding="utf-8")
+    if survey_markdown:
+        SURVEY_MD.write_text(survey_markdown, encoding="utf-8")
 
     for s in registry["sources"]:
         v = s["verification"]
         print(f"  {s['id']}: {v['status']}" + (f" ({v['reason']})" if v.get("reason") else ""))
-    outputs = [REGISTRY_JSON, REGISTRY_MD] + ([FIELDS_MD] if fields_markdown else [])
+    outputs = (
+        [REGISTRY_JSON, REGISTRY_MD]
+        + ([FIELDS_MD] if fields_markdown else [])
+        + ([SURVEY_MD] if survey_markdown else [])
+    )
     print(f"{len(entries)} 件 -> " + ", ".join(str(p.relative_to(REPO_ROOT)) for p in outputs))
     return 0
 

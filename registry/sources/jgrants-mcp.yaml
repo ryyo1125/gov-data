@@ -29,9 +29,11 @@ content:
     - docx
     - csv
   update_frequency: undocumented
-  coverage: 募集中・募集予定の補助金が対象。過去の募集は含まれない。
-  measured:
-    - get_subsidy_overview が集計した総数は 189 件
+  coverage: >-
+    募集中・募集予定の補助金が対象。過去の募集は含まれない。件数は募集の開始と締切で
+    日々変わるため台帳に書かない（実測は results/jgrants-mcp.json の
+    call:get_subsidy_overview を参照）。
+  measured: []
 
 requirements:
   auth: not_required
