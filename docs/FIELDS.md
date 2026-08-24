@@ -3,7 +3,7 @@
 **このファイルは `registry/build.py` が `results/fields.json` から生成する。**
 更新するには `verify/extract_fields.py` を実行してからビルドし直す。
 
-- 生成日時: 2026-08-20T03:00:08+00:00
+- 生成日時: 2026-08-24T01:13:48+00:00
 
 項目の出所は情報源ごとに違う。**仕様由来**は提供側が定義した正式な項目、
 **実データ由来**はレスポンスを実際に読んで列挙したもので、サンプルに現れなかった
@@ -287,7 +287,7 @@
 | `author` | string | 作成者 |
 | `author_email` | null | サンプル内では常に null |
 | `compliant_standard` | string |  |
-| `contactPoint` | string | 連絡先 |
+| `contactPoint` | string |  |
 | `contactPoint_email` | string |  |
 | `contactPoint_etc` | string |  |
 | `contactPoint_ext` | string |  |
@@ -297,13 +297,13 @@
 | `distribution` | string |  |
 | `etc` | string |  |
 | `extras` | array |  |
-| `frequency_of_update` | string | 作成頻度 |
+| `frequency_of_update` | string |  |
 | `groups` | array |  |
 | `history_information` | string |  |
 | `id` | string |  |
 | `index_id` | string |  |
 | `isopen` | boolean |  |
-| `landingPage` | string | 公開ウェブページ |
+| `landingPage` | string |  |
 | `language` | string | 言語 |
 | `license_id` | null | サンプル内では常に null |
 | `license_title` | null | サンプル内では常に null |
@@ -312,7 +312,7 @@
 | `maintainer_email` | null | サンプル内では常に null |
 | `metadata_created` | string |  |
 | `metadata_modified` | string |  |
-| `name` | string | データセット管理名 |
+| `name` | string |  |
 | `notes` | string | 説明 |
 | `num_resources` | number |  |
 | `num_tags` | number |  |
@@ -322,7 +322,7 @@
 | `private` | boolean |  |
 | `provider_last_modified_date` | string |  |
 | `provider_metadata_modified` | string |  |
-| `publisher` | string | 公表組織名 |
+| `publisher` | string |  |
 | `related_documents` | string |  |
 | `relationships_as_object` | array |  |
 | `relationships_as_subject` | array |  |
@@ -364,7 +364,7 @@
 | `metadata_modified` | string |  |
 | `mimetype` | string |  |
 | `mimetype_inner` | null | サンプル内では常に null |
-| `name` | string | データセット管理名 |
+| `name` | string |  |
 | `package_id` | string |  |
 | `position` | number |  |
 | `private` | string |  |
@@ -467,7 +467,7 @@
 | `Report/Body/Warning` | 要素 |  |
 | `Report/Body/Warning/Item` | 要素 |  |
 
-### 電文 Body: 気象警報・注意報（Ｈ２７）（実データ由来 / extra フィード）
+### 電文 Body: 気象警報・注意報（Ｒ０６）（その他注意報）（実データ由来 / extra フィード）
 
 この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
 
@@ -492,13 +492,10 @@
 | `Report/Head/Headline/Text` | 要素 |  |
 | `Report/Head/Headline/Information` | 要素 |  |
 | `Report/Body` | 要素 |  |
-| `Report/Body/Notice` | 要素 |  |
 | `Report/Body/Warning` | 要素 |  |
 | `Report/Body/Warning/Item` | 要素 |  |
-| `Report/Body/MeteorologicalInfos` | 要素 |  |
-| `Report/Body/MeteorologicalInfos/TimeSeriesInfo` | 要素 |  |
 
-### 電文 Body: 震源・震度に関する情報（実データ由来 / eqvol フィード）
+### 電文 Body: 火山の状況に関する解説情報（実データ由来 / eqvol フィード）
 
 この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
 
@@ -514,42 +511,6 @@
 | `Report/Head/Title` | 要素 |  |
 | `Report/Head/ReportDateTime` | 要素 |  |
 | `Report/Head/TargetDateTime` | 要素 |  |
-| `Report/Head/EventID` | 要素 |  |
-| `Report/Head/InfoType` | 要素 |  |
-| `Report/Head/Serial` | 要素 |  |
-| `Report/Head/InfoKind` | 要素 |  |
-| `Report/Head/InfoKindVersion` | 要素 |  |
-| `Report/Head/Headline` | 要素 |  |
-| `Report/Head/Headline/Text` | 要素 |  |
-| `Report/Body` | 要素 |  |
-| `Report/Body/Earthquake` | 要素 |  |
-| `Report/Body/Earthquake/OriginTime` | 要素 |  |
-| `Report/Body/Earthquake/ArrivalTime` | 要素 |  |
-| `Report/Body/Earthquake/Hypocenter` | 要素 |  |
-| `Report/Body/Earthquake/Magnitude` | 要素 |  |
-| `Report/Body/Intensity` | 要素 |  |
-| `Report/Body/Intensity/Observation` | 要素 |  |
-| `Report/Body/Comments` | 要素 |  |
-| `Report/Body/Comments/ForecastComment` | 要素 |  |
-| `Report/Body/Comments/VarComment` | 要素 |  |
-
-### 電文 Body: 地方海上警報（Ｈ２８）（実データ由来 / other フィード）
-
-この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
-
-| 項目 | 型 | 説明 |
-|---|---|---|
-| `Report/Control` | 要素 |  |
-| `Report/Control/Title` | 要素 |  |
-| `Report/Control/DateTime` | 要素 |  |
-| `Report/Control/Status` | 要素 |  |
-| `Report/Control/EditorialOffice` | 要素 |  |
-| `Report/Control/PublishingOffice` | 要素 |  |
-| `Report/Head` | 要素 |  |
-| `Report/Head/Title` | 要素 |  |
-| `Report/Head/ReportDateTime` | 要素 |  |
-| `Report/Head/TargetDateTime` | 要素 |  |
-| `Report/Head/ValidDateTime` | 要素 |  |
 | `Report/Head/EventID` | 要素 |  |
 | `Report/Head/InfoType` | 要素 |  |
 | `Report/Head/Serial` | 要素 |  |
@@ -559,10 +520,42 @@
 | `Report/Head/Headline/Text` | 要素 |  |
 | `Report/Head/Headline/Information` | 要素 |  |
 | `Report/Body` | 要素 |  |
-| `Report/Body/Warning` | 要素 |  |
-| `Report/Body/Warning/Item` | 要素 |  |
+| `Report/Body/VolcanoInfo` | 要素 |  |
+| `Report/Body/VolcanoInfo/Item` | 要素 |  |
+| `Report/Body/VolcanoInfoContent` | 要素 |  |
+| `Report/Body/VolcanoInfoContent/VolcanoHeadline` | 要素 |  |
+| `Report/Body/VolcanoInfoContent/VolcanoActivity` | 要素 |  |
+| `Report/Body/VolcanoInfoContent/VolcanoPrevention` | 要素 |  |
+| `Report/Body/VolcanoInfoContent/NextAdvisory` | 要素 |  |
+
+### 電文 Body: 生物季節観測（実データ由来 / other フィード）
+
+この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
+
+| 項目 | 型 | 説明 |
+|---|---|---|
+| `Report/Control` | 要素 |  |
+| `Report/Control/Title` | 要素 |  |
+| `Report/Control/DateTime` | 要素 |  |
+| `Report/Control/Status` | 要素 |  |
+| `Report/Control/EditorialOffice` | 要素 |  |
+| `Report/Control/PublishingOffice` | 要素 |  |
+| `Report/Head` | 要素 |  |
+| `Report/Head/Title` | 要素 |  |
+| `Report/Head/ReportDateTime` | 要素 |  |
+| `Report/Head/TargetDateTime` | 要素 |  |
+| `Report/Head/EventID` | 要素 |  |
+| `Report/Head/InfoType` | 要素 |  |
+| `Report/Head/Serial` | 要素 |  |
+| `Report/Head/InfoKind` | 要素 |  |
+| `Report/Head/InfoKindVersion` | 要素 |  |
+| `Report/Head/Headline` | 要素 |  |
+| `Report/Head/Headline/Text` | 要素 |  |
+| `Report/Body` | 要素 |  |
 | `Report/Body/MeteorologicalInfos` | 要素 |  |
 | `Report/Body/MeteorologicalInfos/MeteorologicalInfo` | 要素 |  |
+| `Report/Body/AdditionalInfo` | 要素 |  |
+| `Report/Body/AdditionalInfo/ObservationAddition` | 要素 |  |
 
 ## Jグランツ MCP Server (`jgrants-mcp`)
 

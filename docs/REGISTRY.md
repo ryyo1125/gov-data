@@ -4,17 +4,17 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-20T03:00:49+00:00
+- 生成日時: 2026-08-24T01:15:33+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
 
 | ID | 名称 | 提供元 | 権威性 | 方式 | 認証 | 出典表示 | 状態 | 最終検証 |
 |---|---|---|---|---|---|---|---|---|
-| `egov-data-catalog` | e-Gov データポータル（CKAN API） | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-20 |
-| `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (8/8) | 2026-08-20 |
-| `jgrants-mcp` | Jグランツ MCP Server | デジタル庁 | official_wrapper | mcp | not_required | yes | 検証済 (9/9) | 2026-08-20 |
-| `jma-xml` | 気象庁防災情報XML（PULL型 Atom フィード） | 気象庁 | primary_official | rest_api | not_required | undocumented | 検証済 (9/9) | 2026-08-20 |
+| `egov-data-catalog` | e-Gov データポータル（CKAN API） | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-24 |
+| `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (8/8) | 2026-08-24 |
+| `jgrants-mcp` | Jグランツ MCP Server | デジタル庁 | official_wrapper | mcp | not_required | yes | 検証済 (9/9) | 2026-08-24 |
+| `jma-xml` | 気象庁防災情報XML（PULL型 Atom フィード） | 気象庁 | primary_official | rest_api | not_required | undocumented | 検証済 (9/9) | 2026-08-24 |
 
 ## e-Gov データポータル（CKAN API） (`egov-data-catalog`)
 
@@ -58,20 +58,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T02:59:01+00:00
+- 最終検証: 2026-08-24T01:12:32+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_data_catalog.py --out results/egov-data-catalog.json`
 - 検証スクリプト: `verify/verify_egov_data_catalog.py` / 結果: `results/egov-data-catalog.json`
-- 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
+- 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `site_read` | OK | 904 ms |  |
-| `package_search` | OK | 323 ms |  |
-| `package_list` | OK | 219 ms |  |
-| `organization_list` | OK | 508 ms |  |
-| `group_list` | OK | 218 ms |  |
-| `tag_list` | OK | 935 ms |  |
-| `package_show` | OK | 297 ms |  |
+| `site_read` | OK | 610 ms |  |
+| `package_search` | OK | 333 ms |  |
+| `package_list` | OK | 223 ms |  |
+| `organization_list` | OK | 227 ms |  |
+| `group_list` | OK | 221 ms |  |
+| `tag_list` | OK | 483 ms |  |
+| `package_show` | OK | 279 ms |  |
 
 ### 実行して分かったこと
 
@@ -113,7 +113,7 @@
 - 形式: json / xml / pdf
 - 更新頻度: undocumented
 - 収録範囲: 法令一覧・改正履歴・本文・添付ファイルを提供。全文検索は法令本文（law_full_text）を対象とする。
-- 実測値: /laws の total_count は 9542 件（全法令）
+- 実測値: /laws の total_count は 9547 件（全法令）
 
 ### 接続要件
 
@@ -138,21 +138,21 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T02:58:57+00:00
+- 最終検証: 2026-08-24T01:12:30+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json`
 - 検証スクリプト: `verify/verify_egov_hourei.py` / 結果: `results/egov-hourei-api.json`
-- 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
+- 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `fetch_openapi_spec` | OK | 560 ms |  |
-| `GET /laws（全件数）` | OK | 1223 ms |  |
-| `GET /laws` | OK | 284 ms |  |
-| `GET /law_revisions/{law_id}` | OK | 237 ms |  |
-| `GET /law_data/{law_id}` | OK | 278 ms |  |
-| `GET /keyword` | OK | 1627 ms |  |
-| `GET /law_file/xml/{law_id}` | OK | 306 ms |  |
-| `GET /attachment/{law_revision_id}` | OK | 420 ms |  |
+| `fetch_openapi_spec` | OK | 652 ms |  |
+| `GET /laws（全件数）` | OK | 1052 ms |  |
+| `GET /laws` | OK | 349 ms |  |
+| `GET /law_revisions/{law_id}` | OK | 312 ms |  |
+| `GET /law_data/{law_id}` | OK | 314 ms |  |
+| `GET /keyword` | OK | 1721 ms |  |
+| `GET /law_file/xml/{law_id}` | OK | 326 ms |  |
+| `GET /attachment/{law_revision_id}` | OK | 562 ms |  |
 
 ### 実行して分かったこと
 
@@ -219,22 +219,22 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T02:59:15+00:00
+- 最終検証: 2026-08-24T01:12:54+00:00
 - 再現コマンド: `./verify/run_jgrants_verification.sh`
 - 検証スクリプト: `verify/verify_jgrants_mcp.py` / 結果: `results/jgrants-mcp.json`
-- 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
+- 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
 | `initialize` | OK | 0 ms |  |
-| `list_tools` | OK | 16 ms |  |
+| `list_tools` | OK | 15 ms |  |
 | `list_resources` | OK | 7 ms |  |
-| `list_prompts` | OK | 6 ms |  |
-| `call:ping` | OK | 10 ms |  |
-| `call:search_subsidies` | OK | 1311 ms |  |
-| `call:get_subsidy_detail` | OK | 213 ms |  |
-| `call:get_subsidy_overview` | OK | 1678 ms |  |
-| `call:get_file_content` | OK | 2111 ms |  |
+| `list_prompts` | OK | 5 ms |  |
+| `call:ping` | OK | 11 ms |  |
+| `call:search_subsidies` | OK | 1094 ms |  |
+| `call:get_subsidy_detail` | OK | 195 ms |  |
+| `call:get_subsidy_overview` | OK | 1734 ms |  |
+| `call:get_file_content` | OK | 2073 ms |  |
 
 ### 実行して分かったこと
 
@@ -301,22 +301,22 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-20T02:59:04+00:00
+- 最終検証: 2026-08-24T01:12:37+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_jma_xml.py --out results/jma-xml.json`
 - 検証スクリプト: `verify/verify_jma_xml.py` / 結果: `results/jma-xml.json`
-- 検証環境: Python 3.11.15 / Linux-6.18.5-fc-v20-x86_64-with-glibc2.39
+- 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `GET /regular.xml (定時・高頻度)` | OK | 655 ms |  |
-| `GET /extra.xml (随時・高頻度)` | OK | 55 ms |  |
-| `GET /eqvol.xml (地震火山・高頻度)` | OK | 47 ms |  |
-| `GET /other.xml (その他・高頻度)` | OK | 513 ms |  |
-| `GET /regular_l.xml (定時・長期)` | OK | 396 ms |  |
-| `GET /extra_l.xml (随時・長期)` | OK | 204 ms |  |
-| `GET /eqvol_l.xml (地震火山・長期)` | OK | 531 ms |  |
-| `GET /other_l.xml (その他・長期)` | OK | 525 ms |  |
-| `GET 電文本体` | OK | 157 ms |  |
+| `GET /regular.xml (定時・高頻度)` | OK | 441 ms |  |
+| `GET /extra.xml (随時・高頻度)` | OK | 46 ms |  |
+| `GET /eqvol.xml (地震火山・高頻度)` | OK | 44 ms |  |
+| `GET /other.xml (その他・高頻度)` | OK | 497 ms |  |
+| `GET /regular_l.xml (定時・長期)` | OK | 493 ms |  |
+| `GET /extra_l.xml (随時・長期)` | OK | 1821 ms |  |
+| `GET /eqvol_l.xml (地震火山・長期)` | OK | 54 ms |  |
+| `GET /other_l.xml (その他・長期)` | OK | 533 ms |  |
+| `GET 電文本体` | OK | 115 ms |  |
 
 ### 実行して分かったこと
 
@@ -340,29 +340,29 @@
 実体は `registry/candidates.yaml`。
 
 - 候補 12 件
-- **いま着手できるもの: 11 件**（到達でき、認証待ちでもない）
+- **いま着手できるもの: 6 件**（到達でき、認証待ちでもない）
 
 | 候補 | 保留の理由 | ホストへの到達 |
 |---|---|---|
 | **e-Stat API（政府統計の総合窓口）** (`estat-api`) | 認証情報が無い | 可 |
 | **国立国会図書館サーチ** (`ndl-search`) | 未着手 | 可 |
-| **J-STAGE** (`jstage`) | 未着手 | 可 |
+| **J-STAGE** (`jstage`) | 到達できない（自環境の egress） | **不可** |
 | **国土地理院（地理院タイル・地図）** (`gsi-maps`) | 未着手 | 可 |
 | **統計 LOD** (`estat-lod`) | 未着手 | 可 |
-| **法人番号システム Web-API（国税庁）** (`houjin-bangou`) | 未着手 | 可 |
-| **RESAS API（地域経済分析システム）** (`resas`) | 未着手 | 可 |
-| **不動産情報ライブラリ（国土交通省）** (`reinfolib`) | 未着手 | 可 |
+| **法人番号システム Web-API（国税庁）** (`houjin-bangou`) | 到達できない（自環境の egress） | **不可** |
+| **不動産情報ライブラリ（国土交通省）** (`reinfolib`) | 認証情報が無い | 可 |
 | **国土数値情報（国土交通省）** (`nlftp-mlit`) | 未着手 | 可 |
 | **官報** (`kanpo`) | 未着手 | 可 |
-| **特許庁 IP Data** (`jpo-ip-data`) | 未着手 | 可 |
+| **特許庁 IP Data** (`jpo-ip-data`) | 認証情報が無い | 可 |
 | **医療機関等情報提供制度（厚生労働省）** (`iryou-teikyou`) | 未着手 | 可 |
+| **国土交通データプラットフォーム（国土交通 DPF 利用者 API）** (`mlit-data`) | 到達できない（自環境の egress） | **不可** |
 
 ### e-Stat API（政府統計の総合窓口） (`estat-api`)
 
 - 保留の理由: 認証情報が無い
 - 調べた理由: 政府統計を扱うなら最初に当たる情報源のため。
 - 対象ホスト: `api.e-stat.go.jp`, `www.e-stat.go.jp`（到達可）
-- 詳細: 利用には appId が必要で、まだ取得していない。ホストには到達できるので 一次資料（API 仕様）は読めるが、実際に叩いて確かめることができない。 検証できないものは台帳に載せないという原則により、ここで保留する。
+- 詳細: 利用には appId が必要で、まだ取得していない。ホストには到達できるので 一次資料（API 仕様）は読めるが、実際に叩いて確かめることができない。 検証できないものは台帳に載せないという原則により、ここで保留する。 なお統計 LOD（estat-lod）は同じ e-Stat でも appId を要求しない別経路で、 そちらは認証情報を待たずに検証できる。
 - 次の一手: appId を取得したうえで、公開されている各エンドポイントを検証する。
 
 ### 国立国会図書館サーチ (`ndl-search`)
@@ -370,93 +370,107 @@
 - 保留の理由: 未着手
 - 調べた理由: 書誌情報を横断的に扱える公的な情報源として。
 - 対象ホスト: `ndlsearch.ndl.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: API 仕様に当たり、認証要否と提供されるエンドポイントを確認する。
+- 詳細: 認証は不要と実測で確認した。認証情報を付けずに /api/opensearch と /api/sru がいずれも HTTP 200 で XML を返し、SRU は numberOfRecords 8307745 を返した。一次資料 https://ndlsearch.ndl.go.jp/help/api にも API キーの記述は無く、 「利用申請」は営利目的での利用条件についての手続きであって、 技術的な資格情報ではない（非営利・無収益なら申請不要と明記）。 継続的なアクセスには申請の要否にかかわらず連絡が求められている点と、 クレジット表示が条件である点は、登録時に usage_restrictions へ書く。
+- 次の一手: SRU / OpenSearch / OpenURL / OAI-PMH の 4 経路を検証スクリプトで叩き、 エントリを起こす。粒度は 1 エンドポイントなので分割するか決める。
 
 ### J-STAGE (`jstage`)
 
-- 保留の理由: 未着手
+- 保留の理由: 到達できない（自環境の egress）
 - 調べた理由: 学術論文の書誌・全文を扱う公的な情報源として。
-- 対象ホスト: `www.jstage.jst.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: API 仕様に当たり、認証要否と提供されるエンドポイントを確認する。
+- 対象ホスト: `www.jstage.jst.go.jp`, `api.jstage.jst.go.jp`（到達不可）
+- 詳細: 一次資料は読めたが、API ホストに到達できない。公式マニュアル https://www.jstage.jst.go.jp/static/files/ja/manual_api.pdf （Ver.2.0、 2026-03-26）がリクエスト先を https://api.jstage.jst.go.jp/searchapi/do と明示しており、そのホストへの GET はプロキシが 403（httpx の ProxyError） を返す。閲覧側の www.jstage.jst.go.jp には到達できるため、 これは先方の障害ではなく自環境の egress。 認証情報は不要と一次資料で確認した。利用規約第 2 条は 「非営利目的で利用するときは、JST への利用申請は不要」とし、 営利目的のときだけ申請書の提出を求めている。マニュアルにも API キーに あたるパラメータは無い。
+- 次の一手: api.jstage.jst.go.jp を egress の許可リストに追加してもらう。通ったら 巻号一覧・記事検索・資料検索の 3 機能を検証する。
 
 ### 国土地理院（地理院タイル・地図） (`gsi-maps`)
 
 - 保留の理由: 未着手
 - 調べた理由: 地理空間情報の基盤として。
 - 対象ホスト: `cyberjapandata.gsi.go.jp`, `maps.gsi.go.jp`, `saigai.gsi.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: 提供仕様に当たり、認証要否と利用条件を確認する。
+- 詳細: 認証は不要と実測で確認した。標準地図タイル https://cyberjapandata.gsi.go.jp/xyz/std/13/7276/3225.png が認証情報なしで HTTP 200・image/png を返した。一次資料 https://maps.gsi.go.jp/development/ichiran.html は「ウェブサイトや ソフトウェア、アプリケーション上でリアルタイムに読み込んで利用する場合、 地理院タイルは出典の明示のみで申請不要」と明記している。 ただしタイルは 3 分類あり、基本測量成果にあたるものは利用方法によって 測量法に基づく申請が必要になる。登録時に usage_restrictions へ書く。
+- 次の一手: 検証対象のタイル種別を決め（まず標準地図・淡色地図）、ズームレベルごとの 提供範囲と 404 の返り方を実測してエントリを起こす。
 
 ### 統計 LOD (`estat-lod`)
 
 - 保留の理由: 未着手
 - 調べた理由: 統計データを RDF/SPARQL で扱える経路として。e-Stat API とは別系統。
 - 対象ホスト: `data.e-stat.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: 提供仕様に当たり、認証要否とエンドポイントを確認する。
+- 詳細: 認証は不要と実測で確認した。一次資料 https://data.e-stat.go.jp/lodw/sparqlendpoint/api が示すエンドポイント https://data.e-stat.go.jp/lod/sparql/alldata/query に appId 無しで SPARQL クエリを投げ、HTTP 200・application/sparql-results+json が返った （消費者物価指数のサンプルクエリで値 100.2 を取得）。 e-Stat API（estat-api）は appId が要るが、こちらは要らない。 同じ提供元でも経路ごとに認証要否が違う例。
+- 次の一手: SPARQL 1.1 準拠とされる範囲（SELECT / ASK / CONSTRUCT / DESCRIBE、 GeoSPARQL）と Accept ヘッダによる出力形式の切り替えを実測して エントリを起こす。
 
 ### 法人番号システム Web-API（国税庁） (`houjin-bangou`)
 
-- 保留の理由: 未着手
+- 保留の理由: 到達できない（自環境の egress）
 - 調べた理由: 法人の名寄せに使える公的な識別子として。
-- 対象ホスト: `api.houjin-bangou.nta.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: API 仕様に当たり、認証要否（アプリケーション ID の要否）を確認する。
-
-### RESAS API（地域経済分析システム） (`resas`)
-
-- 保留の理由: 未着手
-- 調べた理由: 地域経済の統計を扱う情報源として。
-- 対象ホスト: `opendata.resas-portal.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: API 仕様に当たり、認証要否を確認する。
+- 対象ホスト: `api.houjin-bangou.nta.go.jp`, `www.houjin-bangou.nta.go.jp`（到達不可）
+- 詳細: 認証要否を確定できなかった。仕様が置かれている www.houjin-bangou.nta.go.jp への GET はプロキシが 403（ProxyError）を 返し、一次資料に到達できない。API ホスト api.houjin-bangou.nta.go.jp 自体には到達できるが、パスの当てずっぽう（/4/num、/4/name、/4/diff を id 有り・無しで）はすべて Apache の 404 Not Found を返しただけで、 これは「認証が要る」根拠にも「エンドポイントが無い」根拠にもならない。 一次資料を読まずに認証要否を書くことはしない。
+- 次の一手: www.houjin-bangou.nta.go.jp を egress の許可リストに追加してもらい、 仕様書を読んでからエンドポイントと認証要否を確定する。
 
 ### 不動産情報ライブラリ（国土交通省） (`reinfolib`)
 
-- 保留の理由: 未着手
+- 保留の理由: 認証情報が無い
 - 調べた理由: 不動産取引価格などを扱う情報源として。
 - 対象ホスト: `www.reinfolib.mlit.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: API 仕様に当たり、認証要否を確認する。
+- 詳細: API キーが必要と実測で確認した。キー無しで https://www.reinfolib.mlit.go.jp/ex-api/external/XIT001 を叩くと HTTP 401 と {"statusCode":401,"message":"Access denied due to missing subscription key. ..."} が返る。一次資料 https://www.reinfolib.mlit.go.jp/help/apiManual/ も、API 利用規約に 同意して利用申請したうえで、発行された API キーを Ocp-Apim-Subscription-Key リクエストヘッダーに設定するよう求めている。 申請はユーザー作業。
+- 次の一手: API キーを取得する。取得できたら credential_env に環境変数名だけを書き、 各エンドポイントを検証する。
 
 ### 国土数値情報（国土交通省） (`nlftp-mlit`)
 
 - 保留の理由: 未着手
 - 調べた理由: 地理空間の統計データを扱う情報源として。
 - 対象ホスト: `nlftp.mlit.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: 提供仕様に当たり、API の有無と利用条件を確認する。
+- 詳細: 認証は不要と実測で確認した。データセットページ https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-2026.html が 示す実ファイル https://nlftp.mlit.go.jp/ksj/gml/data/N03/N03-2026/N03-20260101_GML.zip に Range ヘッダ付きで GET したところ、認証情報なしで HTTP 206・ application/zip・Content-Range の総サイズ 803201348 が返った。 なお API については、トップ（/ksj/）と /ksj/first.html、データセット ページのいずれにも案内が見当たらず、ダウンロード導線はすべて zip への 直リンクだった。API があるともないとも一次資料が言っていないので undocumented 扱いとし、検証対象はファイル配布経路とする。
+- 次の一手: 検証対象のデータセットを絞り（まず N03 行政区域）、ダウンロード URL の 規則性と利用約款を一次資料で確認してエントリを起こす。巨大な zip を 毎回落とさずに済むよう、検証は Range で先頭だけを取る。
 
 ### 官報 (`kanpo`)
 
 - 保留の理由: 未着手
 - 調べた理由: 法令の公布や公示を一次で追える情報源として。
-- 対象ホスト: `www.kanpo.go.jp`, `notice.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: 機械可読な提供経路があるかを確認する。
+- 対象ホスト: `www.kanpo.go.jp`（到達可）
+- 詳細: 認証は不要と実測で確認した。日付別の全体目次 https://www.kanpo.go.jp/20260821/20260821.fullcontents.html が 認証情報なしで HTTP 200・HTML を返し、本文の目次が読めた。 機械可読な提供経路（API・XML・JSON）は、トップと目次ページのリンクを 見たかぎり見当たらず、日付とページで組み立てる HTML と PDF のみだった。 候補に挙げていた notice.go.jp は官報とは無関係のサイト（IoT 機器の セキュリティ啓発サイト NOTICE）だったので hosts から外した。
+- 次の一手: /ご利用に当たって（guidance.html）で転載・再利用の条件を確認する。 機械可読な経路が本当に無いなら、HTML の目次構造をどこまで安定した インタフェースとみなせるかを判断してから、エントリにするか決める。
 
 ### 特許庁 IP Data (`jpo-ip-data`)
 
-- 保留の理由: 未着手
+- 保留の理由: 認証情報が無い
 - 調べた理由: 産業財産権の情報を扱う情報源として。
 - 対象ホスト: `ip-data.jpo.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: API 仕様に当たり、認証要否を確認する。
+- 詳細: ID・パスワードが必要と実測で確認した。トークン無しで https://ip-data.jpo.go.jp/api/patent/v1/app_progress/2020000001 を叩くと HTTP 401 と {"result":{"statusCode":"210","errorMessage":"無効な トークンです。",...}} が返る。一次資料 https://ip-data.jpo.go.jp/files/アクセス方法.pdf は、利用登録時に通知 される URL へ grant_type=password と特許庁発行の ID・パスワードを POST してアクセストークン（有効期間 1 時間）を取得し、 Authorization: Bearer で各 API を呼ぶ手順を示している。 利用登録はユーザー作業。 なお OpenAPI 仕様 https://ip-data.jpo.go.jp/api_guide/api_reference.js （42 パス）には securitySchemes の記述が無く、認証の記述は仕様ではなく 別 PDF にある。仕様に securitySchemes が無いことは認証不要の根拠に ならない例。
+- 次の一手: 利用登録して ID・パスワードを取得する。取得できたらトークン取得から 各 API までを検証する。アクセス数に日次上限がある点も記録する。
 
 ### 医療機関等情報提供制度（厚生労働省） (`iryou-teikyou`)
 
 - 保留の理由: 未着手
 - 調べた理由: 医療機関の所在や機能を扱う情報源として。
 - 対象ホスト: `www.iryou.teikyouseido.mhlw.go.jp`（到達可）
-- 詳細: ホストに到達できるようになったが、一次資料をまだ読んでいない。
-- 次の一手: 機械可読な提供経路があるかを確認する。
+- 詳細: 認証は不要と実測で確認した。トップ https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2300/initialize が認証情報なしで HTTP 200・HTML を返した。 ただし機械可読な提供経路は見当たらない。トップのリンクはすべて画面遷移 （/znk-web/juminkanja/S____/initialize）で、CSV・オープンデータ・ 一括ダウンロードへの導線は無かった。
+- 次の一手: 検索画面の遷移がクエリで表現できるか、あるいは都道府県ごとの オープンデータが別のホストで公開されていないかを一次資料で確認する。 機械可読な経路が無いなら候補から外す判断も含めて決める。
+
+### 国土交通データプラットフォーム（国土交通 DPF 利用者 API） (`mlit-data`)
+
+- 保留の理由: 到達できない（自環境の egress）
+- 調べた理由: RESAS API の提供終了案内が、代替として利用できるサイトの筆頭に 挙げていたため。
+- 対象ホスト: `www.mlit-data.jp`（到達不可）
+- 詳細: https://www.mlit-data.jp/api_docs/ への GET はプロキシが 403 （ProxyError）を返し、一次資料に到達できない。先方の障害ではなく 自環境の egress。到達できない以上、何を提供するかも認証要否も書かない。
+- 次の一手: www.mlit-data.jp を egress の許可リストに追加してもらい、 API 仕様を読んで認証要否を確定する。
+
+
+## 調査済み・対象外
+
+調べた結果、台帳の対象にならないと分かったもの。**候補には数えない**。
+記録を消すと次に同じ調査が繰り返されるので、判断の根拠つきで残す。
+実体は `registry/candidates.yaml` の `retired:`。
+
+### RESAS API（地域経済分析システム） (`resas`)
+
+- 調べた理由: 地域経済の統計を扱う情報源として調べた。
+- 対象ホスト: `opendata.resas-portal.go.jp`
+- 対象外とした理由: 提供が終了している。一次資料 https://opendata.resas-portal.go.jp/docs/api/v1/index.html が 「RESAS API は、2025年3月24日（月）をもって、提供を終了することと なりました」「2024年10月31日（木）をもちまして、RESAS API ページにて 新たにアカウントを作成する機能を終了いたします」「2025年3月24日以降は 自動的にアカウントが削除され、API 機能のご利用を停止いたします」と 明記している。実測でも https://opendata.resas-portal.go.jp/api/v1/prefectures が HTTP 404 と HTML を返し、API として応答しない。到達できないから終了と解釈したのでは なく、提供元が終了を明記している。
+- 代替として案内されているもの: 同じ案内が代替として挙げているのは、国土交通データプラットフォーム 利用者 API（候補 mlit-data）、不動産情報ライブラリ（候補 reinfolib）、 e-Stat API（候補 estat-api）。
 
 
 ## 到達性の実測
 
-`verify/verify_reachability.py` の実測結果（2026-08-20T02:58:51+00:00）。
+`verify/verify_reachability.py` の実測結果（2026-08-24T01:12:24+00:00）。
 到達できないことは、そのサービスが存在しないことを意味しない。
 
 | ホスト | 結果 | 詳細 |
@@ -464,6 +478,7 @@
 | `api.e-stat.go.jp` | 到達可 | HTTP 403 |
 | `api.houjin-bangou.nta.go.jp` | 到達可 | HTTP 404 |
 | `api.jgrants-portal.go.jp` | 到達可 | HTTP 404 |
+| `api.jstage.jst.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
 | `cyberjapandata.gsi.go.jp` | 到達可 | HTTP 200 |
 | `data.e-gov.go.jp` | 到達可 | HTTP 301 |
 | `data.e-stat.go.jp` | 到達可 | HTTP 301 |
@@ -477,7 +492,6 @@
 | `ndlsearch.ndl.go.jp` | 到達可 | HTTP 200 |
 | `nlftp.mlit.go.jp` | 到達可 | HTTP 200 |
 | `notice.go.jp` | 到達可 | HTTP 200 |
-| `opendata.resas-portal.go.jp` | 到達可 | HTTP 200 |
 | `saigai.gsi.go.jp` | 到達可 | HTTP 200 |
 | `warp.ndl.go.jp` | 到達可 | HTTP 200 |
 | `www.bb.mof.go.jp` | 到達可 | HTTP 301 |
@@ -488,6 +502,7 @@
 | `www.e-stat.go.jp` | 到達可 | HTTP 200 |
 | `www.esri.cao.go.jp` | 到達可 | HTTP 200 |
 | `www.hokoukukan.go.jp` | 到達可 | HTTP 403 |
+| `www.houjin-bangou.nta.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
 | `www.iryou.teikyouseido.mhlw.go.jp` | 到達可 | HTTP 301 |
 | `www.jgrants-portal.go.jp` | 到達可 | HTTP 200 |
 | `www.jinji.go.jp` | 到達可 | HTTP 200 |
@@ -497,6 +512,7 @@
 | `www.kodokensaku.mlit.go.jp` | 到達可 | HTTP 200 |
 | `www.maff.go.jp` | 到達可 | HTTP 200 |
 | `www.mext.go.jp` | 到達可 | HTTP 200 |
+| `www.mlit-data.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
 | `www.mofa.go.jp` | 到達可 | HTTP 403 |
 | `www.npa.go.jp` | 到達可 | HTTP 200 |
 | `www.reinfolib.mlit.go.jp` | 到達可 | HTTP 200 |

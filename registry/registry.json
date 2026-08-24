@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T03:00:49+00:00",
+  "generated_at": "2026-08-24T01:15:33+00:00",
   "generated_by": "registry/build.py",
   "stale_after_days": 90,
   "sources": [
@@ -117,10 +117,10 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-20T02:59:01+00:00",
+        "verified_at": "2026-08-24T01:12:32+00:00",
         "environment": {
           "python": "3.11.15",
-          "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
+          "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
         },
         "summary": {
           "total": 7,
@@ -133,43 +133,43 @@
           {
             "step": "site_read",
             "outcome": "ok",
-            "elapsed_ms": 904,
+            "elapsed_ms": 610,
             "note": null
           },
           {
             "step": "package_search",
             "outcome": "ok",
-            "elapsed_ms": 323,
+            "elapsed_ms": 333,
             "note": null
           },
           {
             "step": "package_list",
             "outcome": "ok",
-            "elapsed_ms": 219,
+            "elapsed_ms": 223,
             "note": null
           },
           {
             "step": "organization_list",
             "outcome": "ok",
-            "elapsed_ms": 508,
+            "elapsed_ms": 227,
             "note": null
           },
           {
             "step": "group_list",
             "outcome": "ok",
-            "elapsed_ms": 218,
+            "elapsed_ms": 221,
             "note": null
           },
           {
             "step": "tag_list",
             "outcome": "ok",
-            "elapsed_ms": 935,
+            "elapsed_ms": 483,
             "note": null
           },
           {
             "step": "package_show",
             "outcome": "ok",
-            "elapsed_ms": 297,
+            "elapsed_ms": 279,
             "note": null
           }
         ],
@@ -203,7 +203,7 @@
         "update_frequency": "undocumented",
         "coverage": "法令一覧・改正履歴・本文・添付ファイルを提供。全文検索は法令本文（law_full_text）を対象とする。",
         "measured": [
-          "/laws の total_count は 9542 件（全法令）"
+          "/laws の total_count は 9547 件（全法令）"
         ]
       },
       "requirements": {
@@ -288,10 +288,10 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-20T02:58:57+00:00",
+        "verified_at": "2026-08-24T01:12:30+00:00",
         "environment": {
           "python": "3.11.15",
-          "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
+          "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
         },
         "summary": {
           "total": 8,
@@ -304,49 +304,49 @@
           {
             "step": "fetch_openapi_spec",
             "outcome": "ok",
-            "elapsed_ms": 560,
+            "elapsed_ms": 652,
             "note": null
           },
           {
             "step": "GET /laws（全件数）",
             "outcome": "ok",
-            "elapsed_ms": 1223,
+            "elapsed_ms": 1052,
             "note": null
           },
           {
             "step": "GET /laws",
             "outcome": "ok",
-            "elapsed_ms": 284,
+            "elapsed_ms": 349,
             "note": null
           },
           {
             "step": "GET /law_revisions/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 237,
+            "elapsed_ms": 312,
             "note": null
           },
           {
             "step": "GET /law_data/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 278,
+            "elapsed_ms": 314,
             "note": null
           },
           {
             "step": "GET /keyword",
             "outcome": "ok",
-            "elapsed_ms": 1627,
+            "elapsed_ms": 1721,
             "note": null
           },
           {
             "step": "GET /law_file/xml/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 306,
+            "elapsed_ms": 326,
             "note": null
           },
           {
             "step": "GET /attachment/{law_revision_id}",
             "outcome": "ok",
-            "elapsed_ms": 420,
+            "elapsed_ms": 562,
             "note": null
           }
         ],
@@ -483,10 +483,10 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-20T02:59:15+00:00",
+        "verified_at": "2026-08-24T01:12:54+00:00",
         "environment": {
           "python": "3.11.15",
-          "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
+          "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
         },
         "summary": {
           "total": 9,
@@ -505,7 +505,7 @@
           {
             "step": "list_tools",
             "outcome": "ok",
-            "elapsed_ms": 16,
+            "elapsed_ms": 15,
             "note": null
           },
           {
@@ -517,37 +517,37 @@
           {
             "step": "list_prompts",
             "outcome": "ok",
-            "elapsed_ms": 6,
+            "elapsed_ms": 5,
             "note": null
           },
           {
             "step": "call:ping",
             "outcome": "ok",
-            "elapsed_ms": 10,
+            "elapsed_ms": 11,
             "note": null
           },
           {
             "step": "call:search_subsidies",
             "outcome": "ok",
-            "elapsed_ms": 1311,
+            "elapsed_ms": 1094,
             "note": null
           },
           {
             "step": "call:get_subsidy_detail",
             "outcome": "ok",
-            "elapsed_ms": 213,
+            "elapsed_ms": 195,
             "note": null
           },
           {
             "step": "call:get_subsidy_overview",
             "outcome": "ok",
-            "elapsed_ms": 1678,
+            "elapsed_ms": 1734,
             "note": null
           },
           {
             "step": "call:get_file_content",
             "outcome": "ok",
-            "elapsed_ms": 2111,
+            "elapsed_ms": 2073,
             "note": null
           }
         ],
@@ -657,10 +657,10 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-20T02:59:04+00:00",
+        "verified_at": "2026-08-24T01:12:37+00:00",
         "environment": {
           "python": "3.11.15",
-          "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
+          "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
         },
         "summary": {
           "total": 9,
@@ -673,55 +673,55 @@
           {
             "step": "GET /regular.xml (定時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 655,
+            "elapsed_ms": 441,
             "note": null
           },
           {
             "step": "GET /extra.xml (随時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 55,
+            "elapsed_ms": 46,
             "note": null
           },
           {
             "step": "GET /eqvol.xml (地震火山・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 47,
+            "elapsed_ms": 44,
             "note": null
           },
           {
             "step": "GET /other.xml (その他・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 513,
+            "elapsed_ms": 497,
             "note": null
           },
           {
             "step": "GET /regular_l.xml (定時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 396,
+            "elapsed_ms": 493,
             "note": null
           },
           {
             "step": "GET /extra_l.xml (随時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 204,
+            "elapsed_ms": 1821,
             "note": null
           },
           {
             "step": "GET /eqvol_l.xml (地震火山・長期)",
             "outcome": "ok",
-            "elapsed_ms": 531,
+            "elapsed_ms": 54,
             "note": null
           },
           {
             "step": "GET /other_l.xml (その他・長期)",
             "outcome": "ok",
-            "elapsed_ms": 525,
+            "elapsed_ms": 533,
             "note": null
           },
           {
             "step": "GET 電文本体",
             "outcome": "ok",
-            "elapsed_ms": 157,
+            "elapsed_ms": 115,
             "note": null
           }
         ],
@@ -739,7 +739,7 @@
         "www.e-stat.go.jp"
       ],
       "blocker": "credentials",
-      "blocker_detail": "利用には appId が必要で、まだ取得していない。ホストには到達できるので 一次資料（API 仕様）は読めるが、実際に叩いて確かめることができない。 検証できないものは台帳に載せないという原則により、ここで保留する。",
+      "blocker_detail": "利用には appId が必要で、まだ取得していない。ホストには到達できるので 一次資料（API 仕様）は読めるが、実際に叩いて確かめることができない。 検証できないものは台帳に載せないという原則により、ここで保留する。 なお統計 LOD（estat-lod）は同じ e-Stat でも appId を要求しない別経路で、 そちらは認証情報を待たずに検証できる。",
       "next_step": "appId を取得したうえで、公開されている各エンドポイントを検証する。",
       "reachable": true,
       "stale_blocker": false,
@@ -753,8 +753,8 @@
         "ndlsearch.ndl.go.jp"
       ],
       "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "API 仕様に当たり、認証要否と提供されるエンドポイントを確認する。",
+      "blocker_detail": "認証は不要と実測で確認した。認証情報を付けずに /api/opensearch と /api/sru がいずれも HTTP 200 で XML を返し、SRU は numberOfRecords 8307745 を返した。一次資料 https://ndlsearch.ndl.go.jp/help/api にも API キーの記述は無く、 「利用申請」は営利目的での利用条件についての手続きであって、 技術的な資格情報ではない（非営利・無収益なら申請不要と明記）。 継続的なアクセスには申請の要否にかかわらず連絡が求められている点と、 クレジット表示が条件である点は、登録時に usage_restrictions へ書く。",
+      "next_step": "SRU / OpenSearch / OpenURL / OAI-PMH の 4 経路を検証スクリプトで叩き、 エントリを起こす。粒度は 1 エンドポイントなので分割するか決める。",
       "reachable": true,
       "stale_blocker": false,
       "actionable": true
@@ -764,14 +764,15 @@
       "name": "J-STAGE",
       "why": "学術論文の書誌・全文を扱う公的な情報源として。",
       "hosts": [
-        "www.jstage.jst.go.jp"
+        "www.jstage.jst.go.jp",
+        "api.jstage.jst.go.jp"
       ],
-      "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "API 仕様に当たり、認証要否と提供されるエンドポイントを確認する。",
-      "reachable": true,
+      "blocker": "unreachable",
+      "blocker_detail": "一次資料は読めたが、API ホストに到達できない。公式マニュアル https://www.jstage.jst.go.jp/static/files/ja/manual_api.pdf （Ver.2.0、 2026-03-26）がリクエスト先を https://api.jstage.jst.go.jp/searchapi/do と明示しており、そのホストへの GET はプロキシが 403（httpx の ProxyError） を返す。閲覧側の www.jstage.jst.go.jp には到達できるため、 これは先方の障害ではなく自環境の egress。 認証情報は不要と一次資料で確認した。利用規約第 2 条は 「非営利目的で利用するときは、JST への利用申請は不要」とし、 営利目的のときだけ申請書の提出を求めている。マニュアルにも API キーに あたるパラメータは無い。",
+      "next_step": "api.jstage.jst.go.jp を egress の許可リストに追加してもらう。通ったら 巻号一覧・記事検索・資料検索の 3 機能を検証する。",
+      "reachable": false,
       "stale_blocker": false,
-      "actionable": true
+      "actionable": false
     },
     {
       "id": "gsi-maps",
@@ -783,8 +784,8 @@
         "saigai.gsi.go.jp"
       ],
       "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "提供仕様に当たり、認証要否と利用条件を確認する。",
+      "blocker_detail": "認証は不要と実測で確認した。標準地図タイル https://cyberjapandata.gsi.go.jp/xyz/std/13/7276/3225.png が認証情報なしで HTTP 200・image/png を返した。一次資料 https://maps.gsi.go.jp/development/ichiran.html は「ウェブサイトや ソフトウェア、アプリケーション上でリアルタイムに読み込んで利用する場合、 地理院タイルは出典の明示のみで申請不要」と明記している。 ただしタイルは 3 分類あり、基本測量成果にあたるものは利用方法によって 測量法に基づく申請が必要になる。登録時に usage_restrictions へ書く。",
+      "next_step": "検証対象のタイル種別を決め（まず標準地図・淡色地図）、ズームレベルごとの 提供範囲と 404 の返り方を実測してエントリを起こす。",
       "reachable": true,
       "stale_blocker": false,
       "actionable": true
@@ -797,8 +798,8 @@
         "data.e-stat.go.jp"
       ],
       "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "提供仕様に当たり、認証要否とエンドポイントを確認する。",
+      "blocker_detail": "認証は不要と実測で確認した。一次資料 https://data.e-stat.go.jp/lodw/sparqlendpoint/api が示すエンドポイント https://data.e-stat.go.jp/lod/sparql/alldata/query に appId 無しで SPARQL クエリを投げ、HTTP 200・application/sparql-results+json が返った （消費者物価指数のサンプルクエリで値 100.2 を取得）。 e-Stat API（estat-api）は appId が要るが、こちらは要らない。 同じ提供元でも経路ごとに認証要否が違う例。",
+      "next_step": "SPARQL 1.1 準拠とされる範囲（SELECT / ASK / CONSTRUCT / DESCRIBE、 GeoSPARQL）と Accept ヘッダによる出力形式の切り替えを実測して エントリを起こす。",
       "reachable": true,
       "stale_blocker": false,
       "actionable": true
@@ -808,28 +809,15 @@
       "name": "法人番号システム Web-API（国税庁）",
       "why": "法人の名寄せに使える公的な識別子として。",
       "hosts": [
-        "api.houjin-bangou.nta.go.jp"
+        "api.houjin-bangou.nta.go.jp",
+        "www.houjin-bangou.nta.go.jp"
       ],
-      "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "API 仕様に当たり、認証要否（アプリケーション ID の要否）を確認する。",
-      "reachable": true,
+      "blocker": "unreachable",
+      "blocker_detail": "認証要否を確定できなかった。仕様が置かれている www.houjin-bangou.nta.go.jp への GET はプロキシが 403（ProxyError）を 返し、一次資料に到達できない。API ホスト api.houjin-bangou.nta.go.jp 自体には到達できるが、パスの当てずっぽう（/4/num、/4/name、/4/diff を id 有り・無しで）はすべて Apache の 404 Not Found を返しただけで、 これは「認証が要る」根拠にも「エンドポイントが無い」根拠にもならない。 一次資料を読まずに認証要否を書くことはしない。",
+      "next_step": "www.houjin-bangou.nta.go.jp を egress の許可リストに追加してもらい、 仕様書を読んでからエンドポイントと認証要否を確定する。",
+      "reachable": false,
       "stale_blocker": false,
-      "actionable": true
-    },
-    {
-      "id": "resas",
-      "name": "RESAS API（地域経済分析システム）",
-      "why": "地域経済の統計を扱う情報源として。",
-      "hosts": [
-        "opendata.resas-portal.go.jp"
-      ],
-      "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "API 仕様に当たり、認証要否を確認する。",
-      "reachable": true,
-      "stale_blocker": false,
-      "actionable": true
+      "actionable": false
     },
     {
       "id": "reinfolib",
@@ -838,12 +826,12 @@
       "hosts": [
         "www.reinfolib.mlit.go.jp"
       ],
-      "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "API 仕様に当たり、認証要否を確認する。",
+      "blocker": "credentials",
+      "blocker_detail": "API キーが必要と実測で確認した。キー無しで https://www.reinfolib.mlit.go.jp/ex-api/external/XIT001 を叩くと HTTP 401 と {\"statusCode\":401,\"message\":\"Access denied due to missing subscription key. ...\"} が返る。一次資料 https://www.reinfolib.mlit.go.jp/help/apiManual/ も、API 利用規約に 同意して利用申請したうえで、発行された API キーを Ocp-Apim-Subscription-Key リクエストヘッダーに設定するよう求めている。 申請はユーザー作業。",
+      "next_step": "API キーを取得する。取得できたら credential_env に環境変数名だけを書き、 各エンドポイントを検証する。",
       "reachable": true,
       "stale_blocker": false,
-      "actionable": true
+      "actionable": false
     },
     {
       "id": "nlftp-mlit",
@@ -853,8 +841,8 @@
         "nlftp.mlit.go.jp"
       ],
       "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "提供仕様に当たり、API の有無と利用条件を確認する。",
+      "blocker_detail": "認証は不要と実測で確認した。データセットページ https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-2026.html が 示す実ファイル https://nlftp.mlit.go.jp/ksj/gml/data/N03/N03-2026/N03-20260101_GML.zip に Range ヘッダ付きで GET したところ、認証情報なしで HTTP 206・ application/zip・Content-Range の総サイズ 803201348 が返った。 なお API については、トップ（/ksj/）と /ksj/first.html、データセット ページのいずれにも案内が見当たらず、ダウンロード導線はすべて zip への 直リンクだった。API があるともないとも一次資料が言っていないので undocumented 扱いとし、検証対象はファイル配布経路とする。",
+      "next_step": "検証対象のデータセットを絞り（まず N03 行政区域）、ダウンロード URL の 規則性と利用約款を一次資料で確認してエントリを起こす。巨大な zip を 毎回落とさずに済むよう、検証は Range で先頭だけを取る。",
       "reachable": true,
       "stale_blocker": false,
       "actionable": true
@@ -864,12 +852,11 @@
       "name": "官報",
       "why": "法令の公布や公示を一次で追える情報源として。",
       "hosts": [
-        "www.kanpo.go.jp",
-        "notice.go.jp"
+        "www.kanpo.go.jp"
       ],
       "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "機械可読な提供経路があるかを確認する。",
+      "blocker_detail": "認証は不要と実測で確認した。日付別の全体目次 https://www.kanpo.go.jp/20260821/20260821.fullcontents.html が 認証情報なしで HTTP 200・HTML を返し、本文の目次が読めた。 機械可読な提供経路（API・XML・JSON）は、トップと目次ページのリンクを 見たかぎり見当たらず、日付とページで組み立てる HTML と PDF のみだった。 候補に挙げていた notice.go.jp は官報とは無関係のサイト（IoT 機器の セキュリティ啓発サイト NOTICE）だったので hosts から外した。",
+      "next_step": "/ご利用に当たって（guidance.html）で転載・再利用の条件を確認する。 機械可読な経路が本当に無いなら、HTML の目次構造をどこまで安定した インタフェースとみなせるかを判断してから、エントリにするか決める。",
       "reachable": true,
       "stale_blocker": false,
       "actionable": true
@@ -881,12 +868,12 @@
       "hosts": [
         "ip-data.jpo.go.jp"
       ],
-      "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "API 仕様に当たり、認証要否を確認する。",
+      "blocker": "credentials",
+      "blocker_detail": "ID・パスワードが必要と実測で確認した。トークン無しで https://ip-data.jpo.go.jp/api/patent/v1/app_progress/2020000001 を叩くと HTTP 401 と {\"result\":{\"statusCode\":\"210\",\"errorMessage\":\"無効な トークンです。\",...}} が返る。一次資料 https://ip-data.jpo.go.jp/files/アクセス方法.pdf は、利用登録時に通知 される URL へ grant_type=password と特許庁発行の ID・パスワードを POST してアクセストークン（有効期間 1 時間）を取得し、 Authorization: Bearer で各 API を呼ぶ手順を示している。 利用登録はユーザー作業。 なお OpenAPI 仕様 https://ip-data.jpo.go.jp/api_guide/api_reference.js （42 パス）には securitySchemes の記述が無く、認証の記述は仕様ではなく 別 PDF にある。仕様に securitySchemes が無いことは認証不要の根拠に ならない例。",
+      "next_step": "利用登録して ID・パスワードを取得する。取得できたらトークン取得から 各 API までを検証する。アクセス数に日次上限がある点も記録する。",
       "reachable": true,
       "stale_blocker": false,
-      "actionable": true
+      "actionable": false
     },
     {
       "id": "iryou-teikyou",
@@ -896,15 +883,41 @@
         "www.iryou.teikyouseido.mhlw.go.jp"
       ],
       "blocker": "not_started",
-      "blocker_detail": "ホストに到達できるようになったが、一次資料をまだ読んでいない。",
-      "next_step": "機械可読な提供経路があるかを確認する。",
+      "blocker_detail": "認証は不要と実測で確認した。トップ https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2300/initialize が認証情報なしで HTTP 200・HTML を返した。 ただし機械可読な提供経路は見当たらない。トップのリンクはすべて画面遷移 （/znk-web/juminkanja/S____/initialize）で、CSV・オープンデータ・ 一括ダウンロードへの導線は無かった。",
+      "next_step": "検索画面の遷移がクエリで表現できるか、あるいは都道府県ごとの オープンデータが別のホストで公開されていないかを一次資料で確認する。 機械可読な経路が無いなら候補から外す判断も含めて決める。",
       "reachable": true,
       "stale_blocker": false,
       "actionable": true
+    },
+    {
+      "id": "mlit-data",
+      "name": "国土交通データプラットフォーム（国土交通 DPF 利用者 API）",
+      "why": "RESAS API の提供終了案内が、代替として利用できるサイトの筆頭に 挙げていたため。",
+      "hosts": [
+        "www.mlit-data.jp"
+      ],
+      "blocker": "unreachable",
+      "blocker_detail": "https://www.mlit-data.jp/api_docs/ への GET はプロキシが 403 （ProxyError）を返し、一次資料に到達できない。先方の障害ではなく 自環境の egress。到達できない以上、何を提供するかも認証要否も書かない。",
+      "next_step": "www.mlit-data.jp を egress の許可リストに追加してもらい、 API 仕様を読んで認証要否を確定する。",
+      "reachable": false,
+      "stale_blocker": false,
+      "actionable": false
+    }
+  ],
+  "retired": [
+    {
+      "id": "resas",
+      "name": "RESAS API（地域経済分析システム）",
+      "why": "地域経済の統計を扱う情報源として調べた。",
+      "hosts": [
+        "opendata.resas-portal.go.jp"
+      ],
+      "reason": "提供が終了している。一次資料 https://opendata.resas-portal.go.jp/docs/api/v1/index.html が 「RESAS API は、2025年3月24日（月）をもって、提供を終了することと なりました」「2024年10月31日（木）をもちまして、RESAS API ページにて 新たにアカウントを作成する機能を終了いたします」「2025年3月24日以降は 自動的にアカウントが削除され、API 機能のご利用を停止いたします」と 明記している。実測でも https://opendata.resas-portal.go.jp/api/v1/prefectures が HTTP 404 と HTML を返し、API として応答しない。到達できないから終了と解釈したのでは なく、提供元が終了を明記している。",
+      "alternatives": "同じ案内が代替として挙げているのは、国土交通データプラットフォーム 利用者 API（候補 mlit-data）、不動産情報ライブラリ（候補 reinfolib）、 e-Stat API（候補 estat-api）。"
     }
   ],
   "reachability": {
-    "_generated_at": "2026-08-20T02:58:51+00:00",
+    "_generated_at": "2026-08-24T01:12:24+00:00",
     "api.e-stat.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -928,6 +941,11 @@
         "status_code": 404,
         "final_url": "https://api.jgrants-portal.go.jp/"
       }
+    },
+    "api.jstage.jst.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
     },
     "cyberjapandata.gsi.go.jp": {
       "reachable": true,
@@ -1033,14 +1051,6 @@
         "final_url": "https://notice.go.jp/"
       }
     },
-    "opendata.resas-portal.go.jp": {
-      "reachable": true,
-      "blocked_by_egress": false,
-      "detail": {
-        "status_code": 200,
-        "final_url": "https://opendata.resas-portal.go.jp/"
-      }
-    },
     "saigai.gsi.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -1121,6 +1131,11 @@
         "final_url": "https://www.hokoukukan.go.jp/"
       }
     },
+    "www.houjin-bangou.nta.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
+    },
     "www.iryou.teikyouseido.mhlw.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -1192,6 +1207,11 @@
         "status_code": 200,
         "final_url": "https://www.mext.go.jp/"
       }
+    },
+    "www.mlit-data.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
     },
     "www.mofa.go.jp": {
       "reachable": true,

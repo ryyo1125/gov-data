@@ -1,10 +1,10 @@
 {
   "source_id": "reachability",
   "target": "egress reachability",
-  "generated_at": "2026-08-20T02:58:51+00:00",
+  "generated_at": "2026-08-24T01:12:24+00:00",
   "environment": {
     "python": "3.11.15",
-    "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
+    "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
   },
   "hosts": [
     {
@@ -27,6 +27,13 @@
         "jgrants-mcp"
       ],
       "role": "api"
+    },
+    {
+      "host": "api.jstage.jst.go.jp",
+      "used_by": [
+        "candidate:jstage"
+      ],
+      "role": "candidate"
     },
     {
       "host": "cyberjapandata.gsi.go.jp",
@@ -117,17 +124,9 @@
     {
       "host": "notice.go.jp",
       "used_by": [
-        "candidate:kanpo",
         "survey:catalog"
       ],
-      "role": "candidate"
-    },
-    {
-      "host": "opendata.resas-portal.go.jp",
-      "used_by": [
-        "candidate:resas"
-      ],
-      "role": "candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "saigai.gsi.go.jp",
@@ -205,6 +204,13 @@
       "role": "catalog-resource"
     },
     {
+      "host": "www.houjin-bangou.nta.go.jp",
+      "used_by": [
+        "candidate:houjin-bangou"
+      ],
+      "role": "candidate"
+    },
+    {
       "host": "www.iryou.teikyouseido.mhlw.go.jp",
       "used_by": [
         "candidate:iryou-teikyou"
@@ -266,6 +272,13 @@
         "survey:catalog"
       ],
       "role": "catalog-resource"
+    },
+    {
+      "host": "www.mlit-data.jp",
+      "used_by": [
+        "candidate:mlit-data"
+      ],
+      "role": "candidate"
     },
     {
       "host": "www.mofa.go.jp",
@@ -348,6 +361,12 @@
         "status_code": 404,
         "final_url": "https://api.jgrants-portal.go.jp/"
       }
+    },
+    {
+      "step": "api.jstage.jst.go.jp (candidate:jstage)",
+      "ok": false,
+      "blocked": true,
+      "note": "プロキシが拒否: 403 Forbidden"
     },
     {
       "step": "cyberjapandata.gsi.go.jp (candidate:gsi-maps)",
@@ -446,19 +465,11 @@
       }
     },
     {
-      "step": "notice.go.jp (candidate:kanpo, survey:catalog)",
+      "step": "notice.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
         "final_url": "https://notice.go.jp/"
-      }
-    },
-    {
-      "step": "opendata.resas-portal.go.jp (candidate:resas)",
-      "ok": true,
-      "result": {
-        "status_code": 200,
-        "final_url": "https://opendata.resas-portal.go.jp/"
       }
     },
     {
@@ -542,6 +553,12 @@
       }
     },
     {
+      "step": "www.houjin-bangou.nta.go.jp (candidate:houjin-bangou)",
+      "ok": false,
+      "blocked": true,
+      "note": "プロキシが拒否: 403 Forbidden"
+    },
+    {
       "step": "www.iryou.teikyouseido.mhlw.go.jp (candidate:iryou-teikyou)",
       "ok": true,
       "result": {
@@ -614,6 +631,12 @@
       }
     },
     {
+      "step": "www.mlit-data.jp (candidate:mlit-data)",
+      "ok": false,
+      "blocked": true,
+      "note": "プロキシが拒否: 403 Forbidden"
+    },
+    {
       "step": "www.mofa.go.jp (survey:catalog)",
       "ok": true,
       "result": {
@@ -679,10 +702,10 @@
     }
   ],
   "summary": {
-    "total": 44,
-    "ok": 44,
+    "total": 46,
+    "ok": 43,
     "skipped": 0,
-    "blocked": 0,
+    "blocked": 3,
     "failed": 0
   }
 }

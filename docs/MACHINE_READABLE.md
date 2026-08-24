@@ -3,7 +3,7 @@
 **このファイルは `registry/build.py` が `results/catalog-survey.json` から生成する。**
 更新するには `verify/survey_catalog.py` を実行してからビルドし直す。
 
-- 生成日時: 2026-08-20T03:00:49+00:00
+- 生成日時: 2026-08-24T01:14:28+00:00
 - 対象: res_format:(CSV OR XML OR JSON OR RDF OR GeoJSON OR TSV OR JSON-LD OR API)
 - 件数: 1,121 件 / 全 18,141 件
 

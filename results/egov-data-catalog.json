@@ -1,16 +1,16 @@
 {
   "source_id": "egov-data-catalog",
   "target": "https://data.e-gov.go.jp/data/api/3/action",
-  "generated_at": "2026-08-20T02:59:01+00:00",
+  "generated_at": "2026-08-24T01:12:32+00:00",
   "environment": {
     "python": "3.11.15",
-    "platform": "Linux-6.18.5-fc-v20-x86_64-with-glibc2.39"
+    "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
   },
   "steps": [
     {
       "step": "site_read",
       "ok": true,
-      "elapsed_ms": 904,
+      "elapsed_ms": 610,
       "result": {
         "result": true
       }
@@ -18,11 +18,23 @@
     {
       "step": "package_search",
       "ok": true,
-      "elapsed_ms": 323,
+      "elapsed_ms": 333,
       "result": {
         "count": 18141,
         "results_len": 3,
         "results_sample": [
+          {
+            "id": "e91a0e42-de41-4f5b-99f8-6186feff25fa",
+            "title": "外貨準備等の状況_統計表一覧_令和8年",
+            "organization": "財務省",
+            "license_id": null,
+            "license_title": null,
+            "frequency_of_update": "1月",
+            "num_resources": 7,
+            "resource_formats": [
+              "HTML"
+            ]
+          },
           {
             "id": "3098f2a3-0787-4a93-9f20-a13d67f1831d",
             "title": "平成30年報告_全国がん登録",
@@ -46,18 +58,6 @@
             "resource_formats": [
               "PDF"
             ]
-          },
-          {
-            "id": "b992ad4a-a58d-40ea-a9a9-6b1aa76c811c",
-            "title": "消防庁_検討会等",
-            "organization": "総務省",
-            "license_id": null,
-            "license_title": null,
-            "frequency_of_update": "",
-            "num_resources": 8,
-            "resource_formats": [
-              "PDF"
-            ]
           }
         ]
       }
@@ -65,7 +65,7 @@
     {
       "step": "package_list",
       "ok": true,
-      "elapsed_ms": 219,
+      "elapsed_ms": 223,
       "result": {
         "len": 5,
         "sample": [
@@ -78,7 +78,7 @@
     {
       "step": "organization_list",
       "ok": true,
-      "elapsed_ms": 508,
+      "elapsed_ms": 227,
       "result": {
         "len": 5,
         "sample": [
@@ -91,7 +91,7 @@
     {
       "step": "group_list",
       "ok": true,
-      "elapsed_ms": 218,
+      "elapsed_ms": 221,
       "result": {
         "len": 5,
         "sample": [
@@ -104,7 +104,7 @@
     {
       "step": "tag_list",
       "ok": true,
-      "elapsed_ms": 935,
+      "elapsed_ms": 483,
       "result": {
         "len": 5745,
         "sample": [
@@ -117,17 +117,17 @@
     {
       "step": "package_show",
       "ok": true,
-      "elapsed_ms": 297,
+      "elapsed_ms": 279,
       "result": {
-        "id": "3098f2a3-0787-4a93-9f20-a13d67f1831d",
-        "title": "平成30年報告_全国がん登録",
-        "organization": "厚生労働省",
+        "id": "e91a0e42-de41-4f5b-99f8-6186feff25fa",
+        "title": "外貨準備等の状況_統計表一覧_令和8年",
+        "organization": "財務省",
         "license_id": null,
         "license_title": null,
-        "frequency_of_update": "1年",
-        "num_resources": 1,
+        "frequency_of_update": "1月",
+        "num_resources": 7,
         "resource_formats": [
-          "PDF"
+          "HTML"
         ]
       }
     }

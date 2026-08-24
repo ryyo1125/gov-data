@@ -246,6 +246,18 @@ def load_candidates(reachability: dict) -> list[dict]:
     return candidates
 
 
+def load_retired() -> list[dict]:
+    """調べた結果、台帳の対象にならないと分かったもの。
+
+    候補と混ぜると「いま着手できるもの」が水増しされ、かといって消すと
+    次のセッションが同じ調査を繰り返す。候補とは別に、判断の根拠つきで残す。
+    """
+    if not CANDIDATES_PATH.is_file():
+        return []
+    document = yaml.safe_load(CANDIDATES_PATH.read_text(encoding="utf-8")) or {}
+    return list(document.get("retired", []))
+
+
 def build_registry(entries: list[dict], now: datetime) -> dict:
     reachability = load_reachability()
     return {
@@ -254,6 +266,7 @@ def build_registry(entries: list[dict], now: datetime) -> dict:
         "stale_after_days": STALE_AFTER.days,
         "sources": [{**entry, "verification": derive_verification(entry, now)} for entry in entries],
         "candidates": load_candidates(reachability),
+        "retired": load_retired(),
         "reachability": reachability,
     }
 
@@ -291,6 +304,7 @@ def render_markdown(registry: dict) -> str:
         lines += _render_entry(s)
 
     lines += _render_candidates(registry["candidates"])
+    lines += _render_retired(registry["retired"])
     lines += _render_reachability(registry["reachability"])
 
     return "\n".join(lines) + "\n"
@@ -344,6 +358,33 @@ def _render_candidates(candidates: list[dict]) -> list[str]:
             f"- 次の一手: {c['next_step'].strip()}",
             "",
         ]
+    return lines
+
+
+def _render_retired(retired: list[dict]) -> list[str]:
+    """調べて対象外と判断したもの。候補ではないので候補件数には数えない。"""
+    if not retired:
+        return []
+    lines = [
+        "",
+        "## 調査済み・対象外",
+        "",
+        "調べた結果、台帳の対象にならないと分かったもの。**候補には数えない**。",
+        "記録を消すと次に同じ調査が繰り返されるので、判断の根拠つきで残す。",
+        "実体は `registry/candidates.yaml` の `retired:`。",
+        "",
+    ]
+    for r in retired:
+        lines += [
+            f"### {r['name']} (`{r['id']}`)",
+            "",
+            f"- 調べた理由: {r['why'].strip()}",
+            f"- 対象ホスト: {', '.join(f'`{h}`' for h in r.get('hosts', []))}",
+            f"- 対象外とした理由: {r['reason'].strip()}",
+        ]
+        if r.get("alternatives"):
+            lines.append(f"- 代替として案内されているもの: {r['alternatives'].strip()}")
+        lines.append("")
     return lines
 
 
