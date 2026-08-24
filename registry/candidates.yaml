@@ -35,24 +35,6 @@ candidates:
       そちらは認証情報を待たずに検証できる。
     next_step: appId を取得したうえで、公開されている各エンドポイントを検証する。
 
-  - id: ndl-search
-    name: 国立国会図書館サーチ
-    why: 書誌情報を横断的に扱える公的な情報源として。
-    hosts: [ndlsearch.ndl.go.jp]
-    blocker: not_started
-    blocker_detail: >-
-      認証は不要と実測で確認した。認証情報を付けずに
-      /api/opensearch と /api/sru がいずれも HTTP 200 で XML を返し、SRU は
-      numberOfRecords 8307745 を返した。一次資料
-      https://ndlsearch.ndl.go.jp/help/api にも API キーの記述は無く、
-      「利用申請」は営利目的での利用条件についての手続きであって、
-      技術的な資格情報ではない（非営利・無収益なら申請不要と明記）。
-      継続的なアクセスには申請の要否にかかわらず連絡が求められている点と、
-      クレジット表示が条件である点は、登録時に usage_restrictions へ書く。
-    next_step: >-
-      SRU / OpenSearch / OpenURL / OAI-PMH の 4 経路を検証スクリプトで叩き、
-      エントリを起こす。粒度は 1 エンドポイントなので分割するか決める。
-
   - id: jstage
     name: J-STAGE
     why: 学術論文の書誌・全文を扱う公的な情報源として。

@@ -4,7 +4,7 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-24T01:15:33+00:00
+- 生成日時: 2026-08-24T01:40:42+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
@@ -15,6 +15,7 @@
 | `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (8/8) | 2026-08-24 |
 | `jgrants-mcp` | Jグランツ MCP Server | デジタル庁 | official_wrapper | mcp | not_required | yes | 検証済 (9/9) | 2026-08-24 |
 | `jma-xml` | 気象庁防災情報XML（PULL型 Atom フィード） | 気象庁 | primary_official | rest_api | not_required | undocumented | 検証済 (9/9) | 2026-08-24 |
+| `ndl-search` | 国立国会図書館サーチ 外部提供インタフェース | 国立国会図書館 | primary_official | rest_api | not_required | undocumented | 検証済 (7/7) | 2026-08-24 |
 
 ## e-Gov データポータル（CKAN API） (`egov-data-catalog`)
 
@@ -58,20 +59,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T01:12:32+00:00
+- 最終検証: 2026-08-24T01:37:34+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_data_catalog.py --out results/egov-data-catalog.json`
 - 検証スクリプト: `verify/verify_egov_data_catalog.py` / 結果: `results/egov-data-catalog.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `site_read` | OK | 610 ms |  |
-| `package_search` | OK | 333 ms |  |
-| `package_list` | OK | 223 ms |  |
-| `organization_list` | OK | 227 ms |  |
-| `group_list` | OK | 221 ms |  |
-| `tag_list` | OK | 483 ms |  |
-| `package_show` | OK | 279 ms |  |
+| `site_read` | OK | 653 ms |  |
+| `package_search` | OK | 284 ms |  |
+| `package_list` | OK | 225 ms |  |
+| `organization_list` | OK | 298 ms |  |
+| `group_list` | OK | 277 ms |  |
+| `tag_list` | OK | 934 ms |  |
+| `package_show` | OK | 583 ms |  |
 
 ### 実行して分かったこと
 
@@ -138,21 +139,21 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T01:12:30+00:00
+- 最終検証: 2026-08-24T01:37:30+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json`
 - 検証スクリプト: `verify/verify_egov_hourei.py` / 結果: `results/egov-hourei-api.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `fetch_openapi_spec` | OK | 652 ms |  |
-| `GET /laws（全件数）` | OK | 1052 ms |  |
-| `GET /laws` | OK | 349 ms |  |
-| `GET /law_revisions/{law_id}` | OK | 312 ms |  |
-| `GET /law_data/{law_id}` | OK | 314 ms |  |
-| `GET /keyword` | OK | 1721 ms |  |
-| `GET /law_file/xml/{law_id}` | OK | 326 ms |  |
-| `GET /attachment/{law_revision_id}` | OK | 562 ms |  |
+| `fetch_openapi_spec` | OK | 1259 ms |  |
+| `GET /laws（全件数）` | OK | 1164 ms |  |
+| `GET /laws` | OK | 486 ms |  |
+| `GET /law_revisions/{law_id}` | OK | 470 ms |  |
+| `GET /law_data/{law_id}` | OK | 515 ms |  |
+| `GET /keyword` | OK | 1837 ms |  |
+| `GET /law_file/xml/{law_id}` | OK | 575 ms |  |
+| `GET /attachment/{law_revision_id}` | OK | 805 ms |  |
 
 ### 実行して分かったこと
 
@@ -219,7 +220,7 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T01:12:54+00:00
+- 最終検証: 2026-08-24T01:39:04+00:00
 - 再現コマンド: `./verify/run_jgrants_verification.sh`
 - 検証スクリプト: `verify/verify_jgrants_mcp.py` / 結果: `results/jgrants-mcp.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
@@ -227,14 +228,14 @@
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
 | `initialize` | OK | 0 ms |  |
-| `list_tools` | OK | 15 ms |  |
-| `list_resources` | OK | 7 ms |  |
-| `list_prompts` | OK | 5 ms |  |
+| `list_tools` | OK | 18 ms |  |
+| `list_resources` | OK | 8 ms |  |
+| `list_prompts` | OK | 7 ms |  |
 | `call:ping` | OK | 11 ms |  |
-| `call:search_subsidies` | OK | 1094 ms |  |
-| `call:get_subsidy_detail` | OK | 195 ms |  |
-| `call:get_subsidy_overview` | OK | 1734 ms |  |
-| `call:get_file_content` | OK | 2073 ms |  |
+| `call:search_subsidies` | OK | 1652 ms |  |
+| `call:get_subsidy_detail` | OK | 199 ms |  |
+| `call:get_subsidy_overview` | OK | 2264 ms |  |
+| `call:get_file_content` | OK | 1606 ms |  |
 
 ### 実行して分かったこと
 
@@ -301,22 +302,22 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T01:12:37+00:00
+- 最終検証: 2026-08-24T01:38:52+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_jma_xml.py --out results/jma-xml.json`
 - 検証スクリプト: `verify/verify_jma_xml.py` / 結果: `results/jma-xml.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `GET /regular.xml (定時・高頻度)` | OK | 441 ms |  |
-| `GET /extra.xml (随時・高頻度)` | OK | 46 ms |  |
-| `GET /eqvol.xml (地震火山・高頻度)` | OK | 44 ms |  |
-| `GET /other.xml (その他・高頻度)` | OK | 497 ms |  |
-| `GET /regular_l.xml (定時・長期)` | OK | 493 ms |  |
-| `GET /extra_l.xml (随時・長期)` | OK | 1821 ms |  |
-| `GET /eqvol_l.xml (地震火山・長期)` | OK | 54 ms |  |
-| `GET /other_l.xml (その他・長期)` | OK | 533 ms |  |
-| `GET 電文本体` | OK | 115 ms |  |
+| `GET /regular.xml (定時・高頻度)` | OK | 496 ms |  |
+| `GET /extra.xml (随時・高頻度)` | OK | 51 ms |  |
+| `GET /eqvol.xml (地震火山・高頻度)` | OK | 51 ms |  |
+| `GET /other.xml (その他・高頻度)` | OK | 44 ms |  |
+| `GET /regular_l.xml (定時・長期)` | OK | 1967 ms |  |
+| `GET /extra_l.xml (随時・長期)` | OK | 793 ms |  |
+| `GET /eqvol_l.xml (地震火山・長期)` | OK | 530 ms |  |
+| `GET /other_l.xml (その他・長期)` | OK | 520 ms |  |
+| `GET 電文本体` | OK | 49 ms |  |
 
 ### 実行して分かったこと
 
@@ -333,20 +334,91 @@
 - **出典表示の義務は一次資料に明記されていない。ただし編集して流通させる場合は編集責任者の明示義務がある。**
   - 根拠: 留意事項 PDF「３．（３）編集責任者等の明示について」に編集時の明示義務の記載があり、出典表示に関する記載は無い。
 
+## 国立国会図書館サーチ 外部提供インタフェース (`ndl-search`)
+
+国立国会図書館サーチが収録する書誌メタデータを、検索用 3 経路（SRU / OpenSearch / OpenURL）とハーベスト用 1 経路（OAI-PMH）で提供する。認証情報は不要。
+
+### 提供と経路
+
+- 提供元: 国立国会図書館（権威性: `primary_official`）
+- 一次情報: https://ndlsearch.ndl.go.jp/help/api
+- 方式: `rest_api` / エンドポイント: `https://ndlsearch.ndl.go.jp/api`
+- 仕様: https://ndlsearch.ndl.go.jp/help/api/specifications
+
+### 提供される情報
+
+- 種類: 書誌メタデータ / 図書館蔵書
+- 形式: xml / rss / html
+- 更新頻度: undocumented
+- 収録範囲: NDLサーチが収録し、かつ提供機関から許諾が得られたメタデータ。データ提供機関ごとに 利用条件が異なる。OAI-PMH のセット単位で提供元を絞り込める。
+- 実測値: OAI-PMH の ListSets が返すセット数は 474
+- 実測値: OAI-PMH の earliestDatestamp は 2022-10-01T00:00:00Z
+
+### 接続要件
+
+- 認証: `not_required` — 認証情報なしで 4 経路すべてが応答した。一次資料にも API キーの記述は無い。利用申請は営利目的かどうかで要否が決まる手続きであって、技術的な資格情報ではない。
+- レート制限: 同時リクエスト数に制限があり、特定のサーバから継続して大量のアクセスがある場合はアクセスを遮断する等の措置を行うと一次資料に明記。具体的な上限値は非公開。
+- 利用規約: https://ndlsearch.ndl.go.jp/help/api
+- 出典表示: `undocumented`
+
+### 安定性（一次資料の記述）
+
+- SRW と Z39.50 は 2020 年 3 月 2 日をもってサービス終了と一次資料に明記。
+- 機能の一部でキャッシュを用いているため、リクエスト条件やタイミングによって応答性能が大きく変わる場合があると明記。
+- メタデータは「国立国会図書館ダブリンコアメタデータ記述（DC-NDL）」に従うと明記。
+
+### 到達性
+
+| ホスト | 役割 | 備考 |
+|---|---|---|
+| `ndlsearch.ndl.go.jp` | api | API・仕様書・利用条件のすべてがこのホスト。 |
+
+### 検証
+
+- 状態: **検証済**
+- 最終検証: 2026-08-24T01:38:47+00:00
+- 再現コマンド: `.work/toolvenv/bin/python verify/verify_ndl_search.py --out results/ndl-search.json`
+- 検証スクリプト: `verify/verify_ndl_search.py` / 結果: `results/ndl-search.json`
+- 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
+
+| ステップ | 結果 | 所要 | 備考 |
+|---|---|---|---|
+| `SRU: explain` | OK | 357 ms |  |
+| `SRU: searchRetrieve` | OK | 2312 ms |  |
+| `OpenSearch: 検索` | OK | 609 ms |  |
+| `OpenURL: 検索` | OK | 1470 ms |  |
+| `OAI-PMH: Identify` | OK | 834 ms |  |
+| `OAI-PMH: ListMetadataFormats` | OK | 898 ms |  |
+| `OAI-PMH: ListSets` | OK | 36459 ms |  |
+
+### 実行して分かったこと
+
+- **SRU は operation=explain に対応していない。explain を指定すると HTTP 200 だが searchRetrieveResponse に診断が入って返る。**
+  - 根拠: /api/sru?operation=explain の応答が root=searchRetrieveResponse、diagnostics に uri=info:srw/diagnostic/1/1、message="operation is not searchRetrieve" を含んでいた。
+- **仕様に載る /api/openurl は画面側の /openurl へ 301 リダイレクトされ、クエリ名も au から q-au に書き換わる。リダイレクトを追わないと 301 で止まる。**
+  - 根拠: /api/openurl?au=夏目漱石 が https://ndlsearch.ndl.go.jp/openurl?cs=api_openurl&q-au=夏目漱石 へ 301 した。追従すると HTTP 200・text/html を返す。
+- **OpenURL が返すのは HTML であり、機械可読な経路ではない。機械処理には SRU か OpenSearch を使う。**
+  - 根拠: 追従後の Content-Type が text/html;charset=utf-8 で 379,286 バイトの画面が返った。
+- **レート制限は実在し、連続実行すると 429 Too Many Requests が返る。一次資料が上限値を公開していないため、実測でしか分からない。**
+  - 根拠: 間隔を空けずに検証を 2 回続けたところ、SRU・OpenSearch・OAI-PMH が 429 を返した。5 秒間隔と 429 時 30 秒待機の再試行を入れて解消した。
+- **OAI-PMH の deletedRecord は persistent で、削除されたレコードの情報が保持される。差分ハーベストで削除を追える。**
+  - 根拠: Identify の応答に deletedRecord=persistent、granularity=YYYY-MM-DDThh:mm:ssZ、protocolVersion=Version 2.0 が含まれていた。
+- **OpenSearch は RSS で返り、item に title / link / author / category / pubDate に加えて titleTranscription（読み）が入る。**
+  - 根拠: /api/opensearch の応答が rss ルートで、channel に totalResults / startIndex / itemsPerPage、item に titleTranscription を含んでいた。
+
 ## 候補（未登録）
 
 調べたが、まだ検証していない情報源。**何を提供するかは書かない** —
 一次資料に当たる前に書けるのは名前とホストと調べた理由だけで、それ以外は推測になる。
 実体は `registry/candidates.yaml`。
 
-- 候補 12 件
-- **いま着手できるもの: 6 件**（到達でき、認証待ちでもない）
+- 候補 11 件
+- **いま着手できるもの: 5 件**（到達でき、認証待ちでもない）
 
 | 候補 | 保留の理由 | ホストへの到達 |
 |---|---|---|
 | **e-Stat API（政府統計の総合窓口）** (`estat-api`) | 認証情報が無い | 可 |
-| **国立国会図書館サーチ** (`ndl-search`) | 未着手 | 可 |
-| **J-STAGE** (`jstage`) | 到達できない（自環境の egress） | **不可** |
+| **J-STAGE** (`jstage`) | 到達できない（自環境の egress） ← **記録が古い。到達できるようになっている** | 可 |
 | **国土地理院（地理院タイル・地図）** (`gsi-maps`) | 未着手 | 可 |
 | **統計 LOD** (`estat-lod`) | 未着手 | 可 |
 | **法人番号システム Web-API（国税庁）** (`houjin-bangou`) | 到達できない（自環境の egress） | **不可** |
@@ -365,19 +437,11 @@
 - 詳細: 利用には appId が必要で、まだ取得していない。ホストには到達できるので 一次資料（API 仕様）は読めるが、実際に叩いて確かめることができない。 検証できないものは台帳に載せないという原則により、ここで保留する。 なお統計 LOD（estat-lod）は同じ e-Stat でも appId を要求しない別経路で、 そちらは認証情報を待たずに検証できる。
 - 次の一手: appId を取得したうえで、公開されている各エンドポイントを検証する。
 
-### 国立国会図書館サーチ (`ndl-search`)
-
-- 保留の理由: 未着手
-- 調べた理由: 書誌情報を横断的に扱える公的な情報源として。
-- 対象ホスト: `ndlsearch.ndl.go.jp`（到達可）
-- 詳細: 認証は不要と実測で確認した。認証情報を付けずに /api/opensearch と /api/sru がいずれも HTTP 200 で XML を返し、SRU は numberOfRecords 8307745 を返した。一次資料 https://ndlsearch.ndl.go.jp/help/api にも API キーの記述は無く、 「利用申請」は営利目的での利用条件についての手続きであって、 技術的な資格情報ではない（非営利・無収益なら申請不要と明記）。 継続的なアクセスには申請の要否にかかわらず連絡が求められている点と、 クレジット表示が条件である点は、登録時に usage_restrictions へ書く。
-- 次の一手: SRU / OpenSearch / OpenURL / OAI-PMH の 4 経路を検証スクリプトで叩き、 エントリを起こす。粒度は 1 エンドポイントなので分割するか決める。
-
 ### J-STAGE (`jstage`)
 
-- 保留の理由: 到達できない（自環境の egress）
+- 保留の理由: 到達できない（自環境の egress）（**記録が古い。到達できるようになっている**）
 - 調べた理由: 学術論文の書誌・全文を扱う公的な情報源として。
-- 対象ホスト: `www.jstage.jst.go.jp`, `api.jstage.jst.go.jp`（到達不可）
+- 対象ホスト: `www.jstage.jst.go.jp`, `api.jstage.jst.go.jp`（到達可）
 - 詳細: 一次資料は読めたが、API ホストに到達できない。公式マニュアル https://www.jstage.jst.go.jp/static/files/ja/manual_api.pdf （Ver.2.0、 2026-03-26）がリクエスト先を https://api.jstage.jst.go.jp/searchapi/do と明示しており、そのホストへの GET はプロキシが 403（httpx の ProxyError） を返す。閲覧側の www.jstage.jst.go.jp には到達できるため、 これは先方の障害ではなく自環境の egress。 認証情報は不要と一次資料で確認した。利用規約第 2 条は 「非営利目的で利用するときは、JST への利用申請は不要」とし、 営利目的のときだけ申請書の提出を求めている。マニュアルにも API キーに あたるパラメータは無い。
 - 次の一手: api.jstage.jst.go.jp を egress の許可リストに追加してもらう。通ったら 巻号一覧・記事検索・資料検索の 3 機能を検証する。
 
@@ -470,7 +534,7 @@
 
 ## 到達性の実測
 
-`verify/verify_reachability.py` の実測結果（2026-08-24T01:12:24+00:00）。
+`verify/verify_reachability.py` の実測結果（2026-08-24T01:37:22+00:00）。
 到達できないことは、そのサービスが存在しないことを意味しない。
 
 | ホスト | 結果 | 詳細 |
@@ -478,7 +542,7 @@
 | `api.e-stat.go.jp` | 到達可 | HTTP 403 |
 | `api.houjin-bangou.nta.go.jp` | 到達可 | HTTP 404 |
 | `api.jgrants-portal.go.jp` | 到達可 | HTTP 404 |
-| `api.jstage.jst.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
+| `api.jstage.jst.go.jp` | 到達可 | HTTP 403 |
 | `cyberjapandata.gsi.go.jp` | 到達可 | HTTP 200 |
 | `data.e-gov.go.jp` | 到達可 | HTTP 301 |
 | `data.e-stat.go.jp` | 到達可 | HTTP 301 |

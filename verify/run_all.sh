@@ -26,6 +26,10 @@ echo "== egov-data-catalog =="
 "$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_egov_data_catalog.py" \
   --out "$REPO_ROOT/results/egov-data-catalog.json"
 
+echo "== ndl-search =="
+"$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_ndl_search.py" \
+  --out "$REPO_ROOT/results/ndl-search.json"
+
 echo "== jma-xml =="
 "$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_jma_xml.py" \
   --out "$REPO_ROOT/results/jma-xml.json"

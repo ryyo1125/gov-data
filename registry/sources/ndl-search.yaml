@@ -1,0 +1,74 @@
+id: ndl-search
+name: 国立国会図書館サーチ 外部提供インタフェース
+summary: 国立国会図書館サーチが収録する書誌メタデータを、検索用 3 経路（SRU / OpenSearch / OpenURL）とハーベスト用 1 経路（OAI-PMH）で提供する。認証情報は不要。
+
+data_source:
+  provider: 国立国会図書館
+  authority: primary_official
+  primary_source_url: https://ndlsearch.ndl.go.jp/help/api
+
+access:
+  method: rest_api
+  endpoint: https://ndlsearch.ndl.go.jp/api
+  spec_url: https://ndlsearch.ndl.go.jp/help/api/specifications
+
+content:
+  categories:
+    - 書誌メタデータ
+    - 図書館蔵書
+  formats:
+    - xml
+    - rss
+    - html
+  update_frequency: undocumented
+  coverage: >-
+    NDLサーチが収録し、かつ提供機関から許諾が得られたメタデータ。データ提供機関ごとに
+    利用条件が異なる。OAI-PMH のセット単位で提供元を絞り込める。
+  measured:
+    - OAI-PMH の ListSets が返すセット数は 474
+    - OAI-PMH の earliestDatestamp は 2022-10-01T00:00:00Z
+
+requirements:
+  auth: not_required
+  auth_note: 認証情報なしで 4 経路すべてが応答した。一次資料にも API キーの記述は無い。利用申請は営利目的かどうかで要否が決まる手続きであって、技術的な資格情報ではない。
+  credential_env: []
+  rate_limit: 同時リクエスト数に制限があり、特定のサーバから継続して大量のアクセスがある場合はアクセスを遮断する等の措置を行うと一次資料に明記。具体的な上限値は非公開。
+  terms_url: https://ndlsearch.ndl.go.jp/help/api
+  attribution_required: undocumented
+  attribution_text: ""
+  usage_restrictions:
+    - 営利目的で利用する場合は利用申請が必要。ただしデータ提供機関があらかじめ利用目的を問わず許諾しているデータは申請・許諾とも不要。
+    - 個人・非営利団体で収益を得ない場合は利用申請不要。結果的に赤字でも経済的な対価を受け取っていれば営利目的にあたる。
+    - 継続的にアクセスする場合は、事前の利用申請の要否にかかわらず連絡が求められている。
+    - 利用条件はデータ提供機関ごとに異なり、「API提供対象データプロバイダ一覧」で提供機関ごとの営利・非営利の可否を確認する必要がある。
+
+stability:
+  notes:
+    - SRW と Z39.50 は 2020 年 3 月 2 日をもってサービス終了と一次資料に明記。
+    - 機能の一部でキャッシュを用いているため、リクエスト条件やタイミングによって応答性能が大きく変わる場合があると明記。
+    - メタデータは「国立国会図書館ダブリンコアメタデータ記述（DC-NDL）」に従うと明記。
+
+reachability:
+  hosts:
+    - host: ndlsearch.ndl.go.jp
+      role: api
+      note: API・仕様書・利用条件のすべてがこのホスト。
+
+verify:
+  script: verify/verify_ndl_search.py
+  result: results/ndl-search.json
+  command: .work/toolvenv/bin/python verify/verify_ndl_search.py --out results/ndl-search.json
+
+findings:
+  - claim: SRU は operation=explain に対応していない。explain を指定すると HTTP 200 だが searchRetrieveResponse に診断が入って返る。
+    evidence: /api/sru?operation=explain の応答が root=searchRetrieveResponse、diagnostics に uri=info:srw/diagnostic/1/1、message="operation is not searchRetrieve" を含んでいた。
+  - claim: 仕様に載る /api/openurl は画面側の /openurl へ 301 リダイレクトされ、クエリ名も au から q-au に書き換わる。リダイレクトを追わないと 301 で止まる。
+    evidence: /api/openurl?au=夏目漱石 が https://ndlsearch.ndl.go.jp/openurl?cs=api_openurl&q-au=夏目漱石 へ 301 した。追従すると HTTP 200・text/html を返す。
+  - claim: OpenURL が返すのは HTML であり、機械可読な経路ではない。機械処理には SRU か OpenSearch を使う。
+    evidence: 追従後の Content-Type が text/html;charset=utf-8 で 379,286 バイトの画面が返った。
+  - claim: レート制限は実在し、連続実行すると 429 Too Many Requests が返る。一次資料が上限値を公開していないため、実測でしか分からない。
+    evidence: 間隔を空けずに検証を 2 回続けたところ、SRU・OpenSearch・OAI-PMH が 429 を返した。5 秒間隔と 429 時 30 秒待機の再試行を入れて解消した。
+  - claim: OAI-PMH の deletedRecord は persistent で、削除されたレコードの情報が保持される。差分ハーベストで削除を追える。
+    evidence: Identify の応答に deletedRecord=persistent、granularity=YYYY-MM-DDThh:mm:ssZ、protocolVersion=Version 2.0 が含まれていた。
+  - claim: OpenSearch は RSS で返り、item に title / link / author / category / pubDate に加えて titleTranscription（読み）が入る。
+    evidence: /api/opensearch の応答が rss ルートで、channel に totalResults / startIndex / itemsPerPage、item に titleTranscription を含んでいた。

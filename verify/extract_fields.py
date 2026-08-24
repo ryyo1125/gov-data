@@ -41,11 +41,13 @@ JMA_FEED_BASE = "https://www.data.jma.go.jp/developer/xml/feed"
 JMA_XSD_ZIP = "https://xml.kishou.go.jp/jmaxml_20241031_Schema%28xsd%29.zip"
 # Jグランツの公式 OpenAPI。デジタル庁の開発者サイトではなく microCMS の
 # アセット CDN にホストされているため、政府ドメインの許可だけでは到達できない。
+NDL_API_BASE = "https://ndlsearch.ndl.go.jp/api"
 JGRANTS_SPEC_URL = (
     "https://files.microcms-assets.io/assets/"
     "7c793323a46a46b7bb9a2ac7d0023301/2bad5ef79255448f8381d9cf2a14dbfc/jgrants-api.yaml"
 )
 ATOM = "{http://www.w3.org/2005/Atom}"
+OAI = "{http://www.openarchives.org/OAI/2.0/}"
 XS = "{http://www.w3.org/2001/XMLSchema}"
 
 # 気象庁は電文種別ごとに Body の構造が違うため、系統の異なるフィードから拾う。
@@ -532,6 +534,78 @@ async def _jgrants_spec() -> tuple[dict, list[dict], dict[str, str]]:
 
 # --------------------------------------------------------------------------
 
+async def extract_ndl_fields(client: httpx.AsyncClient) -> dict:
+    """NDLサーチ: 各経路が実際に返す要素を読んで列挙する。
+
+    仕様書は PDF で配布されており機械可読ではないため、ここは実データ由来になる。
+    レート制限があるので、間隔を空けて必要最小限だけ叩く。
+    """
+    objects = []
+
+    response = await client.get(
+        f"{NDL_API_BASE}/opensearch", params={"cnt": 1, "title": "桜"}
+    )
+    response.raise_for_status()
+    root = ET.fromstring(response.text)
+    channel = root.find("channel")
+    item = channel.find("item") if channel is not None else None
+    objects.append(
+        {
+            "name": "OpenSearch: channel（RSS）",
+            "description": "検索結果全体。件数と取得位置がここに入る。",
+            "fields": _element_fields(channel, skip={"item"}),
+        }
+    )
+    objects.append(
+        {
+            "name": "OpenSearch: item（書誌 1 件）",
+            "description": "検索にヒットした資料 1 件分。同名要素が繰り返し現れることがある。",
+            "fields": _element_fields(item),
+        }
+    )
+
+    await asyncio.sleep(5)
+    response = await client.get(f"{NDL_API_BASE}/oaipmh", params={"verb": "Identify"})
+    response.raise_for_status()
+    root = ET.fromstring(response.text)
+    identify = root.find(f"{OAI}Identify")
+    objects.append(
+        {
+            "name": "OAI-PMH: Identify（リポジトリ情報）",
+            "description": "ハーベスト前に確認する、リポジトリの素性と差分取得の粒度。",
+            "fields": _element_fields(identify),
+        }
+    )
+
+    return {
+        "origin": "observed",
+        "origin_detail": (
+            "各経路のレスポンスを実際に読んで列挙。API 仕様書は PDF で配布されており"
+            "機械可読ではないため、仕様由来の項目定義は取り込めていない"
+        ),
+        "source_url": "https://ndlsearch.ndl.go.jp/help/api/specifications",
+        "objects": objects,
+        "enums": [],
+    }
+
+
+def _element_fields(parent, skip: set[str] | None = None) -> list[dict]:
+    """XML の子要素を、出現順・重複なしで項目として並べる。"""
+    if parent is None:
+        return []
+    skip = skip or set()
+    seen: dict[str, str] = {}
+    for child in parent:
+        name = _local(child.tag)
+        if name in skip:
+            continue
+        seen.setdefault(name, (child.text or "").strip()[:60])
+    return [
+        {"name": name, "type": "要素", "description": "", "example": example}
+        for name, example in seen.items()
+    ]
+
+
 async def extract_all(jgrants_url: str | None) -> dict:
     sources: dict[str, Any] = {}
     async with httpx.AsyncClient(timeout=120.0, trust_env=True) as client:
@@ -539,6 +613,7 @@ async def extract_all(jgrants_url: str | None) -> dict:
             ("egov-hourei-api", extract_law_fields),
             ("egov-data-catalog", extract_ckan_fields),
             ("jma-xml", extract_jma_fields),
+            ("ndl-search", extract_ndl_fields),
         ]:
             try:
                 sources[source_id] = await extractor(client)

@@ -1,0 +1,150 @@
+{
+  "source_id": "ndl-search",
+  "target": "https://ndlsearch.ndl.go.jp/api",
+  "generated_at": "2026-08-24T01:38:47+00:00",
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
+  },
+  "steps": [
+    {
+      "step": "SRU: explain",
+      "ok": true,
+      "elapsed_ms": 357,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml;charset=UTF-8",
+        "root_tag": "searchRetrieveResponse",
+        "child_tags": [
+          "diagnostics"
+        ],
+        "diagnostics": [
+          {
+            "uri": "info:srw/diagnostic/1/1",
+            "details": "An error occurred",
+            "message": "operation is not searchRetrieve"
+          }
+        ]
+      }
+    },
+    {
+      "step": "SRU: searchRetrieve",
+      "ok": true,
+      "elapsed_ms": 2312,
+      "result": {
+        "status": 200,
+        "numberOfRecords": "11434",
+        "recordSchema": "info:srw/schema/1/dc-v1.1",
+        "record_child_tags": []
+      }
+    },
+    {
+      "step": "OpenSearch: 検索",
+      "ok": true,
+      "elapsed_ms": 609,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml;charset=UTF-8",
+        "root_tag": "rss",
+        "channel_children": [
+          "title",
+          "link",
+          "description",
+          "language",
+          "totalResults",
+          "startIndex",
+          "itemsPerPage",
+          "item"
+        ],
+        "item_children": [
+          "title",
+          "link",
+          "description",
+          "author",
+          "category",
+          "category",
+          "guid",
+          "pubDate",
+          "title",
+          "titleTranscription"
+        ]
+      }
+    },
+    {
+      "step": "OpenURL: 検索",
+      "ok": true,
+      "elapsed_ms": 1470,
+      "result": {
+        "requested": "/api/openurl",
+        "final_url": "https://ndlsearch.ndl.go.jp/openurl?cs=api_openurl&q-au=%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3",
+        "redirects": [
+          "https://ndlsearch.ndl.go.jp/api/openurl?au=%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3"
+        ],
+        "status": 200,
+        "content_type": "text/html;charset=utf-8",
+        "bytes": 379286
+      }
+    },
+    {
+      "step": "OAI-PMH: Identify",
+      "ok": true,
+      "elapsed_ms": 834,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml;charset=UTF-8",
+        "verb": "Identify",
+        "body_tag": "Identify",
+        "entries": 6,
+        "first_entry_tags": [],
+        "identify": {
+          "repositoryName": "国立国会図書館サーチ",
+          "baseURL": "https://ndlsearch.ndl.go.jp",
+          "protocolVersion": "Version 2.0",
+          "earliestDatestamp": "2022-10-01T00:00:00Z",
+          "deletedRecord": "persistent",
+          "granularity": "YYYY-MM-DDThh:mm:ssZ"
+        }
+      }
+    },
+    {
+      "step": "OAI-PMH: ListMetadataFormats",
+      "ok": true,
+      "elapsed_ms": 898,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml;charset=UTF-8",
+        "verb": "ListMetadataFormats",
+        "body_tag": "ListMetadataFormats",
+        "entries": 3,
+        "first_entry_tags": [
+          "metadataPrefix",
+          "schema",
+          "metadataNamespace"
+        ]
+      }
+    },
+    {
+      "step": "OAI-PMH: ListSets",
+      "ok": true,
+      "elapsed_ms": 36459,
+      "result": {
+        "status": 200,
+        "content_type": "text/xml;charset=UTF-8",
+        "verb": "ListSets",
+        "body_tag": "ListSets",
+        "entries": 474,
+        "first_entry_tags": [
+          "setSpec",
+          "setName"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "ok": 7,
+    "skipped": 0,
+    "blocked": 0,
+    "failed": 0
+  }
+}

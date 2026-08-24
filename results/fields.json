@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T01:13:48+00:00",
+  "generated_at": "2026-08-24T01:39:57+00:00",
   "generated_by": "verify/extract_fields.py",
   "sources": {
     "egov-hourei-api": {
@@ -875,7 +875,7 @@
             {
               "name": "frequency_of_update",
               "type": "string",
-              "description": "",
+              "description": "作成頻度",
               "example": ""
             },
             {
@@ -911,7 +911,7 @@
             {
               "name": "landingPage",
               "type": "string",
-              "description": "",
+              "description": "公開ウェブページ",
               "example": ""
             },
             {
@@ -965,7 +965,7 @@
             {
               "name": "name",
               "type": "string",
-              "description": "",
+              "description": "データセット管理名",
               "example": ""
             },
             {
@@ -1025,7 +1025,7 @@
             {
               "name": "publisher",
               "type": "string",
-              "description": "",
+              "description": "公表組織名",
               "example": ""
             },
             {
@@ -1241,7 +1241,7 @@
             {
               "name": "name",
               "type": "string",
-              "description": "",
+              "description": "データセット管理名",
               "example": ""
             },
             {
@@ -1549,7 +1549,7 @@
           ]
         },
         {
-          "name": "電文 Body: 気象警報・注意報（Ｒ０６）（集約通報）（実データ由来 / regular フィード）",
+          "name": "電文 Body: 府県天気予報（Ｒ１）（実データ由来 / regular フィード）",
           "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
@@ -1613,6 +1613,12 @@
               "example": ""
             },
             {
+              "name": "Report/Head/TargetDuration",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
               "name": "Report/Head/EventID",
               "type": "要素",
               "description": "",
@@ -1655,25 +1661,19 @@
               "example": ""
             },
             {
-              "name": "Report/Head/Headline/Information",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
               "name": "Report/Body",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/Warning",
+              "name": "Report/Body/MeteorologicalInfos",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/Warning/Item",
+              "name": "Report/Body/MeteorologicalInfos/TimeSeriesInfo",
               "type": "要素",
               "description": "",
               "example": ""
@@ -1681,7 +1681,7 @@
           ]
         },
         {
-          "name": "電文 Body: 気象警報・注意報（Ｒ０６）（その他注意報）（実データ由来 / extra フィード）",
+          "name": "電文 Body: 気象警報・注意報（Ｈ２７）（実データ由来 / extra フィード）",
           "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
@@ -1799,6 +1799,12 @@
               "example": ""
             },
             {
+              "name": "Report/Body/Notice",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
               "name": "Report/Body/Warning",
               "type": "要素",
               "description": "",
@@ -1806,6 +1812,18 @@
             },
             {
               "name": "Report/Body/Warning/Item",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/MeteorologicalInfos",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/MeteorologicalInfos/TimeSeriesInfo",
               "type": "要素",
               "description": "",
               "example": ""
@@ -2109,6 +2127,200 @@
               "type": "要素",
               "description": "",
               "example": ""
+            }
+          ]
+        }
+      ],
+      "enums": []
+    },
+    "ndl-search": {
+      "origin": "observed",
+      "origin_detail": "各経路のレスポンスを実際に読んで列挙。API 仕様書は PDF で配布されており機械可読ではないため、仕様由来の項目定義は取り込めていない",
+      "source_url": "https://ndlsearch.ndl.go.jp/help/api/specifications",
+      "objects": [
+        {
+          "name": "OpenSearch: channel（RSS）",
+          "description": "検索結果全体。件数と取得位置がここに入る。",
+          "fields": [
+            {
+              "name": "title",
+              "type": "要素",
+              "description": "",
+              "example": "桜 - 国立国会図書館サーチ OpenSearch"
+            },
+            {
+              "name": "link",
+              "type": "要素",
+              "description": "",
+              "example": "https://ios-v2-prod-eks-alb.ndlsearch.ndl.go.jp/api/opensear"
+            },
+            {
+              "name": "description",
+              "type": "要素",
+              "description": "",
+              "example": "Search results for cnt=1 title=桜"
+            },
+            {
+              "name": "language",
+              "type": "要素",
+              "description": "",
+              "example": "ja"
+            },
+            {
+              "name": "totalResults",
+              "type": "要素",
+              "description": "",
+              "example": "77047"
+            },
+            {
+              "name": "startIndex",
+              "type": "要素",
+              "description": "",
+              "example": "1"
+            },
+            {
+              "name": "itemsPerPage",
+              "type": "要素",
+              "description": "",
+              "example": "1"
+            }
+          ]
+        },
+        {
+          "name": "OpenSearch: item（書誌 1 件）",
+          "description": "検索にヒットした資料 1 件分。同名要素が繰り返し現れることがある。",
+          "fields": [
+            {
+              "name": "title",
+              "type": "要素",
+              "description": "",
+              "example": "あー、いいのいいの。わたし好きな人いるから"
+            },
+            {
+              "name": "link",
+              "type": "要素",
+              "description": "",
+              "example": "https://ndlsearch.ndl.go.jp/books/R000000004-I028071794"
+            },
+            {
+              "name": "description",
+              "type": "要素",
+              "description": "",
+              "example": "<p><p><ul><li>タイトル：あー、いいのいいの。わたし好きな人いるから</li><li>タイトル（読み）：アー"
+            },
+            {
+              "name": "author",
+              "type": "要素",
+              "description": "",
+              "example": "早川 茉莉,早川 茉莉"
+            },
+            {
+              "name": "category",
+              "type": "要素",
+              "description": "",
+              "example": "記事"
+            },
+            {
+              "name": "guid",
+              "type": "要素",
+              "description": "",
+              "example": "https://ndlsearch.ndl.go.jp/books/R000000004-I028071794"
+            },
+            {
+              "name": "pubDate",
+              "type": "要素",
+              "description": "",
+              "example": "Wed, 26 Jun 2024 20:37:41 +0900"
+            },
+            {
+              "name": "titleTranscription",
+              "type": "要素",
+              "description": "",
+              "example": "アー 、 イイ ノ イイ ノ 。 ワタシ スキ ナ ヒト イル カラ"
+            },
+            {
+              "name": "creator",
+              "type": "要素",
+              "description": "",
+              "example": "早川 茉莉"
+            },
+            {
+              "name": "seriesTitle",
+              "type": "要素",
+              "description": "",
+              "example": "特集 こうの史代 : 『夕凪の街 桜の国』『この世界の片隅に』『ぼおるぺん古事記』から『日の鳥』へ"
+            },
+            {
+              "name": "seriesTitleTranscription",
+              "type": "要素",
+              "description": "",
+              "example": "トクシュウ コウ ノ シダイ : 『 ユウナギ ノ マチ サクラ ノ クニ 』 『 コノ セカイ ノ カタスミ ニ 』 "
+            },
+            {
+              "name": "publicationPlace",
+              "type": "要素",
+              "description": "",
+              "example": "JP"
+            },
+            {
+              "name": "identifier",
+              "type": "要素",
+              "description": "",
+              "example": "028071794"
+            },
+            {
+              "name": "subject",
+              "type": "要素",
+              "description": "",
+              "example": "ZK24"
+            },
+            {
+              "name": "seeAlso",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "OAI-PMH: Identify（リポジトリ情報）",
+          "description": "ハーベスト前に確認する、リポジトリの素性と差分取得の粒度。",
+          "fields": [
+            {
+              "name": "repositoryName",
+              "type": "要素",
+              "description": "",
+              "example": "国立国会図書館サーチ"
+            },
+            {
+              "name": "baseURL",
+              "type": "要素",
+              "description": "",
+              "example": "https://ndlsearch.ndl.go.jp"
+            },
+            {
+              "name": "protocolVersion",
+              "type": "要素",
+              "description": "",
+              "example": "Version 2.0"
+            },
+            {
+              "name": "earliestDatestamp",
+              "type": "要素",
+              "description": "",
+              "example": "2022-10-01T00:00:00Z"
+            },
+            {
+              "name": "deletedRecord",
+              "type": "要素",
+              "description": "",
+              "example": "persistent"
+            },
+            {
+              "name": "granularity",
+              "type": "要素",
+              "description": "",
+              "example": "YYYY-MM-DDThh:mm:ssZ"
             }
           ]
         }

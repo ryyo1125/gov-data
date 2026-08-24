@@ -1,7 +1,7 @@
 {
   "source_id": "egov-hourei-api",
   "target": "https://laws.e-gov.go.jp/api/2",
-  "generated_at": "2026-08-24T01:12:30+00:00",
+  "generated_at": "2026-08-24T01:37:30+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -25,7 +25,7 @@
     {
       "step": "fetch_openapi_spec",
       "ok": true,
-      "elapsed_ms": 652,
+      "elapsed_ms": 1259,
       "result": {
         "url": "https://laws.e-gov.go.jp/api/2/swagger-ui/lawapi-v2.yaml",
         "spec_version": "2.1.139",
@@ -44,7 +44,7 @@
     {
       "step": "GET /laws（全件数）",
       "ok": true,
-      "elapsed_ms": 1052,
+      "elapsed_ms": 1164,
       "result": {
         "_truncated": true,
         "_original_chars": 1795,
@@ -54,7 +54,7 @@
     {
       "step": "GET /laws",
       "ok": true,
-      "elapsed_ms": 349,
+      "elapsed_ms": 486,
       "result": {
         "_truncated": true,
         "_original_chars": 1704,
@@ -64,7 +64,7 @@
     {
       "step": "GET /law_revisions/{law_id}",
       "ok": true,
-      "elapsed_ms": 312,
+      "elapsed_ms": 470,
       "result": {
         "top_level_keys": [
           "law_info",
@@ -109,7 +109,7 @@
     {
       "step": "GET /law_data/{law_id}",
       "ok": true,
-      "elapsed_ms": 314,
+      "elapsed_ms": 515,
       "result": {
         "top_level_keys": [
           "attached_files_info",
@@ -134,7 +134,7 @@
     {
       "step": "GET /keyword",
       "ok": true,
-      "elapsed_ms": 1721,
+      "elapsed_ms": 1837,
       "result": {
         "top_level_keys": [
           "items",
@@ -199,7 +199,7 @@
     {
       "step": "GET /law_file/xml/{law_id}",
       "ok": true,
-      "elapsed_ms": 326,
+      "elapsed_ms": 575,
       "result": {
         "status": 200,
         "content_type": "application/octet-stream",
@@ -209,7 +209,7 @@
     {
       "step": "GET /attachment/{law_revision_id}",
       "ok": true,
-      "elapsed_ms": 562,
+      "elapsed_ms": 805,
       "result": {
         "status": 200,
         "content_type": "application/octet-stream",

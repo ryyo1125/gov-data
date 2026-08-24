@@ -1,7 +1,7 @@
 {
   "source_id": "reachability",
   "target": "egress reachability",
-  "generated_at": "2026-08-24T01:12:24+00:00",
+  "generated_at": "2026-08-24T01:37:22+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -110,9 +110,9 @@
     {
       "host": "ndlsearch.ndl.go.jp",
       "used_by": [
-        "candidate:ndl-search"
+        "ndl-search"
       ],
-      "role": "candidate"
+      "role": "api"
     },
     {
       "host": "nlftp.mlit.go.jp",
@@ -364,9 +364,11 @@
     },
     {
       "step": "api.jstage.jst.go.jp (candidate:jstage)",
-      "ok": false,
-      "blocked": true,
-      "note": "プロキシが拒否: 403 Forbidden"
+      "ok": true,
+      "result": {
+        "status_code": 403,
+        "final_url": "https://api.jstage.jst.go.jp/"
+      }
     },
     {
       "step": "cyberjapandata.gsi.go.jp (candidate:gsi-maps)",
@@ -449,7 +451,7 @@
       }
     },
     {
-      "step": "ndlsearch.ndl.go.jp (candidate:ndl-search)",
+      "step": "ndlsearch.ndl.go.jp (ndl-search)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -703,9 +705,9 @@
   ],
   "summary": {
     "total": 46,
-    "ok": 43,
+    "ok": 44,
     "skipped": 0,
-    "blocked": 3,
+    "blocked": 2,
     "failed": 0
   }
 }

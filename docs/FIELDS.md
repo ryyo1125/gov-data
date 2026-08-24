@@ -3,7 +3,7 @@
 **このファイルは `registry/build.py` が `results/fields.json` から生成する。**
 更新するには `verify/extract_fields.py` を実行してからビルドし直す。
 
-- 生成日時: 2026-08-24T01:13:48+00:00
+- 生成日時: 2026-08-24T01:39:57+00:00
 
 項目の出所は情報源ごとに違う。**仕様由来**は提供側が定義した正式な項目、
 **実データ由来**はレスポンスを実際に読んで列挙したもので、サンプルに現れなかった
@@ -297,13 +297,13 @@
 | `distribution` | string |  |
 | `etc` | string |  |
 | `extras` | array |  |
-| `frequency_of_update` | string |  |
+| `frequency_of_update` | string | 作成頻度 |
 | `groups` | array |  |
 | `history_information` | string |  |
 | `id` | string |  |
 | `index_id` | string |  |
 | `isopen` | boolean |  |
-| `landingPage` | string |  |
+| `landingPage` | string | 公開ウェブページ |
 | `language` | string | 言語 |
 | `license_id` | null | サンプル内では常に null |
 | `license_title` | null | サンプル内では常に null |
@@ -312,7 +312,7 @@
 | `maintainer_email` | null | サンプル内では常に null |
 | `metadata_created` | string |  |
 | `metadata_modified` | string |  |
-| `name` | string |  |
+| `name` | string | データセット管理名 |
 | `notes` | string | 説明 |
 | `num_resources` | number |  |
 | `num_tags` | number |  |
@@ -322,7 +322,7 @@
 | `private` | boolean |  |
 | `provider_last_modified_date` | string |  |
 | `provider_metadata_modified` | string |  |
-| `publisher` | string |  |
+| `publisher` | string | 公表組織名 |
 | `related_documents` | string |  |
 | `relationships_as_object` | array |  |
 | `relationships_as_subject` | array |  |
@@ -364,7 +364,7 @@
 | `metadata_modified` | string |  |
 | `mimetype` | string |  |
 | `mimetype_inner` | null | サンプル内では常に null |
-| `name` | string |  |
+| `name` | string | データセット管理名 |
 | `package_id` | string |  |
 | `position` | number |  |
 | `private` | string |  |
@@ -439,7 +439,35 @@
 | `title` | string |  |
 | `updated` | string |  |
 
-### 電文 Body: 気象警報・注意報（Ｒ０６）（集約通報）（実データ由来 / regular フィード）
+### 電文 Body: 府県天気予報（Ｒ１）（実データ由来 / regular フィード）
+
+この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
+
+| 項目 | 型 | 説明 |
+|---|---|---|
+| `Report/Control` | 要素 |  |
+| `Report/Control/Title` | 要素 |  |
+| `Report/Control/DateTime` | 要素 |  |
+| `Report/Control/Status` | 要素 |  |
+| `Report/Control/EditorialOffice` | 要素 |  |
+| `Report/Control/PublishingOffice` | 要素 |  |
+| `Report/Head` | 要素 |  |
+| `Report/Head/Title` | 要素 |  |
+| `Report/Head/ReportDateTime` | 要素 |  |
+| `Report/Head/TargetDateTime` | 要素 |  |
+| `Report/Head/TargetDuration` | 要素 |  |
+| `Report/Head/EventID` | 要素 |  |
+| `Report/Head/InfoType` | 要素 |  |
+| `Report/Head/Serial` | 要素 |  |
+| `Report/Head/InfoKind` | 要素 |  |
+| `Report/Head/InfoKindVersion` | 要素 |  |
+| `Report/Head/Headline` | 要素 |  |
+| `Report/Head/Headline/Text` | 要素 |  |
+| `Report/Body` | 要素 |  |
+| `Report/Body/MeteorologicalInfos` | 要素 |  |
+| `Report/Body/MeteorologicalInfos/TimeSeriesInfo` | 要素 |  |
+
+### 電文 Body: 気象警報・注意報（Ｈ２７）（実データ由来 / extra フィード）
 
 この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
 
@@ -464,36 +492,11 @@
 | `Report/Head/Headline/Text` | 要素 |  |
 | `Report/Head/Headline/Information` | 要素 |  |
 | `Report/Body` | 要素 |  |
+| `Report/Body/Notice` | 要素 |  |
 | `Report/Body/Warning` | 要素 |  |
 | `Report/Body/Warning/Item` | 要素 |  |
-
-### 電文 Body: 気象警報・注意報（Ｒ０６）（その他注意報）（実データ由来 / extra フィード）
-
-この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
-
-| 項目 | 型 | 説明 |
-|---|---|---|
-| `Report/Control` | 要素 |  |
-| `Report/Control/Title` | 要素 |  |
-| `Report/Control/DateTime` | 要素 |  |
-| `Report/Control/Status` | 要素 |  |
-| `Report/Control/EditorialOffice` | 要素 |  |
-| `Report/Control/PublishingOffice` | 要素 |  |
-| `Report/Head` | 要素 |  |
-| `Report/Head/Title` | 要素 |  |
-| `Report/Head/ReportDateTime` | 要素 |  |
-| `Report/Head/TargetDateTime` | 要素 |  |
-| `Report/Head/EventID` | 要素 |  |
-| `Report/Head/InfoType` | 要素 |  |
-| `Report/Head/Serial` | 要素 |  |
-| `Report/Head/InfoKind` | 要素 |  |
-| `Report/Head/InfoKindVersion` | 要素 |  |
-| `Report/Head/Headline` | 要素 |  |
-| `Report/Head/Headline/Text` | 要素 |  |
-| `Report/Head/Headline/Information` | 要素 |  |
-| `Report/Body` | 要素 |  |
-| `Report/Body/Warning` | 要素 |  |
-| `Report/Body/Warning/Item` | 要素 |  |
+| `Report/Body/MeteorologicalInfos` | 要素 |  |
+| `Report/Body/MeteorologicalInfos/TimeSeriesInfo` | 要素 |  |
 
 ### 電文 Body: 火山の状況に関する解説情報（実データ由来 / eqvol フィード）
 
@@ -556,6 +559,61 @@
 | `Report/Body/MeteorologicalInfos/MeteorologicalInfo` | 要素 |  |
 | `Report/Body/AdditionalInfo` | 要素 |  |
 | `Report/Body/AdditionalInfo/ObservationAddition` | 要素 |  |
+
+## 国立国会図書館サーチ 外部提供インタフェース (`ndl-search`)
+
+- 出所: 実データ由来（レスポンスを読んで列挙。網羅の保証は無い）
+- 抽出方法: 各経路のレスポンスを実際に読んで列挙。API 仕様書は PDF で配布されており機械可読ではないため、仕様由来の項目定義は取り込めていない
+- 参照元: https://ndlsearch.ndl.go.jp/help/api/specifications
+
+### OpenSearch: channel（RSS）
+
+検索結果全体。件数と取得位置がここに入る。
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `title` | 要素 |  | `桜 - 国立国会図書館サーチ OpenSearch` |
+| `link` | 要素 |  | `https://ios-v2-prod-eks-alb.ndlsearch.ndl.go.jp/api/opensear` |
+| `description` | 要素 |  | `Search results for cnt=1 title=桜` |
+| `language` | 要素 |  | `ja` |
+| `totalResults` | 要素 |  | `77047` |
+| `startIndex` | 要素 |  | `1` |
+| `itemsPerPage` | 要素 |  | `1` |
+
+### OpenSearch: item（書誌 1 件）
+
+検索にヒットした資料 1 件分。同名要素が繰り返し現れることがある。
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `title` | 要素 |  | `あー、いいのいいの。わたし好きな人いるから` |
+| `link` | 要素 |  | `https://ndlsearch.ndl.go.jp/books/R000000004-I028071794` |
+| `description` | 要素 |  | `<p><p><ul><li>タイトル：あー、いいのいいの。わたし好きな人いるから</li><li>タイトル（読み）：アー` |
+| `author` | 要素 |  | `早川 茉莉,早川 茉莉` |
+| `category` | 要素 |  | `記事` |
+| `guid` | 要素 |  | `https://ndlsearch.ndl.go.jp/books/R000000004-I028071794` |
+| `pubDate` | 要素 |  | `Wed, 26 Jun 2024 20:37:41 +0900` |
+| `titleTranscription` | 要素 |  | `アー 、 イイ ノ イイ ノ 。 ワタシ スキ ナ ヒト イル カラ` |
+| `creator` | 要素 |  | `早川 茉莉` |
+| `seriesTitle` | 要素 |  | `特集 こうの史代 : 『夕凪の街 桜の国』『この世界の片隅に』『ぼおるぺん古事記』から『日の鳥』へ` |
+| `seriesTitleTranscription` | 要素 |  | `トクシュウ コウ ノ シダイ : 『 ユウナギ ノ マチ サクラ ノ クニ 』 『 コノ セカイ ノ カタスミ ニ 』 ` |
+| `publicationPlace` | 要素 |  | `JP` |
+| `identifier` | 要素 |  | `028071794` |
+| `subject` | 要素 |  | `ZK24` |
+| `seeAlso` | 要素 |  |  |
+
+### OAI-PMH: Identify（リポジトリ情報）
+
+ハーベスト前に確認する、リポジトリの素性と差分取得の粒度。
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `repositoryName` | 要素 |  | `国立国会図書館サーチ` |
+| `baseURL` | 要素 |  | `https://ndlsearch.ndl.go.jp` |
+| `protocolVersion` | 要素 |  | `Version 2.0` |
+| `earliestDatestamp` | 要素 |  | `2022-10-01T00:00:00Z` |
+| `deletedRecord` | 要素 |  | `persistent` |
+| `granularity` | 要素 |  | `YYYY-MM-DDThh:mm:ssZ` |
 
 ## Jグランツ MCP Server (`jgrants-mcp`)
 
