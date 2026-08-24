@@ -1,0 +1,79 @@
+id: estat-lod
+name: 統計 LOD（SPARQL エンドポイント）
+summary: e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会できるようにしたもの。認証情報は不要で、appId が要る e-Stat API とは別系統。
+
+data_source:
+  provider: 総務省統計局・独立行政法人統計センター（e-Stat）
+  authority: primary_official
+  primary_source_url: https://data.e-stat.go.jp/lodw/
+
+access:
+  method: rest_api
+  endpoint: https://data.e-stat.go.jp/lod/sparql/alldata/query
+  spec_url: https://data.e-stat.go.jp/lodw/sparqlendpoint/api
+
+content:
+  categories:
+    - 政府統計
+    - 地域コード
+  formats:
+    - json
+    - xml
+    - csv
+    - tsv
+    - n-triples
+  update_frequency: undocumented
+  coverage: >-
+    統計データと地域に関するデータを RDF で提供する。データセット・属性・測度・次元・
+    カタログ・地域コード・調査項目といった語彙が定義されている。
+    どの統計が収録されているかは「統計LODで利用可能な統計データ」に一覧がある。
+  measured: []
+
+requirements:
+  auth: not_required
+  auth_note: 認証情報なしで SELECT / ASK / CONSTRUCT / DESCRIBE がいずれも応答した。一次資料にも API キーの記述は無い。
+  credential_env: []
+  rate_limit: undocumented
+  terms_url: https://creativecommons.org/licenses/by/4.0/
+  attribution_required: "yes"
+  attribution_text: 注があるものを除き、サイトの内容物はクリエイティブ・コモンズ 表示 4.0 ライセンスの下に提供される。表示（出典の明示）が条件。
+  usage_restrictions:
+    - 注があるものを除き CC BY 4.0 が適用されると全ページのフッターに明記されている。表示を行えば改変・再配布・営利利用が可能。
+    - 「注があるもの」が具体的に何を指すかは一次資料に明示されていない。個別のデータセットに別の条件が付く可能性がある。
+
+stability:
+  notes:
+    - SPARQL 1.1 に準拠すると一次資料に明記。
+    - 一次資料が示すエンドポイント URL は http:// だが、https:// でも応答する。
+
+reachability:
+  hosts:
+    - host: data.e-stat.go.jp
+      role: api
+      note: SPARQL エンドポイントと仕様・語彙定義がすべてこのホスト。
+    - host: www.e-stat.go.jp
+      role: portal
+      note: e-Stat 本体。統計 LOD とは別系統で、API 利用には appId が要る。
+
+verify:
+  script: verify/verify_estat_lod.py
+  result: results/estat-lod.json
+  command: .work/toolvenv/bin/python verify/verify_estat_lod.py --out results/estat-lod.json
+
+findings:
+  - claim: CONSTRUCT と DESCRIBE で、一次資料が既定と記す application/rdf+xml と text/turtle はいずれも HTTP 406 で拒否される。仕様の記述と実装が食い違っている。
+    evidence: 同一クエリで Accept を変えて実測。application/rdf+xml と text/turtle が 406（text/html の本文 457 バイト）、application/n-triples と text/plain が 200 を返した。
+  - claim: CONSTRUCT / DESCRIBE で Accept を付けないと、RDF ではなく application/sparql-results+json が返る。グラフを期待していると型が合わない。
+    evidence: Accept ヘッダ無しの CONSTRUCT と DESCRIBE がいずれも Content-Type application/sparql-results+json を返した。
+  - claim: DESCRIBE に application/n-triples を指定すると 60 秒でも応答が返らない。形式によって処理の重さが大きく違う。
+    evidence: 同じ DESCRIBE クエリで text/plain は 200 を 284 バイトで返すのに対し、application/n-triples は 60 秒タイムアウトした。
+  - claim: SELECT は Accept ヘッダで JSON / XML / CSV を切り替えられ、要求した形式がそのまま Content-Type で返る。
+    evidence: 同一クエリで application/sparql-results+json、application/sparql-results+xml、text/csv を指定し、いずれも要求どおりの Content-Type で応答した（CSV は "CPI\n100.2\n99.8\n99.8"）。
+  - claim: GET と POST の双方で同じ結果を得られる。長いクエリは POST に逃がせる。
+    evidence: 同一 SELECT を GET と POST で投げ、いずれも 3 行・変数 CPI の同じ結果が返った。
+  - claim: 応答に返る変数名は大文字化される。?p を指定しても JSON の binding のキーは "P" になる。小文字で引くと空振りする。
+    evidence: select ?p where {{ ?s ?p ?o }} limit 5 の応答が head.vars=["P"]、binding のキーも "P" だった。?s ?p ?o では ["S","P","O"] が返る。
+  - claim: グラフ全体に distinct を掛けると返らず、無作為な limit では同じ述語ばかり返る。語彙を調べるには主語を 1 件に絞る必要がある。
+    evidence: select distinct ?p where {{ ?s ?p ?o }} は 60 秒でタイムアウト。limit 400 では 400 行すべてが rdf:type だった。統計値 1 件に絞ると 10 種の述語が得られた。
+  - claim: 利用条件は SPARQL の仕様ページではなくサイト全体のフッターに書かれており、CC BY 4.0 が適用される。
+    evidence: https://data.e-stat.go.jp/lodw/ の各ページ末尾に「注があるものを除いて, このサイトの内容物はクリエイティブ・コモンズ 表示 4.0 ライセンスの下に提供されています。」と記載。

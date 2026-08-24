@@ -4,7 +4,7 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-24T01:40:42+00:00
+- 生成日時: 2026-08-24T02:05:02+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
@@ -13,6 +13,7 @@
 |---|---|---|---|---|---|---|---|---|
 | `egov-data-catalog` | e-Gov データポータル（CKAN API） | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-24 |
 | `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (8/8) | 2026-08-24 |
+| `estat-lod` | 統計 LOD（SPARQL エンドポイント） | 総務省統計局・独立行政法人統計センター（e-Stat） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-24 |
 | `jgrants-mcp` | Jグランツ MCP Server | デジタル庁 | official_wrapper | mcp | not_required | yes | 検証済 (9/9) | 2026-08-24 |
 | `jma-xml` | 気象庁防災情報XML（PULL型 Atom フィード） | 気象庁 | primary_official | rest_api | not_required | undocumented | 検証済 (9/9) | 2026-08-24 |
 | `ndl-search` | 国立国会図書館サーチ 外部提供インタフェース | 国立国会図書館 | primary_official | rest_api | not_required | undocumented | 検証済 (7/7) | 2026-08-24 |
@@ -59,20 +60,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T01:37:34+00:00
+- 最終検証: 2026-08-24T02:00:34+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_data_catalog.py --out results/egov-data-catalog.json`
 - 検証スクリプト: `verify/verify_egov_data_catalog.py` / 結果: `results/egov-data-catalog.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `site_read` | OK | 653 ms |  |
-| `package_search` | OK | 284 ms |  |
-| `package_list` | OK | 225 ms |  |
-| `organization_list` | OK | 298 ms |  |
-| `group_list` | OK | 277 ms |  |
-| `tag_list` | OK | 934 ms |  |
-| `package_show` | OK | 583 ms |  |
+| `site_read` | OK | 879 ms |  |
+| `package_search` | OK | 372 ms |  |
+| `package_list` | OK | 533 ms |  |
+| `organization_list` | OK | 228 ms |  |
+| `group_list` | OK | 233 ms |  |
+| `tag_list` | OK | 1200 ms |  |
+| `package_show` | OK | 274 ms |  |
 
 ### 実行して分かったこと
 
@@ -139,21 +140,21 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T01:37:30+00:00
+- 最終検証: 2026-08-24T02:00:30+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json`
 - 検証スクリプト: `verify/verify_egov_hourei.py` / 結果: `results/egov-hourei-api.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `fetch_openapi_spec` | OK | 1259 ms |  |
-| `GET /laws（全件数）` | OK | 1164 ms |  |
-| `GET /laws` | OK | 486 ms |  |
-| `GET /law_revisions/{law_id}` | OK | 470 ms |  |
-| `GET /law_data/{law_id}` | OK | 515 ms |  |
-| `GET /keyword` | OK | 1837 ms |  |
-| `GET /law_file/xml/{law_id}` | OK | 575 ms |  |
-| `GET /attachment/{law_revision_id}` | OK | 805 ms |  |
+| `fetch_openapi_spec` | OK | 1160 ms |  |
+| `GET /laws（全件数）` | OK | 1157 ms |  |
+| `GET /laws` | OK | 422 ms |  |
+| `GET /law_revisions/{law_id}` | OK | 380 ms |  |
+| `GET /law_data/{law_id}` | OK | 419 ms |  |
+| `GET /keyword` | OK | 1737 ms |  |
+| `GET /law_file/xml/{law_id}` | OK | 461 ms |  |
+| `GET /attachment/{law_revision_id}` | OK | 648 ms |  |
 
 ### 実行して分かったこと
 
@@ -175,6 +176,80 @@
   - 根拠: OpenAPI 仕様および https://www.e-gov.go.jp/terms のいずれにもレート制限の記載が無いことを確認。
 - **API とは別に XML 一括ダウンロードが提供されている。**
   - 根拠: OpenAPI 仕様の description に https://laws.e-gov.go.jp/bulkdownload?file_section=1&only_xml_flag=true が記載。
+
+## 統計 LOD（SPARQL エンドポイント） (`estat-lod`)
+
+e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会できるようにしたもの。認証情報は不要で、appId が要る e-Stat API とは別系統。
+
+### 提供と経路
+
+- 提供元: 総務省統計局・独立行政法人統計センター（e-Stat）（権威性: `primary_official`）
+- 一次情報: https://data.e-stat.go.jp/lodw/
+- 方式: `rest_api` / エンドポイント: `https://data.e-stat.go.jp/lod/sparql/alldata/query`
+- 仕様: https://data.e-stat.go.jp/lodw/sparqlendpoint/api
+
+### 提供される情報
+
+- 種類: 政府統計 / 地域コード
+- 形式: json / xml / csv / tsv / n-triples
+- 更新頻度: undocumented
+- 収録範囲: 統計データと地域に関するデータを RDF で提供する。データセット・属性・測度・次元・ カタログ・地域コード・調査項目といった語彙が定義されている。 どの統計が収録されているかは「統計LODで利用可能な統計データ」に一覧がある。
+
+### 接続要件
+
+- 認証: `not_required` — 認証情報なしで SELECT / ASK / CONSTRUCT / DESCRIBE がいずれも応答した。一次資料にも API キーの記述は無い。
+- レート制限: undocumented
+- 利用規約: https://creativecommons.org/licenses/by/4.0/
+- 出典表示: `yes` — 注があるものを除き、サイトの内容物はクリエイティブ・コモンズ 表示 4.0 ライセンスの下に提供される。表示（出典の明示）が条件。
+
+### 安定性（一次資料の記述）
+
+- SPARQL 1.1 に準拠すると一次資料に明記。
+- 一次資料が示すエンドポイント URL は http:// だが、https:// でも応答する。
+
+### 到達性
+
+| ホスト | 役割 | 備考 |
+|---|---|---|
+| `data.e-stat.go.jp` | api | SPARQL エンドポイントと仕様・語彙定義がすべてこのホスト。 |
+| `www.e-stat.go.jp` | portal | e-Stat 本体。統計 LOD とは別系統で、API 利用には appId が要る。 |
+
+### 検証
+
+- 状態: **検証済**
+- 最終検証: 2026-08-24T02:01:47+00:00
+- 再現コマンド: `.work/toolvenv/bin/python verify/verify_estat_lod.py --out results/estat-lod.json`
+- 検証スクリプト: `verify/verify_estat_lod.py` / 結果: `results/estat-lod.json`
+- 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
+
+| ステップ | 結果 | 所要 | 備考 |
+|---|---|---|---|
+| `SELECT (JSON)` | OK | 2455 ms |  |
+| `SELECT (CSV)` | OK | 1457 ms |  |
+| `SELECT (XML)` | OK | 1134 ms |  |
+| `ASK` | OK | 892 ms |  |
+| `CONSTRUCT: 出力形式のネゴシエーション` | OK | 2889 ms |  |
+| `DESCRIBE: 出力形式のネゴシエーション` | OK | 62707 ms |  |
+| `POST での照会` | OK | 1415 ms |  |
+
+### 実行して分かったこと
+
+- **CONSTRUCT と DESCRIBE で、一次資料が既定と記す application/rdf+xml と text/turtle はいずれも HTTP 406 で拒否される。仕様の記述と実装が食い違っている。**
+  - 根拠: 同一クエリで Accept を変えて実測。application/rdf+xml と text/turtle が 406（text/html の本文 457 バイト）、application/n-triples と text/plain が 200 を返した。
+- **CONSTRUCT / DESCRIBE で Accept を付けないと、RDF ではなく application/sparql-results+json が返る。グラフを期待していると型が合わない。**
+  - 根拠: Accept ヘッダ無しの CONSTRUCT と DESCRIBE がいずれも Content-Type application/sparql-results+json を返した。
+- **DESCRIBE に application/n-triples を指定すると 60 秒でも応答が返らない。形式によって処理の重さが大きく違う。**
+  - 根拠: 同じ DESCRIBE クエリで text/plain は 200 を 284 バイトで返すのに対し、application/n-triples は 60 秒タイムアウトした。
+- **SELECT は Accept ヘッダで JSON / XML / CSV を切り替えられ、要求した形式がそのまま Content-Type で返る。**
+  - 根拠: 同一クエリで application/sparql-results+json、application/sparql-results+xml、text/csv を指定し、いずれも要求どおりの Content-Type で応答した（CSV は "CPI\n100.2\n99.8\n99.8"）。
+- **GET と POST の双方で同じ結果を得られる。長いクエリは POST に逃がせる。**
+  - 根拠: 同一 SELECT を GET と POST で投げ、いずれも 3 行・変数 CPI の同じ結果が返った。
+- **応答に返る変数名は大文字化される。?p を指定しても JSON の binding のキーは "P" になる。小文字で引くと空振りする。**
+  - 根拠: select ?p where {{ ?s ?p ?o }} limit 5 の応答が head.vars=["P"]、binding のキーも "P" だった。?s ?p ?o では ["S","P","O"] が返る。
+- **グラフ全体に distinct を掛けると返らず、無作為な limit では同じ述語ばかり返る。語彙を調べるには主語を 1 件に絞る必要がある。**
+  - 根拠: select distinct ?p where {{ ?s ?p ?o }} は 60 秒でタイムアウト。limit 400 では 400 行すべてが rdf:type だった。統計値 1 件に絞ると 10 種の述語が得られた。
+- **利用条件は SPARQL の仕様ページではなくサイト全体のフッターに書かれており、CC BY 4.0 が適用される。**
+  - 根拠: https://data.e-stat.go.jp/lodw/ の各ページ末尾に「注があるものを除いて, このサイトの内容物はクリエイティブ・コモンズ 表示 4.0 ライセンスの下に提供されています。」と記載。
 
 ## Jグランツ MCP Server (`jgrants-mcp`)
 
@@ -220,7 +295,7 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T01:39:04+00:00
+- 最終検証: 2026-08-24T02:03:22+00:00
 - 再現コマンド: `./verify/run_jgrants_verification.sh`
 - 検証スクリプト: `verify/verify_jgrants_mcp.py` / 結果: `results/jgrants-mcp.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
@@ -228,14 +303,14 @@
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
 | `initialize` | OK | 0 ms |  |
-| `list_tools` | OK | 18 ms |  |
-| `list_resources` | OK | 8 ms |  |
-| `list_prompts` | OK | 7 ms |  |
-| `call:ping` | OK | 11 ms |  |
-| `call:search_subsidies` | OK | 1652 ms |  |
-| `call:get_subsidy_detail` | OK | 199 ms |  |
-| `call:get_subsidy_overview` | OK | 2264 ms |  |
-| `call:get_file_content` | OK | 1606 ms |  |
+| `list_tools` | OK | 13 ms |  |
+| `list_resources` | OK | 7 ms |  |
+| `list_prompts` | OK | 6 ms |  |
+| `call:ping` | OK | 9 ms |  |
+| `call:search_subsidies` | OK | 1238 ms |  |
+| `call:get_subsidy_detail` | OK | 210 ms |  |
+| `call:get_subsidy_overview` | OK | 1739 ms |  |
+| `call:get_file_content` | OK | 1565 ms |  |
 
 ### 実行して分かったこと
 
@@ -302,22 +377,22 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T01:38:52+00:00
+- 最終検証: 2026-08-24T02:03:12+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_jma_xml.py --out results/jma-xml.json`
 - 検証スクリプト: `verify/verify_jma_xml.py` / 結果: `results/jma-xml.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `GET /regular.xml (定時・高頻度)` | OK | 496 ms |  |
-| `GET /extra.xml (随時・高頻度)` | OK | 51 ms |  |
-| `GET /eqvol.xml (地震火山・高頻度)` | OK | 51 ms |  |
-| `GET /other.xml (その他・高頻度)` | OK | 44 ms |  |
-| `GET /regular_l.xml (定時・長期)` | OK | 1967 ms |  |
-| `GET /extra_l.xml (随時・長期)` | OK | 793 ms |  |
-| `GET /eqvol_l.xml (地震火山・長期)` | OK | 530 ms |  |
-| `GET /other_l.xml (その他・長期)` | OK | 520 ms |  |
-| `GET 電文本体` | OK | 49 ms |  |
+| `GET /regular.xml (定時・高頻度)` | OK | 440 ms |  |
+| `GET /extra.xml (随時・高頻度)` | OK | 54 ms |  |
+| `GET /eqvol.xml (地震火山・高頻度)` | OK | 54 ms |  |
+| `GET /other.xml (その他・高頻度)` | OK | 52 ms |  |
+| `GET /regular_l.xml (定時・長期)` | OK | 1817 ms |  |
+| `GET /extra_l.xml (随時・長期)` | OK | 1628 ms |  |
+| `GET /eqvol_l.xml (地震火山・長期)` | OK | 1114 ms |  |
+| `GET /other_l.xml (その他・長期)` | OK | 525 ms |  |
+| `GET 電文本体` | OK | 63 ms |  |
 
 ### 実行して分かったこと
 
@@ -376,20 +451,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T01:38:47+00:00
+- 最終検証: 2026-08-24T02:03:06+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_ndl_search.py --out results/ndl-search.json`
 - 検証スクリプト: `verify/verify_ndl_search.py` / 結果: `results/ndl-search.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `SRU: explain` | OK | 357 ms |  |
-| `SRU: searchRetrieve` | OK | 2312 ms |  |
-| `OpenSearch: 検索` | OK | 609 ms |  |
-| `OpenURL: 検索` | OK | 1470 ms |  |
-| `OAI-PMH: Identify` | OK | 834 ms |  |
-| `OAI-PMH: ListMetadataFormats` | OK | 898 ms |  |
-| `OAI-PMH: ListSets` | OK | 36459 ms |  |
+| `SRU: explain` | OK | 424 ms |  |
+| `SRU: searchRetrieve` | OK | 2823 ms |  |
+| `OpenSearch: 検索` | OK | 362 ms |  |
+| `OpenURL: 検索` | OK | 1660 ms |  |
+| `OAI-PMH: Identify` | OK | 1274 ms |  |
+| `OAI-PMH: ListMetadataFormats` | OK | 854 ms |  |
+| `OAI-PMH: ListSets` | OK | 40934 ms |  |
 
 ### 実行して分かったこと
 
@@ -412,15 +487,14 @@
 一次資料に当たる前に書けるのは名前とホストと調べた理由だけで、それ以外は推測になる。
 実体は `registry/candidates.yaml`。
 
-- 候補 11 件
-- **いま着手できるもの: 5 件**（到達でき、認証待ちでもない）
+- 候補 10 件
+- **いま着手できるもの: 4 件**（到達でき、認証待ちでもない）
 
 | 候補 | 保留の理由 | ホストへの到達 |
 |---|---|---|
 | **e-Stat API（政府統計の総合窓口）** (`estat-api`) | 認証情報が無い | 可 |
-| **J-STAGE** (`jstage`) | 到達できない（自環境の egress） ← **記録が古い。到達できるようになっている** | 可 |
+| **J-STAGE** (`jstage`) | 到達できない（自環境の egress） | **不可** |
 | **国土地理院（地理院タイル・地図）** (`gsi-maps`) | 未着手 | 可 |
-| **統計 LOD** (`estat-lod`) | 未着手 | 可 |
 | **法人番号システム Web-API（国税庁）** (`houjin-bangou`) | 到達できない（自環境の egress） | **不可** |
 | **不動産情報ライブラリ（国土交通省）** (`reinfolib`) | 認証情報が無い | 可 |
 | **国土数値情報（国土交通省）** (`nlftp-mlit`) | 未着手 | 可 |
@@ -439,9 +513,9 @@
 
 ### J-STAGE (`jstage`)
 
-- 保留の理由: 到達できない（自環境の egress）（**記録が古い。到達できるようになっている**）
+- 保留の理由: 到達できない（自環境の egress）
 - 調べた理由: 学術論文の書誌・全文を扱う公的な情報源として。
-- 対象ホスト: `www.jstage.jst.go.jp`, `api.jstage.jst.go.jp`（到達可）
+- 対象ホスト: `www.jstage.jst.go.jp`, `api.jstage.jst.go.jp`（到達不可）
 - 詳細: 一次資料は読めたが、API ホストに到達できない。公式マニュアル https://www.jstage.jst.go.jp/static/files/ja/manual_api.pdf （Ver.2.0、 2026-03-26）がリクエスト先を https://api.jstage.jst.go.jp/searchapi/do と明示しており、そのホストへの GET はプロキシが 403（httpx の ProxyError） を返す。閲覧側の www.jstage.jst.go.jp には到達できるため、 これは先方の障害ではなく自環境の egress。 認証情報は不要と一次資料で確認した。利用規約第 2 条は 「非営利目的で利用するときは、JST への利用申請は不要」とし、 営利目的のときだけ申請書の提出を求めている。マニュアルにも API キーに あたるパラメータは無い。
 - 次の一手: api.jstage.jst.go.jp を egress の許可リストに追加してもらう。通ったら 巻号一覧・記事検索・資料検索の 3 機能を検証する。
 
@@ -452,14 +526,6 @@
 - 対象ホスト: `cyberjapandata.gsi.go.jp`, `maps.gsi.go.jp`, `saigai.gsi.go.jp`（到達可）
 - 詳細: 認証は不要と実測で確認した。標準地図タイル https://cyberjapandata.gsi.go.jp/xyz/std/13/7276/3225.png が認証情報なしで HTTP 200・image/png を返した。一次資料 https://maps.gsi.go.jp/development/ichiran.html は「ウェブサイトや ソフトウェア、アプリケーション上でリアルタイムに読み込んで利用する場合、 地理院タイルは出典の明示のみで申請不要」と明記している。 ただしタイルは 3 分類あり、基本測量成果にあたるものは利用方法によって 測量法に基づく申請が必要になる。登録時に usage_restrictions へ書く。
 - 次の一手: 検証対象のタイル種別を決め（まず標準地図・淡色地図）、ズームレベルごとの 提供範囲と 404 の返り方を実測してエントリを起こす。
-
-### 統計 LOD (`estat-lod`)
-
-- 保留の理由: 未着手
-- 調べた理由: 統計データを RDF/SPARQL で扱える経路として。e-Stat API とは別系統。
-- 対象ホスト: `data.e-stat.go.jp`（到達可）
-- 詳細: 認証は不要と実測で確認した。一次資料 https://data.e-stat.go.jp/lodw/sparqlendpoint/api が示すエンドポイント https://data.e-stat.go.jp/lod/sparql/alldata/query に appId 無しで SPARQL クエリを投げ、HTTP 200・application/sparql-results+json が返った （消費者物価指数のサンプルクエリで値 100.2 を取得）。 e-Stat API（estat-api）は appId が要るが、こちらは要らない。 同じ提供元でも経路ごとに認証要否が違う例。
-- 次の一手: SPARQL 1.1 準拠とされる範囲（SELECT / ASK / CONSTRUCT / DESCRIBE、 GeoSPARQL）と Accept ヘッダによる出力形式の切り替えを実測して エントリを起こす。
 
 ### 法人番号システム Web-API（国税庁） (`houjin-bangou`)
 
@@ -534,7 +600,7 @@
 
 ## 到達性の実測
 
-`verify/verify_reachability.py` の実測結果（2026-08-24T01:37:22+00:00）。
+`verify/verify_reachability.py` の実測結果（2026-08-24T02:00:23+00:00）。
 到達できないことは、そのサービスが存在しないことを意味しない。
 
 | ホスト | 結果 | 詳細 |
@@ -542,7 +608,7 @@
 | `api.e-stat.go.jp` | 到達可 | HTTP 403 |
 | `api.houjin-bangou.nta.go.jp` | 到達可 | HTTP 404 |
 | `api.jgrants-portal.go.jp` | 到達可 | HTTP 404 |
-| `api.jstage.jst.go.jp` | 到達可 | HTTP 403 |
+| `api.jstage.jst.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
 | `cyberjapandata.gsi.go.jp` | 到達可 | HTTP 200 |
 | `data.e-gov.go.jp` | 到達可 | HTTP 301 |
 | `data.e-stat.go.jp` | 到達可 | HTTP 301 |

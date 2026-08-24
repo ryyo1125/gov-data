@@ -75,24 +75,6 @@ candidates:
       検証対象のタイル種別を決め（まず標準地図・淡色地図）、ズームレベルごとの
       提供範囲と 404 の返り方を実測してエントリを起こす。
 
-  - id: estat-lod
-    name: 統計 LOD
-    why: 統計データを RDF/SPARQL で扱える経路として。e-Stat API とは別系統。
-    hosts: [data.e-stat.go.jp]
-    blocker: not_started
-    blocker_detail: >-
-      認証は不要と実測で確認した。一次資料
-      https://data.e-stat.go.jp/lodw/sparqlendpoint/api が示すエンドポイント
-      https://data.e-stat.go.jp/lod/sparql/alldata/query に appId 無しで
-      SPARQL クエリを投げ、HTTP 200・application/sparql-results+json が返った
-      （消費者物価指数のサンプルクエリで値 100.2 を取得）。
-      e-Stat API（estat-api）は appId が要るが、こちらは要らない。
-      同じ提供元でも経路ごとに認証要否が違う例。
-    next_step: >-
-      SPARQL 1.1 準拠とされる範囲（SELECT / ASK / CONSTRUCT / DESCRIBE、
-      GeoSPARQL）と Accept ヘッダによる出力形式の切り替えを実測して
-      エントリを起こす。
-
   - id: houjin-bangou
     name: 法人番号システム Web-API（国税庁）
     why: 法人の名寄せに使える公的な識別子として。

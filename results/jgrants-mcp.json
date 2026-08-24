@@ -1,7 +1,7 @@
 {
   "source_id": "jgrants-mcp",
   "target": "http://127.0.0.1:8000/mcp",
-  "generated_at": "2026-08-24T01:39:04+00:00",
+  "generated_at": "2026-08-24T02:03:22+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -47,7 +47,7 @@
     {
       "step": "list_tools",
       "ok": true,
-      "elapsed_ms": 18,
+      "elapsed_ms": 13,
       "result": {
         "_truncated": true,
         "_original_chars": 6252,
@@ -57,7 +57,7 @@
     {
       "step": "list_resources",
       "ok": true,
-      "elapsed_ms": 8,
+      "elapsed_ms": 7,
       "result": [
         "jgrants://guidelines"
       ]
@@ -65,7 +65,7 @@
     {
       "step": "list_prompts",
       "ok": true,
-      "elapsed_ms": 7,
+      "elapsed_ms": 6,
       "result": [
         "subsidy_search_guide",
         "api_usage_agreement"
@@ -74,18 +74,18 @@
     {
       "step": "call:ping",
       "ok": true,
-      "elapsed_ms": 11,
+      "elapsed_ms": 9,
       "result": {
         "status": "ok",
         "server": "jGrants MCP Server",
         "version": "2.0.0",
-        "timestamp": "2026-08-24T01:38:56.820700+00:00"
+        "timestamp": "2026-08-24T02:03:15.918087+00:00"
       }
     },
     {
       "step": "call:search_subsidies",
       "ok": true,
-      "elapsed_ms": 1652,
+      "elapsed_ms": 1238,
       "result": {
         "total_count": 4,
         "subsidies": [
@@ -145,7 +145,7 @@
     {
       "step": "call:get_subsidy_detail",
       "ok": true,
-      "elapsed_ms": 199,
+      "elapsed_ms": 210,
       "result": {
         "_truncated": true,
         "_original_chars": 1988,
@@ -155,7 +155,7 @@
     {
       "step": "call:get_subsidy_overview",
       "ok": true,
-      "elapsed_ms": 2264,
+      "elapsed_ms": 1739,
       "result": {
         "_truncated": true,
         "_original_chars": 7373,
@@ -165,7 +165,7 @@
     {
       "step": "call:get_file_content",
       "ok": true,
-      "elapsed_ms": 1606,
+      "elapsed_ms": 1565,
       "result": {
         "_truncated": true,
         "_original_chars": 27560,

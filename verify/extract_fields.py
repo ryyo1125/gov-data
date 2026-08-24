@@ -42,6 +42,7 @@ JMA_XSD_ZIP = "https://xml.kishou.go.jp/jmaxml_20241031_Schema%28xsd%29.zip"
 # Jグランツの公式 OpenAPI。デジタル庁の開発者サイトではなく microCMS の
 # アセット CDN にホストされているため、政府ドメインの許可だけでは到達できない。
 NDL_API_BASE = "https://ndlsearch.ndl.go.jp/api"
+ESTAT_LOD_ENDPOINT = "https://data.e-stat.go.jp/lod/sparql/alldata/query"
 JGRANTS_SPEC_URL = (
     "https://files.microcms-assets.io/assets/"
     "7c793323a46a46b7bb9a2ac7d0023301/2bad5ef79255448f8381d9cf2a14dbfc/jgrants-api.yaml"
@@ -606,6 +607,105 @@ def _element_fields(parent, skip: set[str] | None = None) -> list[dict]:
     ]
 
 
+async def extract_estat_lod_fields(client: httpx.AsyncClient) -> dict:
+    """統計 LOD: SPARQL の応答構造と、語彙として定義されている述語を列挙する。
+
+    RDF は固定のスキーマを持たないため「項目」は述語のこと。どんな述語が
+    使われているかが分からないとクエリが書けないので、実データから拾う。
+    """
+    objects = []
+
+    # 応答そのものの構造（SPARQL Results JSON）。
+    response = await client.get(
+        ESTAT_LOD_ENDPOINT,
+        params={"query": "select ?s ?p ?o where { ?s ?p ?o } limit 1"},
+        headers={"Accept": "application/sparql-results+json"},
+    )
+    response.raise_for_status()
+    payload = response.json()
+    binding = ((payload.get("results") or {}).get("bindings") or [{}])[0]
+    objects.append(
+        {
+            "name": "SPARQL Results JSON（応答の器）",
+            "description": "SELECT / ASK の応答形式。head.vars に変数名、results.bindings に行が入る。",
+            "fields": [
+                {"name": "head.vars", "type": "string[]", "description": "クエリで指定した変数名の一覧", "example": ""},
+                {"name": "results.bindings[]", "type": "object[]", "description": "1 行分。変数名をキーに値が入る", "example": ""},
+                *[
+                    {
+                        "name": f"results.bindings[].<変数>.{k}",
+                        "type": "string",
+                        "description": {"type": "リテラルか URI かの別", "value": "値そのもの", "datatype": "リテラルの型 URI"}.get(k, ""),
+                        "example": str(v)[:60],
+                    }
+                    for k, v in (next(iter(binding.values()), {}) or {}).items()
+                ],
+            ],
+        }
+    )
+
+    # 実データに現れる述語。語彙が分からないとクエリが書けない。
+    # グラフ全体に distinct を掛けると返らず、無作為に limit を掛けても同じ述語ばかり
+    # 返る。統計値 1 件を選び、その主語が持つ述語を引くのが最も実用に近い。
+    subject = await _estat_lod_observation(client)
+    predicates: list[str] = []
+    if subject:
+        response = await client.get(
+            ESTAT_LOD_ENDPOINT,
+            params={"query": f"select ?p where {{ <{subject}> ?p ?o }} limit 100"},
+            headers={"Accept": "application/sparql-results+json"},
+            timeout=90.0,
+        )
+        response.raise_for_status()
+        seen: dict[str, None] = {}
+        for b in (response.json().get("results") or {}).get("bindings", []):
+            value = _binding(b, "p")
+            if value:
+                seen.setdefault(value, None)
+        predicates = list(seen)
+    objects.append(
+        {
+            "name": "統計値 1 件が持つ述語",
+            "description": "RDF に固定スキーマは無いため、項目にあたるのは述語。観測値 1 件を例に、実際に使われている述語を並べる。",
+            "fields": [
+                {"name": p.rsplit("/", 1)[-1] or p, "type": "述語", "description": p, "example": ""}
+                for p in predicates
+            ],
+        }
+    )
+
+    return {
+        "origin": "observed",
+        "origin_detail": (
+            "SPARQL の応答構造と、実データに現れる述語を実測で列挙。RDF は固定スキーマを"
+            "持たないため、ここに出るのは観測できた述語であって語彙の全量ではない"
+        ),
+        "source_url": "https://data.e-stat.go.jp/lodw/sparqlendpoint/api",
+        "objects": objects,
+        "enums": [],
+    }
+
+
+def _binding(row: dict, name: str) -> str | None:
+    """SPARQL の応答は変数名を大文字化して返す（?p のキーは "P"）。大小を問わず引く。"""
+    value = next((v for k, v in row.items() if k.lower() == name.lower()), None)
+    return value["value"] if value else None
+
+
+async def _estat_lod_observation(client: httpx.AsyncClient) -> str | None:
+    """述語を調べる足場として、統計値を 1 件選ぶ。"""
+    measure = "<http://data.e-stat.go.jp/lod/ontology/measure/index>"
+    response = await client.get(
+        ESTAT_LOD_ENDPOINT,
+        params={"query": f"select ?s where {{ ?s {measure} ?v }} limit 1"},
+        headers={"Accept": "application/sparql-results+json"},
+        timeout=90.0,
+    )
+    response.raise_for_status()
+    rows = (response.json().get("results") or {}).get("bindings") or []
+    return _binding(rows[0], "s") if rows else None
+
+
 async def extract_all(jgrants_url: str | None) -> dict:
     sources: dict[str, Any] = {}
     async with httpx.AsyncClient(timeout=120.0, trust_env=True) as client:
@@ -614,6 +714,7 @@ async def extract_all(jgrants_url: str | None) -> dict:
             ("egov-data-catalog", extract_ckan_fields),
             ("jma-xml", extract_jma_fields),
             ("ndl-search", extract_ndl_fields),
+            ("estat-lod", extract_estat_lod_fields),
         ]:
             try:
                 sources[source_id] = await extractor(client)

@@ -1,7 +1,7 @@
 {
   "source_id": "ndl-search",
   "target": "https://ndlsearch.ndl.go.jp/api",
-  "generated_at": "2026-08-24T01:38:47+00:00",
+  "generated_at": "2026-08-24T02:03:06+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -10,7 +10,7 @@
     {
       "step": "SRU: explain",
       "ok": true,
-      "elapsed_ms": 357,
+      "elapsed_ms": 424,
       "result": {
         "status": 200,
         "content_type": "text/xml;charset=UTF-8",
@@ -30,7 +30,7 @@
     {
       "step": "SRU: searchRetrieve",
       "ok": true,
-      "elapsed_ms": 2312,
+      "elapsed_ms": 2823,
       "result": {
         "status": 200,
         "numberOfRecords": "11434",
@@ -41,7 +41,7 @@
     {
       "step": "OpenSearch: 検索",
       "ok": true,
-      "elapsed_ms": 609,
+      "elapsed_ms": 362,
       "result": {
         "status": 200,
         "content_type": "text/xml;charset=UTF-8",
@@ -73,7 +73,7 @@
     {
       "step": "OpenURL: 検索",
       "ok": true,
-      "elapsed_ms": 1470,
+      "elapsed_ms": 1660,
       "result": {
         "requested": "/api/openurl",
         "final_url": "https://ndlsearch.ndl.go.jp/openurl?cs=api_openurl&q-au=%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3",
@@ -88,7 +88,7 @@
     {
       "step": "OAI-PMH: Identify",
       "ok": true,
-      "elapsed_ms": 834,
+      "elapsed_ms": 1274,
       "result": {
         "status": 200,
         "content_type": "text/xml;charset=UTF-8",
@@ -109,7 +109,7 @@
     {
       "step": "OAI-PMH: ListMetadataFormats",
       "ok": true,
-      "elapsed_ms": 898,
+      "elapsed_ms": 854,
       "result": {
         "status": 200,
         "content_type": "text/xml;charset=UTF-8",
@@ -126,7 +126,7 @@
     {
       "step": "OAI-PMH: ListSets",
       "ok": true,
-      "elapsed_ms": 36459,
+      "elapsed_ms": 40934,
       "result": {
         "status": 200,
         "content_type": "text/xml;charset=UTF-8",

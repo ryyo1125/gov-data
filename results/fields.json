@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T01:39:57+00:00",
+  "generated_at": "2026-08-24T02:04:19+00:00",
   "generated_by": "verify/extract_fields.py",
   "sources": {
     "egov-hourei-api": {
@@ -1549,7 +1549,7 @@
           ]
         },
         {
-          "name": "電文 Body: 府県天気予報（Ｒ１）（実データ由来 / regular フィード）",
+          "name": "電文 Body: 気象警報・注意報（Ｒ０６）（集約通報）（実データ由来 / regular フィード）",
           "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
@@ -1613,12 +1613,6 @@
               "example": ""
             },
             {
-              "name": "Report/Head/TargetDuration",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
               "name": "Report/Head/EventID",
               "type": "要素",
               "description": "",
@@ -1661,19 +1655,25 @@
               "example": ""
             },
             {
+              "name": "Report/Head/Headline/Information",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
               "name": "Report/Body",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/MeteorologicalInfos",
+              "name": "Report/Body/Warning",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/MeteorologicalInfos/TimeSeriesInfo",
+              "name": "Report/Body/Warning/Item",
               "type": "要素",
               "description": "",
               "example": ""
@@ -1831,7 +1831,7 @@
           ]
         },
         {
-          "name": "電文 Body: 火山の状況に関する解説情報（実データ由来 / eqvol フィード）",
+          "name": "電文 Body: 降灰予報（定時）（実データ由来 / eqvol フィード）",
           "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
@@ -1890,6 +1890,12 @@
             },
             {
               "name": "Report/Head/TargetDateTime",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Head/ValidDateTime",
               "type": "要素",
               "description": "",
               "example": ""
@@ -1961,6 +1967,18 @@
               "example": ""
             },
             {
+              "name": "Report/Body/AshInfos",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/AshInfos/AshInfo",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
               "name": "Report/Body/VolcanoInfoContent",
               "type": "要素",
               "description": "",
@@ -1980,12 +1998,6 @@
             },
             {
               "name": "Report/Body/VolcanoInfoContent/VolcanoPrevention",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/VolcanoInfoContent/NextAdvisory",
               "type": "要素",
               "description": "",
               "example": ""
@@ -2321,6 +2333,110 @@
               "type": "要素",
               "description": "",
               "example": "YYYY-MM-DDThh:mm:ssZ"
+            }
+          ]
+        }
+      ],
+      "enums": []
+    },
+    "estat-lod": {
+      "origin": "observed",
+      "origin_detail": "SPARQL の応答構造と、実データに現れる述語を実測で列挙。RDF は固定スキーマを持たないため、ここに出るのは観測できた述語であって語彙の全量ではない",
+      "source_url": "https://data.e-stat.go.jp/lodw/sparqlendpoint/api",
+      "objects": [
+        {
+          "name": "SPARQL Results JSON（応答の器）",
+          "description": "SELECT / ASK の応答形式。head.vars に変数名、results.bindings に行が入る。",
+          "fields": [
+            {
+              "name": "head.vars",
+              "type": "string[]",
+              "description": "クエリで指定した変数名の一覧",
+              "example": ""
+            },
+            {
+              "name": "results.bindings[]",
+              "type": "object[]",
+              "description": "1 行分。変数名をキーに値が入る",
+              "example": ""
+            },
+            {
+              "name": "results.bindings[].<変数>.type",
+              "type": "string",
+              "description": "リテラルか URI かの別",
+              "example": "uri"
+            },
+            {
+              "name": "results.bindings[].<変数>.value",
+              "type": "string",
+              "description": "値そのもの",
+              "example": "http://data.e-stat.go.jp/lod/dataset/g00200552/d0003111096/o"
+            }
+          ]
+        },
+        {
+          "name": "統計値 1 件が持つ述語",
+          "description": "RDF に固定スキーマは無いため、項目にあたるのは述語。観測値 1 件を例に、実際に使われている述語を並べる。",
+          "fields": [
+            {
+              "name": "22-rdf-syntax-ns#type",
+              "type": "述語",
+              "description": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+              "example": ""
+            },
+            {
+              "name": "unitMeasure",
+              "type": "述語",
+              "description": "http://data.e-stat.go.jp/lod/ontology/attribute/unitMeasure",
+              "example": ""
+            },
+            {
+              "name": "index",
+              "type": "述語",
+              "description": "http://data.e-stat.go.jp/lod/ontology/measure/index",
+              "example": ""
+            },
+            {
+              "name": "cube#measureType",
+              "type": "述語",
+              "description": "http://purl.org/linked-data/cube#measureType",
+              "example": ""
+            },
+            {
+              "name": "indexItems",
+              "type": "述語",
+              "description": "http://data.e-stat.go.jp/lod/ontology/g00200573/dimension/2015/indexItems",
+              "example": ""
+            },
+            {
+              "name": "dimension#refArea",
+              "type": "述語",
+              "description": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+              "example": ""
+            },
+            {
+              "name": "timePeriod",
+              "type": "述語",
+              "description": "http://data.e-stat.go.jp/lod/ontology/crossDomain/dimension/timePeriod",
+              "example": ""
+            },
+            {
+              "name": "unitMult",
+              "type": "述語",
+              "description": "http://data.e-stat.go.jp/lod/ontology/attribute/unitMult",
+              "example": ""
+            },
+            {
+              "name": "cube#dataSet",
+              "type": "述語",
+              "description": "http://purl.org/linked-data/cube#dataSet",
+              "example": ""
+            },
+            {
+              "name": "obsType",
+              "type": "述語",
+              "description": "http://data.e-stat.go.jp/lod/ontology/attribute/obsType",
+              "example": ""
             }
           ]
         }

@@ -3,7 +3,7 @@
 **このファイルは `registry/build.py` が `results/fields.json` から生成する。**
 更新するには `verify/extract_fields.py` を実行してからビルドし直す。
 
-- 生成日時: 2026-08-24T01:39:57+00:00
+- 生成日時: 2026-08-24T02:04:19+00:00
 
 項目の出所は情報源ごとに違う。**仕様由来**は提供側が定義した正式な項目、
 **実データ由来**はレスポンスを実際に読んで列挙したもので、サンプルに現れなかった
@@ -439,7 +439,7 @@
 | `title` | string |  |
 | `updated` | string |  |
 
-### 電文 Body: 府県天気予報（Ｒ１）（実データ由来 / regular フィード）
+### 電文 Body: 気象警報・注意報（Ｒ０６）（集約通報）（実データ由来 / regular フィード）
 
 この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
 
@@ -455,7 +455,6 @@
 | `Report/Head/Title` | 要素 |  |
 | `Report/Head/ReportDateTime` | 要素 |  |
 | `Report/Head/TargetDateTime` | 要素 |  |
-| `Report/Head/TargetDuration` | 要素 |  |
 | `Report/Head/EventID` | 要素 |  |
 | `Report/Head/InfoType` | 要素 |  |
 | `Report/Head/Serial` | 要素 |  |
@@ -463,9 +462,10 @@
 | `Report/Head/InfoKindVersion` | 要素 |  |
 | `Report/Head/Headline` | 要素 |  |
 | `Report/Head/Headline/Text` | 要素 |  |
+| `Report/Head/Headline/Information` | 要素 |  |
 | `Report/Body` | 要素 |  |
-| `Report/Body/MeteorologicalInfos` | 要素 |  |
-| `Report/Body/MeteorologicalInfos/TimeSeriesInfo` | 要素 |  |
+| `Report/Body/Warning` | 要素 |  |
+| `Report/Body/Warning/Item` | 要素 |  |
 
 ### 電文 Body: 気象警報・注意報（Ｈ２７）（実データ由来 / extra フィード）
 
@@ -498,7 +498,7 @@
 | `Report/Body/MeteorologicalInfos` | 要素 |  |
 | `Report/Body/MeteorologicalInfos/TimeSeriesInfo` | 要素 |  |
 
-### 電文 Body: 火山の状況に関する解説情報（実データ由来 / eqvol フィード）
+### 電文 Body: 降灰予報（定時）（実データ由来 / eqvol フィード）
 
 この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。
 
@@ -514,6 +514,7 @@
 | `Report/Head/Title` | 要素 |  |
 | `Report/Head/ReportDateTime` | 要素 |  |
 | `Report/Head/TargetDateTime` | 要素 |  |
+| `Report/Head/ValidDateTime` | 要素 |  |
 | `Report/Head/EventID` | 要素 |  |
 | `Report/Head/InfoType` | 要素 |  |
 | `Report/Head/Serial` | 要素 |  |
@@ -525,11 +526,12 @@
 | `Report/Body` | 要素 |  |
 | `Report/Body/VolcanoInfo` | 要素 |  |
 | `Report/Body/VolcanoInfo/Item` | 要素 |  |
+| `Report/Body/AshInfos` | 要素 |  |
+| `Report/Body/AshInfos/AshInfo` | 要素 |  |
 | `Report/Body/VolcanoInfoContent` | 要素 |  |
 | `Report/Body/VolcanoInfoContent/VolcanoHeadline` | 要素 |  |
 | `Report/Body/VolcanoInfoContent/VolcanoActivity` | 要素 |  |
 | `Report/Body/VolcanoInfoContent/VolcanoPrevention` | 要素 |  |
-| `Report/Body/VolcanoInfoContent/NextAdvisory` | 要素 |  |
 
 ### 電文 Body: 生物季節観測（実データ由来 / other フィード）
 
@@ -614,6 +616,40 @@
 | `earliestDatestamp` | 要素 |  | `2022-10-01T00:00:00Z` |
 | `deletedRecord` | 要素 |  | `persistent` |
 | `granularity` | 要素 |  | `YYYY-MM-DDThh:mm:ssZ` |
+
+## 統計 LOD（SPARQL エンドポイント） (`estat-lod`)
+
+- 出所: 実データ由来（レスポンスを読んで列挙。網羅の保証は無い）
+- 抽出方法: SPARQL の応答構造と、実データに現れる述語を実測で列挙。RDF は固定スキーマを持たないため、ここに出るのは観測できた述語であって語彙の全量ではない
+- 参照元: https://data.e-stat.go.jp/lodw/sparqlendpoint/api
+
+### SPARQL Results JSON（応答の器）
+
+SELECT / ASK の応答形式。head.vars に変数名、results.bindings に行が入る。
+
+| 項目 | 型 | 説明 | 例 |
+|---|---|---|---|
+| `head.vars` | string[] | クエリで指定した変数名の一覧 |  |
+| `results.bindings[]` | object[] | 1 行分。変数名をキーに値が入る |  |
+| `results.bindings[].<変数>.type` | string | リテラルか URI かの別 | `uri` |
+| `results.bindings[].<変数>.value` | string | 値そのもの | `http://data.e-stat.go.jp/lod/dataset/g00200552/d0003111096/o` |
+
+### 統計値 1 件が持つ述語
+
+RDF に固定スキーマは無いため、項目にあたるのは述語。観測値 1 件を例に、実際に使われている述語を並べる。
+
+| 項目 | 型 | 説明 |
+|---|---|---|
+| `22-rdf-syntax-ns#type` | 述語 | http://www.w3.org/1999/02/22-rdf-syntax-ns#type |
+| `unitMeasure` | 述語 | http://data.e-stat.go.jp/lod/ontology/attribute/unitMeasure |
+| `index` | 述語 | http://data.e-stat.go.jp/lod/ontology/measure/index |
+| `cube#measureType` | 述語 | http://purl.org/linked-data/cube#measureType |
+| `indexItems` | 述語 | http://data.e-stat.go.jp/lod/ontology/g00200573/dimension/2015/indexItems |
+| `dimension#refArea` | 述語 | http://purl.org/linked-data/sdmx/2009/dimension#refArea |
+| `timePeriod` | 述語 | http://data.e-stat.go.jp/lod/ontology/crossDomain/dimension/timePeriod |
+| `unitMult` | 述語 | http://data.e-stat.go.jp/lod/ontology/attribute/unitMult |
+| `cube#dataSet` | 述語 | http://purl.org/linked-data/cube#dataSet |
+| `obsType` | 述語 | http://data.e-stat.go.jp/lod/ontology/attribute/obsType |
 
 ## Jグランツ MCP Server (`jgrants-mcp`)
 

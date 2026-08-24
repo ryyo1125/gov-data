@@ -1,0 +1,202 @@
+{
+  "source_id": "estat-lod",
+  "target": "https://data.e-stat.go.jp/lod/sparql/alldata/query",
+  "generated_at": "2026-08-24T02:01:47+00:00",
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
+  },
+  "steps": [
+    {
+      "step": "SELECT (JSON)",
+      "ok": true,
+      "elapsed_ms": 2455,
+      "result": {
+        "method": "GET",
+        "accept_requested": "application/sparql-results+json",
+        "content_type": "application/sparql-results+json",
+        "status": 200,
+        "bytes": 452,
+        "vars": [
+          "CPI"
+        ],
+        "rows": 3,
+        "first_row": {
+          "CPI": {
+            "type": "literal",
+            "value": "100.2",
+            "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
+          }
+        }
+      }
+    },
+    {
+      "step": "SELECT (CSV)",
+      "ok": true,
+      "elapsed_ms": 1457,
+      "result": {
+        "method": "GET",
+        "accept_requested": "text/csv",
+        "content_type": "text/csv",
+        "status": 200,
+        "bytes": 19,
+        "head": "CPI\n100.2\n99.8\n99.8"
+      }
+    },
+    {
+      "step": "SELECT (XML)",
+      "ok": true,
+      "elapsed_ms": 1134,
+      "result": {
+        "method": "GET",
+        "accept_requested": "application/sparql-results+xml",
+        "content_type": "application/sparql-results+xml",
+        "status": 200,
+        "bytes": 576,
+        "head": "<?xml version=\"1.0\"?>\n<sparql xmlns=\"http://www.w3.org/2005/sparql-results#\">\n\t<head>\n\t\t<variable name=\"CPI\"/>\n\t</head>\n\t<results>\n\t\t<result>\n\t\t\t<binding name=\"CPI\">\n\t\t\t\t<literal datatype=\"http://www."
+      }
+    },
+    {
+      "step": "ASK",
+      "ok": true,
+      "elapsed_ms": 892,
+      "result": {
+        "method": "GET",
+        "accept_requested": "application/sparql-results+json",
+        "content_type": "application/sparql-results+json",
+        "status": 200,
+        "bytes": 33,
+        "boolean": true
+      }
+    },
+    {
+      "step": "CONSTRUCT: 出力形式のネゴシエーション",
+      "ok": true,
+      "elapsed_ms": 2889,
+      "result": {
+        "documented_formats": [
+          "application/rdf+xml",
+          "text/turtle",
+          "application/n-triples",
+          "text/plain",
+          null
+        ],
+        "by_accept": {
+          "application/rdf+xml": {
+            "status": 406,
+            "content_type": "text/html;charset=utf-8",
+            "bytes": 457
+          },
+          "text/turtle": {
+            "status": 406,
+            "content_type": "text/html;charset=utf-8",
+            "bytes": 457
+          },
+          "application/n-triples": {
+            "status": 200,
+            "content_type": "text/plain; charset=utf-8",
+            "bytes": 612
+          },
+          "text/plain": {
+            "status": 200,
+            "content_type": "text/plain; charset=utf-8",
+            "bytes": 284
+          },
+          "(Accept なし)": {
+            "status": 200,
+            "content_type": "application/sparql-results+json",
+            "bytes": 284
+          }
+        },
+        "accepted": [
+          "application/n-triples",
+          "text/plain",
+          "(Accept なし)"
+        ],
+        "rejected": [
+          "application/rdf+xml",
+          "text/turtle"
+        ]
+      }
+    },
+    {
+      "step": "DESCRIBE: 出力形式のネゴシエーション",
+      "ok": true,
+      "elapsed_ms": 62707,
+      "result": {
+        "documented_formats": [
+          "application/rdf+xml",
+          "text/turtle",
+          "application/n-triples",
+          "text/plain",
+          null
+        ],
+        "by_accept": {
+          "application/rdf+xml": {
+            "status": 406,
+            "content_type": "text/html;charset=utf-8",
+            "bytes": 457
+          },
+          "text/turtle": {
+            "status": 406,
+            "content_type": "text/html;charset=utf-8",
+            "bytes": 457
+          },
+          "application/n-triples": {
+            "status": null,
+            "error": "60.0 秒でタイムアウト"
+          },
+          "text/plain": {
+            "status": 200,
+            "content_type": "text/plain; charset=utf-8",
+            "bytes": 284
+          },
+          "(Accept なし)": {
+            "status": 200,
+            "content_type": "application/sparql-results+json",
+            "bytes": 284
+          }
+        },
+        "accepted": [
+          "text/plain",
+          "(Accept なし)"
+        ],
+        "rejected": [
+          "application/rdf+xml",
+          "text/turtle",
+          "application/n-triples"
+        ]
+      }
+    },
+    {
+      "step": "POST での照会",
+      "ok": true,
+      "elapsed_ms": 1415,
+      "result": {
+        "method": "POST",
+        "accept_requested": "application/sparql-results+json",
+        "content_type": "application/sparql-results+json",
+        "status": 200,
+        "bytes": 452,
+        "vars": [
+          "CPI"
+        ],
+        "rows": 3,
+        "first_row": {
+          "CPI": {
+            "type": "literal",
+            "value": "100.2",
+            "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
+          }
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "ok": 7,
+    "skipped": 0,
+    "blocked": 0,
+    "failed": 0
+  }
+}

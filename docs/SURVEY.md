@@ -3,7 +3,7 @@
 **このファイルは `registry/build.py` が `results/catalog-survey.json` から生成する。**
 更新するには `verify/survey_catalog.py` を実行してからビルドし直す。
 
-- 生成日時: 2026-08-24T01:40:41+00:00
+- 生成日時: 2026-08-24T02:05:02+00:00
 - 出所: e-Gov データポータル（CKAN API）（台帳エントリ `egov-data-catalog`）
 
 台帳（[REGISTRY.md](REGISTRY.md)）が「検証済みで実際に取れるもの」を載せるのに対し、
