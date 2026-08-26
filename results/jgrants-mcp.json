@@ -1,7 +1,7 @@
 {
   "source_id": "jgrants-mcp",
   "target": "http://127.0.0.1:8000/mcp",
-  "generated_at": "2026-08-24T02:03:22+00:00",
+  "generated_at": "2026-08-26T01:08:15+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -47,7 +47,7 @@
     {
       "step": "list_tools",
       "ok": true,
-      "elapsed_ms": 13,
+      "elapsed_ms": 20,
       "result": {
         "_truncated": true,
         "_original_chars": 6252,
@@ -57,7 +57,7 @@
     {
       "step": "list_resources",
       "ok": true,
-      "elapsed_ms": 7,
+      "elapsed_ms": 8,
       "result": [
         "jgrants://guidelines"
       ]
@@ -65,7 +65,7 @@
     {
       "step": "list_prompts",
       "ok": true,
-      "elapsed_ms": 6,
+      "elapsed_ms": 7,
       "result": [
         "subsidy_search_guide",
         "api_usage_agreement"
@@ -74,18 +74,18 @@
     {
       "step": "call:ping",
       "ok": true,
-      "elapsed_ms": 9,
+      "elapsed_ms": 11,
       "result": {
         "status": "ok",
         "server": "jGrants MCP Server",
         "version": "2.0.0",
-        "timestamp": "2026-08-24T02:03:15.918087+00:00"
+        "timestamp": "2026-08-26T01:08:08.058995+00:00"
       }
     },
     {
       "step": "call:search_subsidies",
       "ok": true,
-      "elapsed_ms": 1238,
+      "elapsed_ms": 995,
       "result": {
         "total_count": 4,
         "subsidies": [
@@ -155,17 +155,17 @@
     {
       "step": "call:get_subsidy_overview",
       "ok": true,
-      "elapsed_ms": 1739,
+      "elapsed_ms": 1702,
       "result": {
         "_truncated": true,
-        "_original_chars": 7373,
-        "_head": "{\"total_count\": 198, \"by_deadline_period\": {\"accepting\": 0, \"this_month\": 48, \"next_month\": 35, \"after_next_month\": 115}, \"by_amount_range\": {\"under_1m\": 28, \"under_10m\": 47, \"under_100m\": 28, \"over_100m\": 29, \"unspecified\": 66}, \"urgent_deadlines\": [{\"id\": \"a0WJ200000CDKZFMA5\", \"title\": \"令和８年度_グリーンスローモビリティ等導入促進事業\", \"days_left\": 1}, {\"id\": \"a0WJ200000CDdfVMAT\", \"title\": \"【岐阜県・2次募集】令和８年度_中小企業等海外展開支援事業費補助金（海外出願支援事業）\", \"days_left\": 0}, {\"id\": \"a0WJ200000CDdQnMAL\", \"title\": \"「ポスト5G情報通信システム基盤強化研究開発事業／フィジカルAIに向けた再帰的自己改善型AIに関する研究開発事業」の公募\", \"days_left\": 0}, {\"id\": \"a0WJ200000CDb8QMAT\", \"title\": \"令和8年度 洋上風力発電人材育成事業費補助金（第2次公募）\", \"days_left\": 0}, {\"id\": \"a0WJ200000CDYEHMA5\", \"title\": \"令和8年度中小企業生産性向上促進事業費補助金\", \"days_left\": 7}, {\"id\": \"a0WJ200000CDYDcMAP\", \"title\": \"令和８年度　天然ガス利用設備による強靱性向上対策事業費補助金\", \"days_left\": 8}, {\"id\": \"a0WJ200000CDY6vMAH\", \"title\": \"令和８年度社会福祉施設等への非常用電源等の整備促進事業補助金\", \"days_left\": 11}, {\"id\": \"a0WJ200000CDdjkMAD\", \"title\": \"令和8年度地熱発電の資源量調査事業費助成金交付事業_第3回\", \"days_left\": 7}, {\"id\": \"a0WJ200000CDdlrMAD\", \"title\": \"【施行】令和8年度愛知県介護テクノロジー導入支援事業費補助金\", \"days_left\": 7}, {\"id\": \"a0WJ200000CDdR2MAL\", \"title\": \"【第二回公募】令和8年度災害時に備えた社会的重要インフラへの自衛的な燃料備蓄の推進事業費補助金\", \"days_left\": 1}, {\"id\": \"a0WJ200000CDdqoMAD\", \"title\": \"【令和８年度】介護ロボット・ICT導入支援事業費補助金（介護ロボット等）\", \"days_left\": 7}, {\"id\": \"a0WJ200000CDdrNMAT\", \"title\": \"【鳥取県】令和８年度_中小企業等海外展開支援事業費補助金（海外出願支援事業）（二次公募）\", \"days_left\": 4}, {\"id\": \"a0WJ200000CDZkYMAX\", \"title\": \"令和８年度TOKYO戦略的イノベーション促進事業\", \"days_left\": 10}, {\"id\": \"a0WJ200000CDdrXMAT\", \"t"
+        "_original_chars": 7630,
+        "_head": "{\"total_count\": 200, \"by_deadline_period\": {\"accepting\": 0, \"this_month\": 48, \"next_month\": 36, \"after_next_month\": 116}, \"by_amount_range\": {\"under_1m\": 28, \"under_10m\": 45, \"under_100m\": 28, \"over_100m\": 33, \"unspecified\": 66}, \"urgent_deadlines\": [{\"id\": \"a0WJ200000CDdQxMAL\", \"title\": \"令和８年度酒類業振興支援事業費補助金（第４期）\", \"days_left\": 14}, {\"id\": \"a0WJ200000CDYEHMA5\", \"title\": \"令和8年度中小企業生産性向上促進事業費補助金\", \"days_left\": 5}, {\"id\": \"a0WJ200000CDYDcMAP\", \"title\": \"令和８年度　天然ガス利用設備による強靱性向上対策事業費補助金\", \"days_left\": 6}, {\"id\": \"a0WJ200000CDY6vMAH\", \"title\": \"令和８年度社会福祉施設等への非常用電源等の整備促進事業補助金\", \"days_left\": 9}, {\"id\": \"a0WJ200000CDdjkMAD\", \"title\": \"令和8年度地熱発電の資源量調査事業費助成金交付事業_第3回\", \"days_left\": 5}, {\"id\": \"a0WJ200000CDdlrMAD\", \"title\": \"【施行】令和8年度愛知県介護テクノロジー導入支援事業費補助金\", \"days_left\": 5}, {\"id\": \"a0WJ200000CDdqoMAD\", \"title\": \"【令和８年度】介護ロボット・ICT導入支援事業費補助金（介護ロボット等）\", \"days_left\": 5}, {\"id\": \"a0WJ200000CDdrNMAT\", \"title\": \"【鳥取県】令和８年度_中小企業等海外展開支援事業費補助金（海外出願支援事業）（二次公募）\", \"days_left\": 2}, {\"id\": \"a0WJ200000CDZkYMAX\", \"title\": \"令和８年度TOKYO戦略的イノベーション促進事業\", \"days_left\": 8}, {\"id\": \"a0WJ200000CDYUNMA5\", \"title\": \"令和８年度ゼロエミッション推進に向けた事業転換支援事業（製品開発助成）\", \"days_left\": 13}, {\"id\": \"a0WJ200000CDdrXMAT\", \"title\": \"【島根県】令和8年度_中小企業等海外展開支援事業費補助金（海外出願支援事業）（第４回公募）\", \"days_left\": 5}, {\"id\": \"a0WJ200000CDaPKMA1\", \"title\": \"【愛媛県】令和８年度_中小企業等海外展開支援事業費補助金（海外出願支援事業）第2回募集\", \"days_left\": 5}, {\"id\": \"a0WJ200000CDaMLMA1\", \"title\": \"【令和8年度】DX型CO2削減対策実行支援事業\", \"days_left\": 0}, {\"id\": \"a0WJ200000CDaMQMA1\", \"title\": \"【令和8年度】省CO2型システムへの改修支援事業\", "
       }
     },
     {
       "step": "call:get_file_content",
       "ok": true,
-      "elapsed_ms": 1565,
+      "elapsed_ms": 2401,
       "result": {
         "_truncated": true,
         "_original_chars": 27560,

@@ -4,19 +4,20 @@
 内容を変えるときは `registry/sources/*.yaml` を編集し、検証結果を更新するときは
 各エントリの再現コマンドを実行して `results/` を更新する。
 
-- 生成日時: 2026-08-24T02:05:02+00:00
+- 生成日時: 2026-08-26T01:10:32+00:00
 - 再検証の目安: 最終検証から 90 日
 
 ## 一覧
 
 | ID | 名称 | 提供元 | 権威性 | 方式 | 認証 | 出典表示 | 状態 | 最終検証 |
 |---|---|---|---|---|---|---|---|---|
-| `egov-data-catalog` | e-Gov データポータル（CKAN API） | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-24 |
-| `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (8/8) | 2026-08-24 |
-| `estat-lod` | 統計 LOD（SPARQL エンドポイント） | 総務省統計局・独立行政法人統計センター（e-Stat） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-24 |
-| `jgrants-mcp` | Jグランツ MCP Server | デジタル庁 | official_wrapper | mcp | not_required | yes | 検証済 (9/9) | 2026-08-24 |
-| `jma-xml` | 気象庁防災情報XML（PULL型 Atom フィード） | 気象庁 | primary_official | rest_api | not_required | undocumented | 検証済 (9/9) | 2026-08-24 |
-| `ndl-search` | 国立国会図書館サーチ 外部提供インタフェース | 国立国会図書館 | primary_official | rest_api | not_required | undocumented | 検証済 (7/7) | 2026-08-24 |
+| `egov-data-catalog` | e-Gov データポータル（CKAN API） | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-26 |
+| `egov-hourei-api` | e-Gov 法令 API Version 2 | デジタル庁（e-Gov） | primary_official | rest_api | not_required | yes | 検証済 (8/8) | 2026-08-26 |
+| `estat-lod` | 統計 LOD（SPARQL エンドポイント） | 総務省統計局・独立行政法人統計センター（e-Stat） | primary_official | rest_api | not_required | yes | 検証済 (7/7) | 2026-08-26 |
+| `gsi-tiles` | 地理院タイル（国土地理院 XYZ タイル配信） | 国土交通省国土地理院 | primary_official | rest_api | not_required | yes | 検証済 (14/15) | 2026-08-26 |
+| `jgrants-mcp` | Jグランツ MCP Server | デジタル庁 | official_wrapper | mcp | not_required | yes | 検証済 (9/9) | 2026-08-26 |
+| `jma-xml` | 気象庁防災情報XML（PULL型 Atom フィード） | 気象庁 | primary_official | rest_api | not_required | undocumented | 検証済 (9/9) | 2026-08-26 |
+| `ndl-search` | 国立国会図書館サーチ 外部提供インタフェース | 国立国会図書館 | primary_official | rest_api | not_required | undocumented | 検証済 (7/7) | 2026-08-26 |
 
 ## e-Gov データポータル（CKAN API） (`egov-data-catalog`)
 
@@ -35,7 +36,7 @@
 - 形式: json
 - 更新頻度: undocumented
 - 収録範囲: 府省庁が公開するデータセットのメタデータを収録する。実データそのものは各データセットの resource が指す先にある。
-- 実測値: package_search の count は 18141 件
+- 実測値: package_search の count は 18140 件
 - 実測値: tag_list は 5745 件
 
 ### 接続要件
@@ -60,20 +61,20 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T02:00:34+00:00
+- 最終検証: 2026-08-26T01:03:24+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_data_catalog.py --out results/egov-data-catalog.json`
 - 検証スクリプト: `verify/verify_egov_data_catalog.py` / 結果: `results/egov-data-catalog.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `site_read` | OK | 879 ms |  |
-| `package_search` | OK | 372 ms |  |
-| `package_list` | OK | 533 ms |  |
-| `organization_list` | OK | 228 ms |  |
-| `group_list` | OK | 233 ms |  |
-| `tag_list` | OK | 1200 ms |  |
-| `package_show` | OK | 274 ms |  |
+| `site_read` | OK | 562 ms |  |
+| `package_search` | OK | 751 ms |  |
+| `package_list` | OK | 237 ms |  |
+| `organization_list` | OK | 241 ms |  |
+| `group_list` | OK | 223 ms |  |
+| `tag_list` | OK | 1193 ms |  |
+| `package_show` | OK | 586 ms |  |
 
 ### 実行して分かったこと
 
@@ -115,7 +116,7 @@
 - 形式: json / xml / pdf
 - 更新頻度: undocumented
 - 収録範囲: 法令一覧・改正履歴・本文・添付ファイルを提供。全文検索は法令本文（law_full_text）を対象とする。
-- 実測値: /laws の total_count は 9547 件（全法令）
+- 実測値: /laws の total_count は 9550 件（全法令）
 
 ### 接続要件
 
@@ -140,21 +141,21 @@
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T02:00:30+00:00
+- 最終検証: 2026-08-26T01:03:20+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_egov_hourei.py --out results/egov-hourei-api.json`
 - 検証スクリプト: `verify/verify_egov_hourei.py` / 結果: `results/egov-hourei-api.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `fetch_openapi_spec` | OK | 1160 ms |  |
-| `GET /laws（全件数）` | OK | 1157 ms |  |
-| `GET /laws` | OK | 422 ms |  |
-| `GET /law_revisions/{law_id}` | OK | 380 ms |  |
-| `GET /law_data/{law_id}` | OK | 419 ms |  |
-| `GET /keyword` | OK | 1737 ms |  |
-| `GET /law_file/xml/{law_id}` | OK | 461 ms |  |
-| `GET /attachment/{law_revision_id}` | OK | 648 ms |  |
+| `fetch_openapi_spec` | OK | 1291 ms |  |
+| `GET /laws（全件数）` | OK | 1395 ms |  |
+| `GET /laws` | OK | 488 ms |  |
+| `GET /law_revisions/{law_id}` | OK | 467 ms |  |
+| `GET /law_data/{law_id}` | OK | 500 ms |  |
+| `GET /keyword` | OK | 1813 ms |  |
+| `GET /law_file/xml/{law_id}` | OK | 497 ms |  |
+| `GET /attachment/{law_revision_id}` | OK | 649 ms |  |
 
 ### 実行して分かったこと
 
@@ -217,20 +218,20 @@ e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会でき
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T02:01:47+00:00
+- 最終検証: 2026-08-26T01:05:53+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_estat_lod.py --out results/estat-lod.json`
 - 検証スクリプト: `verify/verify_estat_lod.py` / 結果: `results/estat-lod.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `SELECT (JSON)` | OK | 2455 ms |  |
-| `SELECT (CSV)` | OK | 1457 ms |  |
-| `SELECT (XML)` | OK | 1134 ms |  |
-| `ASK` | OK | 892 ms |  |
-| `CONSTRUCT: 出力形式のネゴシエーション` | OK | 2889 ms |  |
-| `DESCRIBE: 出力形式のネゴシエーション` | OK | 62707 ms |  |
-| `POST での照会` | OK | 1415 ms |  |
+| `SELECT (JSON)` | OK | 25031 ms |  |
+| `SELECT (CSV)` | OK | 24109 ms |  |
+| `SELECT (XML)` | OK | 733 ms |  |
+| `ASK` | OK | 9374 ms |  |
+| `CONSTRUCT: 出力形式のネゴシエーション` | OK | 25386 ms |  |
+| `DESCRIBE: 出力形式のネゴシエーション` | OK | 63125 ms |  |
+| `POST での照会` | OK | 842 ms |  |
 
 ### 実行して分かったこと
 
@@ -250,6 +251,96 @@ e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会でき
   - 根拠: select distinct ?p where {{ ?s ?p ?o }} は 60 秒でタイムアウト。limit 400 では 400 行すべてが rdf:type だった。統計値 1 件に絞ると 10 種の述語が得られた。
 - **利用条件は SPARQL の仕様ページではなくサイト全体のフッターに書かれており、CC BY 4.0 が適用される。**
   - 根拠: https://data.e-stat.go.jp/lodw/ の各ページ末尾に「注があるものを除いて, このサイトの内容物はクリエイティブ・コモンズ 表示 4.0 ライセンスの下に提供されています。」と記載。
+
+## 地理院タイル（国土地理院 XYZ タイル配信） (`gsi-tiles`)
+
+国土地理院が配信するタイル状の地図データ。認証情報は不要で、 URL にズームレベルとタイル座標を埋めて GET するだけで取得できる。 拡張子によって中身の性質が違い、画像（png / jpg）のほかに、 標高値（txt）と点データ（geojson）が同じ規則で配信されている。
+
+### 提供と経路
+
+- 提供元: 国土交通省国土地理院（権威性: `primary_official`）
+- 一次情報: https://maps.gsi.go.jp/development/ichiran.html
+- 方式: `rest_api` / エンドポイント: `https://cyberjapandata.gsi.go.jp/xyz/{t}/{z}/{x}/{y}.{ext}`
+- 仕様: https://maps.gsi.go.jp/development/siyou.html
+
+### 提供される情報
+
+- 種類: 地図 / 空中写真 / 標高 / 防災 / 地理空間情報
+- 形式: png / jpg / txt / geojson
+- 更新頻度: undocumented。タイル種別ごとの更新頻度は一覧ページに記載が無く、載っているのは 「提供開始」の日付だけ。個々のタイルの更新時期は応答の Last-Modified で判断できる。
+- 収録範囲: 配信されているタイルの種類は一覧ページにしか列挙されていない。内訳は画像が大半で、 ベースマップ（標準地図・淡色地図・白地図）、空中写真、標高・土地の凹凸、 土地の成り立ち・土地利用、基準点・地磁気、災害ごとの正射画像などがある。 画像以外では、標高タイル（カンマ区切りの標高値）と、指定緊急避難場所・ 自然災害伝承碑などの点データ（GeoJSON）が同じ URL 規則で取れる。 タイル種別ごとに提供ズームレベルと提供範囲が異なり、範囲外は 404 になる。
+- 実測値: 一覧ページに載っている GeoJSON タイルの URL テンプレート 23 件 （画像タイルは災害ごとの正射画像が随時追加されるため件数を追わない）
+
+### 接続要件
+
+- 認証: `not_required` — 認証情報なしで画像・標高・GeoJSON のいずれも 200 で応答した。 一覧ページ・仕様ページのどちらにも API キーにあたる記述は無い。
+- レート制限: undocumented
+- 利用規約: https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html
+- 出典表示: `yes` — 出典は「国土地理院」または「地理院タイル」等と記載し、地理院タイル一覧ページ （https://maps.gsi.go.jp/development/ichiran.html）へのリンクを付ける。
+
+### 安定性（一次資料の記述）
+
+- タイルの URL は「原則として」https://cyberjapandata.gsi.go.jp/xyz/{t}/{z}/{x}/{y}.{ext} と命名されると仕様ページに明記。
+- タイル 1 枚の大きさは 256 ピクセル × 256 ピクセルで統一されていると仕様ページに明記。
+- 測地系は日本国内の地図については世界測地系（JGD2011）で、北緯・南緯約 85.0511 度以上を除外したメルカトル投影と仕様ページに明記。
+- 提供しているズームレベルや範囲は種類により異なるため一覧ページを参照するよう、仕様ページが指示している。
+- テキスト形式の標高タイルは令和 6 年 10 月より更新を停止していると一覧ページに明記。
+- 標高タイルの PNG 形式は 24 ビットカラー、標高分解能 0.01m、無効値は (R, G, B) = (128, 0, 0) と詳細仕様に明記。
+
+### 到達性
+
+| ホスト | 役割 | 備考 |
+|---|---|---|
+| `cyberjapandata.gsi.go.jp` | api | タイル本体の配信。画像・標高・GeoJSON がすべてこのホスト。 |
+| `maps.gsi.go.jp` | documentation | 一覧ページ・仕様ページ・標高タイルの詳細仕様。何が配信されているかはここにしか無い。 |
+| `www.gsi.go.jp` | terms | 国土地理院コンテンツ利用規約の本文。この環境ではプロキシが 403 を返し到達できない。 |
+
+### 検証
+
+- 状態: **検証済**
+- 最終検証: 2026-08-26T01:07:47+00:00
+- 再現コマンド: `.work/toolvenv/bin/python verify/verify_gsi_tiles.py --out results/gsi-tiles.json`
+- 検証スクリプト: `verify/verify_gsi_tiles.py` / 結果: `results/gsi-tiles.json`
+- 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
+
+| ステップ | 結果 | 所要 | 備考 |
+|---|---|---|---|
+| `一次資料: 地理院タイル一覧` | OK | 865 ms |  |
+| `一次資料: 地理院タイルの仕様` | OK | 42 ms |  |
+| `一次資料: 標高タイルの詳細仕様` | OK | 43 ms |  |
+| `地図タイル: 標準地図 std（ZL14 PNG）` | OK | 335 ms |  |
+| `地図タイル: 淡色地図 pale（ZL14 PNG）` | OK | 67 ms |  |
+| `地図タイル: 全国最新写真 seamlessphoto（ZL14 JPEG）` | OK | 66 ms |  |
+| `標高タイル: DEM5A テキスト形式（ZL14）` | OK | 87 ms |  |
+| `標高タイル: DEM5A PNG 形式とテキスト形式の突合（ZL14）` | OK | 257 ms |  |
+| `GeoJSON タイル: 指定緊急避難場所 skhb01（ZL10）` | OK | 109 ms |  |
+| `GeoJSON タイル: 自然災害伝承碑 disaster_lore_all（ZL7）` | OK | 317 ms |  |
+| `提供範囲外・存在しないデータ ID の返り方` | OK | 4530 ms |  |
+| `文書化されたズームレベルの外側の返り方` | OK | 3649 ms |  |
+| `CORS: Origin 付きリクエスト` | OK | 1157 ms |  |
+| `条件付きリクエスト（ETag / Last-Modified）` | OK | 2162 ms |  |
+| `利用規約: 国土地理院コンテンツ利用規約` | FAIL | - | 自環境の egress でプロキシが拒否した: 403 Forbidden |
+
+### 実行して分かったこと
+
+- **PNG 形式の標高タイルとテキスト形式の標高タイルの値は一致しない。一次資料は「画素値（RGB値）から算出される標高値は、テキスト形式の標高タイルの標高値と同じになります」と書いているが、実測では大半の画素が食い違う。**
+  - 根拠: 同一タイル（dem5a / dem5a_png の 14/14552/6451）の 65,536 画素を突合し、一致 20,045、不一致 45,491、最大差 7.74m。無効値は PNG 側に 7,126 画素あるがテキスト側は 0。なお同じ一覧ページに「テキスト形式の標高タイルは令和6年10月より更新を停止しております」とあるが、それがこの差の原因だとは一次資料に書かれていない。
+- **存在しないタイルは 404 で Amazon S3 の NoSuchKey XML が返る。提供範囲外の座標・存在しないデータ ID・提供していない拡張子は、どれも同じ応答なので区別できない。**
+  - 根拠: std/14/0/0.png（提供範囲外）、no_such_tileset/14/14552/6451.png（存在しない ID）、std/14/14552/6451.geojson（提供していない拡張子）がいずれも 404・application/xml・<Code>NoSuchKey</Code> を返した。
+- **標準地図は一覧ページが ZL2〜18 しか記載していないが、ZL0 と ZL1 も 200 で画像を返す。記載が無いことは提供していないことを意味しない。**
+  - 根拠: std/0/0/0.png が 200・image/png・77,992 バイト、std/1/1/0.png が 200・76,255 バイト。ZL19（std/19/465694/206453.png）は 404 NoSuchKey。
+- **CORS 応答ヘッダは Origin ヘッダを付けたときだけ返る。付けずに叩いて Access-Control-Allow-Origin が無いことを、ブラウザから使えない根拠にしてはいけない。**
+  - 根拠: 同じ URL に対し、Origin 無しでは Access-Control-Allow-Origin が返らず、Origin ヘッダに https://example.com を与えると `*` が返った。
+- **ETag と Last-Modified が付き、If-None-Match と If-Modified-Since のどちらでも 304 が返る。タイルは枚数が多いので、再取得を条件付きリクエストで避けられる。**
+  - 根拠: std/14/14552/6451.png の ETag と Last-Modified をそのまま送り返し、いずれも 304・本文 0 バイト。Server ヘッダは AmazonS3。
+- **.geojson の Content-Type は application/json ではなく application/octet-stream。形式は Content-Type ではなく拡張子でしか判別できない。**
+  - 根拠: skhb01 と disaster_lore_all のどちらも application/octet-stream で返った。テキスト形式の標高タイル（.txt）は text/plain。
+- **GeoJSON タイルは提供ズームレベルが 1 つに固定されており、そこから外れると 404 になる。地図タイルと同じ感覚でズームレベルを選ぶと空振りする。**
+  - 根拠: skhb01 は ZL10、disaster_lore_all は ZL7 が一覧ページの記載で、その ZL では 200（それぞれ 1,195 件・536 件のフィーチャ）。同じ地点の ZL14 ではどちらも 404 NoSuchKey だった。
+- **GeoJSON のプロパティのキーはフィーチャごとに異なる。先頭の 1 件だけを見て項目を決めると取りこぼす。**
+  - 根拠: skhb01（ZL10）の先頭フィーチャは name / address / remarks / disaster1 / disaster7 の 5 キーだが、1,195 件を通すと disaster1〜disaster8 が出そろい 11 キーになった。該当する災害種別のキーだけが入る作りになっている。
+- **利用規約の本文があるホスト www.gsi.go.jp には、この環境からは到達できない。プロキシが 403 を返しており、先方の障害ではない。**
+  - 根拠: https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html への GET が httpx.ProxyError（403 Forbidden）。同じ検証の中で maps.gsi.go.jp と cyberjapandata.gsi.go.jp には到達できている。
 
 ## Jグランツ MCP Server (`jgrants-mcp`)
 
@@ -295,7 +386,7 @@ e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会でき
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T02:03:22+00:00
+- 最終検証: 2026-08-26T01:08:15+00:00
 - 再現コマンド: `./verify/run_jgrants_verification.sh`
 - 検証スクリプト: `verify/verify_jgrants_mcp.py` / 結果: `results/jgrants-mcp.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
@@ -303,14 +394,14 @@ e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会でき
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
 | `initialize` | OK | 0 ms |  |
-| `list_tools` | OK | 13 ms |  |
-| `list_resources` | OK | 7 ms |  |
-| `list_prompts` | OK | 6 ms |  |
-| `call:ping` | OK | 9 ms |  |
-| `call:search_subsidies` | OK | 1238 ms |  |
+| `list_tools` | OK | 20 ms |  |
+| `list_resources` | OK | 8 ms |  |
+| `list_prompts` | OK | 7 ms |  |
+| `call:ping` | OK | 11 ms |  |
+| `call:search_subsidies` | OK | 995 ms |  |
 | `call:get_subsidy_detail` | OK | 210 ms |  |
-| `call:get_subsidy_overview` | OK | 1739 ms |  |
-| `call:get_file_content` | OK | 1565 ms |  |
+| `call:get_subsidy_overview` | OK | 1702 ms |  |
+| `call:get_file_content` | OK | 2401 ms |  |
 
 ### 実行して分かったこと
 
@@ -377,22 +468,22 @@ e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会でき
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T02:03:12+00:00
+- 最終検証: 2026-08-26T01:08:04+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_jma_xml.py --out results/jma-xml.json`
 - 検証スクリプト: `verify/verify_jma_xml.py` / 結果: `results/jma-xml.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `GET /regular.xml (定時・高頻度)` | OK | 440 ms |  |
-| `GET /extra.xml (随時・高頻度)` | OK | 54 ms |  |
-| `GET /eqvol.xml (地震火山・高頻度)` | OK | 54 ms |  |
-| `GET /other.xml (その他・高頻度)` | OK | 52 ms |  |
-| `GET /regular_l.xml (定時・長期)` | OK | 1817 ms |  |
-| `GET /extra_l.xml (随時・長期)` | OK | 1628 ms |  |
-| `GET /eqvol_l.xml (地震火山・長期)` | OK | 1114 ms |  |
-| `GET /other_l.xml (その他・長期)` | OK | 525 ms |  |
-| `GET 電文本体` | OK | 63 ms |  |
+| `GET /regular.xml (定時・高頻度)` | OK | 1937 ms |  |
+| `GET /extra.xml (随時・高頻度)` | OK | 1480 ms |  |
+| `GET /eqvol.xml (地震火山・高頻度)` | OK | 820 ms |  |
+| `GET /other.xml (その他・高頻度)` | OK | 813 ms |  |
+| `GET /regular_l.xml (定時・長期)` | OK | 2817 ms |  |
+| `GET /extra_l.xml (随時・長期)` | OK | 2714 ms |  |
+| `GET /eqvol_l.xml (地震火山・長期)` | OK | 1701 ms |  |
+| `GET /other_l.xml (その他・長期)` | OK | 1459 ms |  |
+| `GET 電文本体` | OK | 2168 ms |  |
 
 ### 実行して分かったこと
 
@@ -451,20 +542,20 @@ e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会でき
 ### 検証
 
 - 状態: **検証済**
-- 最終検証: 2026-08-24T02:03:06+00:00
+- 最終検証: 2026-08-26T01:07:20+00:00
 - 再現コマンド: `.work/toolvenv/bin/python verify/verify_ndl_search.py --out results/ndl-search.json`
 - 検証スクリプト: `verify/verify_ndl_search.py` / 結果: `results/ndl-search.json`
 - 検証環境: Python 3.11.15 / Linux-6.18.44-fc-v21-x86_64-with-glibc2.39
 
 | ステップ | 結果 | 所要 | 備考 |
 |---|---|---|---|
-| `SRU: explain` | OK | 424 ms |  |
-| `SRU: searchRetrieve` | OK | 2823 ms |  |
-| `OpenSearch: 検索` | OK | 362 ms |  |
-| `OpenURL: 検索` | OK | 1660 ms |  |
-| `OAI-PMH: Identify` | OK | 1274 ms |  |
-| `OAI-PMH: ListMetadataFormats` | OK | 854 ms |  |
-| `OAI-PMH: ListSets` | OK | 40934 ms |  |
+| `SRU: explain` | OK | 1489 ms |  |
+| `SRU: searchRetrieve` | OK | 16506 ms |  |
+| `OpenSearch: 検索` | OK | 27025 ms |  |
+| `OpenURL: 検索` | OK | 1075 ms |  |
+| `OAI-PMH: Identify` | OK | 813 ms |  |
+| `OAI-PMH: ListMetadataFormats` | OK | 799 ms |  |
+| `OAI-PMH: ListSets` | OK | 9086 ms |  |
 
 ### 実行して分かったこと
 
@@ -487,14 +578,13 @@ e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会でき
 一次資料に当たる前に書けるのは名前とホストと調べた理由だけで、それ以外は推測になる。
 実体は `registry/candidates.yaml`。
 
-- 候補 10 件
-- **いま着手できるもの: 4 件**（到達でき、認証待ちでもない）
+- 候補 9 件
+- **いま着手できるもの: 3 件**（到達でき、認証待ちでもない）
 
 | 候補 | 保留の理由 | ホストへの到達 |
 |---|---|---|
 | **e-Stat API（政府統計の総合窓口）** (`estat-api`) | 認証情報が無い | 可 |
 | **J-STAGE** (`jstage`) | 到達できない（自環境の egress） | **不可** |
-| **国土地理院（地理院タイル・地図）** (`gsi-maps`) | 未着手 | 可 |
 | **法人番号システム Web-API（国税庁）** (`houjin-bangou`) | 到達できない（自環境の egress） | **不可** |
 | **不動産情報ライブラリ（国土交通省）** (`reinfolib`) | 認証情報が無い | 可 |
 | **国土数値情報（国土交通省）** (`nlftp-mlit`) | 未着手 | 可 |
@@ -518,14 +608,6 @@ e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会でき
 - 対象ホスト: `www.jstage.jst.go.jp`, `api.jstage.jst.go.jp`（到達不可）
 - 詳細: 一次資料は読めたが、API ホストに到達できない。公式マニュアル https://www.jstage.jst.go.jp/static/files/ja/manual_api.pdf （Ver.2.0、 2026-03-26）がリクエスト先を https://api.jstage.jst.go.jp/searchapi/do と明示しており、そのホストへの GET はプロキシが 403（httpx の ProxyError） を返す。閲覧側の www.jstage.jst.go.jp には到達できるため、 これは先方の障害ではなく自環境の egress。 認証情報は不要と一次資料で確認した。利用規約第 2 条は 「非営利目的で利用するときは、JST への利用申請は不要」とし、 営利目的のときだけ申請書の提出を求めている。マニュアルにも API キーに あたるパラメータは無い。
 - 次の一手: api.jstage.jst.go.jp を egress の許可リストに追加してもらう。通ったら 巻号一覧・記事検索・資料検索の 3 機能を検証する。
-
-### 国土地理院（地理院タイル・地図） (`gsi-maps`)
-
-- 保留の理由: 未着手
-- 調べた理由: 地理空間情報の基盤として。
-- 対象ホスト: `cyberjapandata.gsi.go.jp`, `maps.gsi.go.jp`, `saigai.gsi.go.jp`（到達可）
-- 詳細: 認証は不要と実測で確認した。標準地図タイル https://cyberjapandata.gsi.go.jp/xyz/std/13/7276/3225.png が認証情報なしで HTTP 200・image/png を返した。一次資料 https://maps.gsi.go.jp/development/ichiran.html は「ウェブサイトや ソフトウェア、アプリケーション上でリアルタイムに読み込んで利用する場合、 地理院タイルは出典の明示のみで申請不要」と明記している。 ただしタイルは 3 分類あり、基本測量成果にあたるものは利用方法によって 測量法に基づく申請が必要になる。登録時に usage_restrictions へ書く。
-- 次の一手: 検証対象のタイル種別を決め（まず標準地図・淡色地図）、ズームレベルごとの 提供範囲と 404 の返り方を実測してエントリを起こす。
 
 ### 法人番号システム Web-API（国税庁） (`houjin-bangou`)
 
@@ -600,7 +682,7 @@ e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会でき
 
 ## 到達性の実測
 
-`verify/verify_reachability.py` の実測結果（2026-08-24T02:00:23+00:00）。
+`verify/verify_reachability.py` の実測結果（2026-08-26T01:03:12+00:00）。
 到達できないことは、そのサービスが存在しないことを意味しない。
 
 | ホスト | 結果 | 詳細 |
@@ -631,6 +713,7 @@ e-Stat の統計データを RDF として公開し、SPARQL 1.1 で照会でき
 | `www.e-gov.go.jp` | 到達可 | HTTP 403 |
 | `www.e-stat.go.jp` | 到達可 | HTTP 200 |
 | `www.esri.cao.go.jp` | 到達可 | HTTP 200 |
+| `www.gsi.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
 | `www.hokoukukan.go.jp` | 到達可 | HTTP 403 |
 | `www.houjin-bangou.nta.go.jp` | egress で拒否 | プロキシが拒否: 403 Forbidden |
 | `www.iryou.teikyouseido.mhlw.go.jp` | 到達可 | HTTP 301 |

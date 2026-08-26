@@ -34,6 +34,10 @@ echo "== ndl-search =="
 "$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_ndl_search.py" \
   --out "$REPO_ROOT/results/ndl-search.json"
 
+echo "== gsi-tiles =="
+"$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_gsi_tiles.py" \
+  --out "$REPO_ROOT/results/gsi-tiles.json"
+
 echo "== jma-xml =="
 "$TOOL_VENV/bin/python" "$REPO_ROOT/verify/verify_jma_xml.py" \
   --out "$REPO_ROOT/results/jma-xml.json"

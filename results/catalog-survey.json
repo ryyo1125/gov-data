@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T02:05:02+00:00",
+  "generated_at": "2026-08-26T01:10:11+00:00",
   "generated_by": "verify/survey_catalog.py",
   "source": {
     "name": "e-Gov データポータル（CKAN API）",
@@ -7,7 +7,7 @@
     "registry_entry": "egov-data-catalog"
   },
   "totals": {
-    "datasets": 18141,
+    "datasets": 18140,
     "organizations": 23,
     "machine_readable_datasets": 1121
   },
@@ -45,7 +45,7 @@
     {
       "name": "org_1400",
       "label": "財務省",
-      "count": 1008
+      "count": 1006
     },
     {
       "name": "org_1100",
@@ -65,7 +65,7 @@
     {
       "name": "org_0950",
       "label": "個人情報保護委員会",
-      "count": 611
+      "count": 612
     },
     {
       "name": "org_0300",
@@ -132,7 +132,7 @@
     {
       "name": "PDF",
       "label": "PDF",
-      "count": 9267
+      "count": 9265
     },
     {
       "name": "HTML",
@@ -280,6 +280,11 @@
       "count": 1
     },
     {
+      "name": "asp",
+      "label": "asp",
+      "count": 1
+    },
+    {
       "name": "SHP",
       "label": "SHP",
       "count": 1
@@ -324,7 +329,7 @@
     {
       "name": "１年",
       "label": "１年",
-      "count": 494
+      "count": 492
     },
     {
       "name": "5年",

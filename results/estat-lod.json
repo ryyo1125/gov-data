@@ -1,7 +1,7 @@
 {
   "source_id": "estat-lod",
   "target": "https://data.e-stat.go.jp/lod/sparql/alldata/query",
-  "generated_at": "2026-08-24T02:01:47+00:00",
+  "generated_at": "2026-08-26T01:05:53+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -10,13 +10,13 @@
     {
       "step": "SELECT (JSON)",
       "ok": true,
-      "elapsed_ms": 2455,
+      "elapsed_ms": 25031,
       "result": {
         "method": "GET",
         "accept_requested": "application/sparql-results+json",
         "content_type": "application/sparql-results+json",
         "status": 200,
-        "bytes": 452,
+        "bytes": 453,
         "vars": [
           "CPI"
         ],
@@ -24,7 +24,7 @@
         "first_row": {
           "CPI": {
             "type": "literal",
-            "value": "100.2",
+            "value": "100.1",
             "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
           }
         }
@@ -33,20 +33,20 @@
     {
       "step": "SELECT (CSV)",
       "ok": true,
-      "elapsed_ms": 1457,
+      "elapsed_ms": 24109,
       "result": {
         "method": "GET",
         "accept_requested": "text/csv",
         "content_type": "text/csv",
         "status": 200,
-        "bytes": 19,
-        "head": "CPI\n100.2\n99.8\n99.8"
+        "bytes": 18,
+        "head": "CPI\n100.5\n100.5\n99"
       }
     },
     {
       "step": "SELECT (XML)",
       "ok": true,
-      "elapsed_ms": 1134,
+      "elapsed_ms": 733,
       "result": {
         "method": "GET",
         "accept_requested": "application/sparql-results+xml",
@@ -59,7 +59,7 @@
     {
       "step": "ASK",
       "ok": true,
-      "elapsed_ms": 892,
+      "elapsed_ms": 9374,
       "result": {
         "method": "GET",
         "accept_requested": "application/sparql-results+json",
@@ -72,7 +72,7 @@
     {
       "step": "CONSTRUCT: 出力形式のネゴシエーション",
       "ok": true,
-      "elapsed_ms": 2889,
+      "elapsed_ms": 25386,
       "result": {
         "documented_formats": [
           "application/rdf+xml",
@@ -95,7 +95,7 @@
           "application/n-triples": {
             "status": 200,
             "content_type": "text/plain; charset=utf-8",
-            "bytes": 612
+            "bytes": 611
           },
           "text/plain": {
             "status": 200,
@@ -122,7 +122,7 @@
     {
       "step": "DESCRIBE: 出力形式のネゴシエーション",
       "ok": true,
-      "elapsed_ms": 62707,
+      "elapsed_ms": 63125,
       "result": {
         "documented_formats": [
           "application/rdf+xml",
@@ -171,7 +171,7 @@
     {
       "step": "POST での照会",
       "ok": true,
-      "elapsed_ms": 1415,
+      "elapsed_ms": 842,
       "result": {
         "method": "POST",
         "accept_requested": "application/sparql-results+json",

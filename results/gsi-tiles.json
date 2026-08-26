@@ -1,0 +1,321 @@
+{
+  "source_id": "gsi-tiles",
+  "target": "https://cyberjapandata.gsi.go.jp/xyz",
+  "generated_at": "2026-08-26T01:07:47+00:00",
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
+  },
+  "steps": [
+    {
+      "step": "一次資料: 地理院タイル一覧",
+      "ok": true,
+      "elapsed_ms": 865,
+      "result": {
+        "status": 200,
+        "url_templates": 344,
+        "extensions": {
+          "geojson": 23,
+          "jpg": 10,
+          "png": 296,
+          "txt": 15
+        },
+        "categories_found": [
+          "基本測量成果",
+          "基本測量成果以外で出典の記載のみで利用可能なもの",
+          "上記以外のもの"
+        ],
+        "attribution_documented": true,
+        "text_dem_frozen_documented": true
+      }
+    },
+    {
+      "step": "一次資料: 地理院タイルの仕様",
+      "ok": true,
+      "elapsed_ms": 42,
+      "result": {
+        "status": 200,
+        "url_template_documented": true,
+        "tile_pixels_documented": true,
+        "datum_documented": true,
+        "mercator_cutoff_documented": true
+      }
+    },
+    {
+      "step": "一次資料: 標高タイルの詳細仕様",
+      "ok": true,
+      "elapsed_ms": 43,
+      "result": {
+        "status": 200,
+        "nodata_text_documented": true,
+        "nodata_png_documented": true,
+        "resolution_documented": true,
+        "png_equals_text_documented": true
+      }
+    },
+    {
+      "step": "地図タイル: 標準地図 std（ZL14 PNG）",
+      "ok": true,
+      "elapsed_ms": 335,
+      "result": {
+        "tile": "14/14552/6451",
+        "status": 200,
+        "content_type": "image/png",
+        "bytes": 84602,
+        "last_modified": "Fri, 08 May 2026 04:41:51 GMT",
+        "png": {
+          "width": 256,
+          "height": 256,
+          "bit_depth": 8,
+          "color_type": 2
+        }
+      }
+    },
+    {
+      "step": "地図タイル: 淡色地図 pale（ZL14 PNG）",
+      "ok": true,
+      "elapsed_ms": 67,
+      "result": {
+        "tile": "14/14552/6451",
+        "status": 200,
+        "content_type": "image/png",
+        "bytes": 69216,
+        "last_modified": "Fri, 08 May 2026 04:01:05 GMT",
+        "png": {
+          "width": 256,
+          "height": 256,
+          "bit_depth": 8,
+          "color_type": 2
+        }
+      }
+    },
+    {
+      "step": "地図タイル: 全国最新写真 seamlessphoto（ZL14 JPEG）",
+      "ok": true,
+      "elapsed_ms": 66,
+      "result": {
+        "tile": "14/14552/6451",
+        "status": 200,
+        "content_type": "image/jpeg",
+        "bytes": 18323,
+        "last_modified": "Wed, 13 Aug 2025 06:46:34 GMT",
+        "jpeg": {
+          "soi": true,
+          "size": [
+            256,
+            256
+          ]
+        }
+      }
+    },
+    {
+      "step": "標高タイル: DEM5A テキスト形式（ZL14）",
+      "ok": true,
+      "elapsed_ms": 87,
+      "result": {
+        "tile": "14/14552/6451",
+        "status": 200,
+        "content_type": "text/plain",
+        "rows": 256,
+        "columns": [
+          256
+        ],
+        "nodata_cells": 0,
+        "corner_values": {
+          "top_left": "20.71",
+          "top_right": "5.58",
+          "bottom_left": "23.08",
+          "bottom_right": "3.80"
+        }
+      }
+    },
+    {
+      "step": "標高タイル: DEM5A PNG 形式とテキスト形式の突合（ZL14）",
+      "ok": true,
+      "elapsed_ms": 257,
+      "result": {
+        "tile": "14/14552/6451",
+        "png_header": {
+          "width": 256,
+          "height": 256,
+          "bit_depth": 8,
+          "color_type": 2,
+          "interlace": 0
+        },
+        "pixels_compared": 65536,
+        "pixels_identical": 20045,
+        "pixels_differing": 45491,
+        "max_difference_m": 7.74,
+        "nodata_pixels_png": 7126,
+        "nodata_cells_text": 0
+      }
+    },
+    {
+      "step": "GeoJSON タイル: 指定緊急避難場所 skhb01（ZL10）",
+      "ok": true,
+      "elapsed_ms": 109,
+      "result": {
+        "tile": "10/909/403",
+        "status": 200,
+        "content_type": "application/octet-stream",
+        "type": "FeatureCollection",
+        "features": 1195,
+        "geometry_types": [
+          "Point"
+        ],
+        "property_keys": [
+          "name",
+          "address",
+          "remarks",
+          "disaster1",
+          "disaster7",
+          "disaster3",
+          "disaster2",
+          "disaster4",
+          "disaster5",
+          "disaster8",
+          "disaster6"
+        ],
+        "sample_properties": {
+          "name": "あすはステーション大泉",
+          "address": "東京都練馬区東大泉7-20-1",
+          "remarks": "",
+          "disaster1": 1,
+          "disaster7": 1
+        }
+      }
+    },
+    {
+      "step": "GeoJSON タイル: 自然災害伝承碑 disaster_lore_all（ZL7）",
+      "ok": true,
+      "elapsed_ms": 317,
+      "result": {
+        "tile": "7/113/50",
+        "status": 200,
+        "content_type": "application/octet-stream",
+        "type": "FeatureCollection",
+        "features": 536,
+        "geometry_types": [
+          "Point"
+        ],
+        "property_keys": [
+          "ID",
+          "LoreName",
+          "LoreYear",
+          "Address",
+          "DisasterName",
+          "DisasterKind",
+          "DisasterInfo",
+          "ReleaseDate",
+          "ModifyReleaseDate",
+          "Limitations",
+          "Image",
+          "ImageWidth",
+          "ImageHeight"
+        ],
+        "sample_properties": {
+          "ID": "08201-001",
+          "LoreName": "洪水記念",
+          "LoreYear": "1939",
+          "Address": "茨城県水戸市柳河町(柳河小学校)",
+          "DisasterName": "昭和13年洪水<br>(1938年6月ほか)",
+          "DisasterKind": "洪水",
+          "DisasterInfo": "昭和13年(1938)6月の那珂川の氾濫により、柳河村では家屋の被害(半壊7軒、流出6軒、浸水が442軒)、千歳橋と万代橋が流出する被害が発生した。当時の戸数が460戸だったことから、ほとんどの世帯が被害を被った。この年は3ヶ月の間に3回の洪水が発生しており、被害を後世に残すよう、石碑には増水した水位が記されている。",
+          "ReleaseDate": "2019/7/31",
+          "ModifyReleaseDate": "2019/10/16、2020/10/9",
+          "Limitations": " ",
+          "Image": "https://maps.gsi.go.jp/legend/disaster_lore/08201/08201-001.jpg",
+          "ImageWidth": "1200",
+          "ImageHeight": "1200"
+        }
+      }
+    },
+    {
+      "step": "提供範囲外・存在しないデータ ID の返り方",
+      "ok": true,
+      "elapsed_ms": 4530,
+      "result": {
+        "提供範囲外の座標 std/14/0/0": {
+          "status": 404,
+          "content_type": "application/xml",
+          "error_code": "NoSuchKey"
+        },
+        "存在しないデータ ID": {
+          "status": 404,
+          "content_type": "application/xml",
+          "error_code": "NoSuchKey"
+        },
+        "提供していない拡張子 std .geojson": {
+          "status": 404,
+          "content_type": "application/xml",
+          "error_code": "NoSuchKey"
+        }
+      }
+    },
+    {
+      "step": "文書化されたズームレベルの外側の返り方",
+      "ok": true,
+      "elapsed_ms": 3649,
+      "result": {
+        "std ZL0": {
+          "tile": "0/0/0",
+          "status": 200,
+          "content_type": "image/png",
+          "bytes": 77992
+        },
+        "std ZL1": {
+          "tile": "1/1/0",
+          "status": 200,
+          "content_type": "image/png",
+          "bytes": 76255
+        },
+        "std ZL19": {
+          "tile": "19/465694/206453",
+          "status": 404,
+          "content_type": "application/xml",
+          "bytes": 319
+        }
+      }
+    },
+    {
+      "step": "CORS: Origin 付きリクエスト",
+      "ok": true,
+      "elapsed_ms": 1157,
+      "result": {
+        "without_origin_header": {
+          "status": 200,
+          "access_control_allow_origin": null
+        },
+        "with_origin_header": {
+          "status": 200,
+          "access_control_allow_origin": "*"
+        }
+      }
+    },
+    {
+      "step": "条件付きリクエスト（ETag / Last-Modified）",
+      "ok": true,
+      "elapsed_ms": 2162,
+      "result": {
+        "etag_present": true,
+        "last_modified_present": true,
+        "if_none_match_status": 304,
+        "if_modified_since_status": 304,
+        "server": "AmazonS3"
+      }
+    },
+    {
+      "step": "利用規約: 国土地理院コンテンツ利用規約",
+      "ok": false,
+      "blocked": true,
+      "note": "自環境の egress でプロキシが拒否した: 403 Forbidden"
+    }
+  ],
+  "summary": {
+    "total": 15,
+    "ok": 14,
+    "skipped": 0,
+    "blocked": 1,
+    "failed": 0
+  }
+}

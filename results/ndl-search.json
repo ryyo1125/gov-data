@@ -1,7 +1,7 @@
 {
   "source_id": "ndl-search",
   "target": "https://ndlsearch.ndl.go.jp/api",
-  "generated_at": "2026-08-24T02:03:06+00:00",
+  "generated_at": "2026-08-26T01:07:20+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -10,7 +10,7 @@
     {
       "step": "SRU: explain",
       "ok": true,
-      "elapsed_ms": 424,
+      "elapsed_ms": 1489,
       "result": {
         "status": 200,
         "content_type": "text/xml;charset=UTF-8",
@@ -30,10 +30,10 @@
     {
       "step": "SRU: searchRetrieve",
       "ok": true,
-      "elapsed_ms": 2823,
+      "elapsed_ms": 16506,
       "result": {
         "status": 200,
-        "numberOfRecords": "11434",
+        "numberOfRecords": "11446",
         "recordSchema": "info:srw/schema/1/dc-v1.1",
         "record_child_tags": []
       }
@@ -41,7 +41,7 @@
     {
       "step": "OpenSearch: 検索",
       "ok": true,
-      "elapsed_ms": 362,
+      "elapsed_ms": 27025,
       "result": {
         "status": 200,
         "content_type": "text/xml;charset=UTF-8",
@@ -73,7 +73,7 @@
     {
       "step": "OpenURL: 検索",
       "ok": true,
-      "elapsed_ms": 1660,
+      "elapsed_ms": 1075,
       "result": {
         "requested": "/api/openurl",
         "final_url": "https://ndlsearch.ndl.go.jp/openurl?cs=api_openurl&q-au=%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3",
@@ -82,13 +82,13 @@
         ],
         "status": 200,
         "content_type": "text/html;charset=utf-8",
-        "bytes": 379286
+        "bytes": 378753
       }
     },
     {
       "step": "OAI-PMH: Identify",
       "ok": true,
-      "elapsed_ms": 1274,
+      "elapsed_ms": 813,
       "result": {
         "status": 200,
         "content_type": "text/xml;charset=UTF-8",
@@ -109,7 +109,7 @@
     {
       "step": "OAI-PMH: ListMetadataFormats",
       "ok": true,
-      "elapsed_ms": 854,
+      "elapsed_ms": 799,
       "result": {
         "status": 200,
         "content_type": "text/xml;charset=UTF-8",
@@ -126,7 +126,7 @@
     {
       "step": "OAI-PMH: ListSets",
       "ok": true,
-      "elapsed_ms": 40934,
+      "elapsed_ms": 9086,
       "result": {
         "status": 200,
         "content_type": "text/xml;charset=UTF-8",

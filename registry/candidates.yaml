@@ -57,24 +57,6 @@ candidates:
       api.jstage.jst.go.jp を egress の許可リストに追加してもらう。通ったら
       巻号一覧・記事検索・資料検索の 3 機能を検証する。
 
-  - id: gsi-maps
-    name: 国土地理院（地理院タイル・地図）
-    why: 地理空間情報の基盤として。
-    hosts: [cyberjapandata.gsi.go.jp, maps.gsi.go.jp, saigai.gsi.go.jp]
-    blocker: not_started
-    blocker_detail: >-
-      認証は不要と実測で確認した。標準地図タイル
-      https://cyberjapandata.gsi.go.jp/xyz/std/13/7276/3225.png が認証情報なしで
-      HTTP 200・image/png を返した。一次資料
-      https://maps.gsi.go.jp/development/ichiran.html は「ウェブサイトや
-      ソフトウェア、アプリケーション上でリアルタイムに読み込んで利用する場合、
-      地理院タイルは出典の明示のみで申請不要」と明記している。
-      ただしタイルは 3 分類あり、基本測量成果にあたるものは利用方法によって
-      測量法に基づく申請が必要になる。登録時に usage_restrictions へ書く。
-    next_step: >-
-      検証対象のタイル種別を決め（まず標準地図・淡色地図）、ズームレベルごとの
-      提供範囲と 404 の返り方を実測してエントリを起こす。
-
   - id: houjin-bangou
     name: 法人番号システム Web-API（国税庁）
     why: 法人の名寄せに使える公的な識別子として。

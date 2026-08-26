@@ -1,7 +1,7 @@
 {
   "source_id": "reachability",
   "target": "egress reachability",
-  "generated_at": "2026-08-24T02:00:23+00:00",
+  "generated_at": "2026-08-26T01:03:12+00:00",
   "environment": {
     "python": "3.11.15",
     "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -38,9 +38,9 @@
     {
       "host": "cyberjapandata.gsi.go.jp",
       "used_by": [
-        "candidate:gsi-maps"
+        "gsi-tiles"
       ],
-      "role": "candidate"
+      "role": "api"
     },
     {
       "host": "data.e-gov.go.jp",
@@ -102,10 +102,10 @@
     {
       "host": "maps.gsi.go.jp",
       "used_by": [
-        "candidate:gsi-maps",
+        "gsi-tiles",
         "survey:catalog"
       ],
-      "role": "candidate"
+      "role": "documentation"
     },
     {
       "host": "ndlsearch.ndl.go.jp",
@@ -131,10 +131,9 @@
     {
       "host": "saigai.gsi.go.jp",
       "used_by": [
-        "candidate:gsi-maps",
         "survey:catalog"
       ],
-      "role": "candidate"
+      "role": "catalog-resource"
     },
     {
       "host": "warp.ndl.go.jp",
@@ -196,6 +195,13 @@
         "survey:catalog"
       ],
       "role": "catalog-resource"
+    },
+    {
+      "host": "www.gsi.go.jp",
+      "used_by": [
+        "gsi-tiles"
+      ],
+      "role": "terms"
     },
     {
       "host": "www.hokoukukan.go.jp",
@@ -370,7 +376,7 @@
       "note": "プロキシが拒否: 403 Forbidden"
     },
     {
-      "step": "cyberjapandata.gsi.go.jp (candidate:gsi-maps)",
+      "step": "cyberjapandata.gsi.go.jp (gsi-tiles)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -442,7 +448,7 @@
       }
     },
     {
-      "step": "maps.gsi.go.jp (candidate:gsi-maps, survey:catalog)",
+      "step": "maps.gsi.go.jp (gsi-tiles, survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -474,7 +480,7 @@
       }
     },
     {
-      "step": "saigai.gsi.go.jp (candidate:gsi-maps, survey:catalog)",
+      "step": "saigai.gsi.go.jp (survey:catalog)",
       "ok": true,
       "result": {
         "status_code": 200,
@@ -544,6 +550,12 @@
         "status_code": 200,
         "final_url": "https://www.esri.cao.go.jp/"
       }
+    },
+    {
+      "step": "www.gsi.go.jp (gsi-tiles)",
+      "ok": false,
+      "blocked": true,
+      "note": "プロキシが拒否: 403 Forbidden"
     },
     {
       "step": "www.hokoukukan.go.jp (survey:catalog)",
@@ -703,10 +715,10 @@
     }
   ],
   "summary": {
-    "total": 46,
+    "total": 47,
     "ok": 43,
     "skipped": 0,
-    "blocked": 3,
+    "blocked": 4,
     "failed": 0
   }
 }

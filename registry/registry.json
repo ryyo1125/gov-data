@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T02:05:02+00:00",
+  "generated_at": "2026-08-26T01:10:32+00:00",
   "generated_by": "registry/build.py",
   "stale_after_days": 90,
   "sources": [
@@ -27,7 +27,7 @@
         "update_frequency": "undocumented",
         "coverage": "府省庁が公開するデータセットのメタデータを収録する。実データそのものは各データセットの resource が指す先にある。",
         "measured": [
-          "package_search の count は 18141 件",
+          "package_search の count は 18140 件",
           "tag_list は 5745 件"
         ]
       },
@@ -117,7 +117,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-24T02:00:34+00:00",
+        "verified_at": "2026-08-26T01:03:24+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -133,43 +133,43 @@
           {
             "step": "site_read",
             "outcome": "ok",
-            "elapsed_ms": 879,
+            "elapsed_ms": 562,
             "note": null
           },
           {
             "step": "package_search",
             "outcome": "ok",
-            "elapsed_ms": 372,
+            "elapsed_ms": 751,
             "note": null
           },
           {
             "step": "package_list",
             "outcome": "ok",
-            "elapsed_ms": 533,
+            "elapsed_ms": 237,
             "note": null
           },
           {
             "step": "organization_list",
             "outcome": "ok",
-            "elapsed_ms": 228,
+            "elapsed_ms": 241,
             "note": null
           },
           {
             "step": "group_list",
             "outcome": "ok",
-            "elapsed_ms": 233,
+            "elapsed_ms": 223,
             "note": null
           },
           {
             "step": "tag_list",
             "outcome": "ok",
-            "elapsed_ms": 1200,
+            "elapsed_ms": 1193,
             "note": null
           },
           {
             "step": "package_show",
             "outcome": "ok",
-            "elapsed_ms": 274,
+            "elapsed_ms": 586,
             "note": null
           }
         ],
@@ -203,7 +203,7 @@
         "update_frequency": "undocumented",
         "coverage": "法令一覧・改正履歴・本文・添付ファイルを提供。全文検索は法令本文（law_full_text）を対象とする。",
         "measured": [
-          "/laws の total_count は 9547 件（全法令）"
+          "/laws の total_count は 9550 件（全法令）"
         ]
       },
       "requirements": {
@@ -288,7 +288,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-24T02:00:30+00:00",
+        "verified_at": "2026-08-26T01:03:20+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -304,49 +304,49 @@
           {
             "step": "fetch_openapi_spec",
             "outcome": "ok",
-            "elapsed_ms": 1160,
+            "elapsed_ms": 1291,
             "note": null
           },
           {
             "step": "GET /laws（全件数）",
             "outcome": "ok",
-            "elapsed_ms": 1157,
+            "elapsed_ms": 1395,
             "note": null
           },
           {
             "step": "GET /laws",
             "outcome": "ok",
-            "elapsed_ms": 422,
+            "elapsed_ms": 488,
             "note": null
           },
           {
             "step": "GET /law_revisions/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 380,
+            "elapsed_ms": 467,
             "note": null
           },
           {
             "step": "GET /law_data/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 419,
+            "elapsed_ms": 500,
             "note": null
           },
           {
             "step": "GET /keyword",
             "outcome": "ok",
-            "elapsed_ms": 1737,
+            "elapsed_ms": 1813,
             "note": null
           },
           {
             "step": "GET /law_file/xml/{law_id}",
             "outcome": "ok",
-            "elapsed_ms": 461,
+            "elapsed_ms": 497,
             "note": null
           },
           {
             "step": "GET /attachment/{law_revision_id}",
             "outcome": "ok",
-            "elapsed_ms": 648,
+            "elapsed_ms": 649,
             "note": null
           }
         ],
@@ -457,7 +457,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-24T02:01:47+00:00",
+        "verified_at": "2026-08-26T01:05:53+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -473,47 +473,281 @@
           {
             "step": "SELECT (JSON)",
             "outcome": "ok",
-            "elapsed_ms": 2455,
+            "elapsed_ms": 25031,
             "note": null
           },
           {
             "step": "SELECT (CSV)",
             "outcome": "ok",
-            "elapsed_ms": 1457,
+            "elapsed_ms": 24109,
             "note": null
           },
           {
             "step": "SELECT (XML)",
             "outcome": "ok",
-            "elapsed_ms": 1134,
+            "elapsed_ms": 733,
             "note": null
           },
           {
             "step": "ASK",
             "outcome": "ok",
-            "elapsed_ms": 892,
+            "elapsed_ms": 9374,
             "note": null
           },
           {
             "step": "CONSTRUCT: 出力形式のネゴシエーション",
             "outcome": "ok",
-            "elapsed_ms": 2889,
+            "elapsed_ms": 25386,
             "note": null
           },
           {
             "step": "DESCRIBE: 出力形式のネゴシエーション",
             "outcome": "ok",
-            "elapsed_ms": 62707,
+            "elapsed_ms": 63125,
             "note": null
           },
           {
             "step": "POST での照会",
             "outcome": "ok",
-            "elapsed_ms": 1415,
+            "elapsed_ms": 842,
             "note": null
           }
         ],
         "result_file": "results/estat-lod.json"
+      }
+    },
+    {
+      "id": "gsi-tiles",
+      "name": "地理院タイル（国土地理院 XYZ タイル配信）",
+      "summary": "国土地理院が配信するタイル状の地図データ。認証情報は不要で、 URL にズームレベルとタイル座標を埋めて GET するだけで取得できる。 拡張子によって中身の性質が違い、画像（png / jpg）のほかに、 標高値（txt）と点データ（geojson）が同じ規則で配信されている。",
+      "data_source": {
+        "provider": "国土交通省国土地理院",
+        "authority": "primary_official",
+        "primary_source_url": "https://maps.gsi.go.jp/development/ichiran.html"
+      },
+      "access": {
+        "method": "rest_api",
+        "endpoint": "https://cyberjapandata.gsi.go.jp/xyz/{t}/{z}/{x}/{y}.{ext}",
+        "spec_url": "https://maps.gsi.go.jp/development/siyou.html"
+      },
+      "content": {
+        "categories": [
+          "地図",
+          "空中写真",
+          "標高",
+          "防災",
+          "地理空間情報"
+        ],
+        "formats": [
+          "png",
+          "jpg",
+          "txt",
+          "geojson"
+        ],
+        "update_frequency": "undocumented。タイル種別ごとの更新頻度は一覧ページに記載が無く、載っているのは 「提供開始」の日付だけ。個々のタイルの更新時期は応答の Last-Modified で判断できる。",
+        "coverage": "配信されているタイルの種類は一覧ページにしか列挙されていない。内訳は画像が大半で、 ベースマップ（標準地図・淡色地図・白地図）、空中写真、標高・土地の凹凸、 土地の成り立ち・土地利用、基準点・地磁気、災害ごとの正射画像などがある。 画像以外では、標高タイル（カンマ区切りの標高値）と、指定緊急避難場所・ 自然災害伝承碑などの点データ（GeoJSON）が同じ URL 規則で取れる。 タイル種別ごとに提供ズームレベルと提供範囲が異なり、範囲外は 404 になる。",
+        "measured": [
+          "一覧ページに載っている GeoJSON タイルの URL テンプレート 23 件 （画像タイルは災害ごとの正射画像が随時追加されるため件数を追わない）"
+        ]
+      },
+      "requirements": {
+        "auth": "not_required",
+        "auth_note": "認証情報なしで画像・標高・GeoJSON のいずれも 200 で応答した。 一覧ページ・仕様ページのどちらにも API キーにあたる記述は無い。",
+        "credential_env": [],
+        "rate_limit": "undocumented",
+        "terms_url": "https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html",
+        "attribution_required": "yes",
+        "attribution_text": "出典は「国土地理院」または「地理院タイル」等と記載し、地理院タイル一覧ページ （https://maps.gsi.go.jp/development/ichiran.html）へのリンクを付ける。",
+        "usage_restrictions": [
+          "一覧ページはタイルを「1. 基本測量成果」「2. 基本測量成果以外で出典の記載のみで利用可能なもの」「3. 上記以外のもの」の 3 分類に分け、利用条件が分類ごとに違うと明記している。",
+          "基本測量成果にあたるタイルは、測量法に基づく申請が必要な場合があると明記されている。ただしウェブサイト・ソフトウェア・アプリケーション上でリアルタイムに読み込んで利用する場合は、出典の明示のみで申請不要とされる。",
+          "同じデータ ID でもズームレベルによって分類が変わる。標準地図・淡色地図は ZL5〜18 の日本全国とその周辺地域が「1. 基本測量成果」、ZL2〜8（そのうち ZL5〜8 の日本全国とその周辺地域を除く）が「2.」に置かれている。",
+          "タイルによっては「国土地理院」等の出所明示に加えて個別の出所明示が要る。小縮尺地図（500万分1）は GEBCO・海上保安庁許可第292502号・VMAP0 の明示、全国最新写真は GRUS 画像の明示を求めている。",
+          "「3. 上記以外のもの」に含まれる他機関が作成したタイルには、作成した各機関の規約が適用される場合があると明記されている。",
+          "指定緊急避難場所（skhb01〜08）と自然災害伝承碑（disaster_lore_*）は、コンテンツ利用規約のほかに各データの「ご利用上の注意」に同意した場合のみ利用可能と明記されている。",
+          "「地理院地図」「地理院タイル」は国土地理院の登録商標であると明記されている。",
+          "利用規約本文（国土地理院コンテンツ利用規約）はこの環境から到達できておらず、本文の条項は未確認。ここに挙げたのは一覧ページに書かれている条件のみ。"
+        ]
+      },
+      "stability": {
+        "notes": [
+          "タイルの URL は「原則として」https://cyberjapandata.gsi.go.jp/xyz/{t}/{z}/{x}/{y}.{ext} と命名されると仕様ページに明記。",
+          "タイル 1 枚の大きさは 256 ピクセル × 256 ピクセルで統一されていると仕様ページに明記。",
+          "測地系は日本国内の地図については世界測地系（JGD2011）で、北緯・南緯約 85.0511 度以上を除外したメルカトル投影と仕様ページに明記。",
+          "提供しているズームレベルや範囲は種類により異なるため一覧ページを参照するよう、仕様ページが指示している。",
+          "テキスト形式の標高タイルは令和 6 年 10 月より更新を停止していると一覧ページに明記。",
+          "標高タイルの PNG 形式は 24 ビットカラー、標高分解能 0.01m、無効値は (R, G, B) = (128, 0, 0) と詳細仕様に明記。"
+        ]
+      },
+      "reachability": {
+        "hosts": [
+          {
+            "host": "cyberjapandata.gsi.go.jp",
+            "role": "api",
+            "note": "タイル本体の配信。画像・標高・GeoJSON がすべてこのホスト。"
+          },
+          {
+            "host": "maps.gsi.go.jp",
+            "role": "documentation",
+            "note": "一覧ページ・仕様ページ・標高タイルの詳細仕様。何が配信されているかはここにしか無い。"
+          },
+          {
+            "host": "www.gsi.go.jp",
+            "role": "terms",
+            "note": "国土地理院コンテンツ利用規約の本文。この環境ではプロキシが 403 を返し到達できない。"
+          }
+        ]
+      },
+      "verify": {
+        "script": "verify/verify_gsi_tiles.py",
+        "result": "results/gsi-tiles.json",
+        "command": ".work/toolvenv/bin/python verify/verify_gsi_tiles.py --out results/gsi-tiles.json"
+      },
+      "findings": [
+        {
+          "claim": "PNG 形式の標高タイルとテキスト形式の標高タイルの値は一致しない。一次資料は「画素値（RGB値）から算出される標高値は、テキスト形式の標高タイルの標高値と同じになります」と書いているが、実測では大半の画素が食い違う。",
+          "evidence": "同一タイル（dem5a / dem5a_png の 14/14552/6451）の 65,536 画素を突合し、一致 20,045、不一致 45,491、最大差 7.74m。無効値は PNG 側に 7,126 画素あるがテキスト側は 0。なお同じ一覧ページに「テキスト形式の標高タイルは令和6年10月より更新を停止しております」とあるが、それがこの差の原因だとは一次資料に書かれていない。"
+        },
+        {
+          "claim": "存在しないタイルは 404 で Amazon S3 の NoSuchKey XML が返る。提供範囲外の座標・存在しないデータ ID・提供していない拡張子は、どれも同じ応答なので区別できない。",
+          "evidence": "std/14/0/0.png（提供範囲外）、no_such_tileset/14/14552/6451.png（存在しない ID）、std/14/14552/6451.geojson（提供していない拡張子）がいずれも 404・application/xml・<Code>NoSuchKey</Code> を返した。"
+        },
+        {
+          "claim": "標準地図は一覧ページが ZL2〜18 しか記載していないが、ZL0 と ZL1 も 200 で画像を返す。記載が無いことは提供していないことを意味しない。",
+          "evidence": "std/0/0/0.png が 200・image/png・77,992 バイト、std/1/1/0.png が 200・76,255 バイト。ZL19（std/19/465694/206453.png）は 404 NoSuchKey。"
+        },
+        {
+          "claim": "CORS 応答ヘッダは Origin ヘッダを付けたときだけ返る。付けずに叩いて Access-Control-Allow-Origin が無いことを、ブラウザから使えない根拠にしてはいけない。",
+          "evidence": "同じ URL に対し、Origin 無しでは Access-Control-Allow-Origin が返らず、Origin ヘッダに https://example.com を与えると `*` が返った。"
+        },
+        {
+          "claim": "ETag と Last-Modified が付き、If-None-Match と If-Modified-Since のどちらでも 304 が返る。タイルは枚数が多いので、再取得を条件付きリクエストで避けられる。",
+          "evidence": "std/14/14552/6451.png の ETag と Last-Modified をそのまま送り返し、いずれも 304・本文 0 バイト。Server ヘッダは AmazonS3。"
+        },
+        {
+          "claim": ".geojson の Content-Type は application/json ではなく application/octet-stream。形式は Content-Type ではなく拡張子でしか判別できない。",
+          "evidence": "skhb01 と disaster_lore_all のどちらも application/octet-stream で返った。テキスト形式の標高タイル（.txt）は text/plain。"
+        },
+        {
+          "claim": "GeoJSON タイルは提供ズームレベルが 1 つに固定されており、そこから外れると 404 になる。地図タイルと同じ感覚でズームレベルを選ぶと空振りする。",
+          "evidence": "skhb01 は ZL10、disaster_lore_all は ZL7 が一覧ページの記載で、その ZL では 200（それぞれ 1,195 件・536 件のフィーチャ）。同じ地点の ZL14 ではどちらも 404 NoSuchKey だった。"
+        },
+        {
+          "claim": "GeoJSON のプロパティのキーはフィーチャごとに異なる。先頭の 1 件だけを見て項目を決めると取りこぼす。",
+          "evidence": "skhb01（ZL10）の先頭フィーチャは name / address / remarks / disaster1 / disaster7 の 5 キーだが、1,195 件を通すと disaster1〜disaster8 が出そろい 11 キーになった。該当する災害種別のキーだけが入る作りになっている。"
+        },
+        {
+          "claim": "利用規約の本文があるホスト www.gsi.go.jp には、この環境からは到達できない。プロキシが 403 を返しており、先方の障害ではない。",
+          "evidence": "https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html への GET が httpx.ProxyError（403 Forbidden）。同じ検証の中で maps.gsi.go.jp と cyberjapandata.gsi.go.jp には到達できている。"
+        }
+      ],
+      "verification": {
+        "status": "verified",
+        "verified_at": "2026-08-26T01:07:47+00:00",
+        "environment": {
+          "python": "3.11.15",
+          "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
+        },
+        "summary": {
+          "total": 15,
+          "ok": 14,
+          "skipped": 0,
+          "blocked": 1,
+          "failed": 0
+        },
+        "steps": [
+          {
+            "step": "一次資料: 地理院タイル一覧",
+            "outcome": "ok",
+            "elapsed_ms": 865,
+            "note": null
+          },
+          {
+            "step": "一次資料: 地理院タイルの仕様",
+            "outcome": "ok",
+            "elapsed_ms": 42,
+            "note": null
+          },
+          {
+            "step": "一次資料: 標高タイルの詳細仕様",
+            "outcome": "ok",
+            "elapsed_ms": 43,
+            "note": null
+          },
+          {
+            "step": "地図タイル: 標準地図 std（ZL14 PNG）",
+            "outcome": "ok",
+            "elapsed_ms": 335,
+            "note": null
+          },
+          {
+            "step": "地図タイル: 淡色地図 pale（ZL14 PNG）",
+            "outcome": "ok",
+            "elapsed_ms": 67,
+            "note": null
+          },
+          {
+            "step": "地図タイル: 全国最新写真 seamlessphoto（ZL14 JPEG）",
+            "outcome": "ok",
+            "elapsed_ms": 66,
+            "note": null
+          },
+          {
+            "step": "標高タイル: DEM5A テキスト形式（ZL14）",
+            "outcome": "ok",
+            "elapsed_ms": 87,
+            "note": null
+          },
+          {
+            "step": "標高タイル: DEM5A PNG 形式とテキスト形式の突合（ZL14）",
+            "outcome": "ok",
+            "elapsed_ms": 257,
+            "note": null
+          },
+          {
+            "step": "GeoJSON タイル: 指定緊急避難場所 skhb01（ZL10）",
+            "outcome": "ok",
+            "elapsed_ms": 109,
+            "note": null
+          },
+          {
+            "step": "GeoJSON タイル: 自然災害伝承碑 disaster_lore_all（ZL7）",
+            "outcome": "ok",
+            "elapsed_ms": 317,
+            "note": null
+          },
+          {
+            "step": "提供範囲外・存在しないデータ ID の返り方",
+            "outcome": "ok",
+            "elapsed_ms": 4530,
+            "note": null
+          },
+          {
+            "step": "文書化されたズームレベルの外側の返り方",
+            "outcome": "ok",
+            "elapsed_ms": 3649,
+            "note": null
+          },
+          {
+            "step": "CORS: Origin 付きリクエスト",
+            "outcome": "ok",
+            "elapsed_ms": 1157,
+            "note": null
+          },
+          {
+            "step": "条件付きリクエスト（ETag / Last-Modified）",
+            "outcome": "ok",
+            "elapsed_ms": 2162,
+            "note": null
+          },
+          {
+            "step": "利用規約: 国土地理院コンテンツ利用規約",
+            "outcome": "failed",
+            "elapsed_ms": null,
+            "note": "自環境の egress でプロキシが拒否した: 403 Forbidden"
+          }
+        ],
+        "result_file": "results/gsi-tiles.json"
       }
     },
     {
@@ -646,7 +880,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-24T02:03:22+00:00",
+        "verified_at": "2026-08-26T01:08:15+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -668,31 +902,31 @@
           {
             "step": "list_tools",
             "outcome": "ok",
-            "elapsed_ms": 13,
+            "elapsed_ms": 20,
             "note": null
           },
           {
             "step": "list_resources",
             "outcome": "ok",
-            "elapsed_ms": 7,
+            "elapsed_ms": 8,
             "note": null
           },
           {
             "step": "list_prompts",
             "outcome": "ok",
-            "elapsed_ms": 6,
+            "elapsed_ms": 7,
             "note": null
           },
           {
             "step": "call:ping",
             "outcome": "ok",
-            "elapsed_ms": 9,
+            "elapsed_ms": 11,
             "note": null
           },
           {
             "step": "call:search_subsidies",
             "outcome": "ok",
-            "elapsed_ms": 1238,
+            "elapsed_ms": 995,
             "note": null
           },
           {
@@ -704,13 +938,13 @@
           {
             "step": "call:get_subsidy_overview",
             "outcome": "ok",
-            "elapsed_ms": 1739,
+            "elapsed_ms": 1702,
             "note": null
           },
           {
             "step": "call:get_file_content",
             "outcome": "ok",
-            "elapsed_ms": 1565,
+            "elapsed_ms": 2401,
             "note": null
           }
         ],
@@ -820,7 +1054,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-24T02:03:12+00:00",
+        "verified_at": "2026-08-26T01:08:04+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -836,55 +1070,55 @@
           {
             "step": "GET /regular.xml (定時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 440,
+            "elapsed_ms": 1937,
             "note": null
           },
           {
             "step": "GET /extra.xml (随時・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 54,
+            "elapsed_ms": 1480,
             "note": null
           },
           {
             "step": "GET /eqvol.xml (地震火山・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 54,
+            "elapsed_ms": 820,
             "note": null
           },
           {
             "step": "GET /other.xml (その他・高頻度)",
             "outcome": "ok",
-            "elapsed_ms": 52,
+            "elapsed_ms": 813,
             "note": null
           },
           {
             "step": "GET /regular_l.xml (定時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 1817,
+            "elapsed_ms": 2817,
             "note": null
           },
           {
             "step": "GET /extra_l.xml (随時・長期)",
             "outcome": "ok",
-            "elapsed_ms": 1628,
+            "elapsed_ms": 2714,
             "note": null
           },
           {
             "step": "GET /eqvol_l.xml (地震火山・長期)",
             "outcome": "ok",
-            "elapsed_ms": 1114,
+            "elapsed_ms": 1701,
             "note": null
           },
           {
             "step": "GET /other_l.xml (その他・長期)",
             "outcome": "ok",
-            "elapsed_ms": 525,
+            "elapsed_ms": 1459,
             "note": null
           },
           {
             "step": "GET 電文本体",
             "outcome": "ok",
-            "elapsed_ms": 63,
+            "elapsed_ms": 2168,
             "note": null
           }
         ],
@@ -986,7 +1220,7 @@
       ],
       "verification": {
         "status": "verified",
-        "verified_at": "2026-08-24T02:03:06+00:00",
+        "verified_at": "2026-08-26T01:07:20+00:00",
         "environment": {
           "python": "3.11.15",
           "platform": "Linux-6.18.44-fc-v21-x86_64-with-glibc2.39"
@@ -1002,43 +1236,43 @@
           {
             "step": "SRU: explain",
             "outcome": "ok",
-            "elapsed_ms": 424,
+            "elapsed_ms": 1489,
             "note": null
           },
           {
             "step": "SRU: searchRetrieve",
             "outcome": "ok",
-            "elapsed_ms": 2823,
+            "elapsed_ms": 16506,
             "note": null
           },
           {
             "step": "OpenSearch: 検索",
             "outcome": "ok",
-            "elapsed_ms": 362,
+            "elapsed_ms": 27025,
             "note": null
           },
           {
             "step": "OpenURL: 検索",
             "outcome": "ok",
-            "elapsed_ms": 1660,
+            "elapsed_ms": 1075,
             "note": null
           },
           {
             "step": "OAI-PMH: Identify",
             "outcome": "ok",
-            "elapsed_ms": 1274,
+            "elapsed_ms": 813,
             "note": null
           },
           {
             "step": "OAI-PMH: ListMetadataFormats",
             "outcome": "ok",
-            "elapsed_ms": 854,
+            "elapsed_ms": 799,
             "note": null
           },
           {
             "step": "OAI-PMH: ListSets",
             "outcome": "ok",
-            "elapsed_ms": 40934,
+            "elapsed_ms": 9086,
             "note": null
           }
         ],
@@ -1076,22 +1310,6 @@
       "reachable": false,
       "stale_blocker": false,
       "actionable": false
-    },
-    {
-      "id": "gsi-maps",
-      "name": "国土地理院（地理院タイル・地図）",
-      "why": "地理空間情報の基盤として。",
-      "hosts": [
-        "cyberjapandata.gsi.go.jp",
-        "maps.gsi.go.jp",
-        "saigai.gsi.go.jp"
-      ],
-      "blocker": "not_started",
-      "blocker_detail": "認証は不要と実測で確認した。標準地図タイル https://cyberjapandata.gsi.go.jp/xyz/std/13/7276/3225.png が認証情報なしで HTTP 200・image/png を返した。一次資料 https://maps.gsi.go.jp/development/ichiran.html は「ウェブサイトや ソフトウェア、アプリケーション上でリアルタイムに読み込んで利用する場合、 地理院タイルは出典の明示のみで申請不要」と明記している。 ただしタイルは 3 分類あり、基本測量成果にあたるものは利用方法によって 測量法に基づく申請が必要になる。登録時に usage_restrictions へ書く。",
-      "next_step": "検証対象のタイル種別を決め（まず標準地図・淡色地図）、ズームレベルごとの 提供範囲と 404 の返り方を実測してエントリを起こす。",
-      "reachable": true,
-      "stale_blocker": false,
-      "actionable": true
     },
     {
       "id": "houjin-bangou",
@@ -1206,7 +1424,7 @@
     }
   ],
   "reachability": {
-    "_generated_at": "2026-08-24T02:00:23+00:00",
+    "_generated_at": "2026-08-26T01:03:12+00:00",
     "api.e-stat.go.jp": {
       "reachable": true,
       "blocked_by_egress": false,
@@ -1411,6 +1629,11 @@
         "status_code": 200,
         "final_url": "https://www.esri.cao.go.jp/"
       }
+    },
+    "www.gsi.go.jp": {
+      "reachable": false,
+      "blocked_by_egress": true,
+      "detail": "プロキシが拒否: 403 Forbidden"
     },
     "www.hokoukukan.go.jp": {
       "reachable": true,

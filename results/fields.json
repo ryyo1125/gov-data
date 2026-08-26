@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T02:04:19+00:00",
+  "generated_at": "2026-08-26T01:09:29+00:00",
   "generated_by": "verify/extract_fields.py",
   "sources": {
     "egov-hourei-api": {
@@ -797,7 +797,7 @@
             {
               "name": "author",
               "type": "string",
-              "description": "作成者",
+              "description": "",
               "example": ""
             },
             {
@@ -1055,7 +1055,7 @@
             {
               "name": "spatial",
               "type": "string",
-              "description": "",
+              "description": "対象地域",
               "example": ""
             },
             {
@@ -1276,12 +1276,6 @@
             },
             {
               "name": "related_documents",
-              "type": "string",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "resource_id",
               "type": "string",
               "description": "",
               "example": ""
@@ -1681,7 +1675,7 @@
           ]
         },
         {
-          "name": "電文 Body: 気象警報・注意報（Ｈ２７）（実データ由来 / extra フィード）",
+          "name": "電文 Body: 台風解析・予報情報（５日予報）（Ｈ３０）（実データ由来 / extra フィード）",
           "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
@@ -1745,6 +1739,12 @@
               "example": ""
             },
             {
+              "name": "Report/Head/TargetDuration",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
               "name": "Report/Head/EventID",
               "type": "要素",
               "description": "",
@@ -1787,31 +1787,7 @@
               "example": ""
             },
             {
-              "name": "Report/Head/Headline/Information",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
               "name": "Report/Body",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/Notice",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/Warning",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
-              "name": "Report/Body/Warning/Item",
               "type": "要素",
               "description": "",
               "example": ""
@@ -1823,7 +1799,7 @@
               "example": ""
             },
             {
-              "name": "Report/Body/MeteorologicalInfos/TimeSeriesInfo",
+              "name": "Report/Body/MeteorologicalInfos/MeteorologicalInfo",
               "type": "要素",
               "description": "",
               "example": ""
@@ -1831,7 +1807,7 @@
           ]
         },
         {
-          "name": "電文 Body: 降灰予報（定時）（実データ由来 / eqvol フィード）",
+          "name": "電文 Body: 震源・震度に関する情報（実データ由来 / eqvol フィード）",
           "description": "この電文種別に固有の Body 構造。種別ごとに異なるため、他の電文には当てはまらない。",
           "fields": [
             {
@@ -1895,12 +1871,6 @@
               "example": ""
             },
             {
-              "name": "Report/Head/ValidDateTime",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
               "name": "Report/Head/EventID",
               "type": "要素",
               "description": "",
@@ -1943,61 +1913,67 @@
               "example": ""
             },
             {
-              "name": "Report/Head/Headline/Information",
-              "type": "要素",
-              "description": "",
-              "example": ""
-            },
-            {
               "name": "Report/Body",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/VolcanoInfo",
+              "name": "Report/Body/Earthquake",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/VolcanoInfo/Item",
+              "name": "Report/Body/Earthquake/OriginTime",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/AshInfos",
+              "name": "Report/Body/Earthquake/ArrivalTime",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/AshInfos/AshInfo",
+              "name": "Report/Body/Earthquake/Hypocenter",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/VolcanoInfoContent",
+              "name": "Report/Body/Earthquake/Magnitude",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/VolcanoInfoContent/VolcanoHeadline",
+              "name": "Report/Body/Intensity",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/VolcanoInfoContent/VolcanoActivity",
+              "name": "Report/Body/Intensity/Observation",
               "type": "要素",
               "description": "",
               "example": ""
             },
             {
-              "name": "Report/Body/VolcanoInfoContent/VolcanoPrevention",
+              "name": "Report/Body/Comments",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Comments/ForecastComment",
+              "type": "要素",
+              "description": "",
+              "example": ""
+            },
+            {
+              "name": "Report/Body/Comments/VarComment",
               "type": "要素",
               "description": "",
               "example": ""
@@ -2182,7 +2158,7 @@
               "name": "totalResults",
               "type": "要素",
               "description": "",
-              "example": "77047"
+              "example": "77060"
             },
             {
               "name": "startIndex",
@@ -2370,7 +2346,7 @@
               "name": "results.bindings[].<変数>.value",
               "type": "string",
               "description": "値そのもの",
-              "example": "http://data.e-stat.go.jp/lod/dataset/g00200552/d0003111096/o"
+              "example": "http://data.e-stat.go.jp/lod/dataset/gridCode/dm012015502/ob"
             }
           ]
         },
@@ -2379,27 +2355,9 @@
           "description": "RDF に固定スキーマは無いため、項目にあたるのは述語。観測値 1 件を例に、実際に使われている述語を並べる。",
           "fields": [
             {
-              "name": "22-rdf-syntax-ns#type",
+              "name": "dimension#refArea",
               "type": "述語",
-              "description": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-              "example": ""
-            },
-            {
-              "name": "unitMeasure",
-              "type": "述語",
-              "description": "http://data.e-stat.go.jp/lod/ontology/attribute/unitMeasure",
-              "example": ""
-            },
-            {
-              "name": "index",
-              "type": "述語",
-              "description": "http://data.e-stat.go.jp/lod/ontology/measure/index",
-              "example": ""
-            },
-            {
-              "name": "cube#measureType",
-              "type": "述語",
-              "description": "http://purl.org/linked-data/cube#measureType",
+              "description": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
               "example": ""
             },
             {
@@ -2409,9 +2367,27 @@
               "example": ""
             },
             {
-              "name": "dimension#refArea",
+              "name": "22-rdf-syntax-ns#type",
               "type": "述語",
-              "description": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+              "description": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+              "example": ""
+            },
+            {
+              "name": "index",
+              "type": "述語",
+              "description": "http://data.e-stat.go.jp/lod/ontology/measure/index",
+              "example": ""
+            },
+            {
+              "name": "unitMeasure",
+              "type": "述語",
+              "description": "http://data.e-stat.go.jp/lod/ontology/attribute/unitMeasure",
+              "example": ""
+            },
+            {
+              "name": "cube#measureType",
+              "type": "述語",
+              "description": "http://purl.org/linked-data/cube#measureType",
               "example": ""
             },
             {
@@ -2427,21 +2403,1724 @@
               "example": ""
             },
             {
-              "name": "cube#dataSet",
-              "type": "述語",
-              "description": "http://purl.org/linked-data/cube#dataSet",
-              "example": ""
-            },
-            {
               "name": "obsType",
               "type": "述語",
               "description": "http://data.e-stat.go.jp/lod/ontology/attribute/obsType",
+              "example": ""
+            },
+            {
+              "name": "cube#dataSet",
+              "type": "述語",
+              "description": "http://purl.org/linked-data/cube#dataSet",
               "example": ""
             }
           ]
         }
       ],
       "enums": []
+    },
+    "gsi-tiles": {
+      "origin": "spec+observed",
+      "origin_detail": "URL パラメータと標高タイルの読み方は仕様ページ・標高タイルの詳細仕様から、データ ID の一覧と提供条件は一覧ページから引いた。GeoJSON タイルの属性だけは定義書が無いため実データから列挙しており、そのタイルに現れなかった属性は落ちる",
+      "source_url": "https://maps.gsi.go.jp/development/ichiran.html",
+      "objects": [
+        {
+          "name": "URL テンプレートのパラメータ",
+          "description": "タイル 1 枚の URL は https://cyberjapandata.gsi.go.jp/xyz/{t}/{z}/{x}/{y}.{ext} で、この 5 つを埋めて GET する。説明は仕様ページの記述をそのまま引いた。",
+          "fields": [
+            {
+              "name": "{t}",
+              "type": "パス要素",
+              "description": "データID",
+              "example": ""
+            },
+            {
+              "name": "{x}",
+              "type": "パス要素",
+              "description": "タイル座標のX値",
+              "example": ""
+            },
+            {
+              "name": "{y}",
+              "type": "パス要素",
+              "description": "タイル座標のY値",
+              "example": ""
+            },
+            {
+              "name": "{z}",
+              "type": "パス要素",
+              "description": "ズームレベル",
+              "example": ""
+            },
+            {
+              "name": "{ext}",
+              "type": "パス要素",
+              "description": "拡張子",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "標高タイル（テキスト形式・.txt）のセル",
+          "description": "1 行に 256 個の標高値がカンマ区切りで並び、それが 256 行。地図タイルのピクセル座標に対応する。",
+          "fields": [
+            {
+              "name": "標高値",
+              "type": "数値（m）",
+              "description": "標高データは小数点第二位までデータとして入っている（単位はm）。",
+              "example": "20.71"
+            },
+            {
+              "name": "e",
+              "type": "文字",
+              "description": "標高値が存在しない画素には「e」の文字が格納されている。",
+              "example": "e"
+            },
+            {
+              "name": "行・列",
+              "type": "構造",
+              "description": "数値データは対応する地図タイルのピクセル座標における標高値を表す。",
+              "example": "256 行 × 256 列"
+            }
+          ]
+        },
+        {
+          "name": "標高タイル（PNG 形式・.png）の画素",
+          "description": "24 ビットカラー PNG の画素値から標高値を計算する。x = 2^16 R + 2^8 G + B とし、x < 2^23 なら h = xu、x = 2^23 なら NA、x > 2^23 なら h = (x - 2^24)u（u は標高分解能 0.01m）。",
+          "fields": [
+            {
+              "name": "R, G, B",
+              "type": "画素値（0〜255）",
+              "description": "ピクセルの画素値（RGB値）から、当該ピクセル座標の標高値が算出できます。",
+              "example": ""
+            },
+            {
+              "name": "(R, G, B) = (128, 0, 0)",
+              "type": "画素値",
+              "description": "また、無効値（標高タイル（テキスト形式）の「e」に該当する箇所）は(R, G, B)=(128, 0, 0)です。",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "name": "GeoJSON タイル: 指定緊急避難場所（洪水）（`skhb01` ZL10）",
+          "description": "タイル 10/909/403 の 1195 件を通して現れた属性。定義書は公開されておらず、説明は空欄になる。",
+          "fields": [
+            {
+              "name": "name",
+              "type": "string",
+              "description": "",
+              "example": "あすはステーション大泉"
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "description": "",
+              "example": "東京都練馬区東大泉7-20-1"
+            },
+            {
+              "name": "remarks",
+              "type": "null/string",
+              "description": "",
+              "example": "洪水は２階以上、高潮、津波は３階以上が対象"
+            },
+            {
+              "name": "disaster1",
+              "type": "number",
+              "description": "",
+              "example": "1"
+            },
+            {
+              "name": "disaster7",
+              "type": "number",
+              "description": "",
+              "example": "1"
+            },
+            {
+              "name": "disaster3",
+              "type": "number",
+              "description": "",
+              "example": "1"
+            },
+            {
+              "name": "disaster2",
+              "type": "number",
+              "description": "",
+              "example": "1"
+            },
+            {
+              "name": "disaster4",
+              "type": "number",
+              "description": "",
+              "example": "1"
+            },
+            {
+              "name": "disaster5",
+              "type": "number",
+              "description": "",
+              "example": "1"
+            },
+            {
+              "name": "disaster8",
+              "type": "number",
+              "description": "",
+              "example": "1"
+            },
+            {
+              "name": "disaster6",
+              "type": "number",
+              "description": "",
+              "example": "1"
+            }
+          ]
+        },
+        {
+          "name": "GeoJSON タイル: 自然災害伝承碑（すべて）（`disaster_lore_all` ZL7）",
+          "description": "タイル 7/113/50 の 536 件を通して現れた属性。定義書は公開されておらず、説明は空欄になる。",
+          "fields": [
+            {
+              "name": "ID",
+              "type": "string",
+              "description": "",
+              "example": "08201-001"
+            },
+            {
+              "name": "LoreName",
+              "type": "string",
+              "description": "",
+              "example": "洪水記念"
+            },
+            {
+              "name": "LoreYear",
+              "type": "string",
+              "description": "",
+              "example": "1939"
+            },
+            {
+              "name": "Address",
+              "type": "string",
+              "description": "",
+              "example": "茨城県水戸市柳河町(柳河小学校)"
+            },
+            {
+              "name": "DisasterName",
+              "type": "string",
+              "description": "",
+              "example": "昭和13年洪水 (1938年6月ほか)"
+            },
+            {
+              "name": "DisasterKind",
+              "type": "string",
+              "description": "",
+              "example": "洪水"
+            },
+            {
+              "name": "DisasterInfo",
+              "type": "string",
+              "description": "",
+              "example": "昭和13年(1938)6月の那珂川の氾濫により、柳河村では家屋の被害(半壊7軒、流出6軒、浸水が442軒)、千歳橋と万代"
+            },
+            {
+              "name": "ReleaseDate",
+              "type": "string",
+              "description": "",
+              "example": "2019/7/31"
+            },
+            {
+              "name": "ModifyReleaseDate",
+              "type": "string",
+              "description": "",
+              "example": "2019/10/16、2020/10/9"
+            },
+            {
+              "name": "Limitations",
+              "type": "string",
+              "description": "",
+              "example": "写真の二次利用：常総市教育委員会への利用申請が必要"
+            },
+            {
+              "name": "Image",
+              "type": "string",
+              "description": "",
+              "example": "https://maps.gsi.go.jp/legend/disaster_lore/08201/08201-001."
+            },
+            {
+              "name": "ImageWidth",
+              "type": "string",
+              "description": "",
+              "example": "1200"
+            },
+            {
+              "name": "ImageHeight",
+              "type": "string",
+              "description": "",
+              "example": "1200"
+            }
+          ]
+        },
+        {
+          "name": "自然災害伝承碑として公開している情報（一覧ページの記載）",
+          "description": "一覧ページの備考が日本語の名前で列挙しているもの。上の GeoJSON の属性名との対応は一次資料に書かれていないので、突き合わせていない。",
+          "fields": [
+            {
+              "name": "碑名",
+              "type": "記載",
+              "description": "自然災害伝承碑の名称",
+              "example": ""
+            },
+            {
+              "name": "災害名",
+              "type": "記載",
+              "description": "同碑の対象となっている災害名",
+              "example": ""
+            },
+            {
+              "name": "災害種別",
+              "type": "記載",
+              "description": "同碑の対象となっている災害の種類",
+              "example": ""
+            },
+            {
+              "name": "建立年",
+              "type": "記載",
+              "description": "同碑が建立された年",
+              "example": ""
+            },
+            {
+              "name": "所在地",
+              "type": "記載",
+              "description": "同碑の所在地",
+              "example": ""
+            },
+            {
+              "name": "伝承内容",
+              "type": "記載",
+              "description": "碑文に記載された内容に、死者数や建物被害など被害の規模を示す情報等を補足し、100字程度に要約した情報",
+              "example": ""
+            },
+            {
+              "name": "写真",
+              "type": "記載",
+              "description": "同碑の写真",
+              "example": ""
+            }
+          ]
+        }
+      ],
+      "enums": [
+        {
+          "name": "{t}（データ ID）",
+          "description": "一覧ページに載っている配信中のタイル。意味の欄は「名称（URL に添えられた注記）｜利用条件の分類｜ズームレベル｜提供範囲」の順に、一覧ページの記載を並べたもの",
+          "values": [
+            {
+              "value": "std",
+              "meaning": "標準地図｜.png｜1. 基本測量成果／2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 18／15～17／12～14／9～11／5～8／2～8｜日本全国／日本全国とその周辺地域／全球（ズームレベル5～8の日本全国とその周辺地域を除く）"
+            },
+            {
+              "value": "pale",
+              "meaning": "淡色地図｜.png｜1. 基本測量成果／2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 18／15～17／12～14／9～11／5～8／2～8｜日本全国／日本全国とその周辺地域／全球（ズームレベル5～8の日本全国とその周辺地域を除く）"
+            },
+            {
+              "value": "english",
+              "meaning": "English｜.png｜1. 基本測量成果｜ZL 9～11／5～8｜日本全国／日本全国とその周辺地域"
+            },
+            {
+              "value": "lcm25k_2012",
+              "meaning": "数値地図25000（土地条件）｜.png｜1. 基本測量成果｜ZL 10～16"
+            },
+            {
+              "value": "lcm25k",
+              "meaning": "土地条件図（初期整備版）｜.png｜1. 基本測量成果｜ZL 14～16"
+            },
+            {
+              "value": "ccm1",
+              "meaning": "沿岸海域土地条件図（平成元年以降）｜.png｜1. 基本測量成果｜ZL 14～16"
+            },
+            {
+              "value": "ccm2",
+              "meaning": "沿岸海域土地条件図（昭和63年以前）｜.png｜1. 基本測量成果｜ZL 14～16"
+            },
+            {
+              "value": "vbm",
+              "meaning": "火山基本図｜.png｜1. 基本測量成果｜ZL 11～17｜整備状況一覧図をご覧ください。"
+            },
+            {
+              "value": "vbmd_bm",
+              "meaning": "火山基本図データ（基図）｜.png｜1. 基本測量成果｜ZL 11～18｜整備状況一覧図をご覧ください。"
+            },
+            {
+              "value": "vbmd_colorrel",
+              "meaning": "火山基本図データ（陰影段彩図）｜.png｜1. 基本測量成果｜ZL 11～18｜整備状況一覧図をご覧ください。"
+            },
+            {
+              "value": "vbmd_pm",
+              "meaning": "火山基本図データ（写真地図）｜.png｜1. 基本測量成果｜ZL 11～18｜整備状況一覧図をご覧ください。"
+            },
+            {
+              "value": "vlcd",
+              "meaning": "火山土地条件図｜.png｜1. 基本測量成果｜ZL 10～16"
+            },
+            {
+              "value": "lum4bl_capital2005",
+              "meaning": "宅地利用動向調査（首都圏 2005年）｜.png｜1. 基本測量成果｜ZL 13～16｜首都圏（2000年、2005年）、中部圏（2003年）、近畿圏（2001年、2008年）"
+            },
+            {
+              "value": "lum4bl_capital2000",
+              "meaning": "宅地利用動向調査（首都圏 2000年）｜.png｜1. 基本測量成果｜ZL 13～16｜首都圏（2000年、2005年）、中部圏（2003年）、近畿圏（2001年、2008年）"
+            },
+            {
+              "value": "lum4bl_chubu2003",
+              "meaning": "宅地利用動向調査（中部圏 2003年）｜.png｜1. 基本測量成果｜ZL 13～16｜首都圏（2000年、2005年）、中部圏（2003年）、近畿圏（2001年、2008年）"
+            },
+            {
+              "value": "lum4bl_kinki2008",
+              "meaning": "宅地利用動向調査（近畿圏 2008年）｜.png｜1. 基本測量成果｜ZL 13～16｜首都圏（2000年、2005年）、中部圏（2003年）、近畿圏（2001年、2008年）"
+            },
+            {
+              "value": "lum4bl_kinki2001",
+              "meaning": "宅地利用動向調査（近畿圏 2001年）｜.png｜1. 基本測量成果｜ZL 13～16｜首都圏（2000年、2005年）、中部圏（2003年）、近畿圏（2001年、2008年）"
+            },
+            {
+              "value": "lum200k",
+              "meaning": "20万分1土地利用図（1982～1983年）｜.png｜1. 基本測量成果｜ZL 11～14｜日本全国(一部を除く)"
+            },
+            {
+              "value": "lake1",
+              "meaning": "湖沼図｜.png｜1. 基本測量成果｜ZL 11～17｜調査実施湖沼一覧をご覧ください。"
+            },
+            {
+              "value": "lakedata",
+              "meaning": "湖沼データ｜.png｜1. 基本測量成果｜ZL 11～18｜調査実施湖沼一覧をご覧ください。"
+            },
+            {
+              "value": "blank",
+              "meaning": "白地図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 5～14｜日本全国"
+            },
+            {
+              "value": "seamlessphoto",
+              "meaning": "写真｜.jpg｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14～18／9～13／2～8｜日本全国／全世界(一部を除く)"
+            },
+            {
+              "value": "gazo4",
+              "meaning": "1987年～1990年｜.jpg｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～17"
+            },
+            {
+              "value": "gazo3",
+              "meaning": "1984年～1986年｜.jpg｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～17"
+            },
+            {
+              "value": "gazo2",
+              "meaning": "1979年～1983年｜.jpg｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～17"
+            },
+            {
+              "value": "gazo1",
+              "meaning": "1974年～1978年｜.jpg｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～17"
+            },
+            {
+              "value": "ort_old10",
+              "meaning": "1961年～1969年｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～17"
+            },
+            {
+              "value": "ort_USA10",
+              "meaning": "1945年～1950年｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～17"
+            },
+            {
+              "value": "ort_riku10",
+              "meaning": "1936年～1942年頃｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 13～18｜東京23区内（世田谷区の一部を除く） 大阪市とその周辺"
+            },
+            {
+              "value": "ort_1928",
+              "meaning": "1928年頃｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 13～18｜大阪市域"
+            },
+            {
+              "value": "ort",
+              "meaning": "電子国土基本図（オルソ画像）（2007年～）｜.jpg｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14～18"
+            },
+            {
+              "value": "airphoto",
+              "meaning": "簡易空中写真（2004年～）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14, 15, 16, 17, 18"
+            },
+            {
+              "value": "pp",
+              "meaning": "単写真｜.geojson｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14｜日本全国"
+            },
+            {
+              "value": "lndst",
+              "meaning": "全国ランドサットモザイク画像｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～13｜日本全国"
+            },
+            {
+              "value": "modis",
+              "meaning": "世界衛星モザイク画像｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～8｜全世界(一部を除く)"
+            },
+            {
+              "value": "relief",
+              "meaning": "色別標高図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 5～15｜日本全国"
+            },
+            {
+              "value": "anaglyphmap_color",
+              "meaning": "アナグリフ（カラー）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～12（DEM10B） 13～16（DEM5A、DEM5B、DEM10B）｜日本全国"
+            },
+            {
+              "value": "anaglyphmap_gray",
+              "meaning": "アナグリフ（グレー）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～12（DEM10B） 13～16（DEM5A、DEM5B、DEM10B）｜日本全国"
+            },
+            {
+              "value": "hillshademap",
+              "meaning": "陰影起伏図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～12（DEM10B） 13～16（DEM5A、DEM5B、DEM10B）｜日本全国"
+            },
+            {
+              "value": "earthhillshade",
+              "meaning": "陰影起伏図（全球版）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 0～8｜全球"
+            },
+            {
+              "value": "slopemap",
+              "meaning": "傾斜量図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 3～15（DEM5A、DEM5B、DEM10B）｜日本全国"
+            },
+            {
+              "value": "slopezone1map",
+              "meaning": "全国傾斜量区分図（雪崩関連）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 3～15（DEM5A、DEM5B、DEM10B）｜日本全国"
+            },
+            {
+              "value": "sekishoku",
+              "meaning": "赤色立体地図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～14｜日本全国"
+            },
+            {
+              "value": "afm",
+              "meaning": "活断層図（都市圏活断層図）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 11～16"
+            },
+            {
+              "value": "lcmfc2",
+              "meaning": "治水地形分類図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 11～16"
+            },
+            {
+              "value": "swale",
+              "meaning": "明治期の低湿地｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～16"
+            },
+            {
+              "value": "cp",
+              "meaning": "基準点｜.geojson｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 電子基準点：7 電子基準点・一等三角点：8～11 電子基準点・一等三角点・左記以外：12｜日本全国"
+            },
+            {
+              "value": "jikizu2020_chijiki_d",
+              "meaning": "磁気図2020.0年値（磁気図（偏角）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～8、偏角一覧図…9～13 「磁気図（偏角以外）」：4～8｜日本全国"
+            },
+            {
+              "value": "jikizu2020_chijiki_i",
+              "meaning": "磁気図2020.0年値（磁気図（伏角）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～8、偏角一覧図…9～13 「磁気図（偏角以外）」：4～8｜日本全国"
+            },
+            {
+              "value": "jikizu2020_chijiki_f",
+              "meaning": "磁気図2020.0年値（磁気図（全磁力）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～8、偏角一覧図…9～13 「磁気図（偏角以外）」：4～8｜日本全国"
+            },
+            {
+              "value": "jikizu2020_chijiki_h",
+              "meaning": "磁気図2020.0年値（磁気図（水平分力）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～8、偏角一覧図…9～13 「磁気図（偏角以外）」：4～8｜日本全国"
+            },
+            {
+              "value": "jikizu2020_chijiki_z",
+              "meaning": "磁気図2020.0年値（磁気図（鉛直分力）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～8、偏角一覧図…9～13 「磁気図（偏角以外）」：4～8｜日本全国"
+            },
+            {
+              "value": "jikizu2015_chijiki_d",
+              "meaning": "磁気図2015.0年値（磁気図（偏角）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～8、偏角一覧図…9～13 「磁気図（偏角以外）」：4～8｜日本全国"
+            },
+            {
+              "value": "jikizu2015_chijiki_i",
+              "meaning": "磁気図2015.0年値（磁気図（伏角）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～8、偏角一覧図…9～13 「磁気図（偏角以外）」：4～8｜日本全国"
+            },
+            {
+              "value": "jikizu2015_chijiki_f",
+              "meaning": "磁気図2015.0年値（磁気図（全磁力）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～8、偏角一覧図…9～13 「磁気図（偏角以外）」：4～8｜日本全国"
+            },
+            {
+              "value": "jikizu2015_chijiki_h",
+              "meaning": "磁気図2015.0年値（磁気図（水平分力）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～8、偏角一覧図…9～13 「磁気図（偏角以外）」：4～8｜日本全国"
+            },
+            {
+              "value": "jikizu2015_chijiki_z",
+              "meaning": "磁気図2015.0年値（磁気図（鉛直分力）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～8、偏角一覧図…9～13 「磁気図（偏角以外）」：4～8｜日本全国"
+            },
+            {
+              "value": "jikizu_chijikid",
+              "meaning": "磁気図2010.0年値（磁気図（偏角）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～7、偏角一覧図…8～13 「磁気図（偏角以外）」：4～7｜日本全国"
+            },
+            {
+              "value": "jikizu_chijikii",
+              "meaning": "磁気図2010.0年値（磁気図（伏角）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～7、偏角一覧図…8～13 「磁気図（偏角以外）」：4～7｜日本全国"
+            },
+            {
+              "value": "jikizu_chijikif",
+              "meaning": "磁気図2010.0年値（磁気図（全磁力）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～7、偏角一覧図…8～13 「磁気図（偏角以外）」：4～7｜日本全国"
+            },
+            {
+              "value": "jikizu_chijikih",
+              "meaning": "磁気図2010.0年値（磁気図（水平分力）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～7、偏角一覧図…8～13 「磁気図（偏角以外）」：4～7｜日本全国"
+            },
+            {
+              "value": "jikizu_chijikiz",
+              "meaning": "磁気図2010.0年値（磁気図（鉛直分力）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 「磁気図（偏角）／偏角一覧図」：磁気図…4～7、偏角一覧図…8～13 「磁気図（偏角以外）」：4～7｜日本全国"
+            },
+            {
+              "value": "20240809hyuganada_nichinan_0809do_sokuho",
+              "meaning": "令和6年宮崎県日向灘を震源とする地震 日南地区 正射画像（速報）（2024年8月9日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜宮崎県宮崎市、日南市"
+            },
+            {
+              "value": "20240419bungosuido_sukumo_0418do",
+              "meaning": "令和6年豊後水道の地震 宿毛地区 正射画像（2024年4月18日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜高知県宿毛市、四万十市、三原村、愛媛県南宇和郡愛南町"
+            },
+            {
+              "value": "20240419bungosuido_ainan_0418do",
+              "meaning": "令和6年豊後水道の地震 愛南地区 正射画像（2024年4月18日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜愛媛県南宇和郡愛南町、宇和島市"
+            },
+            {
+              "value": "20240102noto_0405_0426do",
+              "meaning": "令和6年能登半島地震 能登地区 正射画像（2024年4月5日～4月26日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県珠洲市、輪島市、能登町、穴水町、七尾市、志賀町、中能登町、羽咋市、宝達志水町、津幡町、かほく市、内灘町、金沢市 富山県氷見市、高岡市、射水市、小矢部市、富"
+            },
+            {
+              "value": "20240102noto_wazimanishi_0117do",
+              "meaning": "令和6年能登半島地震 輪島西地区 正射画像（2024年1月17日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県輪島市、穴水町、七尾市、志賀町"
+            },
+            {
+              "value": "20240102noto_anamizu_0117do",
+              "meaning": "令和6年能登半島地震 穴水地区 正射画像（2024年1月17日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県穴水町、珠洲市、輪島市、能登町、七尾市"
+            },
+            {
+              "value": "20240102noto_nanao_0117do",
+              "meaning": "令和6年能登半島地震 七尾地区 正射画像（2024年1月17日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県七尾市、志賀町、中能登町"
+            },
+            {
+              "value": "20240102noto_suzu_0114do",
+              "meaning": "令和6年能登半島地震 珠洲地区 正射画像（2024年1月14日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県珠洲市"
+            },
+            {
+              "value": "20240102noto_wazimahigashi_0114do",
+              "meaning": "令和6年能登半島地震 輪島東地区 正射画像（2024年1月14日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県輪島市、珠洲市、能登町"
+            },
+            {
+              "value": "20240102noto_anamizu_0114do",
+              "meaning": "令和6年能登半島地震 穴水地区 正射画像（2024年1月14日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県穴水町、輪島市、能登町、珠洲市"
+            },
+            {
+              "value": "20240102noto_wazimanaka_0111do",
+              "meaning": "令和6年能登半島地震 輪島中地区 正射画像（2024年1月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県石川県輪島市、能登町、穴水町"
+            },
+            {
+              "value": "20240102noto_wazimanishi_0111do",
+              "meaning": "令和6年能登半島地震 輪島西地区 正射画像（2024年1月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県輪島市、穴水町、志賀町、七尾市"
+            },
+            {
+              "value": "20240102noto_anamizu_0111do",
+              "meaning": "令和6年能登半島地震 穴水地区 正射画像（2024年1月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県穴水町、輪島市、能登町"
+            },
+            {
+              "value": "20240102_noto_suzu_0105do",
+              "meaning": "令和6年能登半島地震 珠洲地区 正射画像（2024年1月5日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県珠洲市"
+            },
+            {
+              "value": "20240102_noto_wazimanaka_0105do",
+              "meaning": "令和6年能登半島地震 輪島中地区 正射画像（2024年1月5日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県輪島市、能登町、穴水町"
+            },
+            {
+              "value": "20240102_noto_anamizu_0105do",
+              "meaning": "令和6年能登半島地震 穴水地区 正射画像（2024年1月5日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県穴水町、輪島市、能登町、珠洲市、七尾市"
+            },
+            {
+              "value": "20240102_noto_nanao_0105do",
+              "meaning": "令和6年能登半島地震 七尾地区 正射画像（2024年1月5日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県七尾市、志賀町、中能登町"
+            },
+            {
+              "value": "20240102noto_suzu_0102do",
+              "meaning": "令和6年能登半島地震 珠洲地区 正射画像（2024年1月2日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県珠洲市、輪島市"
+            },
+            {
+              "value": "20240102noto_wazimanaka_0102do",
+              "meaning": "令和6年能登半島地震 輪島中地区 正射画像（2024年1月2日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県輪島市、能登町"
+            },
+            {
+              "value": "20240102noto_wazimahigashi_0102do",
+              "meaning": "令和6年能登半島地震 輪島東地区 正射画像（2024年1月2日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県輪島市、珠洲市、能登町"
+            },
+            {
+              "value": "20190618yamagata_tsuruokamurakami_0620do",
+              "meaning": "令和元年山形県沖の地震 鶴岡村上地区 正射画像（2019年06月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜山形県鶴岡市、新潟県村上市"
+            },
+            {
+              "value": "20190618yamagata_tsuruokamurakami_0626do1",
+              "meaning": "令和元年山形県沖の地震 鶴岡村上地区 正射画像（2019年06月26日撮影①）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜山形県鶴岡市、新潟県村上市"
+            },
+            {
+              "value": "20190618yamagata_tsuruokamurakami_0626do",
+              "meaning": "令和元年山形県沖の地震 鶴岡村上地区 正射画像（2019年06月26日撮影②）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜山形県鶴岡市、新潟県村上市"
+            },
+            {
+              "value": "20190618yamagata_tsuruoka_digital",
+              "meaning": "令和元年山形県沖の地震 デジタル標高地形図 山形県鶴岡市周辺｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～16｜山形県鶴岡市周辺"
+            },
+            {
+              "value": "20180906hokkaido_kiyota_0913do",
+              "meaning": "平成30年北海道胆振東部地震 札幌市清田地区 正射画像（2018年9月13日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜北海道札幌市清田区・厚別区、北広島市"
+            },
+            {
+              "value": "20180906hokkaido_abira_0911do",
+              "meaning": "平成30年北海道胆振東部地震 安平地区 正射画像（2018年9月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜北海道勇払郡安平町・厚真町など"
+            },
+            {
+              "value": "20180906hokkaido_atsuma_0911do",
+              "meaning": "平成30年北海道胆振東部地震 厚真川地区 正射画像（2018年9月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜北海道勇払郡厚真町・安平町・むかわ町"
+            },
+            {
+              "value": "20180906hokkaido_kiyota_0912do",
+              "meaning": "平成30年北海道胆振東部地震 札幌市清田地区 正射画像（2018年9月12日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜北海道札幌市清田区・厚別区、北広島市"
+            },
+            {
+              "value": "20180906hokkaido_atsumatoubu_0911do",
+              "meaning": "平成30年北海道胆振東部地震 厚真東部地区 正射画像（2018年9月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜北海道勇払郡厚真町・むかわ町、沙流郡平取町"
+            },
+            {
+              "value": "20180906hokkaido_atsumaseibu_0911do",
+              "meaning": "平成30年北海道胆振東部地震 安平・厚真西部地区 正射画像（2018年9月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜北海道千歳市・苫小牧市など"
+            },
+            {
+              "value": "20180906hokkaido_atsumachiku_0906do",
+              "meaning": "平成30年北海道胆振東部地震 厚真地区 正射画像（2018年9月6,8日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜北海道勇払郡厚真町・安平町・むかわ町"
+            },
+            {
+              "value": "20180906hokkaido_atsuma_0906do",
+              "meaning": "平成30年北海道胆振東部地震 厚真川地区 正射画像（2018年9月6日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜北海道勇払郡厚真町・安平町・むかわ町"
+            },
+            {
+              "value": "20180906hokkaido_atsuma_digital",
+              "meaning": "平成30年北海道胆振東部地震 デジタル標高地形図 厚真町周辺｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 6～16｜北海道厚真町周辺"
+            },
+            {
+              "value": "20180906hokkaido_iburi_hokaichi",
+              "meaning": "平成30年北海道胆振東部地震 斜面崩壊・堆積分布図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 6～16"
+            },
+            {
+              "value": "20180906hokkaido_atsuma_sekishoku",
+              "meaning": "平成30年北海道胆振東部地震 赤色立体地図 厚真町周辺｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 6～16｜北海道厚真町周辺"
+            },
+            {
+              "value": "20161228ibaraki_1229dol",
+              "meaning": "平成28年茨城県北部の地震 正射画像（2016年12月29日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜茨城県北部"
+            },
+            {
+              "value": "20161021tottori_1022dol",
+              "meaning": "平成28年鳥取県中部の地震 正射画像（2016年10月22日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜鳥取県中部"
+            },
+            {
+              "value": "fukkyukizu",
+              "meaning": "平成28年熊本地震 応急復旧対策基図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 18"
+            },
+            {
+              "value": "20160414kumamoto_0724dol",
+              "meaning": "平成28年熊本地震 熊本2地区 正射画像（2016年7月5日～24日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜熊本地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0705dol",
+              "meaning": "平成28年熊本地震 阿蘇3地区 正射画像（2016年7月5日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜阿蘇地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0531dol",
+              "meaning": "平成28年熊本地震 南阿蘇河陽地区 正射画像（2016年5月31日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜南阿蘇河陽地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0530dol",
+              "meaning": "平成28年熊本地震 益城・西原地区 正射画像（2016年5月30日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜益城・西原地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0429dol1",
+              "meaning": "平成28年熊本地震 熊本断層地区A 正射画像（2016年4月29日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜熊本断層地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0429dol2",
+              "meaning": "平成28年熊本地震 熊本断層地区B 正射画像（2016年4月29日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜熊本断層地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol01",
+              "meaning": "平成28年熊本地震 西原2地区 正射画像（2016年4月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西原地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol02",
+              "meaning": "平成28年熊本地震 阿蘇2地区 正射画像（2016年4月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜阿蘇地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol03",
+              "meaning": "平成28年熊本地震 南阿蘇2地区 正射画像（2016年4月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜南阿蘇地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol04",
+              "meaning": "平成28年熊本地震 御船地区 正射画像（2016年4月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜御船地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol05",
+              "meaning": "平成28年熊本地震 八代地区 正射画像（2016年4月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜八代地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol06",
+              "meaning": "平成28年熊本地震 天草地区 正射画像（2016年4月19日,20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜天草地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol07",
+              "meaning": "平成28年熊本地震 玉名地区 正射画像（2016年4月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜玉名地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol08",
+              "meaning": "平成28年熊本地震 山鹿地区 正射画像（2016年4月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜山鹿地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol09",
+              "meaning": "平成28年熊本地震 菊池地区 正射画像（2016年4月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜菊池地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol10",
+              "meaning": "平成28年熊本地震 竹田地区 正射画像（2016年4月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜竹田地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0420dol11",
+              "meaning": "平成28年熊本地震 湯布院地区 正射画像（2016年4月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜湯布院地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0419dol2",
+              "meaning": "平成28年熊本地震 南阿蘇2地区 正射画像（2016年4月19日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜南阿蘇地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0419dol6",
+              "meaning": "平成28年熊本地震 小国地区 正射画像（2016年4月19日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜小国地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0416dol1",
+              "meaning": "平成28年熊本地震 熊本地区 正射画像（2016年4月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜熊本地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0416dol2",
+              "meaning": "平成28年熊本地震 宇土地区 正射画像（2016年4月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜宇土地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0416dol3",
+              "meaning": "平成28年熊本地震 合志地区 正射画像（2016年4月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜合志地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0416dol4",
+              "meaning": "平成28年熊本地震 西原地区 正射画像（2016年4月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西原地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0416dol5",
+              "meaning": "平成28年熊本地震 阿蘇地区 正射画像（2016年4月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜阿蘇地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0416dol6",
+              "meaning": "平成28年熊本地震 南阿蘇地区 正射画像（2016年4月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜南阿蘇地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0416dol7",
+              "meaning": "平成28年熊本地震 別府地区 正射画像（2016年4月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜別府地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0415dol1",
+              "meaning": "平成28年熊本地震 益城地区 正射画像（2016年4月15日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14～18｜益城地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0415dol2",
+              "meaning": "平成28年熊本地震 熊本南地区 正射画像（2016年4月15日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜熊本南地区付近"
+            },
+            {
+              "value": "20160414kumamoto_0415dol3",
+              "meaning": "平成28年熊本地震 宇城地区 正射画像（2016年4月15日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜宇城地区付近"
+            },
+            {
+              "value": "20110311_tohoku_shinsui",
+              "meaning": "平成23年東北地方太平洋沖地震 津波浸水範囲｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 7～16"
+            },
+            {
+              "value": "fukkokizu",
+              "meaning": "平成23年東北地方太平洋沖地震 災害復興計画基図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 18"
+            },
+            {
+              "value": "toho4",
+              "meaning": "平成23年東北地方太平洋沖地震後正射画像（2013年9月～2013年12月撮影）｜.jpg｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15, 16, 17, 18"
+            },
+            {
+              "value": "toho3",
+              "meaning": "平成23年東北地方太平洋沖地震後正射画像（2012年10月～2013年5月撮影）｜.jpg｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15, 16, 17, 18"
+            },
+            {
+              "value": "toho2",
+              "meaning": "平成23年東北地方太平洋沖地震後正射画像（2011年5月～2012年4月撮影）｜.jpg｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15, 16, 17, 18"
+            },
+            {
+              "value": "toho1",
+              "meaning": "平成23年東北地方太平洋沖地震後正射画像（2011年3月～2011年4月撮影）｜.jpg｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15, 16, 17"
+            },
+            {
+              "value": "20250815rain_amakusa_0815do_sokuho",
+              "meaning": "令和7年8月6日からの大雨 天草上島地区 正射画像（速報）（2025年8月15日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜熊本県天草市、上天草市"
+            },
+            {
+              "value": "20250815rain_yatsushironishi_0816do_sokuho",
+              "meaning": "令和7年8月6日からの大雨 八代西地区 正射画像（速報）（2025年8月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜熊本県八代市、氷川町、宇城市、甲佐町、美里町、山都町、御船町"
+            },
+            {
+              "value": "20250815rain_yatsushirohigashi_0816do_sokuho",
+              "meaning": "令和7年8月6日からの大雨 八代東地区 正射画像（速報）（2025年8月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜熊本県山都町、宮崎県五ヶ瀬町"
+            },
+            {
+              "value": "20240923rain_wajimatobu_0924do_sokuho",
+              "meaning": "令和6年9月20日からの大雨 輪島東部地区 正射画像（速報）（2024年9月24日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県珠洲市、輪島市、能登町"
+            },
+            {
+              "value": "20240923rain_wajimaseibu_0924do_sokuho",
+              "meaning": "令和6年9月20日からの大雨 輪島西部地区 正射画像（速報）（2024年9月24日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県輪島市"
+            },
+            {
+              "value": "20240923rain_wajima_0923do_sokuho",
+              "meaning": "令和6年9月20日からの大雨 輪島地区 正射画像（速報）（2024年9月23日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜石川県珠洲市、輪島市、能登町"
+            },
+            {
+              "value": "20240726rain_mogamigawa_0726dansaizu",
+              "meaning": "令和6年7月25日からの大雨 浸水推定図 最上川水系最上川（2024年7月26日14時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜最上川水系最上川"
+            },
+            {
+              "value": "20230629rain_0711shinsui",
+              "meaning": "令和5年6月29日からの大雨 浸水推定図 筑後川水系筑後川（2023年7月11日1時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜筑後川水系筑後川"
+            },
+            {
+              "value": "20220804rain_0804dansaizu",
+              "meaning": "令和4年8月3日からの大雨 浸水推定図 村上市坂町周辺（2022年8月4日17時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜村上市坂町周辺"
+            },
+            {
+              "value": "20210815oame_0815dansaizu",
+              "meaning": "令和3年8月の大雨 浸水推定図 六角川（2021年8月15日15時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜六角川"
+            },
+            {
+              "value": "20210705oame_0706do",
+              "meaning": "令和3年7月1日からの大雨 正射画像 熱海伊豆山地区（7/6撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜熱海伊豆山地区"
+            },
+            {
+              "value": "20210705oame_0706do_sokuho",
+              "meaning": "令和3年7月1日からの大雨 正射画像（速報） 熱海伊豆山地区（7/6撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜熱海伊豆山地区"
+            },
+            {
+              "value": "20200703oame_kumagawahitoyoshi_0704dansaizu",
+              "meaning": "令和2年7月豪雨 浸水推定図 球磨川水系球磨川 人吉市周辺（2020年7月4日13時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜球磨川水系球磨川 人吉市周辺"
+            },
+            {
+              "value": "20200703oame_kumagawa_0704dansaizu",
+              "meaning": "令和2年7月豪雨 浸水推定図 球磨川水系球磨川（2020年7月4日20時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜球磨川水系球磨川"
+            },
+            {
+              "value": "20200703oame_sashikigawayunouragawaashikita_0704dansaizu",
+              "meaning": "令和2年7月豪雨 浸水推定図 佐敷川及び湯浦川流域 芦北町周辺（2020年7月4日22時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜佐敷川及び湯浦川流域 芦北町周辺"
+            },
+            {
+              "value": "20200703oame_omuta_0707dansaizu",
+              "meaning": "令和2年7月豪雨 浸水推定図 大牟田市周辺（2020年7月7日9時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜大牟田市周辺"
+            },
+            {
+              "value": "20200703oame_hita_0707dansaizu",
+              "meaning": "令和2年7月豪雨 浸水推定図 筑後川水系花月川 日田市友田周辺（2020年7月7日14時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜筑後川水系花月川 日田市友田周辺"
+            },
+            {
+              "value": "20200703oame_miyama_0708dansaizu",
+              "meaning": "令和2年7月豪雨 浸水推定図 矢部川水系矢部川 みやま市周辺（2020年7月8日9時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜矢部川水系矢部川 みやま市周辺"
+            },
+            {
+              "value": "20200703oame_chikugogawa_0708dansaizu",
+              "meaning": "令和2年7月豪雨 浸水推定図 筑後川水系筑後川（2020年7月8日16時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜筑後川水系筑後川"
+            },
+            {
+              "value": "20200703oame_chikugogawa_0709dansaizu",
+              "meaning": "令和2年7月豪雨 浸水推定図 筑後川水系筑後川第2報（2020年7月9日18時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜筑後川水系筑後川周辺"
+            },
+            {
+              "value": "20200729rain_mogamigawa_0729dansaizu",
+              "meaning": "令和2年7月豪雨 浸水推定図 最上川水系最上川（2020年7月29日12時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜最上川水系最上川"
+            },
+            {
+              "value": "20200729rain_mogamigawa_0729dansaizu2",
+              "meaning": "令和2年7月豪雨 浸水推定図 最上川水系最上川（2020年7月29日20時作成）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜最上川水系最上川"
+            },
+            {
+              "value": "20191025oame_sakura_1026do_sokuho",
+              "meaning": "令和元年10月の低気圧に伴う大雨 正射画像（速報） 佐倉地区（千葉県千葉市、佐倉市、四街道市、印西市）佐倉地区（10/26撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜千葉県千葉市、佐倉市、四街道市、印西市"
+            },
+            {
+              "value": "20191025oame_mobara_1026do_sokuho",
+              "meaning": "令和元年10月の低気圧に伴う大雨 正射画像（速報） 茂原地区（千葉県茂原市、睦沢町、長生村、長南町）茂原地区（10/26撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜千葉県茂原市、睦沢町、長生村、長南町"
+            },
+            {
+              "value": "20191025oame_sakura_1026dansaizu_sokuho",
+              "meaning": "令和元年10月の低気圧に伴う大雨 浸水推定段彩図 速報版 千葉県佐倉市周辺｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜千葉県佐倉市周辺"
+            },
+            {
+              "value": "20191025oame_mobara_1026dansaizu_sokuho",
+              "meaning": "令和元年10月の低気圧に伴う大雨 浸水推定段彩図 速報版 千葉県茂原市・大網白里市周辺｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜千葉県茂原市・大網白里市周辺"
+            },
+            {
+              "value": "20191025oame_mobara_1028dansaizu_handoku",
+              "meaning": "令和元年10月の低気圧に伴う大雨 浸水推定段彩図 空中写真判読版 一宮川水系（一宮川・豊田川・阿久川）茂原駅周辺｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜一宮川水系（一宮川・豊田川・阿久川）茂原駅周辺"
+            },
+            {
+              "value": "20191012typhoon19_tamagawa_1013do",
+              "meaning": "令和元年台風第19号 正射画像 多摩川地区（東京都大田区、世田谷区、八王子市、立川市、府中市、昭島市、調布市、日野市、国立市、福生市、狛江市、多摩市、稲城市、あきる野市、神奈川県川崎市）多摩川地区（10/13撮影)｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜東京都大田区、世田谷区、八王子市、立川市、府中市、昭島市、調布市、日野市、国立市、福生市、狛江市、多摩市、稲城市、あきる野市、神奈川県川崎市"
+            },
+            {
+              "value": "20191012typhoon19_tokigawa_1013do",
+              "meaning": "令和元年台風第19号 正射画像 都幾川地区（埼玉県川越市、東松山市、坂戸市、嵐山町、川島町）都幾川地区（10/13撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜埼玉県川越市、東松山市、坂戸市、嵐山町、川島町"
+            },
+            {
+              "value": "20191012typhoon19_nakagawa_1017do",
+              "meaning": "令和元年台風第19号 正射画像 那珂川地区（茨城県水戸市、ひたちなか市、常陸大宮市、那珂市、城里町）那珂川地区（10/17撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜茨城県水戸市、ひたちなか市、常陸大宮市、那珂市、城里町"
+            },
+            {
+              "value": "20191012typhoon19_kujigawa_1017do",
+              "meaning": "令和元年台風第19号 正射画像 久慈川地区（茨城県日立市、常陸太田市、常陸大宮市、那珂市、東海村）久慈川地区（10/17撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜茨城県日立市、常陸太田市、常陸大宮市、那珂市、東海村"
+            },
+            {
+              "value": "20191012typhoon19_kujigawa_daigo_1017do",
+              "meaning": "令和元年台風第19号 正射画像 久慈川（大子）地区（茨城県大子町）久慈川（大子）地区（10/17撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜茨城県大子町"
+            },
+            {
+              "value": "20191012typhoon19_marumori_1021do_sokuho",
+              "meaning": "令和元年台風第19号 正射画像（速報） 丸森地区（宮城県白石市、角田市、丸森町、福島県相馬市、伊達市）丸森地区（10/21撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜宮城県白石市、角田市、丸森町、福島県相馬市、伊達市"
+            },
+            {
+              "value": "20191012typhoon19_marumori_1020do_sokuho",
+              "meaning": "令和元年台風第19号 正射画像（速報） 丸森地区（宮城県白石市、角田市、丸森町、福島県相馬市、伊達市）丸森地区（10/20撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜宮城県白石市、角田市、丸森町、福島県相馬市、伊達市"
+            },
+            {
+              "value": "20191012typhoon19_chikumagawa_1016do_sokuho",
+              "meaning": "令和元年台風第19号 正射画像（速報） 千曲川地区（長野県長野市、須坂市、中野市、千曲市、小布施町、山ノ内町）千曲川地区（10/16撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜長野県長野市、須坂市、中野市、千曲市、小布施町、山ノ内町"
+            },
+            {
+              "value": "20191012typhoon19_naruse_1014dansaizu",
+              "meaning": "令和元年台風第19号 浸水推定段彩図 鳴瀬川水系（吉田川）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜吉田川"
+            },
+            {
+              "value": "20191012typhoon19_abukuma_1014dansaizu",
+              "meaning": "令和元年台風第19号 浸水推定段彩図 阿武隈川水系（阿武隈川）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜阿武隈川"
+            },
+            {
+              "value": "20191012typhoon19_shinano_1013dansaizu",
+              "meaning": "令和元年台風第19号 浸水推定段彩図 信濃川水系（千曲川）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜千曲川"
+            },
+            {
+              "value": "20191012typhoon19_kuji_1014dansaizu",
+              "meaning": "令和元年台風第19号 浸水推定段彩図 久慈川水系（久慈川）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜久慈川"
+            },
+            {
+              "value": "20191012typhoon19_naka_1014dansaizu",
+              "meaning": "令和元年台風第19号 浸水推定段彩図 那珂川水系（那珂川）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜那珂川"
+            },
+            {
+              "value": "20191012typhoon19_arakawa_1014dansaizu",
+              "meaning": "令和元年台風第19号 浸水推定段彩図 荒川水系（入間川・越辺川・都幾川）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～15｜荒川水系（入間川・越辺川・都幾川）"
+            },
+            {
+              "value": "20190828kyusyu_sagachiku_0830do",
+              "meaning": "令和元年8月の前線に伴う大雨 正射画像 佐賀地区（佐賀県佐賀市、唐津市、多久市、伊万里市、武雄市、小城市、嬉野市、大町町、江北町、白石町）佐賀地区（8/30撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜佐賀県佐賀市、唐津市、多久市、伊万里市、武雄市、小城市、嬉野市、大町町、江北町、白石町"
+            },
+            {
+              "value": "20190828kyusyu_sagachiku_0831do",
+              "meaning": "令和元年8月の前線に伴う大雨 正射画像 佐賀地区（佐賀県佐賀市、唐津市、多久市、伊万里市、武雄市、小城市、嬉野市、大町町、江北町、白石町）佐賀地区一部（8/31撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜佐賀県佐賀市、唐津市、多久市、伊万里市、武雄市、小城市、嬉野市、大町町、江北町、白石町"
+            },
+            {
+              "value": "20190828kyusyu_sagachiku_0830do_sokuho",
+              "meaning": "令和元年8月の前線に伴う大雨 正射画像（速報） 佐賀地区（佐賀県佐賀市、唐津市、多久市、伊万里市、武雄市、小城市、嬉野市、大町町、江北町、白石町）佐賀地区（8/30撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜佐賀県佐賀市、唐津市、多久市、伊万里市、武雄市、小城市、嬉野市、大町町、江北町、白石町"
+            },
+            {
+              "value": "20190828kyusyu_sagachiku_0831do_sokuho",
+              "meaning": "令和元年8月の前線に伴う大雨 正射画像（速報） 佐賀地区（佐賀県佐賀市、唐津市、多久市、伊万里市、武雄市、小城市、嬉野市、大町町、江北町、白石町）佐賀地区一部（8/31撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜佐賀県佐賀市、唐津市、多久市、伊万里市、武雄市、小城市、嬉野市、大町町、江北町、白石町"
+            },
+            {
+              "value": "20190828_kyusyu_0828dansaizu",
+              "meaning": "令和元年8月の前線に伴う大雨 浸水推定段彩図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～16｜佐賀県佐賀市、唐津市、多久市、伊万里市、武雄市、小城市、嬉野市、大町町、江北町、白石町"
+            },
+            {
+              "value": "20190828kyusyu_matsuurakawa_digital",
+              "meaning": "令和元年8月の前線に伴う大雨 デジタル標高地形図 松浦川水系松浦川周辺｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～16｜松浦川水系松浦川周辺"
+            },
+            {
+              "value": "20190828kyusyu_ushidu_digital",
+              "meaning": "令和元年8月の前線に伴う大雨 デジタル標高地形図 六角川水系牛津川周辺｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～16｜六角川水系牛津川周辺"
+            },
+            {
+              "value": "20190828kyusyu_kose_digital",
+              "meaning": "令和元年8月の前線に伴う大雨 デジタル標高地形図 筑後川水系巨瀬川周辺｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～16｜筑後川水系巨瀬川周辺"
+            },
+            {
+              "value": "20190704_kagoshima_chuou_0704do",
+              "meaning": "令和元年度6月下旬からの大雨 正射画像 鹿児島中央地区（鹿児島県鹿児島市、日置市、南九州市）（2019年7月4日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜鹿児島県鹿児島市、日置市、南九州市"
+            },
+            {
+              "value": "20190704_kagoshima_soo_0707do",
+              "meaning": "令和元年度6月下旬からの大雨 正射画像 曽於地区（鹿児島県曽於市、霧島市、鹿屋市、志布志市、大崎町、宮崎県都城市）（2019年7月7日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜鹿児島県曽於市、霧島市、鹿屋市、志布志市、大崎町、宮崎県都城市"
+            },
+            {
+              "value": "201807H3007gouu_iwakuni_0719do",
+              "meaning": "平成30年7月豪雨 正射画像 岩国地区（山口県岩国市・周南市など）（2018年7月19日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜山口県岩国市・周南市"
+            },
+            {
+              "value": "201807H3007gouu_fukuyamahokubu_0718do",
+              "meaning": "平成30年7月豪雨 正射画像 福山北部地区（広島県福山市・岡山県井原市など）（2018年7月18日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県福山市・岡山県井原市など"
+            },
+            {
+              "value": "201807H3007gouu_hijikawa_0718do",
+              "meaning": "平成30年7月豪雨 正射画像 肱川地区（愛媛県大洲市）（2018年7月18日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜愛媛県大洲市"
+            },
+            {
+              "value": "201807H3007gouu_fukuyama_0713do",
+              "meaning": "平成30年7月豪雨 正射画像 福山地区（広島県福山市）（2018年7月13,16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県福山市"
+            },
+            {
+              "value": "201807H3007gouu_kuretoubu_0715do",
+              "meaning": "平成30年7月豪雨 正射画像 呉東部地区（広島県呉市・東広島市など）（2018年7月15日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県呉市・東広島市など"
+            },
+            {
+              "value": "201807H3007gouu_miharaonomichi_0715do",
+              "meaning": "平成30年7月豪雨 正射画像 三原尾道地区（広島県三原市・尾道市など）（2018年7月15,16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県三原市・尾道市など"
+            },
+            {
+              "value": "201807H3007gouu_miharahokubu_0715do",
+              "meaning": "平成30年7月豪雨 正射画像 三原北部地区（広島県三原市・府中市など）（2018年7月15日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県三原市・府中市など"
+            },
+            {
+              "value": "201807H3007gouu_etajima_0716do",
+              "meaning": "平成30年7月豪雨 正射画像 江田島地区（広島県江田島市）（2018年7月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県江田島市"
+            },
+            {
+              "value": "201807H3007gouu_higashihiroshima_0710do",
+              "meaning": "平成30年7月豪雨 正射画像 東広島地区（広島県広島市安芸区・東広島市など）（2018年7月10,11,14日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県広島市安芸区・東広島市など"
+            },
+            {
+              "value": "201807H3007gouu_kuretoubu_0713do",
+              "meaning": "平成30年7月豪雨 正射画像 呉東部地区（広島県呉市・東広島市など）（2018年7月13日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県呉市・東広島市など"
+            },
+            {
+              "value": "201807H3007gouu_takahashigawa_0712do",
+              "meaning": "平成30年7月豪雨 正射画像 高梁川地区（岡山県倉敷市・総社市など）（2018年7月12日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜岡山県倉敷市・総社市など"
+            },
+            {
+              "value": "201807H3007gouu_miharaonomichi_0713do",
+              "meaning": "平成30年7月豪雨 正射画像 三原尾道地区（広島県三原市・尾道市など）（2018年7月13日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県三原市・尾道市など"
+            },
+            {
+              "value": "201807H3007gouu_takeharamihara_0712do",
+              "meaning": "平成30年7月豪雨 正射画像 竹原三原地区（広島県竹原市・三原市など）（2018年7月10,11,12日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県竹原市・三原市など"
+            },
+            {
+              "value": "201807H3007gouu_sakachou_0711do",
+              "meaning": "平成30年7月豪雨 正射画像 広島坂町地区（広島県広島市・坂町など）（2018年7月9,11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島県広島市・坂町など"
+            },
+            {
+              "value": "201807H3007gouu_ozu_0711do",
+              "meaning": "平成30年7月豪雨 正射画像 大洲地区（愛媛県大洲市・西予市など）（2018年7月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜愛媛県大洲市・西予市など"
+            },
+            {
+              "value": "201807H3007gouu_uwajima_0711do",
+              "meaning": "平成30年7月豪雨 正射画像 宇和島地区（宇和島市など）（2018年7月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜愛媛県宇和島市など"
+            },
+            {
+              "value": "201807H3007gouu_takahashigawa_0711do",
+              "meaning": "平成30年7月豪雨 正射画像 高梁川地区（岡山県倉敷市・総社市など）（2018年7月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜岡山県倉敷市・総社市など"
+            },
+            {
+              "value": "201807H3007gouu_takahashigawa_0709do",
+              "meaning": "平成30年7月豪雨 正射画像 高梁川地区（岡山県倉敷市・総社市など）（2018年7月9日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜岡山県倉敷市・総社市など"
+            },
+            {
+              "value": "201807H3007gouu_takahashigawa_dansaizu",
+              "meaning": "平成30年7月豪雨 浸水推定段彩図（空中写真判読版） 高梁川（岡山県倉敷市など）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 6～16｜岡山県倉敷市など"
+            },
+            {
+              "value": "201807H3007gouu_hijikawa_dansaizu",
+              "meaning": "平成30年7月豪雨 浸水推定段彩図（空中写真判読版） 肱川（愛媛県大洲市など）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 6～16｜愛媛県大洲市など"
+            },
+            {
+              "value": "201807H3007gouu_kurashiki_0707dansaizu",
+              "meaning": "平成30年7月豪雨 浸水推定段彩図（速報版） 岡山県倉敷市（2018年7月7日時点）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 6～16｜岡山県倉敷市"
+            },
+            {
+              "value": "201807H3007gouu_ozu_0707dansaizu",
+              "meaning": "平成30年7月豪雨 浸水推定段彩図（速報版） 愛媛県大洲市（2018年7月7日時点）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 6～16｜愛媛県大洲市"
+            },
+            {
+              "value": "201807H3007gouu_kurashiki_digital",
+              "meaning": "平成30年7月豪雨 デジタル標高地形図 岡山県倉敷市｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 6～16｜岡山県倉敷市"
+            },
+            {
+              "value": "201807H3007gouu_hokaichiline_1",
+              "meaning": "平成30年7月豪雨 崩壊地等分布図（ライン）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～17｜岡山県、広島県、山口県、愛媛県"
+            },
+            {
+              "value": "20180411_ooita_dosha",
+              "meaning": "平成30年大分県中津市土砂災害 正射画像（ヘリ撮影画像（2018年4月11日撮影））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜中津市"
+            },
+            {
+              "value": "20170705typhoon3_0713dol2",
+              "meaning": "平成29年7月九州北部豪雨 正射画像（空中写真（東峰地区）（2017年7月13日撮影））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜東峰地区"
+            },
+            {
+              "value": "20170705typhoon3_0713dol1",
+              "meaning": "平成29年7月九州北部豪雨 正射画像（空中写真（朝倉地区）（2017年7月13日撮影））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜朝倉地区"
+            },
+            {
+              "value": "20170705typhoon3_0710dol",
+              "meaning": "平成29年7月九州北部豪雨 正射画像（ヘリ撮影画像（2017年7月10日撮影））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜日田市小野川周辺"
+            },
+            {
+              "value": "20170705typhoon3_0708dol1",
+              "meaning": "平成29年7月九州北部豪雨 正射画像（ヘリ撮影画像（2017年7月8日撮影））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜朝倉市杷木志波平榎・黒川馬場・佐田疣目・黒川西原・赤谷川・高木・妙見川、東峰村・日田市大肥川付近"
+            },
+            {
+              "value": "20170705typhoon3_0707dol3",
+              "meaning": "平成29年7月九州北部豪雨 正射画像（UAV撮影画像（2017年7月7日撮影））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜朝倉市山田奈良ヶ谷付近"
+            },
+            {
+              "value": "20170705typhoon3_0707dol",
+              "meaning": "平成29年7月九州北部豪雨 正射画像（ヘリ撮影画像（2017年7月7日撮影））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜朝倉市桂川、日田市鶴河内鶴城・小野付近"
+            },
+            {
+              "value": "20160830typhoon10_0907dol1",
+              "meaning": "平成28年台風第10号 岩手県岩泉町安家地区正射画像（2016年9月7日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜岩手県岩泉町 安家地区付近"
+            },
+            {
+              "value": "20160830typhoon10_1007dol1",
+              "meaning": "平成28年台風第10号 岩手県岩泉町穴沢地区正射画像（2016年10月7日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜岩手県岩泉町 穴沢地区付近"
+            },
+            {
+              "value": "20160830typhoon10_1007dol2",
+              "meaning": "平成28年台風第10号 岩手県岩泉町鼠入地区正射画像（2016年10月7日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜岩手県岩泉町 鼠入地区付近"
+            },
+            {
+              "value": "20160830typhoon10_0907dol2",
+              "meaning": "平成28年台風第10号 岩手県岩泉町穴沢地区正射画像（2016年9月7日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜岩手県岩泉町 穴沢地区付近"
+            },
+            {
+              "value": "20160830typhoon10_0907dol3",
+              "meaning": "平成28年台風第10号 岩手県岩泉町鼠入地区正射画像（2016年9月7日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜岩手県岩泉町 鼠入地区付近"
+            },
+            {
+              "value": "20160820typhoon11_9_0825dol",
+              "meaning": "平成28年台風第11号及び第9号 常呂川周辺 正射画像（2016年8月25日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜北海道北見市 常呂川周辺"
+            },
+            {
+              "value": "20150912dol",
+              "meaning": "平成27年9月関東・東北豪雨 大崎地区 正射画像（2015年9月12日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜大崎地区付近"
+            },
+            {
+              "value": "20150929dol",
+              "meaning": "平成27年9月関東・東北豪雨 常総地区 正射画像（2015年9月29日午前撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14～18｜常総地区付近"
+            },
+            {
+              "value": "20150915dol",
+              "meaning": "平成27年9月関東・東北豪雨 常総地区 正射画像（2015年9月15日午前撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜常総地区付近"
+            },
+            {
+              "value": "20150913dol",
+              "meaning": "平成27年9月関東・東北豪雨 常総地区 正射画像（2015年9月13日午前撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜常総地区付近"
+            },
+            {
+              "value": "20150911dol2",
+              "meaning": "平成27年9月関東・東北豪雨 常総地区 正射画像（2015年9月11日午後撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜常総地区付近"
+            },
+            {
+              "value": "20150911dol1",
+              "meaning": "平成27年9月関東・東北豪雨 常総地区 正射画像（2015年9月11日午前撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜常総地区付近"
+            },
+            {
+              "value": "20150911dol3",
+              "meaning": "平成27年9月関東・東北豪雨 鹿沼地区 正射画像（2015年9月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜鹿沼地区付近"
+            },
+            {
+              "value": "20150911dol4",
+              "meaning": "平成27年9月関東・東北豪雨 鬼怒川温泉地区 正射画像（2015年9月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜鬼怒川温泉地区付近"
+            },
+            {
+              "value": "20150911dol5",
+              "meaning": "平成27年9月関東・東北豪雨 結城地区 正射画像（2015年9月11日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜結城地区付近"
+            },
+            {
+              "value": "20140831dol",
+              "meaning": "平成26年8月豪雨（広島市内）正射画像（2014年8月30・31日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島市内"
+            },
+            {
+              "value": "20140830dol",
+              "meaning": "平成26年8月豪雨（広島市内）正射画像（2014年8月30日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島市内"
+            },
+            {
+              "value": "20140828dol",
+              "meaning": "平成26年8月豪雨（広島市内）正射画像（2014年8月28日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島市内"
+            },
+            {
+              "value": "19620000dol",
+              "meaning": "平成26年8月豪雨（広島市内）過去の正射画像（1962年）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島市内"
+            },
+            {
+              "value": "19480000dol",
+              "meaning": "平成26年8月豪雨（広島市内）過去の正射画像（1947年～1948年）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島市内"
+            },
+            {
+              "value": "20140820dol",
+              "meaning": "平成26年8月豪雨（広島市安佐南区八木）斜め写真による正射画像（2014年8月撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島市安佐南区八木付近"
+            },
+            {
+              "value": "20140820dol2",
+              "meaning": "平成26年8月豪雨（広島市安佐南区山本）斜め写真による正射画像（2014年8月撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島市安佐南区山本付近"
+            },
+            {
+              "value": "20140820dol3",
+              "meaning": "平成26年8月豪雨（広島市安佐北区可部）斜め写真による正射画像（2014年8月撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜広島市安佐北区可部付近"
+            },
+            {
+              "value": "20140819dol",
+              "meaning": "平成26年8月豪雨（丹波市市島地区）正射画像（2014年8月撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜丹波市市島付近"
+            },
+            {
+              "value": "20140813dol",
+              "meaning": "平成26年台風第12号・第11号の大雨等（北川村）正射画像（2014年8月13日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜北川村付近"
+            },
+            {
+              "value": "20140711dol",
+              "meaning": "平成26年台風第8号及び梅雨前線等（南木曽町）斜め写真による正射画像（2014年7月撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 8～18｜南木曽町付近"
+            },
+            {
+              "value": "20131017dol2",
+              "meaning": "平成25年台風第26号・第27号の大雨（大島町）正射画像（2013年10月28日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18"
+            },
+            {
+              "value": "20131017dol",
+              "meaning": "平成25年台風第26号の大雨（大島町）正射画像（2013年10月17日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18"
+            },
+            {
+              "value": "201204dol",
+              "meaning": "平成25年台風第26号・第27号による大雨（大島町）被災前正射画像（2012年4月撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 8～18"
+            },
+            {
+              "value": "20130902dol",
+              "meaning": "平成25年9月2日に発生した突風 正射画像（2013年9月9日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18"
+            },
+            {
+              "value": "20130717dol2",
+              "meaning": "平成25年7月17日からの大雨 山口地方「須佐地区」正射画像（2013年8月7日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18"
+            },
+            {
+              "value": "20130717dol",
+              "meaning": "平成25年7月17日からの大雨 山口地方「須佐地区」正射画像（2013年7月31日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18"
+            },
+            {
+              "value": "20180717_sekisyokurittai_tarumae",
+              "meaning": "樽前山 赤色立体地図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜樽前山周辺"
+            },
+            {
+              "value": "H30-H27_tikeihenka_kusatsushiranesan",
+              "meaning": "平成30年1月23日噴火前後の地形変化量図（本白根山周辺）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜草津白根山付近"
+            },
+            {
+              "value": "2018_kazantaisaku_kusatsushirane",
+              "meaning": "草津白根山の火山活動 火山災害対策用図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜草津白根山付近"
+            },
+            {
+              "value": "2018_kazantaisaku_kagamiike",
+              "meaning": "草津白根山の火山活動 火山災害対策用図（鏡池周辺）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜草津白根山付近"
+            },
+            {
+              "value": "20180127kusatsushirane_apsar180127sn",
+              "meaning": "草津白根山の火山活動 航空機SAR画像（速報）（2018年1月27日観測（南から北））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜草津白根山付近"
+            },
+            {
+              "value": "20180127kusatsushirane_apsar180127nesw",
+              "meaning": "草津白根山の火山活動 航空機SAR画像（速報）（2018年1月27日観測（北東から南西））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜草津白根山付近"
+            },
+            {
+              "value": "20180124kusatsushirane_0216uav",
+              "meaning": "草津白根山の火山活動 UAV撮影による正射画像（2018年2月16,27日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜草津白根山付近"
+            },
+            {
+              "value": "20190121_olsorittai_kusatsushiranesan",
+              "meaning": "草津白根山の火山活動 平成30年1月23日噴火後のオルソ立体地図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜本白根山周辺および白根山北西部"
+            },
+            {
+              "value": "20190121_sekisyokurittai_kusatsushiranesan",
+              "meaning": "草津白根山の火山活動 平成30年1月23日噴火後の赤色立体地図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜本白根山周辺および白根山北西部"
+            },
+            {
+              "value": "20180130_kusatsushiranesan_sekishokurittai",
+              "meaning": "草津白根山の火山活動 平成30年1月23日噴火前の赤色立体地図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 3～18｜草津白根山付近"
+            },
+            {
+              "value": "kazantaisaku_ooshima",
+              "meaning": "伊豆大島の火山活動 火山災害対策用図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜伊豆大島"
+            },
+            {
+              "value": "ooshimared",
+              "meaning": "伊豆大島 赤色立体地図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜伊豆大島"
+            },
+            {
+              "value": "kazantaisaku_miyakejima",
+              "meaning": "三宅島の火山活動 火山災害対策用図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜三宅島"
+            },
+            {
+              "value": "sekisyokurittai_miyakejima",
+              "meaning": "三宅島 赤色立体地図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜三宅島"
+            },
+            {
+              "value": "20140928dol",
+              "meaning": "御嶽山の噴火活動 斜め写真による正射画像（2014年9月28日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜御嶽山付近"
+            },
+            {
+              "value": "20140930dol",
+              "meaning": "御嶽山の噴火活動 航空機SAR画像（2014年9月30日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜御嶽山付近"
+            },
+            {
+              "value": "20140929dol2",
+              "meaning": "御嶽山の噴火活動 航空機SAR画像（2014年9月29日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜御嶽山付近"
+            },
+            {
+              "value": "20150911dol",
+              "meaning": "口永良部島の火山活動 UAV撮影による正射画像（2015年9月8,11,12日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14～18｜口永良部島付近"
+            },
+            {
+              "value": "20150714dol",
+              "meaning": "口永良部島の火山活動 UAV撮影による正射画像（2015年7月14日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14～18｜口永良部島付近"
+            },
+            {
+              "value": "kuchinoerabured",
+              "meaning": "口永良部島の火山活動 赤色立体地図｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜口永良部島"
+            },
+            {
+              "value": "20180419kirishima_apsar180420nesw",
+              "meaning": "霧島山の噴火活動 航空機SAR画像（えびの高原（硫黄山）、2018年4月20日観測（北東から観測した画像））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜新燃岳付近"
+            },
+            {
+              "value": "20180419kirishima_apsar180420swne",
+              "meaning": "霧島山の噴火活動 航空機SAR画像（えびの高原（硫黄山）、2018年4月20日観測（南西から観測した画像））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜新燃岳付近"
+            },
+            {
+              "value": "20180419kirishima_apsar180226nesw",
+              "meaning": "霧島山の噴火活動 航空機SAR画像（えびの高原（硫黄山）、2018年2月26日観測（北東から観測した画像））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜新燃岳付近"
+            },
+            {
+              "value": "20180419kirishima_apsar180226swne",
+              "meaning": "霧島山の噴火活動 航空機SAR画像（えびの高原（硫黄山）、2018年2月26日観測（南西から観測した画像））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜新燃岳付近"
+            },
+            {
+              "value": "20180309_kazantaisaku_kirishima",
+              "meaning": "霧島山の噴火活動 火山災害対策用図（新燃岳周辺）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜新燃岳付近"
+            },
+            {
+              "value": "20171011kirishima_apsar171012we",
+              "meaning": "霧島山の噴火活動 航空機SAR画像（新燃岳、2017年10月12日観測（西から東））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜新燃岳付近"
+            },
+            {
+              "value": "20171011kirishima_apsar171012ew",
+              "meaning": "霧島山の噴火活動 航空機SAR画像（新燃岳、2017年10月12日観測（東から西））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜新燃岳付近"
+            },
+            {
+              "value": "20171011kirishima_apsar141105we",
+              "meaning": "霧島山の噴火活動 航空機SAR画像（新燃岳、2014年11月5日観測（西から東））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜新燃岳付近"
+            },
+            {
+              "value": "20171011kirishima_apsar141105ew",
+              "meaning": "霧島山の噴火活動 航空機SAR画像（新燃岳、2014年11月5日観測（東から西））｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜新燃岳付近"
+            },
+            {
+              "value": "20180309_sekisyokurittai_kirishima",
+              "meaning": "霧島山の噴火活動 赤色立体地図（新燃岳周辺）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2～18｜新燃岳付近"
+            },
+            {
+              "value": "20230202_nishinoshima_dol",
+              "meaning": "西之島付近噴火活動 正射画像（2023年2月2日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20220119_nishinoshima_dol",
+              "meaning": "西之島付近噴火活動 正射画像（2022年1月19日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20180117dol",
+              "meaning": "西之島付近噴火活動 正射画像（2018年1月17日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20161220dol",
+              "meaning": "西之島付近噴火活動 正射画像（2016年12月20日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20160725dol",
+              "meaning": "西之島付近噴火活動 正射画像（2016年7月25日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20160303dol",
+              "meaning": "西之島付近噴火活動 正射画像（2016年3月3日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20151209dol",
+              "meaning": "西之島付近噴火活動 正射画像（2015年12月9日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 13～18｜西之島付近"
+            },
+            {
+              "value": "20150728dol",
+              "meaning": "西之島付近噴火活動 正射画像（2015年7月28日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14～18｜西之島付近"
+            },
+            {
+              "value": "20150301doh",
+              "meaning": "西之島付近噴火活動 正射画像（2015年3月1日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20141210doh",
+              "meaning": "西之島付近噴火活動 正射画像（2014年12月10日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20141204doh",
+              "meaning": "西之島付近噴火活動 正射画像（2014年12月4日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20140704dol",
+              "meaning": "西之島付近噴火活動 正射画像（2014年7月4日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20140322dol",
+              "meaning": "西之島付近噴火活動 正射画像（2014年3月22日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20140216doh",
+              "meaning": "西之島付近噴火活動 正射画像（2014年2月16日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20131217doh",
+              "meaning": "西之島付近噴火活動 正射画像（2013年12月17日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20131204doh",
+              "meaning": "西之島付近噴火活動 正射画像（2013年12月4日撮影）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 10～18｜西之島付近"
+            },
+            {
+              "value": "20180117dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2018年1月17日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "20160725dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2016年7月25日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "20160303dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2016年3月3日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "20151209dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2015年12月9日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "20150728dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2015年7月28日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "20150301dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2015年3月1日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "20141204dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2014年12月4日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "20140704dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2014年7月4日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "20140322dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2014年3月22日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "20140216dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2014年2月16日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "20131217dd5",
+              "meaning": "西之島付近噴火活動 標高タイル（2013年12月17日）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 15｜西之島付近"
+            },
+            {
+              "value": "shinsaidenshoushisetsu",
+              "meaning": "震災伝承施設｜.geojson｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 7｜青森県、岩手県、宮城県、福島県"
+            },
+            {
+              "value": "rinya",
+              "meaning": "森林（国有林）の空中写真（林野庁）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14～18｜日本全国"
+            },
+            {
+              "value": "rinya_m",
+              "meaning": "森林（民有林）の空中写真｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14～18｜日本全国"
+            },
+            {
+              "value": "minato_icon",
+              "meaning": "みなとオアシス（港湾局）（アイコン）｜.geojson｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2 ※地理院地図サイトでのデータ表示は、以下のズームレベルで行っています。 アイコン：5～9、ポリゴン：10～18｜日本全国"
+            },
+            {
+              "value": "minato_polygon",
+              "meaning": "みなとオアシス（港湾局）（ポリゴン）｜.geojson｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 2 ※地理院地図サイトでのデータ表示は、以下のズームレベルで行っています。 アイコン：5～9、ポリゴン：10～18｜日本全国"
+            },
+            {
+              "value": "gmld_glcnmo2",
+              "meaning": "土地被覆（GLCNMO）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 0～7｜全球"
+            },
+            {
+              "value": "gmld_ptc2",
+              "meaning": "植生（樹木被覆率）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 0～7｜全球"
+            },
+            {
+              "value": "dem1a_png",
+              "meaning": "標高タイル（基盤地図情報数値標高モデル）（DEM1A PNG形式）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 1～17（DEM1A） 1～15（DEM5A、DEM5B、DEM5C） 1～14（DEM10B）｜標高モデルの更新情報をご覧ください。"
+            },
+            {
+              "value": "dem5a_png",
+              "meaning": "標高タイル（基盤地図情報数値標高モデル）（DEM5A PNG形式）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 1～17（DEM1A） 1～15（DEM5A、DEM5B、DEM5C） 1～14（DEM10B）｜標高モデルの更新情報をご覧ください。"
+            },
+            {
+              "value": "dem5b_png",
+              "meaning": "標高タイル（基盤地図情報数値標高モデル）（DEM5B PNG形式）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 1～17（DEM1A） 1～15（DEM5A、DEM5B、DEM5C） 1～14（DEM10B）｜標高モデルの更新情報をご覧ください。"
+            },
+            {
+              "value": "dem5c_png",
+              "meaning": "標高タイル（基盤地図情報数値標高モデル）（DEM5C PNG形式）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 1～17（DEM1A） 1～15（DEM5A、DEM5B、DEM5C） 1～14（DEM10B）｜標高モデルの更新情報をご覧ください。"
+            },
+            {
+              "value": "dem_png",
+              "meaning": "標高タイル（基盤地図情報数値標高モデル）（DEM10B PNG形式）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 1～17（DEM1A） 1～15（DEM5A、DEM5B、DEM5C） 1～14（DEM10B）｜標高モデルの更新情報をご覧ください。"
+            },
+            {
+              "value": "dem5a",
+              "meaning": "標高タイル（基盤地図情報数値標高モデル）（DEM5A テキスト形式）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 1～17（DEM1A） 1～15（DEM5A、DEM5B、DEM5C） 1～14（DEM10B）｜標高モデルの更新情報をご覧ください。"
+            },
+            {
+              "value": "dem5b",
+              "meaning": "標高タイル（基盤地図情報数値標高モデル）（DEM5B テキスト形式）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 1～17（DEM1A） 1～15（DEM5A、DEM5B、DEM5C） 1～14（DEM10B）｜標高モデルの更新情報をご覧ください。"
+            },
+            {
+              "value": "dem",
+              "meaning": "標高タイル（基盤地図情報数値標高モデル）（DEM10B テキスト形式）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 1～17（DEM1A） 1～15（DEM5A、DEM5B、DEM5C） 1～14（DEM10B）｜標高モデルの更新情報をご覧ください。"
+            },
+            {
+              "value": "demgm_png",
+              "meaning": "標高タイル（地球地図全球版標高第2版）（PNG形式）｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 0～8"
+            },
+            {
+              "value": "demgm",
+              "meaning": "標高タイル（地球地図全球版標高第2版）（テキスト形式）｜.txt｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 0～8"
+            },
+            {
+              "value": "lakedepth",
+              "meaning": "湖水深タイル｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14｜湖沼調査を実施した湖沼のうち「湖沼データ」として公開済みの湖沼部（調査実施湖沼一覧を参照）。"
+            },
+            {
+              "value": "lakedepth_standard",
+              "meaning": "基準水面標高タイル｜.png｜2. 基本測量成果以外で出典の記載のみで利用可能なもの｜ZL 14｜湖沼調査を実施した湖沼のうち「湖沼データ」として公開済みの湖沼部（調査実施湖沼一覧を参照）。"
+            },
+            {
+              "value": "skhb01",
+              "meaning": "指定緊急避難場所（洪水）｜.geojson｜3. 上記以外のもの｜ZL 10 ※地理院地図サイトでのデータ表示は、ズームレベル11～18で行っています。｜市町村別公開日・更新日一覧をご覧ください。"
+            },
+            {
+              "value": "skhb02",
+              "meaning": "指定緊急避難場所（崖崩れ、土石流及び地滑り）｜.geojson｜3. 上記以外のもの｜ZL 10 ※地理院地図サイトでのデータ表示は、ズームレベル11～18で行っています。｜市町村別公開日・更新日一覧をご覧ください。"
+            },
+            {
+              "value": "skhb03",
+              "meaning": "指定緊急避難場所（高潮）｜.geojson｜3. 上記以外のもの｜ZL 10 ※地理院地図サイトでのデータ表示は、ズームレベル11～18で行っています。｜市町村別公開日・更新日一覧をご覧ください。"
+            },
+            {
+              "value": "skhb04",
+              "meaning": "指定緊急避難場所（地震）｜.geojson｜3. 上記以外のもの｜ZL 10 ※地理院地図サイトでのデータ表示は、ズームレベル11～18で行っています。｜市町村別公開日・更新日一覧をご覧ください。"
+            },
+            {
+              "value": "skhb05",
+              "meaning": "指定緊急避難場所（津波）｜.geojson｜3. 上記以外のもの｜ZL 10 ※地理院地図サイトでのデータ表示は、ズームレベル11～18で行っています。｜市町村別公開日・更新日一覧をご覧ください。"
+            },
+            {
+              "value": "skhb06",
+              "meaning": "指定緊急避難場所（大規模な火事）｜.geojson｜3. 上記以外のもの｜ZL 10 ※地理院地図サイトでのデータ表示は、ズームレベル11～18で行っています。｜市町村別公開日・更新日一覧をご覧ください。"
+            },
+            {
+              "value": "skhb07",
+              "meaning": "指定緊急避難場所（内水氾濫）｜.geojson｜3. 上記以外のもの｜ZL 10 ※地理院地図サイトでのデータ表示は、ズームレベル11～18で行っています。｜市町村別公開日・更新日一覧をご覧ください。"
+            },
+            {
+              "value": "skhb08",
+              "meaning": "指定緊急避難場所（火山現象）｜.geojson｜3. 上記以外のもの｜ZL 10 ※地理院地図サイトでのデータ表示は、ズームレベル11～18で行っています。｜市町村別公開日・更新日一覧をご覧ください。"
+            },
+            {
+              "value": "sih",
+              "meaning": "指定避難所（一般）｜.geojson｜3. 上記以外のもの｜ZL 10 ※地理院地図サイトでのデータ表示は、ズームレベル11～18で行っています。｜市町村別公開日・更新日一覧をご覧ください。"
+            },
+            {
+              "value": "sfh",
+              "meaning": "指定避難所（福祉）｜.geojson｜3. 上記以外のもの｜ZL 10 ※地理院地図サイトでのデータ表示は、ズームレベル11～18で行っています。｜市町村別公開日・更新日一覧をご覧ください。"
+            },
+            {
+              "value": "disaster_lore_all",
+              "meaning": "自然災害伝承碑（すべて）｜.geojson｜3. 上記以外のもの｜ZL 7｜掲載市区町村一覧をご覧ください。"
+            },
+            {
+              "value": "disaster_lore_flood",
+              "meaning": "自然災害伝承碑（洪水）｜.geojson｜3. 上記以外のもの｜ZL 7｜掲載市区町村一覧をご覧ください。"
+            },
+            {
+              "value": "disaster_lore_sediment",
+              "meaning": "自然災害伝承碑（土砂災害）｜.geojson｜3. 上記以外のもの｜ZL 7｜掲載市区町村一覧をご覧ください。"
+            },
+            {
+              "value": "disaster_lore_hightide",
+              "meaning": "自然災害伝承碑（高潮）｜.geojson｜3. 上記以外のもの｜ZL 7｜掲載市区町村一覧をご覧ください。"
+            },
+            {
+              "value": "disaster_lore_earthquake",
+              "meaning": "自然災害伝承碑（地震）｜.geojson｜3. 上記以外のもの｜ZL 7｜掲載市区町村一覧をご覧ください。"
+            },
+            {
+              "value": "disaster_lore_tsunami",
+              "meaning": "自然災害伝承碑（津波）｜.geojson｜3. 上記以外のもの｜ZL 7｜掲載市区町村一覧をご覧ください。"
+            },
+            {
+              "value": "disaster_lore_volcano",
+              "meaning": "自然災害伝承碑（火山災害）｜.geojson｜3. 上記以外のもの｜ZL 7｜掲載市区町村一覧をご覧ください。"
+            },
+            {
+              "value": "disaster_lore_other",
+              "meaning": "自然災害伝承碑（その他）｜.geojson｜3. 上記以外のもの｜ZL 7｜掲載市区町村一覧をご覧ください。"
+            }
+          ]
+        },
+        {
+          "name": "自然災害伝承碑の災害種別",
+          "description": "一覧ページの備考が列挙している値",
+          "values": [
+            {
+              "value": "洪水",
+              "meaning": ""
+            },
+            {
+              "value": "土砂災害",
+              "meaning": ""
+            },
+            {
+              "value": "高潮",
+              "meaning": ""
+            },
+            {
+              "value": "地震",
+              "meaning": ""
+            },
+            {
+              "value": "津波",
+              "meaning": ""
+            },
+            {
+              "value": "火山災害",
+              "meaning": ""
+            },
+            {
+              "value": "その他",
+              "meaning": ""
+            }
+          ]
+        }
+      ]
     },
     "jgrants-mcp": {
       "origin": "spec+observed",

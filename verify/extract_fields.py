@@ -20,6 +20,7 @@ import argparse
 import asyncio
 import io
 import json
+import math
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -42,7 +43,14 @@ JMA_XSD_ZIP = "https://xml.kishou.go.jp/jmaxml_20241031_Schema%28xsd%29.zip"
 # Jグランツの公式 OpenAPI。デジタル庁の開発者サイトではなく microCMS の
 # アセット CDN にホストされているため、政府ドメインの許可だけでは到達できない。
 NDL_API_BASE = "https://ndlsearch.ndl.go.jp/api"
+# NDL は同時リクエスト数の制限と大量アクセスの遮断を一次資料に明記している。
+NDL_REQUEST_INTERVAL = 5
+NDL_RETRY_AFTER_429 = 30
 ESTAT_LOD_ENDPOINT = "https://data.e-stat.go.jp/lod/sparql/alldata/query"
+GSI_TILE_BASE = "https://cyberjapandata.gsi.go.jp/xyz"
+GSI_DOC_BASE = "https://maps.gsi.go.jp/development"
+# タイル座標の基準にする地点（東京駅）。座標を直接書くと、どこを見ているのかが読めない。
+GSI_SAMPLE_LAT, GSI_SAMPLE_LON = 35.6812, 139.7671
 JGRANTS_SPEC_URL = (
     "https://files.microcms-assets.io/assets/"
     "7c793323a46a46b7bb9a2ac7d0023301/2bad5ef79255448f8381d9cf2a14dbfc/jgrants-api.yaml"
@@ -535,18 +543,33 @@ async def _jgrants_spec() -> tuple[dict, list[dict], dict[str, str]]:
 
 # --------------------------------------------------------------------------
 
+async def _ndl_get(client: httpx.AsyncClient, path: str, **kwargs) -> httpx.Response:
+    """429 を 1 回だけ待って引き直す。制限は先方の仕様であって障害ではない。
+
+    verify/verify_ndl_search.py と同じ扱いにしてある。再試行を 1 回に限るのは、
+    塞がれている相手を叩き続けないため。
+    """
+    response = await client.get(f"{NDL_API_BASE}{path}", **kwargs)
+    if response.status_code == 429:
+        await asyncio.sleep(NDL_RETRY_AFTER_429)
+        response = await client.get(f"{NDL_API_BASE}{path}", **kwargs)
+    response.raise_for_status()
+    return response
+
+
 async def extract_ndl_fields(client: httpx.AsyncClient) -> dict:
     """NDLサーチ: 各経路が実際に返す要素を読んで列挙する。
 
     仕様書は PDF で配布されており機械可読ではないため、ここは実データ由来になる。
     レート制限があるので、間隔を空けて必要最小限だけ叩く。
+
+    この抽出は同じ通しの中で検証スクリプトが NDL を叩いた直後に走るため、
+    実際に 429 を返されて項目一覧から NDL が丸ごと落ちたことがある。
+    先方が明記している制限に当たっただけなので、待って引き直す。
     """
     objects = []
 
-    response = await client.get(
-        f"{NDL_API_BASE}/opensearch", params={"cnt": 1, "title": "桜"}
-    )
-    response.raise_for_status()
+    response = await _ndl_get(client, "/opensearch", params={"cnt": 1, "title": "桜"})
     root = ET.fromstring(response.text)
     channel = root.find("channel")
     item = channel.find("item") if channel is not None else None
@@ -565,9 +588,8 @@ async def extract_ndl_fields(client: httpx.AsyncClient) -> dict:
         }
     )
 
-    await asyncio.sleep(5)
-    response = await client.get(f"{NDL_API_BASE}/oaipmh", params={"verb": "Identify"})
-    response.raise_for_status()
+    await asyncio.sleep(NDL_REQUEST_INTERVAL)
+    response = await _ndl_get(client, "/oaipmh", params={"verb": "Identify"})
     root = ET.fromstring(response.text)
     identify = root.find(f"{OAI}Identify")
     objects.append(
@@ -605,6 +627,370 @@ def _element_fields(parent, skip: set[str] | None = None) -> list[dict]:
         {"name": name, "type": "要素", "description": "", "example": example}
         for name, example in seen.items()
     ]
+
+
+# --------------------------------------------------------------------------
+# 地理院タイル: 一覧ページのデータ ID と、仕様ページの項目定義を突き合わせる
+# --------------------------------------------------------------------------
+
+async def extract_gsi_tiles_fields(client: httpx.AsyncClient) -> dict:
+    """地理院タイル: URL のパラメータ・標高タイルのセル・GeoJSON の属性を集める。
+
+    この情報源で「項目」にあたるものは 3 層に分かれている。
+
+    1. URL テンプレートのパラメータ（何を指定して取るか）— 仕様ページに定義がある
+    2. 標高タイルのセル／画素（取れた中身の読み方）— 詳細仕様に定義がある
+    3. GeoJSON タイルのプロパティ（点データの属性）— 仕様書が無いので実データから
+
+    データ ID は一覧ページにしか列挙されていないので、そこから拾う。
+    """
+    index = await client.get(f"{GSI_DOC_BASE}/ichiran.html")
+    index.raise_for_status()
+    catalog = _gsi_catalog(index.text)
+
+    spec = await client.get(f"{GSI_DOC_BASE}/siyou.html")
+    spec.raise_for_status()
+    dem_spec = await client.get(f"{GSI_DOC_BASE}/demtile.html")
+    dem_spec.raise_for_status()
+
+    objects = [
+        {
+            "name": "URL テンプレートのパラメータ",
+            "description": (
+                "タイル 1 枚の URL は "
+                "https://cyberjapandata.gsi.go.jp/xyz/{t}/{z}/{x}/{y}.{ext} で、"
+                "この 5 つを埋めて GET する。説明は仕様ページの記述をそのまま引いた。"
+            ),
+            "fields": _gsi_url_parameters(spec.text),
+        },
+        {
+            "name": "標高タイル（テキスト形式・.txt）のセル",
+            "description": (
+                "1 行に 256 個の標高値がカンマ区切りで並び、それが 256 行。"
+                "地図タイルのピクセル座標に対応する。"
+            ),
+            "fields": _gsi_dem_text_fields(dem_spec.text),
+        },
+        {
+            "name": "標高タイル（PNG 形式・.png）の画素",
+            "description": (
+                "24 ビットカラー PNG の画素値から標高値を計算する。"
+                "x = 2^16 R + 2^8 G + B とし、x < 2^23 なら h = xu、x = 2^23 なら NA、"
+                "x > 2^23 なら h = (x - 2^24)u（u は標高分解能 0.01m）。"
+            ),
+            "fields": _gsi_dem_png_fields(dem_spec.text),
+        },
+    ]
+
+    # GeoJSON タイルの属性は仕様書が無い。実データを読んで列挙する。
+    for data_id, zoom, label in (("skhb01", 10, "指定緊急避難場所（洪水）"),
+                                 ("disaster_lore_all", 7, "自然災害伝承碑（すべて）")):
+        objects.append(await _gsi_geojson_object(client, data_id, zoom, label))
+
+    # 一覧ページの備考が、自然災害伝承碑について公開している情報を列挙している。
+    # ただし GeoJSON のキーとの対応は書かれていないので、別の表として並べる。
+    objects.append(_gsi_lore_documented(index.text))
+
+    return {
+        "origin": "spec+observed",
+        "origin_detail": (
+            "URL パラメータと標高タイルの読み方は仕様ページ・標高タイルの詳細仕様から、"
+            "データ ID の一覧と提供条件は一覧ページから引いた。GeoJSON タイルの属性だけは"
+            "定義書が無いため実データから列挙しており、そのタイルに現れなかった属性は落ちる"
+        ),
+        "source_url": "https://maps.gsi.go.jp/development/ichiran.html",
+        "objects": objects,
+        "enums": [
+            {
+                "name": "{t}（データ ID）",
+                "description": (
+                    "一覧ページに載っている配信中のタイル。"
+                    "意味の欄は「名称（URL に添えられた注記）｜利用条件の分類｜"
+                    "ズームレベル｜提供範囲」の順に、一覧ページの記載を並べたもの"
+                ),
+                "values": catalog,
+            },
+            {
+                "name": "自然災害伝承碑の災害種別",
+                "description": "一覧ページの備考が列挙している値",
+                "values": [
+                    {"value": kind, "meaning": ""}
+                    for kind in _gsi_lore_disaster_kinds(index.text)
+                ],
+            },
+        ],
+    }
+
+
+def _gsi_catalog(html_text: str) -> list[dict]:
+    """一覧ページから、データ ID と提供条件の対応を組み立てる。
+
+    ページは <h4 class="title"> の見出しの下に URL が並び、その後ろに
+    ズームレベル・提供範囲の表が続く構造になっている。利用条件は
+    「■ 1. 基本測量成果」などの区切りで変わるので、直前の区切りも持たせる。
+    """
+    text = unescape(html_text)
+    sections = [
+        (m.start(), _clean(m.group(1)))
+        for m in re.finditer(r'<h4 class="h4_normal">(.*?)</h4>', text, re.S)
+    ]
+    titles = [
+        (m.start(), _clean(m.group(1)))
+        for m in re.finditer(r'<h4 class="title"[^>]*>(.*?)</h4>', text, re.S)
+    ]
+
+    # 同じデータ ID が複数の節に現れることがある。標準地図はズームレベルによって
+    # 利用条件の分類が変わり、そのぶん別々の見出しの下に同じ URL が載っている。
+    # 最初の 1 件で決めてしまうと、条件の一部しか台帳に残らない。
+    occurrences: dict[str, dict] = {}
+    pattern = re.compile(
+        r'<div class="source">URL：https://cyberjapandata\.gsi\.go\.jp/xyz/'
+        r'([A-Za-z0-9_\-]+)/\{z\}/\{x\}/\{y\}\.(\w+)\s*(（[^）]*）)?'
+    )
+    for match in pattern.finditer(text):
+        data_id, extension, note = match.group(1), match.group(2), match.group(3) or ""
+        title = _latest_before(titles, match.start())
+        section = _latest_before(sections, match.start()).lstrip("■ ").strip()
+        table = _gsi_table_after(text, match.end())
+        entry = occurrences.setdefault(
+            data_id,
+            {"title": f"{title}{note}", "ext": extension, "sections": [], "zooms": [], "areas": []},
+        )
+        found = [("sections", [section])] + [
+            ("zooms", table.get("ズームレベル", [])),
+            ("areas", table.get("提供範囲", [])),
+        ]
+        for key, items in found:
+            for value in items:
+                if value and value not in entry[key]:
+                    entry[key].append(value)
+
+    values: list[dict] = []
+    for data_id, entry in occurrences.items():
+        parts = [entry["title"], f".{entry['ext']}", "／".join(entry["sections"])]
+        if entry["zooms"]:
+            parts.append("ZL " + "／".join(entry["zooms"]))
+        if entry["areas"]:
+            parts.append("／".join(entry["areas"]))
+        values.append({"value": data_id, "meaning": "｜".join(p for p in parts if p)})
+    return values
+
+
+def _latest_before(items: list[tuple[int, str]], position: int) -> str:
+    """位置より前にある最後の見出しを返す。ページ上の所属を決めるのに使う。"""
+    found = ""
+    for start, label in items:
+        if start > position:
+            break
+        found = label
+    return found
+
+
+def _gsi_table_after(text: str, position: int) -> dict[str, list[str]]:
+    """URL の直後に続く表を、次の見出し・次の URL の手前まで全部読む。
+
+    1 つの URL に表が 1 つとは限らない。標準地図はズームレベルの帯ごとに
+    データソースも提供範囲も違い、表がその数だけ並ぶ。最初の 1 つで打ち切ると
+    「標準地図は ZL18 だけ」という嘘になる。
+    """
+    # 区切りは次の URL ではなく次の見出しにする。指定緊急避難場所のように URL が
+    # 8 本並んでその後ろに表が 1 つ、という書き方があり、URL で切ると表を落とす。
+    next_heading = text.find("<h4", position)
+    limit = next_heading if next_heading != -1 else len(text)
+
+    rows: dict[str, list[str]] = {}
+    cursor = position
+    while True:
+        start = text.find("<table", cursor)
+        if start == -1 or start >= limit:
+            break
+        end = text.find("</table>", start)
+        if end == -1:
+            break
+        for row in re.findall(r"<tr>(.*?)</tr>", text[start:end], re.S):
+            cells = [_clean(c) for c in re.findall(r"<td[^>]*>(.*?)</td>", row, re.S)]
+            if len(cells) >= 2 and cells[0] in ("ズームレベル", "提供範囲", "提供開始"):
+                value = cells[1][:80]
+                if value and value not in rows.setdefault(cells[0], []):
+                    rows[cells[0]].append(value)
+        cursor = end + 1
+
+    if rows:
+        return rows
+    # 見出しの下に表が無いことがある。指定緊急避難場所（skhb01〜08）がそれで、
+    # 次の見出し「指定避難所」の後ろにある表がデータソース欄に
+    # 「指定緊急避難場所・指定避難所」と書いており、両方を指している。
+    # 何も返さないと提供ズームレベルが落ちるので、直後の表まで見にいく。
+    # skhb01 は実際に ZL10 で 200 を返すことを検証で確かめている。
+    start = text.find("<table", position)
+    end = text.find("</table>", start) if start != -1 else -1
+    if start == -1 or end == -1:
+        return rows
+    for row in re.findall(r"<tr>(.*?)</tr>", text[start:end], re.S):
+        cells = [_clean(c) for c in re.findall(r"<td[^>]*>(.*?)</td>", row, re.S)]
+        if len(cells) >= 2 and cells[0] in ("ズームレベル", "提供範囲", "提供開始"):
+            value = cells[1][:80]
+            if value:
+                rows.setdefault(cells[0], []).append(value)
+    return rows
+
+
+def _gsi_url_parameters(html_text: str) -> list[dict]:
+    """仕様ページの「{t}：データID」の並びを、そのまま項目にする。"""
+    text = _clean(html_text)
+    fields = []
+    for name, meaning in re.findall(r"\{(\w+)\}：([^{]+?)(?=\s*\{|\s*例えば|$)", text):
+        fields.append(
+            {
+                "name": "{" + name + "}",
+                "type": "パス要素",
+                "description": meaning.strip(),
+                "example": "",
+            }
+        )
+    return fields
+
+
+def _gsi_dem_text_fields(html_text: str) -> list[dict]:
+    """標高タイル（テキスト形式）の仕様を、セル単位の項目として並べる。"""
+    text = _clean(html_text)
+    return [
+        {
+            "name": "標高値",
+            "type": "数値（m）",
+            "description": _gsi_sentence(text, "標高データは小数点第二位まで"),
+            "example": "20.71",
+        },
+        {
+            "name": "e",
+            "type": "文字",
+            "description": _gsi_sentence(text, "標高値が存在しない画素"),
+            "example": "e",
+        },
+        {
+            "name": "行・列",
+            "type": "構造",
+            "description": _gsi_sentence(text, "数値データは対応する地図タイル"),
+            "example": "256 行 × 256 列",
+        },
+    ]
+
+
+def _gsi_dem_png_fields(html_text: str) -> list[dict]:
+    """標高タイル（PNG 形式）の仕様を、画素単位の項目として並べる。"""
+    text = _clean(html_text)
+    return [
+        {
+            "name": "R, G, B",
+            "type": "画素値（0〜255）",
+            "description": _gsi_sentence(text, "ピクセルの画素値（RGB値）から"),
+            "example": "",
+        },
+        {
+            "name": "(R, G, B) = (128, 0, 0)",
+            "type": "画素値",
+            "description": _gsi_sentence(text, "無効値"),
+            "example": "",
+        },
+    ]
+
+
+def _gsi_sentence(text: str, needle: str) -> str:
+    """1 行に均した本文から、目印を含む一文だけを取り出す。"""
+    position = text.find(needle)
+    if position == -1:
+        return ""
+    start = max(text.rfind("。", 0, position) + 1, 0)
+    end = text.find("。", position)
+    return text[start : end + 1 if end != -1 else None].strip()
+
+
+async def _gsi_geojson_object(
+    client: httpx.AsyncClient, data_id: str, zoom: int, label: str
+) -> dict:
+    """GeoJSON タイルを 1 枚読み、現れた属性をすべて列挙する。
+
+    属性はフィーチャによって異なるため、先頭 1 件ではなく全件を通す。
+    """
+    x, y = _gsi_tile_xy(GSI_SAMPLE_LAT, GSI_SAMPLE_LON, zoom)
+    response = await client.get(f"{GSI_TILE_BASE}/{data_id}/{zoom}/{x}/{y}.geojson")
+    response.raise_for_status()
+    features = json.loads(response.text).get("features", [])
+    collected: dict[str, set[str]] = {}
+    for feature in features:
+        _collect(feature.get("properties", {}), collected)
+    examples: dict[str, str] = {}
+    for feature in features:
+        for key, value in feature.get("properties", {}).items():
+            if key not in examples and value not in ("", " ", None):
+                examples[key] = _clean(str(value))[:60]
+    return {
+        "name": f"GeoJSON タイル: {label}（`{data_id}` ZL{zoom}）",
+        "description": (
+            f"タイル {zoom}/{x}/{y} の {len(features)} 件を通して現れた属性。"
+            "定義書は公開されておらず、説明は空欄になる。"
+        ),
+        "fields": [
+            {
+                "name": key,
+                "type": "/".join(sorted(types)),
+                "description": "",
+                "example": examples.get(key, ""),
+            }
+            for key, types in collected.items()
+        ],
+    }
+
+
+def _gsi_lore_documented(html_text: str) -> dict:
+    """一覧ページの備考が列挙している「公開している情報」を項目として拾う。
+
+    GeoJSON のキーとの対応はページに書かれていないため、突き合わせはしない。
+    """
+    text = unescape(html_text)
+    # ページ全体を対象にすると「・一等三角点：8〜11」のような別の表まで拾ってしまう。
+    # 自然災害伝承碑の備考の中だけを見る。
+    start = text.find("【公開している情報】")
+    end = text.find("【ご利用上の注意】", start) if start != -1 else -1
+    if start == -1 or end == -1:
+        return {
+            "name": "自然災害伝承碑として公開している情報（一覧ページの記載）",
+            "description": "一覧ページに該当する記載が見つからなかった。",
+            "fields": [],
+        }
+    text = text[start:end]
+    fields = []
+    for name, meaning in re.findall(r"・([^\s：]+)\s*：([^<・]+)", text):
+        description = _clean(meaning)
+        if description and not any(f["name"] == name for f in fields):
+            fields.append(
+                {"name": name, "type": "記載", "description": description, "example": ""}
+            )
+    return {
+        "name": "自然災害伝承碑として公開している情報（一覧ページの記載）",
+        "description": (
+            "一覧ページの備考が日本語の名前で列挙しているもの。"
+            "上の GeoJSON の属性名との対応は一次資料に書かれていないので、突き合わせていない。"
+        ),
+        "fields": fields,
+    }
+
+
+def _gsi_lore_disaster_kinds(html_text: str) -> list[str]:
+    """備考が括弧で列挙している災害種別を取り出す。"""
+    text = _clean(html_text)
+    match = re.search(r"災害種別\s*：[^（]*（([^）]+)）", text)
+    if not match:
+        return []
+    return [kind.strip() for kind in match.group(1).split("、") if kind.strip()]
+
+
+def _gsi_tile_xy(lat: float, lon: float, zoom: int) -> tuple[int, int]:
+    """緯度経度からタイル座標を求める（仕様ページのメルカトル投影の定義に従う）。"""
+    n = 2**zoom
+    x = int((lon + 180.0) / 360.0 * n)
+    y = int((1.0 - math.asinh(math.tan(math.radians(lat))) / math.pi) / 2.0 * n)
+    return x, y
 
 
 async def extract_estat_lod_fields(client: httpx.AsyncClient) -> dict:
@@ -715,6 +1101,7 @@ async def extract_all(jgrants_url: str | None) -> dict:
             ("jma-xml", extract_jma_fields),
             ("ndl-search", extract_ndl_fields),
             ("estat-lod", extract_estat_lod_fields),
+            ("gsi-tiles", extract_gsi_tiles_fields),
         ]:
             try:
                 sources[source_id] = await extractor(client)
